@@ -126,10 +126,8 @@ export default function Journal() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
 
-  // Filter entries by property — "all" shows everything, "brand" entries always show
-  const filteredEntries = activeHotel === "all"
-    ? ALL_ENTRIES
-    : ALL_ENTRIES.filter(e => e.property === activeHotel || e.property === "brand");
+  // Show all entries regardless of filter selection
+  const filteredEntries = ALL_ENTRIES;
   const visibleEntries = filteredEntries.slice(0, visibleCount);
   const hasMore = visibleCount < filteredEntries.length;
 

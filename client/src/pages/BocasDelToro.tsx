@@ -303,7 +303,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
     link: "/bocas-del-toro/sustainability",
-    linkLabel: "Explore Coral Reef Restoration",
+    linkLabel: "Explore Ocean Habitat Restoration",
     stats: [
       { value: "100%", label: "Renewable Energy" },
       { value: "CST 5", label: "Certified" },
@@ -613,7 +613,7 @@ function CascadeSection({
               <a
                 href={section.link}
                 className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] w-fit"
-                style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: isMobile ? textColor : "#FFFFFF", borderColor: isMobile ? `${textColor}40` : "rgba(255,255,255,0.4)", backgroundColor: isMobile ? "transparent" : "rgba(255,255,255,0.12)" }}
+                style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", borderColor: PALETTE.primary, backgroundColor: PALETTE.primary }}
               >
                 {section.linkLabel || "Explore More"}
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

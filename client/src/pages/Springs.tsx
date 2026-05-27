@@ -111,7 +111,7 @@ const SPRINGS_ROOMS: RoomSliderCard[] = [
     id: "springs-villa",
     label: "Springs Villa",
     tagline: "Private hot spring pool fed by volcanic mineral water",
-    description: "",
+    description: "Freestanding villas with private natural hot spring-fed plunge pools, outdoor garden showers, and floor-to-ceiling windows framing the Arenal Volcano. Each villa is a secluded sanctuary in the rainforest canopy.",
     sqft: "1,076",
     sqm: "100",
     guests: "2 Adults",
@@ -119,7 +119,6 @@ const SPRINGS_ROOMS: RoomSliderCard[] = [
     photo: "/manus-storage/springs-r5-28782-edited_dbb6870b.jpg",
     exploreLink: "/springs/rooms/springs-villa",
     bookingUrl: BOOKING_URLS.springs,
-    customContent: <SpringsFloorPlan />,
   },
 ];
 
@@ -559,7 +558,7 @@ function ExperiencesSection() {
       {!isMobile ? (
       <div className="relative w-full">
         <div style={{ aspectRatio: "16/9" }}>
-          <NativeVideo src="/manus-storage/springs-experiences-horizontal_e3f47ece.mp4" className="w-full h-full object-cover" />
+          <NativeVideo src="/manus-storage/springs-experiences-waterfalls_274967b4.mp4" className="w-full h-full object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end pb-16 lg:pb-20 px-16 lg:px-24">
@@ -568,12 +567,12 @@ function ExperiencesSection() {
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2 className="mb-6">
-              <span className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Rio Celeste Waterfall</span>
+              <span className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>The Waterfalls of Costa Rica</span>
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p className="text-[15px] leading-[1.85] max-w-[480px] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
-              From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you to the extraordinary natural forces that shape this land.
+              Two of Costa Rica's most iconic waterfalls await within reach of Nayara Springs. Hike through pristine rainforest to Rio Celeste, where two rivers merge to create an impossibly turquoise waterfall sacred to the indigenous Maleku people. Closer to home, the 70-meter La Fortuna Waterfall plunges into a crystalline pool at the base of the Arenal Volcano, surrounded by ancient jungle.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
@@ -595,10 +594,10 @@ function ExperiencesSection() {
         <div className="px-5 pt-10 pb-6">
           <p className="text-[11px] tracking-[0.25em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(59,43,38,0.6)" }}>Experiences</p>
           <h2 className="mb-4">
-            <span className="block text-2xl leading-[1.05] tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>Rio Celeste Waterfall</span>
+            <span className="block text-2xl leading-[1.05] tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>The Waterfalls of Costa Rica</span>
           </h2>
           <p className="text-[14px] leading-[1.75]" style={{ fontFamily: "var(--font-body)", color: "#5a4a3a" }}>
-            From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you to the extraordinary natural forces that shape this land.
+            Two of Costa Rica's most iconic waterfalls await within reach of Nayara Springs. Hike to Rio Celeste, where two rivers merge to create an impossibly turquoise waterfall sacred to the Maleku people. Closer to home, the 70-meter La Fortuna Waterfall plunges into a crystalline pool at the base of the Arenal Volcano.
           </p>
           <a href="/explore-arenal?from=springs" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-[#0E6B7E]/40 text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)", color: "#0E6B7E" }}>
             Explore Experiences

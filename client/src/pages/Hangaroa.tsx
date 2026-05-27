@@ -528,8 +528,8 @@ function OurStorySection() {
   return (
     <section style={{ backgroundColor: PALETTE.gradientEnd }}>
       <div className="flex flex-col md:flex-row">
-        {/* LEFT — Vertical video */}
-        <div className="w-full md:w-1/2 md:order-1">
+        {/* RIGHT — Vertical video */}
+        <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
               <video
@@ -545,8 +545,8 @@ function OurStorySection() {
           </MediaReveal>
         </div>
 
-        {/* RIGHT — Text content */}
-        <div className="w-full md:w-1/2 md:order-2 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
+        {/* LEFT — Text content */}
+        <div className="w-full md:w-1/2 md:order-1 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>Our Story</SectionLabel>
           </AnimateOnScroll>
