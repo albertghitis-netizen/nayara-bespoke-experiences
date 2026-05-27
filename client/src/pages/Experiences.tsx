@@ -129,14 +129,19 @@ function IntroSection() {
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
           <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Experience</p>
-          <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
+          <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
             Every Destination Tells a Different Story
           </h2>
+          <p className="text-[#4B4A4A]/60 text-[14px] leading-[1.75] mb-8 max-w-[720px]" style={body}>
+            Experiential travel goes beyond sightseeing. It is the art of engaging deeply with a place, its people, its ecology, its rhythms, through hands-on encounters that transform a trip into a story you carry home. At Nayara, every excursion is designed not as an activity but as an immersion: a way to understand the land through the senses rather than from a distance.
+          </p>
           <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
             From stargazing in the world's driest desert to snorkeling Caribbean reefs, from hiking volcanic craters on Easter Island to zip-lining through Costa Rica's cloud forest, every Nayara experience is designed by the land it inhabits. Our excursions are led by local guides, grounded in cultural heritage, and calibrated to the rhythms of each ecosystem.
           </p>
-          <Link href="/blog/experiential-travel-nayara-2026" className="inline-block mt-6 text-[#3B2B26]/50 text-[13px] tracking-[0.05em] border-b border-[#3B2B26]/20 pb-0.5 hover:text-[#3B2B26]/80 hover:border-[#3B2B26]/40 transition-colors" style={body}>
-            Read: Experiential Travel at Nayara 2026 →
+          <Link href="/blog/experiential-travel-nayara-2026" className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg" style={{ ...body, backgroundColor: "#3B2B26" }}>
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
+            Read: Experiential Travel at Nayara
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </Link>
           <p className="hidden">
           </p>

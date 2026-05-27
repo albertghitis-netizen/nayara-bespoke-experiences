@@ -42,7 +42,7 @@ const bodyLight = { fontFamily: "var(--font-body)", fontWeight: 300 } as const;
 const bodyMedium = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
 
 const CDN = {
-  heroDesktop: "/manus-storage/journal-desktop-hero_6c6166c1.mp4",
+  heroDesktop: "/manus-storage/onsite-hero-new_e42cb075.mp4",
   heroMobile: "/manus-storage/journal-mobile-hero-cropped_b20d2a0a.mp4",
 };
 
@@ -76,25 +76,44 @@ function FadeIn({
 /* ═══════════════════════════════════════════════════════════════
    PAGE ROOT
    ═══════════════════════════════════════════════════════════════ */
+const NAV_PALETTES = {
+  "tented-camp": { pillBg: "#868B7599", pillHover: "#868B75E6", dark: "#fff" },
+  springs: { pillBg: "#0E6B7E99", pillHover: "#0E6B7EE6", dark: "#fff" },
+  gardens: { pillBg: "#28624199", pillHover: "#286241E6", dark: "#fff" },
+} as const;
+
+const FOOTER_COLORS = {
+  "tented-camp": { bg: "#868B75", name: "Tented Camp" },
+  springs: { bg: "#0E6B7E", name: "Springs" },
+  gardens: { bg: "#286241", name: "Gardens" },
+} as const;
+
 export default function ExperientialArenal() {
   const searchString = useSearch();
-  const backLink = useMemo(() => {
+  const from = useMemo(() => {
     const params = new URLSearchParams(searchString);
-    const from = params.get("from");
+    return params.get("from") || "tented-camp";
+  }, [searchString]);
+
+  const backLink = useMemo(() => {
     if (from === "tented-camp") return { label: "Nayara Tented Camp", href: "/tented-camp" };
     if (from === "springs") return { label: "Nayara Springs", href: "/springs" };
     if (from === "gardens") return { label: "Nayara Gardens", href: "/gardens" };
-    return undefined;
-  }, [searchString]);
+    return { label: "Nayara Tented Camp", href: "/tented-camp" };
+  }, [from]);
+
+  const navPalette = NAV_PALETTES[from as keyof typeof NAV_PALETTES] || NAV_PALETTES["tented-camp"];
+  const footer = FOOTER_COLORS[from as keyof typeof FOOTER_COLORS] || FOOTER_COLORS["tented-camp"];
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation pageType="content" backLink={backLink} />
+      <BrandNavigation pageType="content" backLink={backLink} navPalette={navPalette} />
       <ArenalHero />
       <PropertyIntro />
       <WithinOurGroundsSection />
+      <WellnessSection />
       <OffSiteCTA />
-      <Footer bgColor="#868B75"  textColor="#FFFFFF" />
+      <Footer bgColor={footer.bg} textColor="#FFFFFF" propertyName={footer.name} />
     </div>
   );
 }
@@ -1126,6 +1145,140 @@ function FeaturedExcursionCard({
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   WELLNESS — Yoga, Las Thermas, The Nayara Difference
+   (Identical layout to CostaRicaExperiences on-site page)
+   ═══════════════════════════════════════════════════════════════ */
+function WellnessSection() {
+  const yogaImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/yoga-photo_3b789b60.jpg";
+  const thermasVideo = "/manus-storage/las-termas-hotsprings_2d9de067.mp4";
+
+  return (
+    <>
+      {/* Wellness Through Movement — 2-col: image left, text right */}
+      <section className="py-20 md:py-28 px-6 md:px-10 bg-white/40">
+        <div className="max-w-[1200px] mx-auto">
+          <FadeIn>
+            <p
+              className="text-[#868B75] text-[10px] md:text-[11px] tracking-[0.35em] uppercase mb-4"
+              style={bodyMedium}
+            >
+              Wellness
+            </p>
+            <h2
+              className="text-[#525642] text-2xl md:text-3xl lg:text-4xl mb-6"
+              style={headingLight}
+            >
+              Wellness Through Movement
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-8">
+            {/* Image */}
+            <FadeIn delay={0.1}>
+              <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
+                <img
+                  src={yogaImage}
+                  alt="Yoga in the Arenal rainforest"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+              </div>
+            </FadeIn>
+
+            {/* Content */}
+            <FadeIn delay={0.2}>
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-[#525642] text-[18px] mb-3" style={heading}>Vinyasa Yoga</h3>
+                  <p className="text-[#525642]/65 text-[14px] leading-[1.8]" style={body}>
+                    Keeps your body flowing and energized, linking breath to movement in classes that feel alive and present. The practice takes on a different dimension when your mat is surrounded by the sounds of howler monkeys and tropical birds , the forest becomes part of the flow.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-[#525642] text-[18px] mb-3" style={heading}>Mindfulness Yoga</h3>
+                  <p className="text-[#525642]/65 text-[14px] leading-[1.8]" style={body}>
+                    Invites you to slow down, reconnect, and find stillness amid the symphony of the rainforest. It is less about physical exertion and more about presence , a practice designed for people who have forgotten what it feels like to simply be.
+                  </p>
+                </div>
+
+                <div
+                  className="p-5 rounded-lg"
+                  style={{ backgroundColor: "rgba(134,139,117,0.1)", borderLeft: "3px solid #868B75" }}
+                >
+                  <p className="text-[#525642] text-[13px] leading-[1.7]" style={body}>
+                    Both are offered across the properties, so you can practice wherever you feel called , at the edge of a volcanic valley, beside a hot spring, or on a platform overlooking the forest canopy.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Las Thermas — 2-col: text left, video right */}
+      <section className="py-20 md:py-28 px-6 md:px-10">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Content */}
+            <FadeIn>
+              <p
+                className="text-[#868B75] text-[10px] md:text-[11px] tracking-[0.35em] uppercase mb-4"
+                style={bodyMedium}
+              >
+                Las Thermas
+              </p>
+              <h2
+                className="text-[#525642] text-2xl md:text-3xl lg:text-4xl mb-6"
+                style={headingLight}
+              >
+                Where Earth Meets Wellness
+              </h2>
+              <div className="w-16 h-px bg-[#868B75]/40 mb-6" />
+              <p className="text-[#525642]/65 text-[15px] leading-[1.9] mb-6" style={body}>
+                Las Thermas at Nayara Tented Camp offers something rare: natural hot springs heated by geothermal energy deep beneath the rainforest floor. More than a spa amenity, it is a place to soak in warmth, contemplate the night sky above, and feel the ancient power of the earth beneath you.
+              </p>
+              <p className="text-[#525642]/65 text-[15px] leading-[1.9] mb-6" style={body}>
+                The springs are fed by the same volcanic system that powers Arenal , water that has traveled through layers of rock, absorbing minerals along the way. The result is a bathing experience that is not manufactured or chlorinated, but genuinely geological.
+              </p>
+              <a
+                href="/blog/hot-springs"
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full text-white text-[12px] tracking-[0.08em] transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                style={{ ...body, fontWeight: 500, backgroundColor: "#868B75" }}
+              >
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+                Read: The History & Science of Hot-Springs Plunge Pools
+              </a>
+            </FadeIn>
+
+            {/* Video */}
+            <FadeIn delay={0.15}>
+              <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
+                <video
+                  src={thermasVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+
+    </>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    OFF-SITE CTA — Links to /explore-arenal
    ═══════════════════════════════════════════════════════════════ */
 function OffSiteCTA() {
@@ -1153,7 +1306,7 @@ function OffSiteCTA() {
           </p>
           <a
             href="/explore-arenal?from=curated-excursions"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#556B2F] text-white text-[12px] tracking-[0.2em] uppercase rounded-full transition-all duration-500 ease-out hover:scale-[1.05] hover:shadow-lg"
+            className="inline-flex items-center gap-2.5 px-5 py-3 bg-[#868B75] text-white text-[12px] tracking-[0.08em] rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
             style={bodyMedium}
           >
             Explore Our Off-Site Activities

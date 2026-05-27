@@ -483,9 +483,7 @@ function CascadeSection({
                   {section.badges && (
                     <AnimateOnScroll variants={fadeUp} delay={0.25}>
                       <a
-                        href="https://www.youtube.com/watch?v=FPxFzOkKhbw"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="/journal#leo-luxury-travel-innovators"
                         className="inline-flex items-center gap-2.5 mt-6 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] w-fit"
                         style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.06em", color: textColor, borderColor, backgroundColor: "transparent" }}
                       >
@@ -661,7 +659,7 @@ function CascadeSection({
       {section.badges && (
         <div className="mt-8">
           <a
-            href="https://www.youtube.com/watch?v=FPxFzOkKhbw" target="_blank" rel="noopener noreferrer"
+            href="/journal#leo-luxury-travel-innovators"
             className="inline-flex items-center gap-2.5 mb-6 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
             style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.06em", color: isMobile ? textColor : "#fff", borderColor: isMobile ? `${textColor}40` : "#868B75", backgroundColor: isMobile ? "transparent" : "rgba(134,139,117,0.7)", backdropFilter: "blur(8px)" }}
           >
@@ -1177,9 +1175,9 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     link: "/curated-excursions?from=tented-camp",
     linkLabel: "Explore Experiences",
     overlayOnVideo: true,
-    textLink: "/tented-camp/experiences",
+    textLink: "/curated-excursions?from=tented-camp",
     textLinkLabel: "Explore On-Site Experiences",
-    secondTextLink: "/curated-excursions?from=tented-camp",
+    secondTextLink: "/explore-arenal?from=tented-camp",
     secondTextLinkLabel: "Explore Off-Site Experiences",
   },
   {

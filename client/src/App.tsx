@@ -164,7 +164,7 @@ function ScrollToTop() {
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
 // ARCHIVED: Sharalynn paths removed from HIDE_WIDGET_PATHS
-const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/lexi", "/sylvia"];
+const HIDE_WIDGET_PATHS: string[] = ["/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/lexi", "/sylvia"];
 
 function Router() {
   const [location] = useLocation();
@@ -202,7 +202,6 @@ function Router() {
           <Route path="/tented-camp/rooms/family-tent" component={FamilyTent} />
           <Route path="/tented-camp/rooms/residence" component={TentedResidencePage} />
           <Route path="/tented-camp/rooms/grand-tent" component={GrandTent} />
-          <Route path="/tented-camp/experiences">{() => <CostaRicaExperiences propertySlug="tented-camp" />}</Route>
           <Route path="/tented-camp/wellness">{() => <CostaRicaWellness propertySlug="tented-camp" />}</Route>
           <Route path="/tented-camp/sustainability">{() => <CostaRicaSustainability propertySlug="tented-camp" />}</Route>
           <Route path="/tented-camp/gastronomy/ayla" component={AylaRestaurant} />

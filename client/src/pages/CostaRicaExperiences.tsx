@@ -98,9 +98,23 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
   const location = LOCATIONS[propertySlug] || "";
   const isCR = CR_SLUGS.has(propertySlug);
 
+  const backRoute = `/${propertySlug}`;
+  const backLabel = propertyName;
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" />
+      {/* Back button — fixed top center */}
+      <a
+        href={backRoute}
+        className="fixed top-5 left-1/2 -translate-x-1/2 z-50 inline-flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-[1.03] border"
+        style={{ backgroundColor: "rgba(58,42,26,0.7)", borderColor: "rgba(255,255,255,0.1)", fontFamily: "var(--font-body)" }}
+      >
+        <svg className="w-3.5 h-3.5 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+        <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium">{backLabel}</span>
+      </a>
       <ExperiencesHero propertySlug={propertySlug} />
       {isCR ? (
         <CRExperiencesDeep property={property} palette={palette} />

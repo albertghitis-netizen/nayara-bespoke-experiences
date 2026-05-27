@@ -407,7 +407,7 @@ function CardShell({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="relative w-full aspect-square overflow-hidden rounded-lg bg-stone-200 group cursor-pointer transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-black/15">
+    <div id={entry.id} className="relative w-full aspect-square overflow-hidden rounded-lg bg-stone-200 group cursor-pointer transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-black/15">
       {isPlaying && embedId ? (
         <>
           <iframe

@@ -6,5 +6,5 @@ import BlogPostTemplate from "./BlogPostTemplate";
 import { experientialTravelPost } from "@/data/blogPostsExperiential";
 
 export default function ExperientialTravelBlog() {
-  return <BlogPostTemplate post={experientialTravelPost} hideNav hideConcierge hideFooterKeepSources heroAspect="16/9" />;
+  return <BlogPostTemplate post={experientialTravelPost} hideFooterKeepSources />;
 }

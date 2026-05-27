@@ -58,12 +58,12 @@ type SubCategory = "flora-fauna" | "certification" | "community" | "operations";
 
 /* ─── Properties ─── */
 const PROPERTIES = [
-  { id: "alto-atacama", label: "Alto Atacama", image: "/manus-storage/sustainability-atacama_653b7536.jpg", sustainabilityRoute: "/alto-atacama" },
-  { id: "bocas-del-toro", label: "Bocas del Toro", image: "/manus-storage/sustainability-bocas_ccedb62a.jpg", sustainabilityRoute: "/bocas-del-toro" },
-  { id: "gardens", label: "Gardens", image: "/manus-storage/sustainability-gardens_b4aec415.jpeg", sustainabilityRoute: "/gardens" },
-  { id: "hangaroa", label: "Hangaroa", image: "/manus-storage/sustainability-hangaroa_6db7bd22.jpg", sustainabilityRoute: "/hangaroa" },
-  { id: "springs", label: "Springs", image: "/manus-storage/sustainability-springs_91d7dfca.jpeg", sustainabilityRoute: "/springs" },
-  { id: "tented-camp", label: "Tented Camp", image: "/manus-storage/sustainability-tented_4f5ca0f9.jpeg", sustainabilityRoute: "/tented-camp" },
+  { id: "alto-atacama", label: "Alto Atacama", image: "/manus-storage/sustainability-atacama_653b7536.jpg", sustainabilityRoute: "/alto-atacama", color: "#B85C3C" },
+  { id: "bocas-del-toro", label: "Bocas del Toro", image: "/manus-storage/sustainability-bocas_ccedb62a.jpg", sustainabilityRoute: "/bocas-del-toro", color: "#1B6B5A" },
+  { id: "gardens", label: "Gardens", image: "/manus-storage/sustainability-gardens_b4aec415.jpeg", sustainabilityRoute: "/gardens", color: "#4A7C59" },
+  { id: "hangaroa", label: "Hangaroa", image: "/manus-storage/sustainability-hangaroa_6db7bd22.jpg", sustainabilityRoute: "/hangaroa", color: "#8B5E3C" },
+  { id: "springs", label: "Springs", image: "/manus-storage/sustainability-springs_91d7dfca.jpeg", sustainabilityRoute: "/springs", color: "#5B8A72" },
+  { id: "tented-camp", label: "Tented Camp", image: "/manus-storage/sustainability-tented_4f5ca0f9.jpeg", sustainabilityRoute: "/tented-camp", color: "#868B75" },
 ];
 
 /* ─── Initiative data: each tagged with property + category ─── */
@@ -165,7 +165,6 @@ export default function Sustainability() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <BrandPillarsSection />
       <PropertyInitiativesSection
         activeProperty={activeHotel}
         onPropertyChange={setActiveHotel}
@@ -174,6 +173,7 @@ export default function Sustainability() {
         propertyLocation={currentInitiative?.location || ""}
         propertyRoute={currentInitiative?.route || "/"}
       />
+      <BrandPillarsSection />
       <CertificationsSection />
       <CTASection />
       <Footer textColor="#FFFFFF" />
@@ -273,7 +273,7 @@ function HeroSection() {
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10">
+    <section className="pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-10">
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
           <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Our Commitment</p>
@@ -281,7 +281,10 @@ function IntroSection() {
             We Leave Every Place Stronger Than We Found It
           </h2>
           <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
-            Sustainability at Nayara is not a program , it is the operating system. From carbon-neutral operations to wildlife corridor preservation, from indigenous community partnerships to zero single-use plastic, every decision is measured against a simple question: does this leave the ecosystem stronger? Across six properties in three countries, the answer must always be yes.
+            Sustainability at Nayara is not a program, it is the operating system. From carbon-neutral operations to wildlife corridor preservation, from indigenous community partnerships to zero single-use plastic, every decision is measured against a simple question: does this leave the ecosystem stronger? Across six properties in three countries, the answer must always be yes.
+          </p>
+          <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8] mt-6" style={body}>
+            And this includes our communities. We believe that the people who share a landscape are as much a part of the environment as the rivers, forests, and wildlife that define it. A thriving ecosystem cannot exist without a thriving community. That is why every Nayara property invests directly in local education, employment, cultural preservation, and economic opportunity. When we say we leave a place stronger, we mean the people too.
           </p>
         </FadeIn>
       </div>
@@ -369,7 +372,7 @@ function PropertyInitiativesSection({
   const currentProp = PROPERTIES.find((p) => p.id === activeProperty);
 
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10">
+    <section className="pt-8 md:pt-12 pb-16 md:pb-24 px-6 md:px-10 bg-white/40">
       <div className="max-w-[1100px] mx-auto">
         <FadeIn>
           <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Property Initiatives</p>
@@ -387,10 +390,10 @@ function PropertyInitiativesSection({
                 onClick={() => onPropertyChange(prop.id)}
                 className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
                   activeProperty === prop.id
-                    ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                    ? "text-white"
                     : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
                 }`}
-                style={{ ...body, fontWeight: 500 }}
+                style={{ ...body, fontWeight: 500, ...(activeProperty === prop.id ? { backgroundColor: prop.color, borderColor: prop.color } : {}) }}
               >
                 {prop.label}
               </button>
@@ -440,10 +443,11 @@ function PropertyInitiativesSection({
                 {/* Explore Sustainability pill */}
                 <Link
                   href={propertyRoute}
-                  className="inline-block mt-6 px-5 py-2 rounded-full border border-[#3B2B26] text-[#3B2B26] text-[11px] tracking-[0.15em] uppercase hover:bg-[#3B2B26] hover:text-white transition-all duration-300"
+                  className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full border border-[#3B2B26] text-[#3B2B26] text-[11px] tracking-[0.15em] uppercase hover:bg-[#3B2B26] hover:text-white hover:scale-[1.03] transition-all duration-300"
                   style={{ ...body, fontWeight: 500 }}
                 >
                   Explore Sustainability
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                 </Link>
               </div>
 
