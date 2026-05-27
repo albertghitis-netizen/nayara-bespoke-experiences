@@ -7,7 +7,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Link } from "wouter";
+import { Link, useSearch } from "wouter";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import NativeVideo from "@/components/NativeVideo";
@@ -38,6 +38,7 @@ const IMG = {
   sukhaSpaBanner: "/manus-storage/gal-new-spa-hut_5f9827dc.jpg",
   sukhaSpaVideo: "/manus-storage/yoga-springs-new_7a20145a.mp4",
   mobileHeroImage: "/manus-storage/brand-wellness-mobile-hero_6c270aaf.jpg",
+  heroImage: "/manus-storage/wellness-hero-spa-pavilion_7c3176fe.webp",
   heroVideo: "/manus-storage/wellness-hero-new_889fff27.mp4",
 };
 
@@ -59,13 +60,24 @@ const propertyWellnessLinks = [
 ];
 
 export default function NurturedByNature() {
+  const search = useSearch();
+  const params = new URLSearchParams(search);
+  const from = params.get("from") || "tented-camp";
+
+  const PROPERTY_CONFIG: Record<string, { label: string; href: string; navColor: string; footerName: string }> = {
+    "tented-camp": { label: "Nayara Tented Camp", href: "/tented-camp", navColor: "#868B75", footerName: "Tented Camp" },
+    gardens: { label: "Nayara Gardens", href: "/gardens", navColor: "#286241", footerName: "Gardens" },
+    springs: { label: "Nayara Springs", href: "/springs", navColor: "#0E6B7E", footerName: "Springs" },
+  };
+  const config = PROPERTY_CONFIG[from] || PROPERTY_CONFIG["tented-camp"];
   const palette = getPalette("tented-camp");
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
-      <BrandNavigation pageType="brand" hideCenterLabel />
+      <BrandNavigation pageType="brand" hideCenterLabel backLink={{ label: config.label, href: config.href }} navPalette={{ pill: config.navColor, pillText: "#FFFFFF" }} />
       <HeroSection />
       <IntroSection palette={palette} />
+      <SukhaSpaBanner palette={palette} />
       <PrivatePlungPoolsSection palette={palette} />
       <LasThermasSection palette={palette} />
       <YogaSection palette={palette} />
@@ -74,7 +86,7 @@ export default function NurturedByNature() {
       <SpaSection palette={palette} />
       <SpringsFeature palette={palette} />
       <PropertyLinksSection palette={palette} />
-      <Footer bgColor="#868B75" textColor="#FFFFFF" />
+      <Footer bgColor={config.navColor} textColor="#FFFFFF" propertyName={config.footerName} />
     </div>
   );
 }
@@ -84,11 +96,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        {isMobile ? (
-          <img src={IMG.mobileHeroImage} alt="Nayara Wellness" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
-        ) : (
-          <video src={IMG.heroVideo} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
-        )}
+        <img src={isMobile ? IMG.mobileHeroImage : IMG.heroImage} alt="Nayara Wellness" className="w-full h-full object-cover" decoding="async" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
@@ -124,6 +132,42 @@ function IntroSection({ palette }: { palette: PropertyPalette }) {
             </p>
           </div>
         </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+function SukhaSpaBanner({ palette }: { palette: PropertyPalette }) {
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <FadeIn>
+            <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "3/4" }}>
+              <video src={IMG.termasVertical} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600, color: palette.primary }}>Sukha Spa</p>
+            <h2 className="text-2xl md:text-3xl leading-[1.15] mb-6" style={{ ...heading, color: palette.secondary }}>
+              Open-Air Treatment Pavilions
+            </h2>
+            <p className="text-[15px] leading-relaxed mb-6" style={{ ...body, color: palette.secondary }}>
+              Our spa is tucked into pockets of the rainforest, so every massage, facial, and scrub comes with a natural soundtrack. The open-air pavilions dissolve the boundary between treatment room and jungle canopy. You hear the river below, the birds above, the wind through cecropia leaves.
+            </p>
+            <p className="text-[15px] leading-relaxed mb-6" style={{ ...body, color: palette.secondary }}>
+              Treatments incorporate locally grown organic coffee, chocolate, and volcanic mud. These are not imported luxury ingredients. They are harvested from the land surrounding the spa, processed by local artisans, and applied by therapists trained in techniques that honor the region's healing traditions.
+            </p>
+            <ul className="space-y-3">
+              {["Organic coffee body scrubs from local farms", "Volcanic mud wraps with geothermal minerals", "Chocolate-infused facials from Costa Rican cacao", "Rainforest botanical aromatherapy"].map((d) => (
+                <li key={d} className="text-sm flex items-center gap-3" style={{ ...body, color: palette.secondary }}>
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: palette.primary }} />
+                  {d}
+                </li>
+              ))}
+            </ul>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );
@@ -189,13 +233,8 @@ function LasThermasSection({ palette }: { palette: PropertyPalette }) {
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <div className="space-y-6">
-              <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "3/4" }}>
-                <video src={IMG.termasVertical} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
-              </div>
-              <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "4/3" }}>
-                <img src={IMG.termasImage} alt="Las Thermas geothermal pools" className="w-full h-full object-cover" decoding="async" loading="lazy" />
-              </div>
+            <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "4/5" }}>
+              <img src={IMG.termasImage} alt="Las Thermas geothermal pools" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             </div>
           </FadeIn>
         </div>
@@ -255,30 +294,28 @@ function SukhaSpaSection({ palette }: { palette: PropertyPalette }) {
   return (
     <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
       <div className="max-w-[1400px] mx-auto">
-        {/* Sukha Spa Banner */}
-        <FadeIn>
-          <div className="relative overflow-hidden rounded-lg mb-12" style={{ aspectRatio: "16/9" }}>
-            <img src={IMG.sukhaSpaBanner} alt="Sukha Spa treatment hut" className="w-full h-full object-cover" decoding="async" loading="lazy" />
-          </div>
-        </FadeIn>
-
-        {/* Sukha Spa Content */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <FadeIn>
-            <p className="text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600, color: palette.primary }}>Sukha Spa</p>
-            <h2 className="text-2xl md:text-3xl leading-[1.15] mb-6" style={{ ...heading, color: palette.secondary }}>
-              Treatments Rooted in Place
-            </h2>
-            <p className="text-[15px] leading-relaxed mb-6" style={{ ...body, color: palette.secondary }}>
-              Sukha Spa integrates the healing properties of the Arenal landscape into every treatment. Volcanic minerals, rainforest botanicals, geothermal energy , these are not ingredients added to treatments. They are the foundation of what we do.
-            </p>
-            <p className="text-[15px] leading-relaxed" style={{ ...body, color: palette.secondary }}>
-              Every massage, every ritual, every therapy is designed to work with your nervous system using what the earth has already provided. You are not receiving a spa treatment in nature. You are experiencing nature's own healing modalities.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.2}>
             <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "3/4" }}>
               <video src={IMG.sukhaSpaVideo} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600, color: palette.primary }}>Couples & Signature Experiences</p>
+            <h2 className="text-2xl md:text-3xl leading-[1.15] mb-6" style={{ ...heading, color: palette.secondary }}>
+              A Holistic Journey Together
+            </h2>
+            <p className="text-[15px] leading-relaxed mb-6" style={{ ...body, color: palette.secondary }}>
+              Feel like the only couple on earth. Our couples experiences are designed for two people to share a healing journey in complete privacy. Side-by-side massages in open-air pavilions, synchronized volcanic mud rituals, and private hot spring soaks under the stars.
+            </p>
+            <p className="text-[15px] leading-relaxed mb-6" style={{ ...body, color: palette.secondary }}>
+              The signature treatments draw from three pillars: relaxation and serenity in the rainforest, massage therapies to renew and relax, and body, facial, and beauty care using ingredients sourced from the volcanic landscape surrounding the spa.
+            </p>
+            <div className="p-5 rounded-lg" style={{ backgroundColor: `${palette.primary}08`, borderLeft: `3px solid ${palette.primary}` }}>
+              <p className="text-[14px] leading-[1.7] italic" style={{ ...body, color: palette.secondary }}>
+                "It's totally worth it traveling all the way here just for the yoga. I've been to many retreats but I've never experienced a place that blends yoga with nature so well."
+              </p>
+              <p className="text-[12px] mt-2" style={{ ...body, fontWeight: 500, color: palette.primary }}>Daniella S., Brooklyn, NY</p>
             </div>
           </FadeIn>
         </div>
@@ -362,13 +399,13 @@ function SpringsFeature({ palette }: { palette: PropertyPalette }) {
     <section className="relative py-20 md:py-32 px-6 md:px-10 overflow-hidden" style={{ backgroundColor: palette.gradientEnd }}>
       <div className="relative z-10 max-w-[800px] mx-auto">
         <FadeIn>
-          <h2 className="text-white/90 mb-6" style={{ ...heading, fontSize: "clamp(26px, 3.5vw, 42px)", lineHeight: 1.15 }}>
+          <h2 className="mb-6" style={{ ...heading, fontSize: "clamp(26px, 3.5vw, 42px)", lineHeight: 1.15, color: "#3a2a1a" }}>
             Nayara Springs
           </h2>
-          <p className="text-white/70 text-[15px] leading-relaxed mb-8" style={body}>
+          <p className="text-[15px] leading-relaxed mb-8" style={{ ...body, color: "#3a2a1a" }}>
             Adults-only. Private hot springs in every villa. A dedicated yoga pavilion in the rainforest canopy. Full-service spa with volcanic mineral treatments. Nayara Springs is where the entire Nayara wellness philosophy comes together in one extraordinary property.
           </p>
-          <Link href="/springs" className="inline-flex items-center gap-2 text-white/70 text-[13px] tracking-[0.1em] hover:text-white hover:gap-3 transition-all duration-300 border-b border-white/20 pb-1" style={{ ...body, fontWeight: 500 }}>
+          <Link href="/springs" className="inline-flex items-center gap-2 text-[13px] tracking-[0.1em] hover:gap-3 transition-all duration-300 border-b pb-1" style={{ ...body, fontWeight: 500, color: "#3a2a1a", borderColor: "#3a2a1a40" }}>
             Explore Nayara Springs
             <ArrowRight className="w-4 h-4" />
           </Link>

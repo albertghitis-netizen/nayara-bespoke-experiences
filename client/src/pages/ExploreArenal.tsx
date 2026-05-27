@@ -95,7 +95,7 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         <video
-          src="/manus-storage/offsite-hero-rainforest_7558376f.mp4"
+          src="/manus-storage/offsite-hero-v2_287bd70b.mp4"
           autoPlay
           muted
           loop

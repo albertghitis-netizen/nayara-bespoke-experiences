@@ -42,7 +42,7 @@ const bodyLight = { fontFamily: "var(--font-body)", fontWeight: 300 } as const;
 const bodyMedium = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
 
 const CDN = {
-  heroDesktop: "/manus-storage/onsite-hero-new_e42cb075.mp4",
+  heroDesktop: "/manus-storage/onsite-hero-v2_6970e653.mp4",
   heroMobile: "/manus-storage/journal-mobile-hero-cropped_b20d2a0a.mp4",
 };
 

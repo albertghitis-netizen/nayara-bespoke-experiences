@@ -627,7 +627,7 @@ function NatureWellnessTeaser({ palette, propertySlug }: { palette: PropertyPale
               Wellness at Nayara extends far beyond the treatment room. Private volcanic hot springs plunge pools, daily yoga in the rainforest canopy, Las Termas thermal experience, and guided nature immersions are all part of the on-site offering — available to every guest, every day.
             </p>
             <Link
-              href={`/${propertySlug}/experiences`}
+              href={`/curated-excursions?from=${propertySlug}`}
               className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
               style={{
                 fontFamily: "var(--font-body)",
