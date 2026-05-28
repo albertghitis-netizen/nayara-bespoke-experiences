@@ -138,7 +138,7 @@ export default function AtacamaGastronomy() {
       <FoodGallerySection />
       <CulinaryExperiencesSection />
       <CTASection />
-      <Footer pageType="property" bgColor={PALETTE.dark} textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={PALETTE.dark} textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }

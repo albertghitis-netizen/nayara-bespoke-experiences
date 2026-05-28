@@ -152,7 +152,7 @@ export default function AtacamaWellness() {
       <SignatureTreatmentsSection />
       <FacilitiesSection />
       <CTASection />
-      <Footer pageType="property" bgColor={PALETTE.dark} textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={PALETTE.dark} textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }

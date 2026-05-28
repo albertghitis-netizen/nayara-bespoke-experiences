@@ -246,7 +246,7 @@ export default function Hangaroa() {
         accentColor={PALETTE.primary}
         dividerColor={PALETTE.divider}
       />
-      <Footer bgColor="#536878" textColor="#FFFFFF" />
+      <Footer bgColor="#536878" textColor="#FFFFFF" propertyName="Hangaroa" />
     </div>
   );
 }

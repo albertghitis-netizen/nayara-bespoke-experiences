@@ -127,7 +127,7 @@ export default function HangaroaGastronomy() {
       <RestaurantsSection />
       <CulinaryExperiencesSection />
       <CTASection />
-      <Footer pageType="property" bgColor={PALETTE.dark} textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={PALETTE.dark} textColor="#FFFFFF" propertyName="Hangaroa" />
     </div>
   );
 }

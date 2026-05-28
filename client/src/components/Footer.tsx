@@ -197,9 +197,9 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           </a>
         </div>
 
-        {/* Leaf logo */}
+        {/* Leaf logo + property name */}
         <div className="flex flex-col items-center mb-3">
-          <AnimatedLeaf textColor={textColor} compact={true} />
+          <AnimatedLeaf textColor={textColor} compact={true} propertyName={propertyName} nameFontSize={nameFontSize || "12px"} />
         </div>
 
         {/* Copyright */}

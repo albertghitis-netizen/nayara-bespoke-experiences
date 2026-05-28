@@ -112,7 +112,7 @@ export default function BocasGastronomy() {
       <RestaurantsSection />
       <CulinaryExperiencesSection />
       <CTASection />
-      <Footer pageType="property" bgColor={PALETTE.dark} textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={PALETTE.dark} textColor="#FFFFFF" propertyName="Bocas del Toro" />
     </div>
   );
 }
