@@ -209,7 +209,7 @@ export default function Gardens() {
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "The Table" },
+        { id: "gastronomy", label: "Gastronomy" },
         { id: "by-night", label: "By Night" },
         { id: "getting-here", label: "Getting Here" },
       ]} />
@@ -1625,7 +1625,7 @@ function GardensGastronomyCascade() {
               className="text-[11px] tracking-[0.2em] uppercase mb-6 block"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#6b4a3a" }}
             >
-              The Table
+              Gastronomy
             </span>
           </AnimateOnScroll>
 

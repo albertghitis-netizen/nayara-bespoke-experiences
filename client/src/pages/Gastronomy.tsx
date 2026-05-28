@@ -290,7 +290,7 @@ function FoodPornGallery() {
     <section className="px-0">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-6">
         <FadeIn>
-          <p className="text-[#3B2B26]/30 text-[10px] tracking-[0.35em] uppercase mb-2" style={{ ...body, fontWeight: 600 }}>The Table</p>
+          <p className="text-[#3B2B26]/30 text-[10px] tracking-[0.35em] uppercase mb-2" style={{ ...body, fontWeight: 600 }}>Gastronomy</p>
           <h2 className="text-[#3B2B26] text-xl md:text-2xl" style={heading}>The Art of Plating</h2>
         </FadeIn>
       </div>

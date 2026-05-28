@@ -20,7 +20,7 @@ const pillarLinks = [
   { label: "Experiences", route: "/experiences" },
   { label: "Sustainability", route: "/sustainability" },
   { label: "Wellness", route: "/wellness" },
-  { label: "The Table", route: "/gastronomy" },
+  { label: "Gastronomy", route: "/gastronomy" },
 ];
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;

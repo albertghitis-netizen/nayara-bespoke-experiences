@@ -157,7 +157,7 @@ export default function Hangaroa() {
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "The Table" },
+        { id: "gastronomy", label: "Gastronomy" },
         { id: "by-night", label: "By Night" },
       ]} />
 
@@ -723,7 +723,7 @@ function GastronomySection() {
         {/* LEFT — Text + restaurant list */}
         <div className="w-full md:w-1/2 md:order-1 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>The Table</SectionLabel>
+            <SectionLabel>Gastronomy</SectionLabel>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2

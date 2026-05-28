@@ -126,8 +126,27 @@ export default function Journal() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
 
-  // Show all entries regardless of filter selection
-  const filteredEntries = ALL_ENTRIES;
+  // Filter by hotel, then space out Watch entries so they're never adjacent
+  const filteredEntries = (() => {
+    if (activeHotel === "all") return ALL_ENTRIES;
+    const hotelEntries = ALL_ENTRIES.filter(
+      (e) => e.property === activeHotel || e.property === "brand"
+    );
+    // Separate Watch (video) entries from Read entries
+    const watches = hotelEntries.filter((e) => e.type === "video");
+    const reads = hotelEntries.filter((e) => e.type !== "video");
+    if (watches.length === 0) return hotelEntries;
+    // Interleave: place one Watch every N reads to maximize spacing
+    const spacing = Math.max(2, Math.floor(reads.length / (watches.length + 1)));
+    const result: JournalEntry[] = [...reads];
+    let insertOffset = 0;
+    for (let i = 0; i < watches.length; i++) {
+      const pos = Math.min(spacing * (i + 1) + insertOffset, result.length);
+      result.splice(pos, 0, watches[i]);
+      insertOffset++;
+    }
+    return result;
+  })();
   const visibleEntries = filteredEntries.slice(0, visibleCount);
   const hasMore = visibleCount < filteredEntries.length;
 

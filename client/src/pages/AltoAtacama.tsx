@@ -713,7 +713,7 @@ const CASCADE_SECTIONS = [
     overlayOnVideo: true,
   },
   {
-    label: "The Table",
+    label: "Gastronomy",
     headline: "Desert to Table",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients , quinoa, chañar, rica-rica herbs, and Andean potatoes , our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
     vSrc: "/manus-storage/atacama-gastronomy-vertical_7882b831.jpeg",
@@ -784,7 +784,7 @@ export default function AltoAtacama() {
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "The Table" },
+        { id: "gastronomy", label: "Gastronomy" },
         { id: "by-night", label: "By Night" },
         { id: "getting-here", label: "Getting Here" },
       ]} />

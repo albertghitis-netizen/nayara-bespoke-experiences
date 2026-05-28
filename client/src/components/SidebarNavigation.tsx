@@ -43,7 +43,7 @@ const PROPERTY_SECTIONS = [
   { label: "Experiences", id: "experiences" },
   { label: "Sustainability", id: "sustainability" },
   { label: "Wellness", id: "wellness" },
-  { label: "The Table", id: "dining" },
+  { label: "Gastronomy", id: "dining" },
   { label: "Getting Here", id: "getting-here" },
 ];
 

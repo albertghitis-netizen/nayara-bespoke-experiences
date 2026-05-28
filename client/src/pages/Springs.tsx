@@ -180,7 +180,7 @@ export default function Springs() {
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "The Table" },
+        { id: "gastronomy", label: "Gastronomy" },
         { id: "by-night", label: "By Night" },
       ]} />
       <HeroSection />
@@ -772,7 +772,7 @@ function GastronomySection() {
           style={{ backgroundColor: "#FFFFFF" }}
         >
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>The Table</SectionLabel>
+            <SectionLabel>Gastronomy</SectionLabel>
           </AnimateOnScroll>
           <TextReveal as="h2" className="mb-8" delay={0.1}>
             <span

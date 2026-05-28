@@ -673,7 +673,7 @@ export const newsletters: Newsletter[] = [
 // ─── Pillars & Destinations (legacy , kept for backward compat) ──
 export const PILLARS = [
   "All", "Brand", "Sustainability", "Wellness", "Wildlife",
-  "Culture", "Night Sky", "Adventure", "Romance", "The Table",
+  "Culture", "Night Sky", "Adventure", "Romance", "Gastronomy",
   "Family", "Solo Travel", "Awards",
 ] as const;
 

@@ -338,7 +338,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   },
   {
     id: "gastronomy",
-    label: "The Table",
+    label: "Gastronomy",
     headline: "A Taste of\nthe Caribbean",
     body: "Our fine dining restaurant, the majestic Elephant House, is a 100-year-old structure shipped halfway around the world from Bali, Indonesia. Take in the moon glistening on the water and spot a stingray gliding by as you delight in lobster paired with the perfect chilled white wine. By day, the poolside Coral Café offers a cheerful alfresco setting for a leisurely breakfast or lunch.\n\nAn unexpected culinary journey in the middle of the Caribbean Sea. Our chef creates a new meticulously crafted dinner menu every night of the week, using the finest hand-selected meats, local seafood directly from the sea, and fresh organic vegetables and ingredients.",
     verticalSrc: "/manus-storage/fb12-bocas-gastronomy_8f3f15ff.jpg",
@@ -1125,7 +1125,7 @@ export default function BocasDelToro() {
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "The Table" },
+        { id: "gastronomy", label: "Gastronomy" },
         { id: "night", label: "By Night" },
         { id: "getting-here", label: "Getting Here" },
       ]} />

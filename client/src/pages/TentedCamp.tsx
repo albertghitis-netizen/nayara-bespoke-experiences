@@ -1236,7 +1236,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
 const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
   {
     id: "gastronomy",
-    label: "The Table",
+    label: "Gastronomy",
     headline: "Forest\nto Table",
     body: "Two distinct culinary experiences define Tented Camp. Ayla brings Mediterranean-inspired cuisine to the rainforest canopy , seasonal menus that celebrate Costa Rica's biodiversity with ingredients harvested from the resort's own gardens.\n\nLapas Pool Bar offers a relaxed open-air setting where fresh ceviches, tropical plates, and handcrafted cocktails are served poolside beneath the volcano. From sunrise smoothies to sunset aperitivos, every meal becomes a moment framed by nature.",
     verticalSrc: "/manus-storage/gastro-tented_785fdd5f.mp4",
@@ -1564,7 +1564,7 @@ export default function TentedCamp() {
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "The Table" },
+        { id: "gastronomy", label: "Gastronomy" },
         { id: "nayara-by-night", label: "By Night" },
         { id: "getting-here", label: "Getting Here" },
       ]} />
