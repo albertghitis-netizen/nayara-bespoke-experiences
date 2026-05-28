@@ -78,7 +78,8 @@ const TapatiFestivalBlog = lazy(() => import("./pages/TapatiFestivalBlog"));
 const CommunityBlog = lazy(() => import("./pages/CommunityBlog"));
 const BocasOperationsBlog = lazy(() => import("./pages/BocasOperationsBlog"));
 const EasterIslandOutdoorsBlog = lazy(() => import("./pages/EasterIslandOutdoorsBlog"));
-// const BrandBook = lazy(() => import("./pages/BrandBook")); // ARCHIVED: Can be restored if needed
+const BrandBook = lazy(() => import("./pages/BrandBook"));
+const Architecture = lazy(() => import("./pages/Architecture"));
 // const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Gallery = lazy(() => import("./pages/Gallery"));
@@ -310,6 +311,8 @@ function Router() {
           {/* ARCHIVED ROUTES: /internal-brandbook and /internal-henry - Component files still exist */}
           <Route path="/test-floorplan" component={FloorPlanTest} />
           <Route path="/lexi" component={Lexi} />
+          <Route path="/brand-book" component={BrandBook} />
+          <Route path="/architecture" component={Architecture} />
           <Route path="/sylvia" component={Sylvia} />
           <Route path="/sylvia/blog" component={SylviaComingSoon} />
           <Route path="/sylvia/faq" component={SylviaComingSoon} />
