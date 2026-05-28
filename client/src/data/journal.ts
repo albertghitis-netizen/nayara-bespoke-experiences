@@ -14,6 +14,8 @@ export interface JournalEntry {
   image: string;
   /** Property filter tag , matches property slug or "brand" for cross-property content */
   property: JournalProperty;
+  /** Additional properties this entry belongs to (for multi-property entries) */
+  properties?: JournalProperty[];
   /** "article" links to internal /blog/ routes; "video" plays inline with YouTube embed; "audio" links to podcast player */
   type: "article" | "video" | "audio";
   /** External URL for articles */
@@ -99,6 +101,7 @@ const blogArticles: JournalEntry[] = [
     title: "Forest to Table: Three Kitchens, One Rainforest",
     url: "/blog/three-kitchens-one-rainforest",
     property: "gardens",
+    properties: ["gardens", "springs", "tented-camp"],
     type: "article",
     image: "/manus-storage/family-bucket-list-card-kebab_e71e0ff7.png",
     excerpt: "Three restaurants, one rainforest. How Nayara's kitchens at Ayla, Nostalgia, and Nayara Springs define Costa Rican-Mediterranean cuisine.",
@@ -166,6 +169,7 @@ const blogArticles: JournalEntry[] = [
     title: "Private Villas and Hot-Springs Plunge Pools: The History & Science",
     url: "/blog/hot-springs",
     property: "springs",
+    properties: ["gardens", "springs", "tented-camp"],
     type: "article",
     image: "/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg",
     excerpt: "From Roman thermae to Nayara Springs , the science and history behind private hot springs plunge pools and their profound wellness benefits.",
@@ -176,6 +180,7 @@ const blogArticles: JournalEntry[] = [
     title: "Wildlife Conservation in Arenal and Bocas del Toro",
     url: "/blog/arenal-bocas-wildlife",
     property: "gardens",
+    properties: ["bocas-del-toro", "gardens", "springs", "tented-camp"],
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
     excerpt: "From sloths to sea turtles , how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean islands.",
@@ -185,6 +190,7 @@ const blogArticles: JournalEntry[] = [
     title: "Wildlife Conservation in Chile's Atacama Desert and Easter Island",
     url: "/blog/atacama-wildlife",
     property: "alto-atacama",
+    properties: ["hangaroa", "alto-atacama"],
     type: "article",
     image: "/manus-storage/atacama-wildlife-cover_ebe00ac5.jpg",
     excerpt: "Vicuñas, flamingos, and endemic species , conservation efforts protecting Chile's most fragile ecosystems.",
@@ -215,6 +221,7 @@ const blogArticles: JournalEntry[] = [
     title: "Pura Vida and the Science of Why Costa Rica Feels Different",
     url: "/blog/pura-vida",
     property: "brand",
+    properties: ["gardens", "springs", "tented-camp"],
     type: "article",
     image: "/manus-storage/pura-vida-hero_9a138a66.jpeg",
     excerpt: "On World Health Day, we explore the science behind Costa Rica's wellbeing, from nature exposure and time affluence to the Blue Zone of Nicoya, and what Pura Vida really means.",
@@ -225,6 +232,7 @@ const blogArticles: JournalEntry[] = [
     title: "Women's Empowerment Through Housing at Nayara in Costa Rica",
     url: "/blog/womens-empowerment",
     property: "brand",
+    properties: ["gardens", "springs", "tented-camp"],
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/PHOTO-2026-03-02-19-55-27.jpg",
     excerpt: "How Nayara Resorts is building homes and empowering women in La Fortuna through community-driven housing initiatives.",
@@ -235,6 +243,7 @@ const blogArticles: JournalEntry[] = [
     title: "Arenal, Costa Rica: A Timeless Natural Wonder",
     url: "/blog/arenal-timeless-wonder",
     property: "brand",
+    properties: ["gardens", "springs", "tented-camp"],
     type: "article",
     image: "/manus-storage/A50DCA72-3FCB-46E5-A703-DFFB62080A51_79a81ca2.jpg",
     excerpt: "Arenal Volcano has shaped the landscape and culture of northern Costa Rica for millennia. Discover the geology, ecology, and spirit of this iconic destination.",
@@ -329,6 +338,7 @@ const blogArticles: JournalEntry[] = [
     title: "Green Globe Certification at Nayara Resorts in Costa Rica and Panama",
     url: "/blog/green-globe-certification",
     property: "brand",
+    properties: ["bocas-del-toro", "gardens", "springs", "tented-camp"],
     type: "article",
     image: "/manus-storage/hotsprings-card-tented-plunge_5d997c52.jpg",
     excerpt: "Discover how Nayara Resorts' Green Globe Certification underscores our commitment to sustainability across every property.",
@@ -338,6 +348,7 @@ const blogArticles: JournalEntry[] = [
     title: "Chile S Certification: How Nayara Alto Atacama and Hangaroa Lead Sustainable Tourism",
     url: "/journal/s-certification",
     property: "alto-atacama",
+    properties: ["alto-atacama", "hangaroa"],
     type: "article",
     image: "/manus-storage/s-cert-card-square_faf590a2.jpg",
     excerpt: "Nayara Alto Atacama and Nayara Hangaroa are the only luxury hotels in their destinations to hold Chile's government-backed S Certification for sustainable tourism.",
@@ -357,6 +368,7 @@ const blogArticles: JournalEntry[] = [
     title: "Birdwatching in Costa Rica: The Best Birds to See Near Arenal Volcano",
     url: "/blog/birdwatching",
     property: "brand",
+    properties: ["gardens", "springs", "tented-camp"],
     type: "article",
     image: "/manus-storage/birdwatching-card-aracari-square_616da216.jpg",
     excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans , a birdwatcher's paradise.",
@@ -388,6 +400,7 @@ const blogArticles: JournalEntry[] = [
     title: "The World as a Classroom: A Family Guide to Every Nayara Destination",
     url: "/blog/family-bucket-list-nayara",
     property: "gardens",
+    properties: ["hangaroa", "alto-atacama"],
     type: "article",
     image: "/manus-storage/journal-family-cover-v2_8d8fbf0a.jpg",
     excerpt: "Create unforgettable family memories with wildlife encounters, chocolate-making, and volcano adventures.",
@@ -458,6 +471,7 @@ const videoEpisodes: JournalEntry[] = [
     title: "Leo Ghitis on Suite Success",
     type: "video",
     property: "brand",
+    properties: ["gardens", "springs", "tented-camp"],
     youtubeId: "X_lTp6Jh8ag",
     duration: "26 min",
     guest: "Leo Ghitis, Owner",

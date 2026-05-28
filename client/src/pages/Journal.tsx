@@ -130,7 +130,7 @@ export default function Journal() {
   const filteredEntries = (() => {
     if (activeHotel === "all") return ALL_ENTRIES;
     const hotelEntries = ALL_ENTRIES.filter(
-      (e) => e.property === activeHotel || e.property === "brand"
+      (e) => e.property === activeHotel || e.property === "brand" || (e.properties && e.properties.includes(activeHotel as any))
     );
     // Separate Watch (video) entries from Read entries
     const watches = hotelEntries.filter((e) => e.type === "video");
@@ -429,6 +429,7 @@ function CardShell({
 }) {
   return (
     <div id={entry.id} className="relative w-full aspect-square overflow-hidden rounded-lg bg-stone-200 group cursor-pointer transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-black/15">
+
       {isPlaying && embedId ? (
         <>
           <iframe
