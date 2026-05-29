@@ -89,6 +89,7 @@ const Lexi = lazy(() => import("./pages/Lexi"));
 const Sylvia = lazy(() => import("./pages/Sylvia"));
 const SylviaComingSoon = lazy(() => import("./pages/SylviaComingSoon"));
 const ArenalTimelessWonderBlog = lazy(() => import("./pages/ArenalTimelessWonderBlog"));
+const OceanHabitatRestoration = lazy(() => import("./pages/OceanHabitatRestoration"));
 
 const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
 /* Atacama/Bocas/Hangaroa deep pages now use the universal shared components */
@@ -164,7 +165,7 @@ function ScrollToTop() {
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
 // ARCHIVED: Sharalynn paths removed from HIDE_WIDGET_PATHS
-const HIDE_WIDGET_PATHS: string[] = ["/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/lexi", "/sylvia"];
+const HIDE_WIDGET_PATHS: string[] = ["/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/lexi", "/sylvia", "/ocean-habitat-restoration"];
 
 function Router() {
   const [location] = useLocation();
@@ -252,6 +253,7 @@ function Router() {
           <Route path="/bocas-del-toro/wellness">{() => <CostaRicaWellness propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/gastronomy" component={BocasGastronomy} />
           <Route path="/bocas-del-toro/sustainability" component={BocasSustainability} />
+          <Route path="/ocean-habitat-restoration" component={OceanHabitatRestoration} />
           <Route path="/journal/:slug" component={DynamicBlogPost} />
           <Route path="/journal" component={Journal} />
           <Route path="/faq" component={FAQ} />
