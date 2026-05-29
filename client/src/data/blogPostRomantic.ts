@@ -123,6 +123,13 @@ export const romanticBlogPost: BlogPostData = {
       image: `${CDN}/bocas-aerial-villas-mangroves_9d5e94f5.jpg`,
       date: "April 2026",
     },
+    {
+      slug: "/blog/hot-springs",
+      title: "Private Villas and Hot-Springs Plunge Pools: The History & Science",
+      pillar: "Wellness",
+      image: "/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg",
+      date: "March 2026",
+    },
   ],
   ctaProperties: [
     { name: "Nayara Springs", route: "/springs" },

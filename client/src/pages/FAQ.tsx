@@ -399,6 +399,32 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     ],
   },
   {
+    title: "Romance and Adults-Only Travel",
+    description: "Questions about adults-only policies, couples travel, and romantic experiences at Nayara",
+    faqs: [
+      {
+        question: "What does adults-only mean at Nayara Springs and Nayara Bocas del Toro?",
+        answer: "Adults-only means that both properties exclusively welcome guests aged 18 and older. Beyond the age policy, it is a design philosophy: architecture scaled for intimacy, programming curated for connection, and an atmosphere where every detail serves the couple. There are no children's facilities, no family programming, and no compromises to the tranquil environment.",
+      },
+      {
+        question: "Is there scientific evidence that couples travel improves relationships?",
+        answer: "Yes. A 2024 study by Coffey et al. published in the Journal of Positive Psychology found that couples who share novel, self-expanding experiences on vacation report significantly higher relationship satisfaction, romantic passion, and physical intimacy. The U.S. Travel Association found that 61% of couples say a trip reignited their romance.",
+      },
+      {
+        question: "What is included in the all-inclusive package at Nayara Bocas del Toro?",
+        answer: "The all-inclusive package at Nayara Bocas del Toro covers all meals at the Elephant House restaurant and Coral Cafe, premium beverages, daily mini-fridge replenishment, in-room dining available 24 hours, non-motorized water activities, and select guided excursions. Spa treatments and private boat charters are available at additional cost.",
+      },
+      {
+        question: "Do both adults-only properties have private pools in every villa?",
+        answer: "Yes. At Nayara Springs, every villa has its own private plunge pool fed by natural volcanic hot spring water. At Nayara Bocas del Toro, the Overwater Pool Villa and Overwater Pool Villa Deluxe categories each have a private saltwater plunge pool on the deck.",
+      },
+      {
+        question: "Which property is better for a honeymoon?",
+        answer: "Both are exceptional honeymoon destinations. Nayara Springs suits couples who love rainforest immersion, volcanic hot springs, and adventure (zip lining, waterfall rappelling, wildlife). Nayara Bocas del Toro suits couples who prefer Caribbean overwater living, marine life, bioluminescent kayaking, and the simplicity of an all-inclusive island escape.",
+      },
+    ],
+  },
+  {
     title: "Sukha Spa and Wellness",
     description: "Questions about spa treatments, yoga, and wellness programming at the Costa Rica properties",
     faqs: [
