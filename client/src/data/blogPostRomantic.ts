@@ -21,6 +21,7 @@ export const romanticBlogPost: BlogPostData = {
     "Research from Coffey et al. (2024) shows that couples who share novel, self-expanding experiences on vacation report significantly higher relationship satisfaction, romantic passion, and physical intimacy.",
     "A U.S. Travel Association survey found that 61% of couples say a trip reignited their romance, while 73% consider traveling together the ultimate relationship test.",
     "Adults-only is not simply the absence of children. It is a design philosophy: architecture scaled for intimacy, programming curated for connection, and an atmosphere where every detail serves the couple.",
+    "The Telegraph reports over 1,000 adults-only properties worldwide, with Google Trends showing searches surging since 2020. TUI now offers 780 adults-only hotels, and bookings rose 20% in 2025.",
     "Nayara Springs (Three Michelin Keys, Relais & Chateaux) and Nayara Bocas del Toro (Two Michelin Keys, #1 Resort in Central America) represent two distinct expressions of this philosophy.",
   ],
   sections: [
@@ -30,6 +31,13 @@ export const romanticBlogPost: BlogPostData = {
 <p>A landmark 2024 study published in the Journal of Positive Psychology by Coffey, Wray-Lake, Mashek, and Aron examined how vacations specifically contribute to this dynamic. Their findings confirmed that self-expanding vacations predicted higher post-vacation relationship satisfaction, passion, and intimacy regardless of how long the couple had been together. Whether three months or thirty years, the benefit held. Critically, it was the quality of shared experiences that mattered, not the number of trips taken.</p>
 <p>A separate nationwide survey commissioned by the U.S. Travel Association found that 61% of American couples reported a trip reignited their romance, while 25% said they discovered a more romantic side of their partner they had never seen before. Talker Research (2024) added that 73% of couples believe traveling together is the ultimate relationship test.</p>
 <p>These findings point to a clear conclusion: the environment in which couples travel matters enormously. Distraction, noise, and competing obligations dilute the very novelty and presence that make travel transformative. This is where the adults-only model becomes not a luxury, but a scientifically grounded design choice.</p>`,
+    },
+    {
+      heading: "The Rise of Adults-Only: A Global Movement",
+      content: `<p>The industry data confirms what the psychology predicts. According to The Telegraph, there are now more than 1,000 adults-only hotels, B&Bs, and holiday resorts worldwide. Google Trends shows that searches for "adults-only holidays" have surged since 2020, accelerating every year. Tour operator TUI reports that 50% of its clients are couples, and in response, 780 of its partner hotels now cater specifically to adults-only demand. Travel Express Benelux recorded a 20% increase in adults-only bookings in 2025 alone.</p>
+<p>The trend is not new. Adults-only properties first appeared in the Caribbean in the 1970s, spread to Spain and France in the early 2000s, and have boomed globally in the past five years. What is new is the scale and the demographic. The International Hotel Consulting Service reports that most guests booking adults-only accommodation are aged 30 to 50, with household incomes above €60,000. These are not budget travellers seeking a quiet room. They are discerning couples investing in the quality of their time together.</p>
+<p>Liz Taylor, a hospitality and luxury brand consultant with 30 years of experience, summarizes the shift: "Holidays have become more than a luxury. They are a lifeline. People want peace. They want to switch off. And that is hard to do when you are dodging poolside tantrums or trying to enjoy a cocktail during a toddler's tea party."</p>
+<p>Travel specialist Aled Evans adds the business logic: "If you consider how much you would pay for a family of four to stay at a hotel for a week, would you pay the same amount for just two of you if it were an adults-only hotel? The answer seems to be yes. If a hotel or tour operator can differentiate itself and appeal to a certain demographic, then it has a market advantage." The willingness to pay family-of-four prices for a couples-only experience reveals something important: this is not about saving money. It is about protecting attention.</p>`,
     },
     {
       heading: "What Adults-Only Actually Means",
@@ -97,6 +105,8 @@ export const romanticBlogPost: BlogPostData = {
     { label: "Conde Nast Traveler Readers' Choice Awards 2025: #1 Resort in Central America", href: "https://www.cntraveler.com/gallery/top-resorts-in-central-america-readers-choice-awards" },
     { label: "Michelin Guide: Nayara Springs, Three Keys", href: "https://guide.michelin.com/en/alajuela/la-fortuna-de-san-carlos/hotel/nayara-springs" },
     { label: "Relais & Chateaux: Nayara Springs", href: "https://www.relaischateaux.com/us/hotel/nayara-springs" },
+    { label: "Rainey, S. (2025). Child-free hotels are on the rise. The Telegraph.", href: "https://www.telegraph.co.uk/travel/comment/rise-of-adults-only-resorts-why-so-many-of-us-embracing-child-free-travel/" },
+    { label: "Van Puymbroeck, C. (2025). Adults-only hotels see bookings surge as travellers prioritise tranquillity. Travel Tomorrow.", href: "https://traveltomorrow.com/adults-only-hotels-see-bookings-surge-as-travellers-prioritise-tranquillity/" },
   ],
   relatedArticles: [
     {
