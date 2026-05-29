@@ -84,9 +84,7 @@ const Architecture = lazy(() => import("./pages/Architecture"));
 // const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Gallery = lazy(() => import("./pages/Gallery"));
-// REMOVED: const Staff = lazy(() => import("./pages/Staff"));
 // const Sharalynn = lazy(() => import("./pages/Sharalynn")); // ARCHIVED: Can be restored if needed
-// REMOVED: const FloorPlanTest = lazy(() => import("./pages/FloorPlanTest"));
 const Lexi = lazy(() => import("./pages/Lexi"));
 const Sylvia = lazy(() => import("./pages/Sylvia"));
 const SylviaComingSoon = lazy(() => import("./pages/SylviaComingSoon"));
@@ -254,7 +252,6 @@ function Router() {
           <Route path="/bocas-del-toro/wellness">{() => <CostaRicaWellness propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/gastronomy" component={BocasGastronomy} />
           <Route path="/bocas-del-toro/sustainability" component={BocasSustainability} />
-          {/* REMOVED: <Route path="/corey" component={BocasSustainability} /> */}
           <Route path="/journal/:slug" component={DynamicBlogPost} />
           <Route path="/journal" component={Journal} />
           <Route path="/faq" component={FAQ} />
@@ -307,11 +304,9 @@ function Router() {
           <Route path="/blog/romance-at-nayara-springs-and-bocas-del-toro" component={RomanceBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/gallery" component={Gallery} />
-          {/* REMOVED: <Route path="/staff" component={Staff} /> */}
 
           {/* ── Internal / Private pages ── */}
           {/* ARCHIVED ROUTES: /internal-brandbook and /internal-henry - Component files still exist */}
-          {/* REMOVED: <Route path="/test-floorplan" component={FloorPlanTest} /> */}
           <Route path="/lexi" component={Lexi} />
           <Route path="/brand-book" component={BrandBook} />
           <Route path="/architecture" component={Architecture} />
