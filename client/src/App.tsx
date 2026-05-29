@@ -254,7 +254,7 @@ function Router() {
           <Route path="/bocas-del-toro/wellness">{() => <CostaRicaWellness propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/gastronomy" component={BocasGastronomy} />
           <Route path="/bocas-del-toro/sustainability" component={BocasSustainability} />
-          <Route path="/corey" component={BocasSustainability} />
+          {/* REMOVED: <Route path="/corey" component={BocasSustainability} /> */}
           <Route path="/journal/:slug" component={DynamicBlogPost} />
           <Route path="/journal" component={Journal} />
           <Route path="/faq" component={FAQ} />
