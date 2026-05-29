@@ -77,6 +77,7 @@ const FAQ = lazy(() => import("./pages/FAQ"));
 const TapatiFestivalBlog = lazy(() => import("./pages/TapatiFestivalBlog"));
 const CommunityBlog = lazy(() => import("./pages/CommunityBlog"));
 const BocasOperationsBlog = lazy(() => import("./pages/BocasOperationsBlog"));
+const RomanceBlog = lazy(() => import("./pages/RomanceBlog"));
 const EasterIslandOutdoorsBlog = lazy(() => import("./pages/EasterIslandOutdoorsBlog"));
 const BrandBook = lazy(() => import("./pages/BrandBook"));
 const Architecture = lazy(() => import("./pages/Architecture"));
@@ -303,6 +304,7 @@ function Router() {
           <Route path="/blog/tapati-festival" component={TapatiFestivalBlog} />
           <Route path="/blog/rooted-in-community" component={CommunityBlog} />
           <Route path="/blog/how-we-built-a-hotel-on-an-island" component={BocasOperationsBlog} />
+          <Route path="/blog/romance-at-nayara-springs-and-bocas-del-toro" component={RomanceBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/staff" component={Staff} />
