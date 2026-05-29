@@ -3976,3 +3976,12 @@
 - [x] Remove numbers from Art of Plating food porn gallery
 - [x] Add route mappings for gardens, springs, tented-camp
 - [x] Bars and restaurants unified (not separated) in each property filter
+
+## Romance Blog — Adults-Only Science & Trends
+- [x] Rewrite romance blog to lead with science/trends on adults-only travel
+- [x] Include Coffey et al. 2024 study, US Travel Association survey, self-expansion theory
+- [x] Explain what adults-only actually means as a design philosophy
+- [x] Detail adults-only at Nayara Springs (volcanic intimacy, private villas, dining)
+- [x] Detail adults-only at Nayara Bocas del Toro (overwater, all-inclusive, private island)
+- [x] Add FAQ section with 5 questions
+- [x] Add proper academic and industry sources
