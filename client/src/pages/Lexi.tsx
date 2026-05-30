@@ -343,7 +343,7 @@ function LoggingSection({
    ═══════════════════════════════════════════════════════════════ */
 
 export default function Lexi() {
-  const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story" | "about-sylvia">("home");
+  const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story" | "about-sylvia" | "sylvia-blog">("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [entries, setEntries] = useState<CalendarEntry[]>(() => {
     const saved = localStorage.getItem("lexi-entries");
@@ -477,7 +477,7 @@ export default function Lexi() {
                 </motion.button>
               ))}
 
-              {/* Our Story */}
+              {/* How Sylvia Met Sofía */}
               <motion.button
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -491,7 +491,7 @@ export default function Lexi() {
                   className="text-lg tracking-[0.06em] uppercase"
                   style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
                 >
-                  Sofía's Story
+                  How Sylvia Met Sofía
                 </span>
               </motion.button>
 
@@ -510,6 +510,24 @@ export default function Lexi() {
                   style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
                 >
                   About Sylvia
+                </span>
+              </motion.button>
+
+              {/* Sylvia's Blog */}
+              <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: (CATEGORIES.length + 2) * 0.05 }}
+                onClick={() => { setActiveView("sylvia-blog" as any); setMenuOpen(false); }}
+                className="flex items-center gap-4 w-full text-left py-4 border-b"
+                style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+              >
+                <span className="w-4 h-4 rounded-full" style={{ background: "#5C6B4A" }} />
+                <span
+                  className="text-lg tracking-[0.06em] uppercase"
+                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                >
+                  Sylvia's Blog
                 </span>
               </motion.button>
             </div>
@@ -548,6 +566,8 @@ export default function Lexi() {
           <OurStoryPage />
         ) : activeView === "about-sylvia" ? (
           <AboutSylviaPage />
+        ) : activeView === "sylvia-blog" ? (
+          <SylviaBlogPage />
         ) : (
           <CategoryPage
             category={CATEGORIES.find((c) => c.id === activeView)!}
@@ -1178,7 +1198,7 @@ function WaitlistSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HOME PAGE — Towards Wellness
+   HOME PAGE — Towards Living
    ═══════════════════════════════════════════════════════════════ */
 
 function HomePage() {
@@ -1189,35 +1209,63 @@ function HomePage() {
           className="text-3xl tracking-wide mb-2"
           style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
         >
-          Towards Wellness
+          Towards Living
         </h1>
         <p className="text-sm opacity-60 max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           Structure. Awareness. A life well lived.
         </p>
-        <p className="text-sm mt-4 opacity-70" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          The best part? Sofía is totally free.
-        </p>
       </div>
 
-      {/* ── WAITLIST ── */}
-      <WaitlistSection />
-
-      {/* ── ABOUT SOFÍA ── */}
+      {/* ── INTRO: SYLVIA CREATED SOFÍA ── */}
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>What is Sofía?</h2>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Sofía means wisdom. Not the kind that comes from textbooks, but the kind that comes from paying attention to your own life. From noticing patterns before they become problems. From building structure that holds you steady when everything else feels uncertain.
+          Sofía means wisdom—not the kind that comes from textbooks, but the kind that comes from paying attention to your own life. It was created by Sylvia, a trauma therapist who spent years noticing the same thing: the breakthroughs happened in session, but the patterns lived outside of it. She built Sofía as a way to stay connected to what was really happening in her clients' lives between appointments. A gentle, structured companion that holds the daily details so the deeper work can go deeper.
+        </p>
+        <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          Now, Sofía is for everyone. A self-guided tool for anyone navigating mood, addiction, or simply wanting more structure and intentionality in their daily life. Track your sleep, exercise, nutrition, triggers, cravings, and emotional rhythms—and start to see yourself clearly.
         </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          This app is a personal companion for anyone navigating mood disorders, addiction, or simply wanting more structure and intentionality in their daily life. Whether you are managing bipolar disorder, depression, anxiety, substance use, or you just want to track your sleep, exercise, and emotional rhythms — Sofía gives you the tools to see yourself clearly.
+          The best part? Sofía is totally free.
         </p>
       </section>
+
+      {/* ── DUAL CTAs ── */}
+
+      <section className="rounded-xl p-6" style={{ background: "#f0ece4" }}>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Two paths. One philosophy.</h2>
+        <p className="text-sm leading-relaxed opacity-80 mb-5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          Sofía is your self-guided companion—structure, awareness, and pattern recognition in your pocket. But if you want one-on-one support, Sylvia is here. The same insight that built this app is available to you directly.
+        </p>
+
+        {/* Sofía Waitlist */}
+        <div className="mb-6">
+          <h3 className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: "#5C6B4A" }}>Self-Guided</h3>
+          <WaitlistSection />
+        </div>
+
+        {/* Sylvia CTA */}
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: "#8B6F5C" }}>One-on-One</h3>
+          <p className="text-sm leading-relaxed opacity-80 mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            It starts with one conversation. A free 15-minute consultation is a simple first step. Hear my voice, ask your questions—and we'll see if it feels like a good place to land.
+          </p>
+          <a
+            href="/sylvia"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-white transition hover:opacity-90"
+            style={{ background: "#8B6F5C", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+          >
+            Book a free 15-minute consult
+          </a>
+        </div>
+      </section>
+
+      {/* ── WHO IS THIS FOR ── */}
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
         <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Who Is This For?</h2>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Sofía was designed for people who know that wellness is not a destination — it is a daily practice. You might be living with a mood disorder and want to catch episodes before they catch you. You might be in recovery and need to track triggers, cravings, and the routines that keep you grounded. Or you might simply want a structured way to log your mood, sleep, nutrition, exercise, and social life so you can live more deliberately.
+          Sofía was designed for people who know that wellness is not a destination—it is a daily practice. You might be living with a mood disorder and want to catch episodes before they catch you. You might be in recovery and need to track triggers, cravings, and the routines that keep you grounded. Or you might simply want a structured way to log your mood, sleep, nutrition, exercise, and social life so you can live more deliberately.
         </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           There is no diagnosis required. If you believe that self-awareness leads to better living, Sofía is for you.
@@ -2280,8 +2328,7 @@ function OurStoryPage() {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <span className="text-3xl">🌿</span>
-        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Sofía's Story</h2>
+        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>How Sylvia Met Sofía</h2>
       </div>
 
       <div className="space-y-5 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>
@@ -2290,35 +2337,35 @@ function OurStoryPage() {
         </p>
 
         <p className="opacity-80">
-          It started as something deeply personal. Sylvia was Albert's life coach, guiding him through the daily complexity of mood and wellness. He wanted a way to track his own patterns—sleep, cravings, triggers, nutrition, exercise—and share that progress directly with Sylvia so she could see what was really happening between sessions.
+          It started in the space between sessions. Sylvia noticed the same thing with client after client: the breakthroughs happened in the room, but the patterns lived outside of it. Sleep, cravings, triggers, nutrition, mood shifts—the things that mattered most were the hardest to track and the easiest to forget.
         </p>
 
         <p className="opacity-80">
-          So he built it. Not for anyone else. Just for himself.
+          She wanted a way to stay connected to what was really happening in her clients’ lives—not through surveillance, but through shared awareness. A gentle, structured companion that could hold the daily details so their sessions could go deeper.
         </p>
 
         <p className="opacity-80">
-          A simple, structured companion that helped him stay aware without being clinical. Something warm. Something that felt like wisdom, not surveillance.
+          So she built it. Not for the world. Just for her practice.
         </p>
 
         <p className="opacity-80">
-          He named it Sofía—from the Greek word for wisdom—because that's what it gave him. Not answers, but awareness. Not perfection, but pattern recognition. The ability to catch things before they caught him.
+          She named it Sofía—from the Greek word for wisdom—because that’s what it offered. Not answers, but awareness. Not perfection, but pattern recognition. The ability to catch things before they catch you.
         </p>
 
         <p className="opacity-80">
-          Sylvia saw the difference immediately. The conversations in their sessions became richer. The data was there—not as a report card, but as a shared language between coach and client.
+          The difference was immediate. Conversations became richer. Clients arrived knowing what to talk about. The data wasn’t a report card—it was a shared language.
         </p>
 
         <p className="opacity-80">
-          And then, serendipitously, they both had the same thought: <em>what if everyone could have this?</em>
+          And then, one day, a thought: <em>what if everyone could have this?</em>
         </p>
 
         <p className="opacity-80">
-          Not just people with a diagnosis. Anyone who wants to live more intentionally. Anyone who's ever felt like their days blur together without structure. Anyone who knows that awareness is the first step toward a life well lived.
+          Not just people in therapy. Not just people with a diagnosis. Anyone who wants to live more intentionally. Anyone who knows that awareness is the first step toward a life well lived.
         </p>
 
         <p className="opacity-80">
-          That's Sofía. Born from one person's real need, shaped by a life coach's real insight, and now offered to the world—because everyone deserves a companion on the path towards wellness.
+          That’s Sofía. Born from a therapist’s real insight, shaped by years of sitting with people in their hardest moments, and now offered to the world—because everyone deserves a companion on the path towards living.
         </p>
       </div>
     </div>
@@ -2333,13 +2380,13 @@ function AboutSylviaPage() {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <span className="text-3xl">✦</span>
+        <img src="/manus-storage/sylvia-tree-logo_20e3bdbf.png" alt="Sylvia" className="w-24 h-24 mx-auto object-contain" />
         <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>About Sylvia</h2>
       </div>
 
       <div className="space-y-5 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>
         <p className="opacity-80">
-          Sylvia is a trauma specialist, integrative wellness practitioner, and the co-creator of Sofía. Her approach blends evidence-based modalities with deep personal insight, helping clients heal from trauma and build lives of structure, awareness, and purpose.
+          Sylvia is a trauma specialist, integrative wellness practitioner, and the creator of Sofía. Her approach blends evidence-based modalities with deep personal insight, helping clients heal from trauma and build lives of structure, awareness, and purpose.
         </p>
 
         <div className="space-y-3">
@@ -2357,18 +2404,40 @@ function AboutSylviaPage() {
         </div>
 
         <p className="opacity-80">
-          Sylvia's philosophy is simple: awareness before action, structure before ambition, and compassion always. She believes that everyone—regardless of diagnosis or circumstance—deserves access to tools that help them live intentionally.
+          Sylvia’s philosophy is simple: awareness before action, structure before ambition, and compassion always. She believes that everyone—regardless of diagnosis or circumstance—deserves access to tools that help them live intentionally.
         </p>
 
-        <div className="pt-4">
+        <div className="pt-6 text-center">
+          <p className="text-sm opacity-70 mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            It starts with one conversation. A free 15-minute consultation is a simple first step.
+          </p>
           <a
             href="/sylvia"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-white transition hover:opacity-90"
             style={{ background: "#5C6B4A", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
           >
-            Visit Sylvia's Website →
+            Book a free 15-minute consult
           </a>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SYLVIA'S BLOG
+   ═══════════════════════════════════════════════════════════════ */
+
+function SylviaBlogPage() {
+  return (
+    <div className="space-y-8">
+      <div className="text-center">
+        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Sylvia’s Blog</h2>
+        <p className="text-sm mt-2 opacity-60" style={{ fontFamily: "'DM Sans', sans-serif" }}>Thoughts on trauma, recovery, and living well.</p>
+      </div>
+
+      <div className="space-y-4 text-sm" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>
+        <p className="opacity-70 text-center">Coming soon.</p>
       </div>
     </div>
   );
