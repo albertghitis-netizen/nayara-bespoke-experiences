@@ -72,9 +72,9 @@ export const romanticBlogPost: BlogPostData = {
 <p>Each overwater villa has a private saltwater plunge pool, a wraparound deck with direct ocean access, and a swim-up staircase descending straight into the Caribbean. You wake to the sound of waves against the stilts below. Tropical fish glide beneath glass floor panels. The horizon is unbroken in every direction.</p>
 <p>The Balinese-inspired design, with four-posted king beds draped in romantic Tumpang Sari canopies, hand-carved teak interiors, and fire pits on private decks, creates an atmosphere that feels ancient and intimate. The adults-only promise here means that the entire island operates at the tempo of two people in love. No rush. No noise. No world beyond the water.</p>`,
       image: {
-        src: `${CDN}/bocas-overwater-villa-couple_ff0c8415.jpg`,
-        alt: "Couple at overwater villa with plunge pool at Nayara Bocas del Toro",
-        caption: "Overwater villas on a private Caribbean island, designed for two",
+        src: "/manus-storage/bocas-couple-pool-sunset_4a4b1dbb.jpg",
+        alt: "Couple sitting by their private overwater pool at sunset, Nayara Bocas del Toro",
+        caption: "Private overwater pool at sunset, designed for two",
       },
     },
     {
