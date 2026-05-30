@@ -2,7 +2,7 @@
  * SYLVIA — "Towards Living" Landing Page
  * Standalone therapy/wellness practice page
  * Design: Elevated editorial, Nayara Tented Camp palette
- * Bone background (#F7F5F0) + olive green accents (#868B75 / #525642)
+ * Bone background (#F5F7F5) + olive green accents (#1F4D3A / #0D2F24)
  */
 
 import { useState, useRef, useEffect } from "react";
@@ -11,13 +11,13 @@ import { trpc } from "@/lib/trpc";
 
 /* ─── Color Palette (Tented Camp) ─── */
 const COLORS = {
-  bone: "#F7F5F0",
-  olive: "#868B75",
-  oliveDark: "#525642",
-  text: "#0D0604",
-  textSecondary: "#3a3530",
-  divider: "#E6DFD5",
-  accent: "#EDEEE2",
+  bone: "#F5F7F5",
+  olive: "#1F4D3A",
+  oliveDark: "#0D2F24",
+  text: "#3D4A47",
+  textSecondary: "#4A5B56",
+  divider: "#D4E8DE",
+  accent: "#E8F0EC",
 };
 
 /* ─── Image CDN paths ─── */
@@ -121,14 +121,14 @@ function Navigation() {
   const [sylviaExpanded, setSylviaExpanded] = useState(false);
 
   const CATEGORIES = [
-    { id: "mood", label: "Journal", color: "#C9A96E" },
-    { id: "therapy", label: "Therapy", color: "#5C6B4A" },
-    { id: "sleep", label: "Sleep", color: "#5A6B7A" },
-    { id: "nutrition", label: "Nutrition", color: "#7A9E7E" },
-    { id: "exercise", label: "Exercise", color: "#B8704A" },
-    { id: "meds", label: "Meds", color: "#8B6B7A" },
-    { id: "social", label: "Social", color: "#6B8A9E" },
-    { id: "triggers", label: "Triggers", color: "#A65D5D" },
+    { id: "mood", label: "Journal", color: "#D4A99A" },
+    { id: "therapy", label: "Therapy", color: "#1F4D3A" },
+    { id: "sleep", label: "Sleep", color: "#9FC3B2" },
+    { id: "nutrition", label: "Nutrition", color: "#4F8F75" },
+    { id: "exercise", label: "Exercise", color: "#C89888" },
+    { id: "meds", label: "Meds", color: "#E8C4B8" },
+    { id: "social", label: "Social", color: "#4F8F75" },
+    { id: "triggers", label: "Triggers", color: "#D4A99A" },
   ];
 
   return (
@@ -208,13 +208,13 @@ function Navigation() {
                 <button
                   onClick={() => setSylviaExpanded(!sylviaExpanded)}
                   className="flex items-center justify-between w-full text-left py-4 border-b"
-                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+                  style={{ borderColor: "rgba(61, 74, 71, 0.1)" }}
                 >
                   <div className="flex items-center gap-4">
-                    <span className="w-4 h-4 rounded-full" style={{ background: "#5C6B4A" }} />
+                    <span className="w-4 h-4 rounded-full" style={{ background: "#1F4D3A" }} />
                     <span
                       className="text-lg tracking-[0.06em] uppercase"
-                      style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                      style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
                     >
                       Sylvia
                     </span>
@@ -252,11 +252,11 @@ function Navigation() {
                           key={item.label}
                           onClick={item.action}
                           className="block w-full text-left py-3 border-b"
-                          style={{ borderColor: "rgba(58, 42, 26, 0.06)" }}
+                          style={{ borderColor: "rgba(61, 74, 71, 0.06)" }}
                         >
                           <span
                             className="text-sm tracking-[0.04em]"
-                            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400, color: "#5a4a3a" }}
+                            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400, color: "#4A5B56" }}
                           >
                             {item.label}
                           </span>
@@ -271,7 +271,7 @@ function Navigation() {
               <div className="mt-5 mb-3">
                 <span
                   className="text-[10px] tracking-[0.2em] uppercase opacity-60"
-                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, color: "#3a2a1a" }}
+                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, color: "#3D4A47" }}
                 >
                   Daily Tracking
                 </span>
@@ -286,12 +286,12 @@ function Navigation() {
                   transition={{ delay: 0.1 + 0.05 * idx }}
                   onClick={() => { setMenuOpen(false); window.location.href = `/sofia#${cat.id}`; }}
                   className="flex items-center gap-4 w-full text-left py-4 border-b"
-                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+                  style={{ borderColor: "rgba(61, 74, 71, 0.1)" }}
                 >
                   <span className="w-4 h-4 rounded-full" style={{ background: cat.color }} />
                   <span
                     className="text-lg tracking-[0.06em] uppercase"
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
                   >
                     {cat.label}
                   </span>

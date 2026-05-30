@@ -60,7 +60,7 @@ function AskLexiWidget() {
         <button
           onClick={() => setOpen(true)}
           className="fixed bottom-6 left-6 z-50 flex items-center gap-2 h-11 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
-          style={{ background: "rgba(92, 107, 74, 0.9)", backdropFilter: "blur(8px)" }}
+          style={{ background: "rgba(31, 77, 58, 0.9)", backdropFilter: "blur(8px)" }}
         >
           <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Ask Sofía</span>
         </button>
@@ -75,10 +75,10 @@ function AskLexiWidget() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25 }}
             className="fixed bottom-6 left-6 z-50 w-80 max-h-[70vh] flex flex-col rounded-2xl shadow-2xl overflow-hidden"
-            style={{ background: "#F7F5F0", border: "1px solid rgba(92, 107, 74, 0.2)" }}
+            style={{ background: "#F5F7F5", border: "1px solid rgba(31, 77, 58, 0.2)" }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3" style={{ background: "rgba(92, 107, 74, 0.9)" }}>
+            <div className="flex items-center justify-between px-4 py-3" style={{ background: "rgba(31, 77, 58, 0.9)" }}>
               <div className="flex items-center gap-2">
                 <img src={LOGO_URL} alt="Sofía" className="w-7 h-7 rounded-full object-contain" style={{ background: "white" }} />
                 <span className="text-white text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>Ask Sofía</span>
@@ -105,7 +105,7 @@ function AskLexiWidget() {
                         key={q}
                         onClick={() => { setInput(q); }}
                         className="block w-full text-left px-3 py-2 rounded-lg text-xs transition hover:bg-white/80"
-                        style={{ fontFamily: "'DM Sans', sans-serif", color: "#5C6B4A", border: "1px solid rgba(92, 107, 74, 0.2)" }}
+                        style={{ fontFamily: "'DM Sans', sans-serif", color: "#1F4D3A", border: "1px solid rgba(31, 77, 58, 0.2)" }}
                       >
                         {q}
                       </button>
@@ -118,7 +118,7 @@ function AskLexiWidget() {
                   <div
                     className="max-w-[85%] px-3 py-2 rounded-xl text-sm leading-relaxed"
                     style={{
-                      background: msg.role === "user" ? "rgba(92, 107, 74, 0.15)" : "white",
+                      background: msg.role === "user" ? "rgba(31, 77, 58, 0.15)" : "white",
                       fontFamily: "'DM Sans', sans-serif",
                       border: msg.role === "assistant" ? "1px solid rgba(58, 42, 26, 0.08)" : "none",
                     }}
@@ -152,7 +152,7 @@ function AskLexiWidget() {
                   type="submit"
                   disabled={!input.trim()}
                   className="px-3 py-2 rounded-lg text-white text-sm transition"
-                  style={{ background: input.trim() ? "#5C6B4A" : "#ccc" }}
+                  style={{ background: input.trim() ? "#1F4D3A" : "#ccc" }}
                 >
                   →
                 </button>
@@ -172,18 +172,18 @@ function AskLexiWidget() {
 const LOGO_URL = "/manus-storage/sofia-logo-transparent_677d533e.png";
 
 const CATEGORIES = [
-  { id: "mood", label: "Journal", color: "#C9A96E", icon: "◐" },
-  { id: "therapy", label: "Therapy", color: "#5C6B4A", icon: "◉" },
-  { id: "sleep", label: "Sleep", color: "#5A6B7A", icon: "☽" },
-  { id: "nutrition", label: "Nutrition", color: "#7A9E7E", icon: "◈" },
-  { id: "exercise", label: "Exercise", color: "#B8704A", icon: "△" },
-  { id: "meds", label: "Meds", color: "#8B6B7A", icon: "⊕" },
-  { id: "social", label: "Social", color: "#6B8A9E", icon: "◇" },
-  { id: "triggers", label: "Triggers", color: "#A65D5D", icon: "⚡" },
-  { id: "trauma", label: "Trauma", color: "#8B6B7A", icon: "◎" },
-  { id: "addiction", label: "Addiction", color: "#2E8B6E", icon: "◇" },
-  { id: "bipolar", label: "Bipolar", color: "#B8704A", icon: "◑" },
-  { id: "faq", label: "FAQ", color: "#8A7A5A", icon: "?" },
+  { id: "mood", label: "Journal", color: "#D4A99A", icon: "◐" },
+  { id: "therapy", label: "Therapy", color: "#1F4D3A", icon: "◉" },
+  { id: "sleep", label: "Sleep", color: "#9FC3B2", icon: "☽" },
+  { id: "nutrition", label: "Nutrition", color: "#4F8F75", icon: "◈" },
+  { id: "exercise", label: "Exercise", color: "#C89888", icon: "△" },
+  { id: "meds", label: "Meds", color: "#E8C4B8", icon: "⊕" },
+  { id: "social", label: "Social", color: "#4F8F75", icon: "◇" },
+  { id: "triggers", label: "Triggers", color: "#D4A99A", icon: "⚡" },
+  { id: "trauma", label: "Trauma", color: "#0D2F24", icon: "◎" },
+  { id: "addiction", label: "Addiction", color: "#1F4D3A", icon: "◇" },
+  { id: "bipolar", label: "Bipolar", color: "#4F8F75", icon: "◑" },
+  { id: "faq", label: "FAQ", color: "#3D4A47", icon: "?" },
 ] as const;
 
 type CategoryId = (typeof CATEGORIES)[number]["id"];
@@ -235,7 +235,7 @@ function FAQSection({ items, accentColor }: { items: FAQItem[]; accentColor: str
               </span>
               <span
                 className="text-[15px] leading-snug font-medium"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}
+                style={{ fontFamily: "'DM Sans', sans-serif", color: "#3D4A47" }}
               >
                 {item.question}
               </span>
@@ -420,7 +420,7 @@ export default function Lexi() {
   });
 
   return (
-    <div className="min-h-screen" style={{ background: "#F7F5F0", color: "#3a2a1a" }}>
+    <div className="min-h-screen" style={{ background: "#F5F7F5", color: "#3D4A47" }}>
 
       {/* Top Navigation Bar */}
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4">
@@ -428,7 +428,7 @@ export default function Lexi() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="flex items-center justify-center w-11 h-11 rounded-full backdrop-blur-md shadow-lg transition-all duration-300"
-          style={{ background: "rgba(92, 107, 74, 0.85)" }}
+          style={{ background: "rgba(31, 77, 58, 0.85)" }}
         >
           <div className="flex flex-col gap-1.5">
             <span className={`block w-5 h-px bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
@@ -450,7 +450,7 @@ export default function Lexi() {
           onClick={() => { setActiveView("calendar"); setMenuOpen(false); }}
           className="flex items-center justify-center h-8 px-2.5 rounded-full backdrop-blur-md shadow-lg transition-all duration-300"
           style={{
-            background: "rgba(92, 107, 74, 0.85)",
+            background: "rgba(31, 77, 58, 0.85)",
           }}
         >
           <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium">
@@ -493,10 +493,10 @@ export default function Lexi() {
                   style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
                 >
                   <div className="flex items-center gap-4">
-                    <span className="w-4 h-4 rounded-full" style={{ background: "#5C6B4A" }} />
+                    <span className="w-4 h-4 rounded-full" style={{ background: "#1F4D3A" }} />
                     <span
                       className="text-lg tracking-[0.06em] uppercase"
-                      style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                      style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
                     >
                       Sylvia
                     </span>
@@ -538,7 +538,7 @@ export default function Lexi() {
                         >
                           <span
                             className="text-sm tracking-[0.04em]"
-                            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400, color: "#5a4a3a" }}
+                            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400, color: "#4A5B56" }}
                           >
                             {item.label}
                           </span>
@@ -553,7 +553,7 @@ export default function Lexi() {
               <div className="mt-5 mb-3">
                 <span
                   className="text-[10px] tracking-[0.2em] uppercase opacity-60"
-                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, color: "#3a2a1a" }}
+                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, color: "#3D4A47" }}
                 >
                   Daily Tracking
                 </span>
@@ -573,7 +573,7 @@ export default function Lexi() {
                   <span className="w-4 h-4 rounded-full" style={{ background: cat.color }} />
                   <span
                     className="text-lg tracking-[0.06em] uppercase"
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
                   >
                     {cat.label}
                   </span>
@@ -714,8 +714,8 @@ function CalendarView({
               onClick={() => setSelectedDate(dateStr)}
               className={`aspect-square rounded-lg flex flex-col items-center justify-center gap-0.5 transition-all relative ${isToday ? "font-bold" : ""}`}
               style={{
-                background: isSelected ? "rgba(92, 107, 74, 0.12)" : "transparent",
-                outline: isSelected ? "2px solid #5C6B4A" : undefined,
+                background: isSelected ? "rgba(31, 77, 58, 0.12)" : "transparent",
+                outline: isSelected ? "2px solid #1F4D3A" : undefined,
               }}
             >
               <span className={`text-sm ${isToday ? "underline" : ""}`}>{day}</span>
@@ -754,7 +754,7 @@ function CalendarView({
             <button
               onClick={() => setShowAddForm(true)}
               className="text-xs uppercase tracking-wider px-3 py-1.5 rounded-full transition"
-              style={{ background: "#5C6B4A", color: "#fff" }}
+              style={{ background: "#1F4D3A", color: "#fff" }}
             >
               + Add
             </button>
@@ -931,7 +931,7 @@ function AddEntryForm({
         <button
           type="submit"
           className="flex-1 py-2 rounded-lg text-sm uppercase tracking-wider text-white transition"
-          style={{ background: "#5C6B4A" }}
+          style={{ background: "#1F4D3A" }}
         >
           Save
         </button>
@@ -1154,9 +1154,9 @@ function MicButton({ isListening, onClick }: { isListening: boolean; onClick: ()
       className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all ${
         isListening
           ? "bg-red-500 text-white shadow-lg animate-pulse"
-          : "text-[#5C6B4A] hover:bg-[#5C6B4A]/10"
+          : "text-[#1F4D3A] hover:bg-[#1F4D3A]/10"
       }`}
-      style={{ border: isListening ? "none" : "2px solid #5C6B4A" }}
+      style={{ border: isListening ? "none" : "2px solid #1F4D3A" }}
       title={isListening ? "Stop recording" : "Speak your entry"}
     >
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -1219,7 +1219,7 @@ function WaitlistSection() {
   if (submitted) {
     return (
       <div className="text-center py-6 rounded-xl" style={{ background: "#E8E3DA" }}>
-        <p className="text-sm" style={{ fontFamily: "'DM Sans', sans-serif", color: "#5C6B4A" }}>
+        <p className="text-sm" style={{ fontFamily: "'DM Sans', sans-serif", color: "#1F4D3A" }}>
           You're on the list. We'll be in touch.
         </p>
       </div>
@@ -1234,7 +1234,7 @@ function WaitlistSection() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
-          className="flex-1 px-4 py-3 rounded-lg text-sm border border-stone-300 bg-white/80 focus:outline-none focus:border-[#5C6B4A]"
+          className="flex-1 px-4 py-3 rounded-lg text-sm border border-stone-300 bg-white/80 focus:outline-none focus:border-[#1F4D3A]"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
           required
         />
@@ -1242,7 +1242,7 @@ function WaitlistSection() {
           type="submit"
           disabled={joinMutation.isPending}
           className="px-5 py-3 rounded-lg text-sm text-white transition-opacity"
-          style={{ background: "#5C6B4A", fontFamily: "'DM Sans', sans-serif", opacity: joinMutation.isPending ? 0.6 : 1 }}
+          style={{ background: "#1F4D3A", fontFamily: "'DM Sans', sans-serif", opacity: joinMutation.isPending ? 0.6 : 1 }}
         >
           {joinMutation.isPending ? "..." : "Join Waitlist"}
         </button>
@@ -1275,7 +1275,7 @@ function HomePage() {
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Sofía means wisdom—not the kind that comes from textbooks, but the kind that comes from paying attention to your own life. I'm{" "}<a href="/sylvia" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: "#3a2a1a" }}>Sylvia</a>, a trauma therapist, and I built Sofía after years of noticing the same thing: the breakthroughs happened in session, but the patterns lived outside of it. I wanted a way to stay connected to what was really happening in my clients' lives between appointments. A gentle, structured companion that holds the daily details so the deeper work can go deeper.
+          Sofía means wisdom—not the kind that comes from textbooks, but the kind that comes from paying attention to your own life. I'm{" "}<a href="/sylvia" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: "#3D4A47" }}>Sylvia</a>, a trauma therapist, and I built Sofía after years of noticing the same thing: the breakthroughs happened in session, but the patterns lived outside of it. I wanted a way to stay connected to what was really happening in my clients' lives between appointments. A gentle, structured companion that holds the daily details so the deeper work can go deeper.
         </p>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           Now, Sofía is for everyone. A self-guided tool for anyone navigating mood, addiction, or simply wanting more structure and intentionality in their daily life. Track your sleep, exercise, nutrition, triggers, cravings, and emotional rhythms—and start to see yourself clearly.
@@ -1288,20 +1288,20 @@ function HomePage() {
       {/* ── DUAL CTAs ── */}
 
       <section className="rounded-xl p-6" style={{ background: "#f0ece4" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Two paths. One philosophy.</h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3D4A47" }}>Two paths. One philosophy.</h2>
         <p className="text-sm leading-relaxed opacity-80 mb-5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           Sofía is your self-guided companion—structure, awareness, and pattern recognition in your pocket. But if you want one-on-one support, Sylvia is here. The same insight that built this app is available to you directly.
         </p>
 
         {/* Sofía Waitlist */}
         <div className="mb-6">
-          <h3 className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: "#5C6B4A" }}>Self-Guided</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: "#1F4D3A" }}>Self-Guided</h3>
           <WaitlistSection />
         </div>
 
         {/* Sylvia CTA */}
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: "#8B6F5C" }}>One-on-One</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: "#D4A99A" }}>One-on-One</h3>
           <p className="text-sm leading-relaxed opacity-80 mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             It starts with one conversation. A free 15-minute consultation is a simple first step. Hear my voice, ask your questions—and we'll see if it feels like a good place to land.
           </p>
@@ -1309,14 +1309,14 @@ function HomePage() {
             <a
               href="/sylvia"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm text-white transition hover:opacity-90"
-              style={{ background: "#8B6F5C", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+              style={{ background: "#D4A99A", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
             >
               Book a free 15-minute consult with me
             </a>
             <a
               href="/sylvia#newsletter"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm transition hover:opacity-90"
-              style={{ background: "transparent", border: "1px solid #8B6F5C", color: "#8B6F5C", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+              style={{ background: "transparent", border: "1px solid #D4A99A", color: "#D4A99A", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
             >
               Sign up for my monthly newsletter
             </a>
@@ -1358,7 +1358,7 @@ function HomePage() {
           {[
             { icon: "☽", label: "Sleep", color: "#5A6B7A", desc: "Log when you went to bed, when you woke up, and how you felt. Sleep is the foundation — everything else builds on it." },
             { icon: "◈", label: "Nutrition", color: "#7A9E7E", desc: "Track your meals and notice how what you eat affects how you feel. The gut-brain connection is real." },
-            { icon: "◉", label: "Therapy", color: "#5C6B4A", desc: "Log your sessions, breakthroughs, and homework. Keep the thread between appointments so nothing gets lost." },
+            { icon: "◉", label: "Therapy", color: "#1F4D3A", desc: "Log your sessions, breakthroughs, and homework. Keep the thread between appointments so nothing gets lost." },
             { icon: "△", label: "Exercise", color: "#B8704A", desc: "Record what you did and how it made you feel. Movement is medicine — even a 15-minute walk counts." },
             { icon: "⊕", label: "Meds", color: "#8B6B7A", desc: "Track what you take, when you take it, and any side effects. Consistency matters, and so does noticing changes." },
             { icon: "◇", label: "Social", color: "#6B8A9E", desc: "Log who you spent time with and how it made you feel. Connection and isolation are both patterns worth noticing." },
@@ -1378,7 +1378,7 @@ function HomePage() {
           <div className="flex items-start gap-4 pt-4">
             <span className="text-xl mt-0.5 opacity-60">🎙</span>
             <div>
-              <span className="text-sm font-semibold block mb-1" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>Voice Journal</span>
+              <span className="text-sm font-semibold block mb-1" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3D4A47" }}>Voice Journal</span>
               <p className="text-sm leading-relaxed opacity-75" style={{ fontFamily: "'DM Sans', sans-serif" }}>Don't feel like typing? Voice record your journal entries. Just talk — Sofía captures it for you.</p>
             </div>
           </div>
@@ -1386,7 +1386,7 @@ function HomePage() {
           <div className="flex items-start gap-4">
             <span className="text-xl mt-0.5 opacity-60">📅</span>
             <div>
-              <span className="text-sm font-semibold block mb-1" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>Calendar & Reminders</span>
+              <span className="text-sm font-semibold block mb-1" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3D4A47" }}>Calendar & Reminders</span>
               <p className="text-sm leading-relaxed opacity-75" style={{ fontFamily: "'DM Sans', sans-serif" }}>Add any of your daily items to the calendar and Sofía will beep when it's time — meds, meals, therapy, exercise, sleep. You set the schedule, she keeps you on it.</p>
             </div>
           </div>
@@ -1396,7 +1396,7 @@ function HomePage() {
       {/* ── AWARENESS SECTION ── */}
 
       <div className="pt-4">
-        <div className="w-16 h-px mx-auto" style={{ background: "#3a2a1a", opacity: 0.2 }} />
+        <div className="w-16 h-px mx-auto" style={{ background: "#3D4A47", opacity: 0.2 }} />
       </div>
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
@@ -1459,7 +1459,7 @@ function MoodPage(props: CategoryPageProps) {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Journal</h2>
+          <h2 className="text-2xl" style={{ fontFamily: "'Playfair Display', serif", color: "#3D4A47" }}>Journal</h2>
           <p className="text-xs opacity-50 mt-0.5" style={{ fontFamily: "'DM Sans', sans-serif" }}>How are you feeling?</p>
         </div>
         <button
@@ -1479,7 +1479,7 @@ function MoodPage(props: CategoryPageProps) {
             className={`w-14 h-14 rounded-full flex items-center justify-center transition-all shadow-md ${
               isListening
                 ? "bg-red-500 text-white animate-pulse shadow-red-200"
-                : "bg-[#5C6B4A] text-white hover:bg-[#4a5a3a]"
+                : "bg-[#1F4D3A] text-white hover:bg-[#4a5a3a]"
             }`}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -1490,7 +1490,7 @@ function MoodPage(props: CategoryPageProps) {
             </svg>
           </button>
           <div className="flex-1">
-            <p className="text-sm font-medium" style={{ color: "#3a2a1a" }}>
+            <p className="text-sm font-medium" style={{ color: "#3D4A47" }}>
               {isListening ? "Listening... speak now" : "Tap to speak your journal entry"}
             </p>
             <p className="text-[10px] opacity-40 mt-0.5">Voice entries are saved with the current time</p>
@@ -1511,7 +1511,7 @@ function MoodPage(props: CategoryPageProps) {
                 onClick={saveVoiceEntry}
                 disabled={!voiceNote.trim()}
                 className="flex-1 py-2 rounded-lg text-sm uppercase tracking-wider text-white transition disabled:opacity-30"
-                style={{ background: "#5C6B4A" }}
+                style={{ background: "#1F4D3A" }}
               >
                 Save Entry
               </button>
@@ -2086,7 +2086,7 @@ function MedsPage(props: CategoryPageProps) {
             className="w-full text-left flex items-center justify-between py-3 border-b"
             style={{ borderColor: "rgba(58, 42, 26, 0.15)" }}
           >
-            <h3 className="text-lg" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>{medCat.category}</h3>
+            <h3 className="text-lg" style={{ fontFamily: "'Playfair Display', serif", color: "#3D4A47" }}>{medCat.category}</h3>
             <span className="text-sm opacity-40 transition-transform" style={{ transform: expandedCat === medCat.category ? "rotate(180deg)" : "rotate(0)" }}>
               ▼
             </span>
@@ -2117,7 +2117,7 @@ function MedsPage(props: CategoryPageProps) {
                         background: selectedMed === med.id ? `${category.color}08` : "white",
                       }}
                     >
-                      <h4 className="text-base font-semibold" style={{ color: "#3a2a1a" }}>{med.name}</h4>
+                      <h4 className="text-base font-semibold" style={{ color: "#3D4A47" }}>{med.name}</h4>
                       <p className="text-sm opacity-60 mt-2 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{med.description}</p>
 
                       <div className="mt-3 flex items-center gap-2 flex-wrap">
@@ -2476,7 +2476,7 @@ const FAQ_SECTIONS = [
   {
     title: "Recovery",
     icon: "🌱",
-    color: "#5C6B4A",
+    color: "#1F4D3A",
     items: [
       { q: "Is relapse a sign that addiction treatment has failed?", a: "No. Relapse is a common part of the recovery process for chronic conditions like addiction. It indicates that treatment needs to be resumed, modified, or changed, not that it has failed." },
       { q: "What is the difference between a lapse and a relapse?", a: "A lapse is a brief, temporary return to substance use, while a relapse is a full return to previous levels of use and an abandonment of recovery goals." },
@@ -2542,7 +2542,7 @@ function MyStoryPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <h1
           className="text-3xl md:text-4xl leading-tight tracking-tight mb-6"
-          style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}
+          style={{ fontFamily: "'Playfair Display', serif", color: "#3D4A47" }}
         >
           My Story
         </h1>
@@ -2593,7 +2593,7 @@ function FAQPage() {
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">❓</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Frequently Asked Questions</h2>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: "#3D4A47" }}>Frequently Asked Questions</h2>
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Everything you need to know, organized by topic</p>
       </div>
 
@@ -2636,7 +2636,7 @@ function FAQPage() {
                           className="w-full text-left p-3 flex items-start gap-2"
                         >
                           <span className="text-xs mt-0.5 shrink-0" style={{ color: section.color }}>{openQ === key ? "▲" : "▼"}</span>
-                          <span className="text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>{item.q}</span>
+                          <span className="text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3D4A47" }}>{item.q}</span>
                         </button>
                         <AnimatePresence>
                           {openQ === key && (
@@ -2674,10 +2674,10 @@ function OurStoryPage() {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>How Sylvia Met Sofía</h2>
+        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3D4A47" }}>How Sylvia Met Sofía</h2>
       </div>
 
-      <div className="space-y-5 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>
+      <div className="space-y-5 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3D4A47" }}>
         <p className="opacity-80">
           Sofía was never supposed to be an app.
         </p>
@@ -2727,16 +2727,16 @@ function AboutSylviaPage() {
     <div className="space-y-8">
       <div className="text-center">
         <img src="/manus-storage/sylvia-tree-logo_20e3bdbf.png" alt="Sylvia" className="w-24 h-24 mx-auto object-contain" />
-        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>About Sylvia</h2>
+        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3D4A47" }}>About Sylvia</h2>
       </div>
 
-      <div className="space-y-5 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>
+      <div className="space-y-5 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3D4A47" }}>
         <p className="opacity-80">
           Sylvia is a trauma specialist, integrative wellness practitioner, and the creator of Sofía. Her approach blends evidence-based modalities with deep personal insight, helping clients heal from trauma and build lives of structure, awareness, and purpose.
         </p>
 
         <div className="space-y-3">
-          <h3 className="text-base font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: "#5C6B4A" }}>Credentials & Specializations</h3>
+          <h3 className="text-base font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: "#1F4D3A" }}>Credentials & Specializations</h3>
           <ul className="space-y-2 opacity-80 pl-4">
             <li>• Trauma Specialist</li>
             <li>• EMDR Certified Practitioner</li>
@@ -2760,7 +2760,7 @@ function AboutSylviaPage() {
           <a
             href="/sylvia"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-white transition hover:opacity-90"
-            style={{ background: "#5C6B4A", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+            style={{ background: "#1F4D3A", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
           >
             Book a free 15-minute consult
           </a>
@@ -2791,7 +2791,7 @@ function SylviaBlogPage() {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Sylvia's Blog</h2>
+        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3D4A47" }}>Sylvia's Blog</h2>
         <p className="text-sm mt-2 opacity-60" style={{ fontFamily: "'DM Sans', sans-serif" }}>Thoughts on trauma, recovery, and living well.</p>
       </div>
 
@@ -2807,7 +2807,7 @@ function SylviaBlogPage() {
               <div className="flex-1 min-w-0">
                 <h3
                   className="text-base font-medium leading-snug"
-                  style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}
+                  style={{ fontFamily: "'Playfair Display', serif", color: "#3D4A47" }}
                 >
                   {post.title}
                 </h3>
@@ -2822,7 +2822,7 @@ function SylviaBlogPage() {
                     <span
                       key={tag}
                       className="text-[10px] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full"
-                      style={{ background: "rgba(92, 107, 74, 0.15)", color: "#5C6B4A", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+                      style={{ background: "rgba(31, 77, 58, 0.15)", color: "#1F4D3A", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
                     >
                       {tag}
                     </span>
