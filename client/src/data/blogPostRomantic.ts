@@ -53,9 +53,9 @@ export const romanticBlogPost: BlogPostData = {
 <p>The grounds are designed for wandering without destination. The Perezoso trail leads through forest where sloths hang in Guarumo trees. Open-air yoga pavilions sit beneath the canopy where rainbow toucans pass overhead. The couples' spa draws on volcanic minerals, locally sourced organic coffee, and cacao for treatments that honor the geothermal earth beneath you.</p>
 <p>What makes Springs distinctly adults-only is not merely the policy. It is the pace. There is no schedule posted in the lobby. No morning announcements. No organized group activities competing for your attention. The resort trusts that couples know what they need, and provides the space, the beauty, and the silence for them to find it together.</p>`,
       image: {
-        src: `${CDN}/springs-villa-plunge-pool-straight_a5d505d1.webp`,
-        alt: "Private volcanic hot spring plunge pool at Nayara Springs villa surrounded by rainforest",
-        caption: "Every Springs villa has its own private volcanic hot spring pool",
+        src: "/manus-storage/springs-couple-walkway_29fc55e0.jpg",
+        alt: "Couple on a rainforest walkway at Nayara Springs, surrounded by lush tropical greenery",
+        caption: "Romance unfolds at its own pace on the rainforest pathways of Nayara Springs",
       },
     },
     {
@@ -130,12 +130,6 @@ export const romanticBlogPost: BlogPostData = {
       content: `<p>The Manavai Spa at Nayara Hangaroa is a replica of an ancient Manavai, the circular stone structures that Rapa Nui people built to protect crops from the relentless Pacific wind and retain precious water. Surrounded by white sand and beautiful corridors, the spa lives up to its name: a place where you feel the power, energy, and purity of the earth.</p>
 <p>Couples experiences are a signature offering. Treatment rooms are cave-like, enclosed and intimate, with volcanic stone walls that absorb sound and hold warmth. One guest described it simply: "It is totally worth traveling all the way here just to experience a massage in one of their spa's cave-like treatment rooms. Heaven on earth."</p>
 <p>The spa's treatments draw on Polynesian tradition and Pacific botanicals. This is not a franchise wellness concept imported from Bali or Switzerland. It is rooted in the island's own healing lineage, adapted for couples who have traveled to the most remote place on Earth and deserve restoration that matches the journey.</p>`,
-    },
-    {
-      heading: "Dining on the Edge: Polynesian Cuisine for Two",
-      content: `<p>Dining at Nayara Hangaroa is an unexpected culinary journey. Classic and modern techniques safeguard authentic local flavors. The kitchen sources Pacific seafood, island-grown produce, and ingredients that reflect the Polynesian heritage of Rapa Nui. Chilean wines pair with dishes that exist nowhere else on Earth.</p>
-<p>The traditional Umu Earth Oven ceremony transforms dinner into shared ritual. Food is wrapped in banana leaves and cooked underground using heated volcanic stones, a method unchanged for centuries. Couples participate together, learning the technique from Rapa Nui hosts, then sharing the meal as the sun sets over the Pacific. This is not a cooking class. It is an act of cultural communion that happens to produce extraordinary food.</p>
-<p>For couples, the remoteness of the island transforms every meal into an event. There is no restaurant row to compare. No delivery app to default to. You eat what the island provides, prepared by people whose families have lived here for generations. That constraint is liberating. It removes choice fatigue and replaces it with trust, and trust, between a couple and their hosts, is the foundation of every great meal.</p>`,
     },
     {
       heading: "Four Properties, One Conviction",
