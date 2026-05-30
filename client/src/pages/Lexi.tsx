@@ -558,7 +558,7 @@ export default function Lexi() {
               </div>
 
               {/* Category items — daily tracking only */}
-              {CATEGORIES.filter(c => !['faq', 'therapy', 'social', 'trauma', 'addiction', 'bipolar'].includes(c.id)).map((cat, idx) => (
+              {CATEGORIES.filter(c => !['faq', 'trauma', 'addiction', 'bipolar'].includes(c.id)).map((cat, idx) => (
                 <motion.button
                   key={cat.id}
                   initial={{ opacity: 0, x: -20 }}
@@ -1362,6 +1362,7 @@ function HomePage() {
             { icon: "◉", label: "Therapy", color: "#5C6B4A", desc: "Log your sessions, breakthroughs, and homework. Keep the thread between appointments so nothing gets lost." },
             { icon: "△", label: "Exercise", color: "#B8704A", desc: "Record what you did and how it made you feel. Movement is medicine — even a 15-minute walk counts." },
             { icon: "⊕", label: "Meds", color: "#8B6B7A", desc: "Track what you take, when you take it, and any side effects. Consistency matters, and so does noticing changes." },
+            { icon: "◇", label: "Social", color: "#6B8A9E", desc: "Log who you spent time with and how it made you feel. Connection and isolation are both patterns worth noticing." },
           ].map((item) => (
             <div key={item.label} className="flex items-start gap-4 p-4 rounded-lg" style={{ background: item.color + "10" }}>
               <span className="text-xl mt-0.5" style={{ color: item.color }}>{item.icon}</span>

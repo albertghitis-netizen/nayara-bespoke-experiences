@@ -122,10 +122,12 @@ function Navigation() {
 
   const CATEGORIES = [
     { id: "mood", label: "Journal", color: "#C9A96E" },
+    { id: "therapy", label: "Therapy", color: "#5C6B4A" },
     { id: "sleep", label: "Sleep", color: "#5A6B7A" },
     { id: "nutrition", label: "Nutrition", color: "#7A9E7E" },
     { id: "exercise", label: "Exercise", color: "#B8704A" },
     { id: "meds", label: "Meds", color: "#8B6B7A" },
+    { id: "social", label: "Social", color: "#6B8A9E" },
     { id: "triggers", label: "Triggers", color: "#A65D5D" },
   ];
 
