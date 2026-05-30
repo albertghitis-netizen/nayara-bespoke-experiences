@@ -27,7 +27,7 @@ function AskLexiWidget() {
       setLoading(false);
     },
     onError: (err) => {
-      console.error("Ask Lexi error:", err);
+      console.error("Ask Sofía error:", err);
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: "I'm having trouble connecting right now. Please try again in a moment." },
@@ -61,7 +61,7 @@ function AskLexiWidget() {
           className="fixed bottom-6 left-6 z-50 flex items-center gap-2 h-11 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
           style={{ background: "rgba(92, 107, 74, 0.9)", backdropFilter: "blur(8px)" }}
         >
-          <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Ask Lexi</span>
+          <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Ask Sofía</span>
         </button>
       )}
 
@@ -79,8 +79,8 @@ function AskLexiWidget() {
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3" style={{ background: "rgba(92, 107, 74, 0.9)" }}>
               <div className="flex items-center gap-2">
-                <img src={LOGO_URL} alt="Lexi" className="w-7 h-7 rounded-full object-contain" style={{ background: "white" }} />
-                <span className="text-white text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>Ask Lexi</span>
+                <img src={LOGO_URL} alt="Sofía" className="w-7 h-7 rounded-full object-contain" style={{ background: "white" }} />
+                <span className="text-white text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>Ask Sofía</span>
               </div>
               <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white text-lg transition">✕</button>
             </div>
@@ -89,7 +89,7 @@ function AskLexiWidget() {
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3" style={{ maxHeight: "50vh" }}>
               {messages.length === 0 && (
                 <p className="text-sm opacity-50 italic text-center pt-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  Hi, I'm Lexi. Ask me anything about managing your dual diagnosis journey.
+                  Hi, I'm Sofía. Ask me anything about managing your dual diagnosis journey.
                 </p>
               )}
               {messages.map((msg, i) => (
@@ -148,7 +148,7 @@ function AskLexiWidget() {
    CONSTANTS & TYPES
    ═══════════════════════════════════════════════════════════════ */
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/lexi-logo-final-PHebnBoX7bAEZYhGVRja4c.png";
+const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sofia-logo-v2-asukdCPjq95Z289Qy4MZ5d.png";
 
 const CATEGORIES = [
   { id: "mood", label: "Journal", color: "#C9A96E", icon: "◐" },
@@ -353,7 +353,7 @@ export default function Lexi() {
           firedRef.current.add(entry.id);
           playBeep();
           if (Notification.permission === "granted") {
-            new Notification(`Lexi Reminder`, {
+            new Notification(`Sofía Reminder`, {
               body: `${entry.note || CATEGORIES.find(c => c.id === entry.category)?.label} — now`,
               icon: LOGO_URL,
             });
@@ -405,7 +405,7 @@ export default function Lexi() {
         {/* Logo */}
         <img
           src={LOGO_URL}
-          alt="Lexi"
+          alt="Sofía"
           className="h-20 w-20 object-contain"
           onClick={() => { setActiveView("home"); setMenuOpen(false); }}
           style={{ cursor: "pointer" }}
@@ -461,7 +461,7 @@ export default function Lexi() {
         )}
       </AnimatePresence>
 
-      {/* Ask Lexi Floating Chat Widget */}
+      {/* Ask Sofía Floating Chat Widget */}
       <AskLexiWidget />
 
       {/* Main Content Area */}
@@ -1101,7 +1101,7 @@ function HomePage() {
           Episodes rarely arrive without warning. Depression often starts with sleep changes, social withdrawal, loss of interest, and difficulty concentrating days or weeks before the full episode hits. Mania often starts with decreased need for sleep, racing thoughts, increased talking, and taking on too many projects.
         </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          The purpose of tracking is to catch these signals early. A mood shift from 7 to 5 over three days is information. A night of 4 hours sleep followed by feeling "great" is a red flag. Lexi helps you see these patterns before they become full episodes.
+          The purpose of tracking is to catch these signals early. A mood shift from 7 to 5 over three days is information. A night of 4 hours sleep followed by feeling "great" is a red flag. Sofía helps you see these patterns before they become full episodes.
         </p>
       </section>
 
@@ -1110,7 +1110,7 @@ function HomePage() {
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           Research on Interpersonal and Social Rhythm Therapy (IPSRT) shows that stabilizing daily routines is one of the most effective interventions for bipolar disorder. Consistent sleep and wake times, regular meals, structured social activity, and predictable daily rhythms protect against episode cycling.
         </p>
-        <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Lexi helps you track the pillars of stability:</p>
+        <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Sofía helps you track the pillars of stability:</p>
       </section>
 
       <div className="grid grid-cols-2 gap-3">
@@ -1141,7 +1141,7 @@ function HomePage() {
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
         <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Catch It Before It Catches You</h2>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          The goal is not perfection. It is awareness. By logging your mood, sleep, meds, exercise, nutrition, social activity, therapy, and triggers, you start to see patterns. You notice when sleep is slipping. When you are isolating. When cravings spike after certain situations. These are the early warning signs. Lexi helps you see them before they become episodes or relapses.
+          The goal is not perfection. It is awareness. By logging your mood, sleep, meds, exercise, nutrition, social activity, therapy, and triggers, you start to see patterns. You notice when sleep is slipping. When you are isolating. When cravings spike after certain situations. These are the early warning signs. Sofía helps you see them before they become episodes or relapses.
         </p>
       </section>
     </div>

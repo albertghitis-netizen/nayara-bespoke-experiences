@@ -109,7 +109,7 @@ function Navigation() {
     { label: "Trauma", href: "/sylvia/trauma", isRoute: true },
     { label: "Addiction", href: "/sylvia/addiction", isRoute: true },
     { label: "Mood Disorders", href: "/sylvia/mood-disorders", isRoute: true },
-    { label: "Lexi", href: "/lexi", isRoute: true },
+    { label: "Sofía", href: "/lexi", isRoute: true },
   ];
 
   const handleNavClick = (href: string, isRoute?: boolean) => {
@@ -596,7 +596,7 @@ function AskLexiWidget() {
       setLoading(false);
     },
     onError: (err) => {
-      console.error("Ask Lexi error:", err);
+      console.error("Ask Sofía error:", err);
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: "I'm having trouble connecting right now. Please try again in a moment." },
@@ -630,7 +630,7 @@ function AskLexiWidget() {
           className="fixed bottom-6 left-6 z-50 flex items-center gap-2 h-11 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
           style={{ background: "rgba(82, 86, 66, 0.9)", backdropFilter: "blur(8px)" }}
         >
-          <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Ask Lexi</span>
+          <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Ask Sofía</span>
         </button>
       )}
 
@@ -649,7 +649,7 @@ function AskLexiWidget() {
             <div className="flex items-center justify-between px-4 py-3" style={{ background: COLORS.olive }}>
               <div className="flex items-center gap-2">
                 <img src={LOGO_URL} alt="Sylvia" className="w-7 h-7 rounded-full object-contain" style={{ background: "white" }} />
-                <span className="text-white text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>Ask Lexi</span>
+                <span className="text-white text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>Ask Sofía</span>
               </div>
               <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white text-lg transition">✕</button>
             </div>
@@ -658,7 +658,7 @@ function AskLexiWidget() {
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3" style={{ maxHeight: "50vh" }}>
               {messages.length === 0 && (
                 <p className="text-sm opacity-50 italic text-center pt-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  Hi, I'm Lexi. Ask me anything about therapy, mental health, or Sylvia's services.
+                  Hi, I'm Sofía. Ask me anything about therapy, mental health, or Sylvia's services.
                 </p>
               )}
               {messages.map((msg, i) => (
