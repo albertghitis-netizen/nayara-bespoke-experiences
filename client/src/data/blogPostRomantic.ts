@@ -93,8 +93,8 @@ export const romanticBlogPost: BlogPostData = {
     {
       heading: "Nayara Alto Atacama: Romance Through Subtraction",
       content: `<p><a href="/alto-atacama">Nayara Alto Atacama</a> approaches romance from an entirely different direction. Where Springs and Bocas create intimacy through curation and exclusivity, the Atacama Desert creates it through subtraction. One of the driest and oldest landscapes on Earth, the desert strips perception down to essentials. And at Nayara Alto Atacama, the desert is not softened, staged, or over-explained. It is allowed to work exactly as intended.</p>
-<p>Environmental psychology consistently shows that environments with low sensory clutter heighten emotional attunement. When visual noise, mechanical sound, and constant stimulus fall away, attention reallocates inward and toward nearby social cues. Research published in the Journal of Environmental Psychology links low-stimulus landscapes to reduced cognitive fatigue and increased reflective capacity. Studies on awe, documented extensively by the Greater Good Science Center at UC Berkeley, demonstrate that exposure to vast environments reduces self-focus and increases relational awareness. When people feel small in a shared way, bonds strengthen.</p>
-<p>The Atacama combines both forces at once. It minimizes stimulus while exaggerating scale. Time stretches. Silence gains texture. Proximity gains meaning. Romance, in this context, is not something added. It is something revealed.</p>`,
+<p>Environmental psychology consistently shows that environments with low sensory clutter heighten emotional attunement. Research published in the Journal of Environmental Psychology links low-stimulus landscapes to reduced cognitive fatigue and increased reflective capacity. Studies on awe from UC Berkeley's Greater Good Science Center demonstrate that exposure to vast environments reduces self-focus and increases relational awareness. When people feel small in a shared way, bonds strengthen. The Atacama combines both forces at once. It minimizes stimulus while exaggerating scale. Time stretches. Silence gains texture. Proximity gains meaning.</p>
+<p>Across civilizations, deserts appear as landscapes where intimacy deepens through absence, not abundance. In The Little Prince, the desert is where love becomes legible precisely because nothing distracts from it. In The English Patient, intimacy unfolds against geological time, making every gesture feel temporary and therefore urgent. Nayara Alto Atacama sits within the Catarpe Valley, a functioning desert oasis where rock walls absorb sound, distance filters movement, and light remains contained. Couples feel alone without being isolated, protected without being confined.</p>`,
       image: {
         src: "/manus-storage/atacama-couple-salt-flats_279f86f3.jpg",
         alt: "Couple at the Atacama salt flats with snow-capped mountains and turquoise lagoon",
@@ -102,28 +102,10 @@ export const romanticBlogPost: BlogPostData = {
       },
     },
     {
-      heading: "The Desert as a Truth Chamber",
-      content: `<p>Across civilizations, deserts appear again and again as landscapes where intimacy deepens not through abundance, but through subtraction. In One Thousand and One Nights, love unfolds night after night beneath a sky so vast it becomes a clock, a shelter, and a witness. In The Little Prince, the desert is where love becomes legible precisely because nothing distracts from it. These stories are not anomalies. They reflect a deeper truth about how humans respond to scale, silence, and time.</p>
-<p>Unlike cities or tropical settings, deserts remove social cover. There is no crowd to hide in, no abundance to soften emotion, no rhythm except daylight and night. That exposure is why love stories set in deserts feel sharper and more consequential. In The English Patient, intimacy unfolds against geological time, making every gesture feel temporary and therefore urgent. The same logic appears across modern storytelling. In Breaking Bad, pivotal relationship moments occur in the open desert because deception cannot survive there. The environment itself demands honesty.</p>
-<p>Nayara Alto Atacama sits within the Catarpe Valley, a functioning desert oasis shaped by water flow, vegetation, and natural wind protection. Rock walls absorb sound. Distance filters movement. Light remains contained. Couples feel alone without being isolated, protected without being confined. Anthropological research describes oases as transitional spaces, places where travelers paused long enough for bonds to deepen before continuing on. The Catarpe Valley follows the same logic.</p>`,
-    },
-    {
       heading: "Brown by Day, Black by Night",
-      content: `<p>By day, the Atacama reduces perception to essentials. Brown and rust-red stone. Dry air. Clean horizon lines unbroken by haze, foliage, or movement. Cognitive research associates coherent, low-stimulus environments with reduced attentional demand and increased comfort with silence. Couples often describe the effect as relief. Conversation becomes easier. Pauses feel natural. Time loosens. Winter sharpens this clarity further. Cooler temperatures remove urgency. Movement becomes unforced. Days unfold without compression or retreat.</p>
-<p>When the sun drops behind the ridge, the Atacama trades brown for black. Artificial light at Nayara Alto Atacama remains intentionally minimal. Pathways glow softly for safety. Rooms rely on warm, directional lighting rather than broad illumination. As eyes adapt, the sky becomes the primary presence. Northern Chile's skies are among the clearest on Earth due to altitude, aridity, and atmospheric stability, conditions documented by the European Southern Observatory. Globally, more than 80 percent of humanity now lives under light-polluted skies, according to DarkSky International. In the Atacama, the Milky Way remains intact, structured, and slow-moving.</p>
-<p>Darkness changes behavior. Without visual distraction, attention narrows. Presence intensifies. Under a sky this large, couples orient less toward spectacle and more toward each other.</p>`,
-    },
-    {
-      heading: "The Game of Tones: How Sound Shapes Intimacy",
-      content: `<p>Romantic travel is usually framed through sight. Views. Light. Color. Sound is rarely considered, yet it shapes intimacy just as powerfully. Most environments are layered with overlapping frequencies: music, voices, traffic, mechanical hum. Even places marketed as quiet require constant auditory filtering.</p>
-<p>The Atacama collapses the soundscape. Acoustic ecologists describe environments like this as low-density sound fields. With fewer competing frequencies, the nervous system stops filtering and starts registering. Subtle sounds gain meaning. Silence gains texture. In the Catarpe Valley, this effect intensifies. Valley walls absorb sound. Distance from roads removes low-frequency noise. Minimal artificial lighting reduces mechanical systems at night.</p>
-<p>Voices drop. Movements synchronize. Pauses lengthen without discomfort. Intimacy becomes resonance rather than expression. This is the Game of Tones. Not something you play, but something the desert plays for you.</p>`,
-    },
-    {
-      heading: "Why Honeymoons Thrive on Absence",
-      content: `<p>Honeymoons often arrive over-structured. Schedules, expectations, documentation. Romance becomes something to execute rather than inhabit. The Atacama dismantles that structure by removing cues. There is no soundtrack. No highlight moment. No urgency. Winter intensifies this effect. Cold air draws people closer. Silence deepens. Time slows.</p>
-<p>For newly married couples, this absence is generative. Connection becomes unforced because nothing competes with it. What defines Nayara Alto Atacama as the best resort for couples is alignment with the desert's deepest logic. Brown days simplify attention. Black nights restore scale. The oasis sustains presence. Winter returns time. Sound narrows awareness. Shared vulnerability deepens trust.</p>
-<p>Romance here is not promised. It is permitted.</p>`,
+      content: `<p>By day, the Atacama reduces perception to essentials. Brown and rust-red stone. Dry air. Clean horizon lines unbroken by haze, foliage, or movement. Couples often describe the effect as relief. Conversation becomes easier. Pauses feel natural. Time loosens. The Atacama also collapses the soundscape. Acoustic ecologists describe environments like this as low-density sound fields. With fewer competing frequencies, the nervous system stops filtering and starts registering. Voices drop. Movements synchronize. Pauses lengthen without discomfort.</p>
+<p>When the sun drops behind the ridge, the Atacama trades brown for black. Northern Chile's skies are among the clearest on Earth due to altitude, aridity, and atmospheric stability, conditions documented by the European Southern Observatory. Globally, more than 80 percent of humanity now lives under light-polluted skies, according to DarkSky International. In the Atacama, the Milky Way remains intact, structured, and slow-moving. Without visual distraction, attention narrows. Presence intensifies. Under a sky this large, couples orient less toward spectacle and more toward each other.</p>
+<p>For honeymoons, this absence is generative. Connection becomes unforced because nothing competes with it. There is no soundtrack. No highlight moment. No urgency. Romance here is not promised. It is permitted.</p>`,
     },
     {
       heading: "Nayara Hangaroa: Romance at the Edge of the World",
@@ -210,44 +192,7 @@ export const romanticBlogPost: BlogPostData = {
     { name: "Nayara Alto Atacama", route: "/alto-atacama" },
     { name: "Nayara Hangaroa", route: "/hangaroa" },
   ],
-  faq: [
-    {
-      question: "What does adults-only mean at Nayara Springs and Nayara Bocas del Toro?",
-      answer: "Adults-only means that both properties exclusively welcome guests aged 18 and older. Beyond the age policy, it is a design philosophy: architecture scaled for intimacy, programming curated for connection, and an atmosphere where every detail serves the couple. There are no children's facilities, no family programming, and no compromises to the tranquil environment.",
-    },
-    {
-      question: "Is there scientific evidence that couples travel improves relationships?",
-      answer: "Yes. A 2024 study by Coffey et al. published in the Journal of Positive Psychology found that couples who share novel, self-expanding experiences on vacation report significantly higher relationship satisfaction, romantic passion, and physical intimacy. The U.S. Travel Association found that 61% of couples say a trip reignited their romance.",
-    },
-    {
-      question: "What is included in the all-inclusive package at Nayara Bocas del Toro?",
-      answer: "The all-inclusive package at Nayara Bocas del Toro covers all meals at the Elephant House restaurant and Coral Cafe, premium beverages, daily mini-fridge replenishment, in-room dining available 24 hours, non-motorized water activities, and select guided excursions. Spa treatments and private boat charters are available at additional cost.",
-    },
-    {
-      question: "Do both properties have private pools in every villa?",
-      answer: "Yes. At Nayara Springs, every villa has its own private plunge pool fed by natural volcanic hot spring water. At Nayara Bocas del Toro, the Overwater Pool Villa and Overwater Pool Villa Deluxe categories each have a private saltwater plunge pool on the deck.",
-    },
-    {
-      question: "Which property is better for a honeymoon?",
-      answer: "All four are exceptional honeymoon destinations. Nayara Springs suits couples who love rainforest immersion, volcanic hot springs, and adventure. Nayara Bocas del Toro suits couples who prefer Caribbean overwater living, marine life, and the simplicity of an all-inclusive island escape. Nayara Alto Atacama suits couples drawn to silence, stargazing, and the transformative power of the desert. Nayara Hangaroa suits couples seeking shared wonder, ancestral energy, and the romance of the most remote inhabited island on Earth.",
-    },
-    {
-      question: "Is Nayara Alto Atacama adults-only?",
-      answer: "Nayara Alto Atacama is not an adults-only property, but the Atacama Desert itself creates conditions that are inherently romantic. The extreme low-stimulus environment, vast scale, minimal light pollution, and collapsed soundscape naturally heighten emotional attunement and deepen connection between couples. The resort's design within the Catarpe Valley oasis amplifies these effects.",
-    },
-    {
-      question: "Why is the Atacama Desert considered romantic?",
-      answer: "Environmental psychology shows that low-stimulus landscapes reduce cognitive fatigue and heighten emotional attunement. The Atacama combines minimal sensory clutter with exaggerated scale, creating conditions where attention reallocates inward and toward close relationships. Studies on awe from UC Berkeley's Greater Good Science Center confirm that shared exposure to vast environments strengthens bonds.",
-    },
-    {
-      question: "Is Nayara Hangaroa adults-only?",
-      answer: "No. Nayara Hangaroa welcomes guests of all ages. Romance at Hangaroa is created by the island itself: the extreme remoteness of Rapa Nui, the awe-inspiring Moai, the volcanic landscapes, and the Polynesian cultural heritage. The isolation of the most remote inhabited island on Earth naturally creates the intimacy and shared wonder that couples seek.",
-    },
-    {
-      question: "What makes Easter Island romantic for couples?",
-      answer: "Research on awe from UC Berkeley shows that shared exposure to vast, sublime environments reduces self-focus and deepens emotional connection. Standing before the Moai at Ahu Tongariki, watching sunrise over volcanic craters, and participating in traditional Umu Earth Oven ceremonies together creates the kind of peak shared experiences that relationship science identifies as the engine of lasting romance.",
-    },
-  ],
+  faq: [],
   seo: {
     metaTitle: "The Science of Romance at Nayara | Adults-Only Springs & Bocas + Desert & Island Romance at Alto Atacama & Hangaroa | Nayara Journal",
     metaDescription: "Research shows novel shared experiences deepen love. Discover what adults-only means at Nayara Springs and Bocas del Toro, and how the Atacama Desert and Easter Island create romance through subtraction and shared wonder.",
