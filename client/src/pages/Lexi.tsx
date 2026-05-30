@@ -406,7 +406,7 @@ export default function Lexi() {
         <img
           src={LOGO_URL}
           alt="Sofía"
-          className="h-20 w-20 object-contain"
+          className="h-32 w-32 object-contain"
           onClick={() => { setActiveView("home"); setMenuOpen(false); }}
           style={{ cursor: "pointer" }}
         />
