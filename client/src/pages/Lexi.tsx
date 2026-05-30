@@ -1690,191 +1690,45 @@ function SleepPage(props: CategoryPageProps) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NUTRITION PAGE — FAQ Format
+   NUTRITION PAGE — General Educational Format
    ═══════════════════════════════════════════════════════════════ */
 
 function NutritionPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "nutrition")!;
-  const [openDessert, setOpenDessert] = useState<string | null>(null);
-
   return (
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Nutrition</h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Under 20g net carbs · Equal protein & fat</p>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Fuel your brain, stabilize your mood</p>
       </div>
 
-      {/* THE APPROACH */}
-      <InfoSection title="The Approach">
-        <p>This is a modified ketogenic protocol: under 20 grams of net carbs per day with roughly equal amounts of protein and fat. Unlike traditional keto, the goal is not to load up on fat. Protein is prioritized equally. No breakfast. Two meals and a snack window. Simple, repeatable, and designed for people who need stable blood sugar and stable mood without the complexity of calorie counting.</p>
+      <InfoSection title="Why Nutrition Matters for Mental Health">
+        <p>The brain consumes roughly 20 percent of your daily calories despite being only 2 percent of your body weight. Every neurotransmitter your brain produces — serotonin, dopamine, GABA, norepinephrine — is built from nutrients you eat. Deficiencies in omega-3 fatty acids, B vitamins, magnesium, zinc, and iron are all linked to increased depression, anxiety, and cognitive impairment. What you eat directly affects how you think and feel.</p>
       </InfoSection>
 
-      {/* LUNCH */}
-      <InfoSection title="Lunch — Salads with Protein">
-        <p>The base is always a large salad: romaine, spinach, or mixed greens. Top with a generous portion of protein. Dressing should be full-fat and low-sugar (ranch, blue cheese, olive oil and vinegar, Caesar).</p>
-        <div className="mt-3 space-y-2">
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Tuna salad</strong> — canned tuna mixed with mayo, celery, on a bed of greens</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Grilled chicken</strong> — sliced chicken breast or thigh over salad with avocado</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Salmon</strong> — baked or canned salmon with cucumber, tomato, and olive oil</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Steak salad</strong> — sliced steak over arugula with parmesan and lemon</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Shrimp</strong> — grilled shrimp with spinach, feta, and a squeeze of lemon</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Egg salad</strong> — hard-boiled eggs with mayo, mustard, over greens</span></div>
-        </div>
+      <InfoSection title="Blood Sugar and Mood Stability">
+        <p>Blood sugar spikes and crashes create a biochemical rollercoaster that mimics and worsens mood instability. Refined carbohydrates and sugar cause rapid glucose spikes followed by crashes that trigger irritability, brain fog, anxiety, and cravings. Stable blood sugar — achieved through balanced meals with protein, healthy fats, and complex carbohydrates — creates a more even emotional baseline throughout the day. This is especially critical for people managing bipolar disorder or addiction recovery.</p>
       </InfoSection>
 
-      {/* SNACKS */}
-      <InfoSection title="Snacks — Between Lunch & Dinner">
-        <p>Keep it simple. These are grab-and-go options that keep you in ketosis without spiking blood sugar.</p>
-        <div className="mt-3 space-y-2">
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Nuts</strong> — almonds, macadamias, pecans, walnuts (avoid cashews, higher carb)</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Cheese</strong> — string cheese, cheddar cubes, brie, or cream cheese on celery</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Carrot sticks</strong> — small portion (carrots have some carbs, keep to a handful)</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Celery with ranch</strong> — full-fat ranch dressing as a dip</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Pork rinds</strong> — zero carb, crunchy, satisfies the chip craving</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Olives</strong> — healthy fat, virtually zero carb</span></div>
-        </div>
+      <InfoSection title="The Gut-Brain Connection">
+        <p>Approximately 95 percent of serotonin is produced in the gut, not the brain. The gut microbiome communicates directly with the brain through the vagus nerve, immune signaling, and neurotransmitter production. Chronic inflammation in the gut — caused by processed foods, alcohol, and stress — is linked to depression and anxiety. Fermented foods, fiber, and diverse plant intake support a healthy microbiome. Reducing processed food and alcohol reduces gut inflammation and improves mood regulation.</p>
       </InfoSection>
 
-      {/* DINNER */}
-      <InfoSection title="Dinner — Protein & Vegetables">
-        <p>Dinner is straightforward: a solid portion of protein with a side of low-carb vegetables. Cook with butter, olive oil, or avocado oil. Season generously.</p>
-        <div className="mt-3 space-y-2">
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Proteins:</strong> chicken thighs, steak, pork chops, salmon, ground beef, shrimp, lamb</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Vegetables:</strong> broccoli, cauliflower, zucchini, green beans, asparagus, Brussels sprouts, spinach</span></div>
-          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Avoid:</strong> potatoes, rice, pasta, bread, corn, peas</span></div>
-        </div>
+      <InfoSection title="Nutrition in Recovery">
+        <p>Substance use depletes the body of essential nutrients. Alcohol depletes B vitamins, magnesium, and zinc. Stimulants burn through protein and electrolytes. Opioids disrupt appetite and digestion. Early recovery is a time when the body is rebuilding, and adequate nutrition accelerates healing. Protein supports neurotransmitter production. Healthy fats rebuild cell membranes. Hydration supports every system in the body. Eating regular, balanced meals is one of the simplest and most effective things you can do in recovery.</p>
       </InfoSection>
 
-      {/* DESSERT */}
-      <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h3 className="text-base font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Dessert — Sugar-Free Options</h3>
-        <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>Having something sweet after dinner helps with adherence. These are all sugar-free and widely available. Stick to one or two pieces.</p>
-
-        {/* Russell Stover */}
-        <button
-          onClick={() => setOpenDessert(openDessert === "russell" ? null : "russell")}
-          className="w-full flex items-center justify-between py-3 border-b border-stone-300"
-        >
-          <span className="text-sm font-semibold" style={{ fontFamily: "'DM Sans', sans-serif" }}>Russell Stover Sugar Free</span>
-          <span className="text-xs opacity-40">{openDessert === "russell" ? "▲" : "▼"}</span>
-        </button>
-        {openDessert === "russell" && (
-          <div className="py-3 space-y-1.5 text-sm opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            <p className="text-xs opacity-60 mb-2">Made with Stevia extract. America's #1 sugar-free chocolate brand.</p>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Peanut Butter Cups</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Pecan Delights</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Dark Chocolate Mint Patties</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Caramel in Chocolate</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Coconut in Chocolate</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Toffee Squares in Chocolate</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Dark Chocolate Medallions</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Strawberry Flavored Crème</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Peanut, Caramel & Nougat</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Dark Chocolate Pecan Delights</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Caramel Chocolate Tiles</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Fruit Chews</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Salt Water Taffy</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Assorted Fruit Hard Candy</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Cinnamon Hard Candy</span></div>
-          </div>
-        )}
-
-        {/* Hershey's */}
-        <button
-          onClick={() => setOpenDessert(openDessert === "hershey" ? null : "hershey")}
-          className="w-full flex items-center justify-between py-3 border-b border-stone-300"
-        >
-          <span className="text-sm font-semibold" style={{ fontFamily: "'DM Sans', sans-serif" }}>Hershey's Zero Sugar</span>
-          <span className="text-xs opacity-40">{openDessert === "hershey" ? "▲" : "▼"}</span>
-        </button>
-        {openDessert === "hershey" && (
-          <div className="py-3 space-y-1.5 text-sm opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            <p className="text-xs opacity-60 mb-2">Sweetened with sugar alcohols. About 20% fewer calories than classic versions.</p>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Reese's Zero Sugar Peanut Butter Cups</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>York Zero Sugar Peppermint Patties</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Hershey's Zero Sugar Chocolate Bars</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Hershey's Special Dark Zero Sugar</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Hershey's Zero Sugar Caramel Filled</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Jolly Rancher Zero Sugar Hard Candy</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Jolly Rancher Zero Sugar Gummies</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Twizzlers Zero Sugar Strawberry Twists</span></div>
-            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Ice Breakers Sugar-Free Mints</span></div>
-          </div>
-        )}
-      </section>
-
-      {/* IMPORTANT NOTES */}
-      <InfoSection title="Important Notes">
-        <p><strong>No breakfast.</strong> Intermittent fasting (skipping breakfast) helps maintain ketosis and improves insulin sensitivity. Drink water, black coffee, or tea in the morning.</p>
-        <p><strong>Hydration.</strong> Drink at least 8 glasses of water per day. Low-carb diets are diuretic. Add electrolytes (sodium, potassium, magnesium) especially in the first two weeks.</p>
-        <p><strong>Sugar alcohols.</strong> The sugar-free desserts use sugar alcohols or stevia. Some people experience digestive discomfort if they eat too many. Start with one piece and see how you feel.</p>
-        <p><strong>Medication interactions.</strong> If you take lithium, changes in sodium and hydration can affect your levels. Talk to your prescriber before making major dietary changes.</p>
+      <InfoSection title="What to Track">
+        <p>Log your meals, hydration, and how you feel after eating. Over time, patterns emerge — certain foods may worsen anxiety, disrupt sleep, or trigger cravings. Tracking helps you identify what works for your body and brain. You do not need to count calories. Focus on consistency, variety, and how food makes you feel two hours after eating.</p>
       </InfoSection>
 
       <LoggingSection categoryId="nutrition" categoryColor={category.color} logLabel="Log Meal" {...props} />
-
-      {/* ─── EXERCISE SECTION ─── */}
-      <div className="mt-10 pt-8" style={{ borderTop: '1px solid rgba(58, 42, 26, 0.1)' }}>
-        <div className="text-center mb-6">
-          <span className="text-3xl">△</span>
-          <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: '#B8704A' }}>Exercise</h2>
-          <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Move your body, heal your brain</p>
-        </div>
-
-        <div className="space-y-6">
-          <InfoSection title="HOTWORX">
-            <p>Infrared sauna workouts that combine heat therapy with exercise. The infrared heat penetrates deep into muscle tissue, increasing circulation and accelerating recovery. Sessions typically run 30 to 40 minutes and include isometric exercises, hot yoga, Pilates, and HIIT variations performed inside the sauna. The heat amplifies calorie burn and promotes detoxification through sweat. The controlled environment also has a calming effect on the nervous system, which can help with anxiety and mood regulation. Start with 2 to 3 sessions per week and hydrate aggressively before and after.</p>
-          </InfoSection>
-
-          <InfoSection title="Pilates">
-            <p>Pilates builds core strength, flexibility, and body awareness through controlled, low-impact movements. It strengthens the deep stabilizing muscles of the trunk, improves posture, and reduces chronic pain. The mind-body connection required in Pilates acts as a form of moving meditation — you have to focus on breath and alignment, which pulls attention away from rumination and anxiety. Reformer Pilates adds resistance for a more challenging workout. Mat Pilates is accessible anywhere. Aim for 2 to 3 sessions per week.</p>
-          </InfoSection>
-
-          <InfoSection title="Walking">
-            <p>The most underrated form of exercise. Walking requires no equipment, no gym membership, and no recovery time. A 30-minute walk elevates serotonin and BDNF (brain-derived neurotrophic factor), which supports neuroplasticity and mood regulation. Walking outdoors adds the benefit of sunlight exposure, which regulates circadian rhythm and vitamin D production. It is also a reliable tool for managing cravings — when an urge hits, a 15-minute walk can reduce its intensity significantly. Build a daily walking habit. Morning walks are especially effective for setting your internal clock.</p>
-          </InfoSection>
-
-          <InfoSection title="5K Training">
-            <p>Training for a 5K gives exercise a concrete goal and a timeline, which adds structure and accountability. A standard Couch to 5K program takes 8 to 9 weeks and alternates walking and running intervals that gradually increase in duration. The progression is designed so that anyone can complete it regardless of current fitness level. The sense of accomplishment from finishing a 5K is a powerful mood booster and builds self-efficacy. Sign up for an actual race to add external accountability. Run with a friend or group if possible.</p>
-            <div className="mt-3 space-y-1">
-              <p className="font-semibold text-xs">Sample Week 1:</p>
-              <p>Alternate 60 seconds jogging / 90 seconds walking for 20 minutes, 3 days</p>
-              <p className="font-semibold text-xs mt-2">Sample Week 5:</p>
-              <p>Jog 5 minutes, walk 3 minutes, jog 5 minutes, walk 3 minutes, jog 5 minutes</p>
-              <p className="font-semibold text-xs mt-2">Race Day:</p>
-              <p>Run 3.1 miles continuously at a comfortable pace</p>
-            </div>
-          </InfoSection>
-
-          <InfoSection title="Weight Lifting">
-            <p>Resistance training is essential for bone density, which decreases with age and sedentary periods. Weight-bearing exercise stimulates osteoblasts — the cells that build new bone — and is one of the most effective ways to prevent osteoporosis. Beyond bone health, lifting weights increases lean muscle mass, improves insulin sensitivity, boosts resting metabolism, and has a direct antidepressant effect through increased BDNF and endorphin release.</p>
-            <div className="mt-3 space-y-1">
-              <p className="font-semibold text-xs">Getting Started:</p>
-              <p>Start with bodyweight exercises (squats, lunges, push-ups) or light dumbbells. Focus on compound movements that work multiple muscle groups. Aim for 2 to 3 sessions per week with at least one rest day between sessions. Progressive overload — gradually increasing weight or reps — is the key to continued benefit.</p>
-              <p className="font-semibold text-xs mt-2">Key Compound Movements:</p>
-              <ul className="list-disc pl-5 space-y-1">
-                <li>Squats — legs, glutes, core</li>
-                <li>Deadlifts — posterior chain, grip strength</li>
-                <li>Bench press — chest, shoulders, triceps</li>
-                <li>Rows — back, biceps, posture</li>
-                <li>Overhead press — shoulders, core stability</li>
-              </ul>
-            </div>
-          </InfoSection>
-
-          <InfoSection title="When Exercise Becomes a Problem">
-            <p>Over-exercise can become a substitute addiction. Warning signs include working out twice a day, inability to take rest days, exercising through injury, and feeling anxious or guilty when you miss a session. Moderation and consistency are the goals. Listen to your body. Rest is part of the program.</p>
-          </InfoSection>
-        </div>
-      </div>
-
-      <LoggingSection categoryId="nutrition" categoryColor={category.color} logLabel="Log Exercise" {...props} />
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXERCISE PAGE
+   EXERCISE PAGE — General Educational Format
    ═══════════════════════════════════════════════════════════════ */
 function ExercisePage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "exercise")!;
@@ -1886,48 +1740,24 @@ function ExercisePage(props: CategoryPageProps) {
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Move your body, heal your brain</p>
       </div>
 
-      <InfoSection title="HOTWORX">
-        <p>Infrared sauna workouts that combine heat therapy with exercise. The infrared heat penetrates deep into muscle tissue, increasing circulation and accelerating recovery. Sessions typically run 30 to 40 minutes and include isometric exercises, hot yoga, Pilates, and HIIT variations performed inside the sauna. The heat amplifies calorie burn and promotes detoxification through sweat. The controlled environment also has a calming effect on the nervous system, which can help with anxiety and mood regulation. Start with 2 to 3 sessions per week and hydrate aggressively before and after.</p>
+      <InfoSection title="Why Exercise is Medicine">
+        <p>Exercise is one of the most powerful interventions available for mental health. A single bout of moderate exercise increases serotonin, dopamine, norepinephrine, and BDNF (brain-derived neurotrophic factor) — the same neurotransmitters targeted by antidepressants and mood stabilizers. Regular exercise reduces inflammation, improves sleep quality, lowers cortisol, and builds new neural connections. For people managing both mood disorders and addiction, exercise provides a natural dopamine source that does not come with a crash or a hangover.</p>
       </InfoSection>
 
-      <InfoSection title="Pilates">
-        <p>Pilates builds core strength, flexibility, and body awareness through controlled, low-impact movements. It strengthens the deep stabilizing muscles of the trunk, improves posture, and reduces chronic pain. The mind-body connection required in Pilates acts as a form of moving meditation — you have to focus on breath and alignment, which pulls attention away from rumination and anxiety. Reformer Pilates adds resistance for a more challenging workout. Mat Pilates is accessible anywhere. Aim for 2 to 3 sessions per week.</p>
+      <InfoSection title="Exercise and Addiction Recovery">
+        <p>Cravings are driven by dopamine deficiency. In early recovery, the brain's reward system is depleted and searching for stimulation. Exercise fills that gap naturally. Research shows that regular physical activity reduces cravings, decreases relapse rates, and improves treatment outcomes across all substance categories. It also provides structure to the day, a healthy coping mechanism for stress, and a sense of accomplishment that rebuilds self-worth. Even 20 minutes of moderate activity can reduce craving intensity by 50 percent.</p>
       </InfoSection>
 
-      <InfoSection title="Walking">
-        <p>The most underrated form of exercise. Walking requires no equipment, no gym membership, and no recovery time. A 30-minute walk elevates serotonin and BDNF (brain-derived neurotrophic factor), which supports neuroplasticity and mood regulation. Walking outdoors adds the benefit of sunlight exposure, which regulates circadian rhythm and vitamin D production. It is also a reliable tool for managing cravings — when an urge hits, a 15-minute walk can reduce its intensity significantly. Build a daily walking habit. Morning walks are especially effective for setting your internal clock.</p>
+      <InfoSection title="Exercise and Mood Regulation">
+        <p>For bipolar disorder, exercise helps stabilize circadian rhythm, which is one of the core biological disruptions in the illness. Morning exercise anchors the body clock and improves sleep onset at night. During depressive episodes, even gentle movement breaks the inertia and shifts neurochemistry. During hypomanic periods, exercise can channel excess energy productively. The key is consistency rather than intensity — a daily 30-minute walk provides more mood stability than occasional intense workouts followed by days of inactivity.</p>
       </InfoSection>
 
-      <InfoSection title="5K Training">
-        <p>Training for a 5K gives exercise a concrete goal and a timeline, which adds structure and accountability. A standard Couch to 5K program takes 8 to 9 weeks and alternates walking and running intervals that gradually increase in duration. The progression is designed so that anyone can complete it regardless of current fitness level. The sense of accomplishment from finishing a 5K is a powerful mood booster and builds self-efficacy. Sign up for an actual race to add external accountability. Run with a friend or group if possible.</p>
-        <div className="mt-3 space-y-1">
-          <p className="font-semibold text-xs">Sample Week 1:</p>
-          <p>Alternate 60 seconds jogging / 90 seconds walking for 20 minutes, 3 days</p>
-          <p className="font-semibold text-xs mt-2">Sample Week 5:</p>
-          <p>Jog 5 minutes, walk 3 minutes, jog 5 minutes, walk 3 minutes, jog 5 minutes</p>
-          <p className="font-semibold text-xs mt-2">Race Day:</p>
-          <p>Run 3.1 miles continuously at a comfortable pace</p>
-        </div>
+      <InfoSection title="Finding What Works">
+        <p>The best exercise is the one you will actually do. Walking, swimming, cycling, yoga, Pilates, weight training, dancing — all provide mental health benefits. Start where you are. If you have been sedentary, begin with 10-minute walks and build from there. If you enjoy group classes, the social connection adds another layer of benefit. The goal is not performance or appearance — it is consistent movement that supports your brain chemistry and your recovery.</p>
       </InfoSection>
 
-      <InfoSection title="Weight Lifting">
-        <p>Resistance training is essential for bone density, which decreases with age and sedentary periods. Weight-bearing exercise stimulates osteoblasts — the cells that build new bone — and is one of the most effective ways to prevent osteoporosis. Beyond bone health, lifting weights increases lean muscle mass, improves insulin sensitivity, boosts resting metabolism, and has a direct antidepressant effect through increased BDNF and endorphin release.</p>
-        <div className="mt-3 space-y-1">
-          <p className="font-semibold text-xs">Getting Started:</p>
-          <p>Start with bodyweight exercises (squats, lunges, push-ups) or light dumbbells. Focus on compound movements that work multiple muscle groups. Aim for 2 to 3 sessions per week with at least one rest day between sessions. Progressive overload — gradually increasing weight or reps — is the key to continued benefit.</p>
-          <p className="font-semibold text-xs mt-2">Key Compound Movements:</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Squats — legs, glutes, core</li>
-            <li>Deadlifts — posterior chain, grip strength</li>
-            <li>Bench press — chest, shoulders, triceps</li>
-            <li>Rows — back, biceps, posture</li>
-            <li>Overhead press — shoulders, core stability</li>
-          </ul>
-        </div>
-      </InfoSection>
-
-      <InfoSection title="When Exercise Becomes a Problem">
-        <p>Over-exercise can become a substitute addiction. Warning signs include working out twice a day, inability to take rest days, exercising through injury, and feeling anxious or guilty when you miss a session. Moderation and consistency are the goals. Listen to your body. Rest is part of the program.</p>
+      <InfoSection title="What to Track">
+        <p>Log what you did, how long, and how you felt before and after. Over time you will see which types of exercise most improve your mood, which help with sleep, and which reduce cravings. You will also notice when you are overdoing it — exercise can become compulsive, and rest days are part of the program. Track to find your sustainable rhythm.</p>
       </InfoSection>
 
       <LoggingSection categoryId="exercise" categoryColor={category.color} logLabel="Log Exercise" {...props} />
