@@ -468,7 +468,7 @@ export default function Lexi() {
           >
             <div className="max-w-sm mx-auto px-8 pt-28 pb-16">
               {/* Category items - flat list */}
-              {CATEGORIES.filter(c => c.id !== "faq").map((cat, idx) => (
+              {CATEGORIES.filter(c => c.id !== "faq" && c.id !== "therapy" && c.id !== "social").map((cat, idx) => (
                 <motion.button
                   key={cat.id}
                   initial={{ opacity: 0, x: -20 }}
@@ -1565,6 +1565,8 @@ function TherapyPage(props: CategoryPageProps) {
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Track sessions and build your support system</p>
       </div>
 
+      <LoggingSection categoryId="therapy" categoryColor={category.color} logLabel="Log Session" {...props} />
+
       <InfoSection title="Why Therapy is Essential">
         <p>Medication manages brain chemistry. Therapy manages the behaviors, thought patterns, and relationship dynamics that either stabilize or destabilize you. Research consistently shows that integrated treatment addressing both addiction and mood disorders simultaneously produces significantly better outcomes than treating either condition alone.</p>
       </InfoSection>
@@ -1585,7 +1587,6 @@ function TherapyPage(props: CategoryPageProps) {
         <p>Everything. Holding back information about your use makes it impossible for your therapist to help you effectively. If your therapist only treats the mood disorder and does not know about the addiction, you are getting half-treatment. The best outcomes come from providers who understand both conditions and treat them as one integrated problem.</p>
       </InfoSection>
 
-      <LoggingSection categoryId="therapy" categoryColor={category.color} logLabel="Log Session" {...props} />
     </div>
   );
 }
