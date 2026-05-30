@@ -2339,12 +2339,13 @@ function AboutSylviaPage() {
 
       <div className="space-y-5 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>
         <p className="opacity-80">
-          Sylvia is a certified life coach, integrative wellness practitioner, and the co-creator of Sofía. Her approach blends evidence-based modalities with deep personal insight, helping clients build lives of structure, awareness, and purpose.
+          Sylvia is a trauma specialist, integrative wellness practitioner, and the co-creator of Sofía. Her approach blends evidence-based modalities with deep personal insight, helping clients heal from trauma and build lives of structure, awareness, and purpose.
         </p>
 
         <div className="space-y-3">
           <h3 className="text-base font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: "#5C6B4A" }}>Credentials & Specializations</h3>
           <ul className="space-y-2 opacity-80 pl-4">
+            <li>• Trauma Specialist</li>
             <li>• EMDR Certified Practitioner</li>
             <li>• Internal Family Systems (IFS) Trained</li>
             <li>• Clinical Hypnotherapy</li>
