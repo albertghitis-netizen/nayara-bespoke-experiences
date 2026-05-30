@@ -73,7 +73,8 @@ const soloTravelFemalePost: BlogPostData = {
     {
       heading: "All Solo Travelers Are Welcome at Nayara",
       content: `<p>The future of travel is more individual, more conscious, and more than ever, female. At Nayara Resorts, we are proud to support this shift by offering welcoming destinations centered on wellness, adventure, and culture, where women can experience luxury, adventure, and rest on their own terms.</p>
-<p>Whether it is a desire for self-discovery, a need for solitude, or simply a thirst for adventure, solo travel offers a transformative experience unlike any other.</p>`,
+<p>Whether it is a desire for self-discovery, a need for solitude, or simply a thirst for adventure, solo travel offers a transformative experience unlike any other.</p>
+<p>Traveling with a partner? Discover <a href="/blog/romance-at-nayara-springs-and-bocas-del-toro">the science of romance at Nayara</a>. Bringing the whole family? Explore <a href="/blog/family-bucket-list-nayara">the world as a classroom across every Nayara destination</a>.</p>`,
       pullQuote: "Whether it is a desire for self-discovery, a need for solitude, or simply a thirst for adventure, solo travel offers a transformative experience unlike any other.",
     },
   ],
