@@ -88,9 +88,29 @@ function AskLexiWidget() {
             {/* Messages */}
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3" style={{ maxHeight: "50vh" }}>
               {messages.length === 0 && (
-                <p className="text-sm opacity-50 italic text-center pt-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                  Hi, I'm Sofía. Ask me anything about managing your dual diagnosis journey.
-                </p>
+                <div className="pt-4 space-y-3">
+                  <p className="text-sm opacity-60 text-center" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    Hi, I'm Sofía. How can I help you today?
+                  </p>
+                  <div className="space-y-2 pt-2">
+                    {[
+                      "How can I build a better daily routine?",
+                      "What helps with sleep?",
+                      "How do I manage cravings?",
+                      "What's the connection between mood and nutrition?",
+                      "How do I recognize my triggers?",
+                    ].map((q) => (
+                      <button
+                        key={q}
+                        onClick={() => { setInput(q); }}
+                        className="block w-full text-left px-3 py-2 rounded-lg text-xs transition hover:bg-white/80"
+                        style={{ fontFamily: "'DM Sans', sans-serif", color: "#5C6B4A", border: "1px solid rgba(92, 107, 74, 0.2)" }}
+                      >
+                        {q}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               )}
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
