@@ -31,5 +31,12 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
+export const sofiaWaitlist = mysqlTable("sofia_waitlist", {
+	id: int().autoincrement().notNull(),
+	email: varchar({ length: 320 }).notNull(),
+	createdAt: timestamp({ mode: 'date' }).defaultNow().notNull(),
+});
+
 export type Lead = typeof leads.$inferSelect;
 export type InsertLead = typeof leads.$inferInsert;
+export type SofiaWaitlist = typeof sofiaWaitlist.$inferSelect;

@@ -323,7 +323,7 @@ function LoggingSection({
    ═══════════════════════════════════════════════════════════════ */
 
 export default function Lexi() {
-  const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home">("home");
+  const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story">("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [entries, setEntries] = useState<CalendarEntry[]>(() => {
     const saved = localStorage.getItem("lexi-entries");
@@ -456,6 +456,24 @@ export default function Lexi() {
                   </span>
                 </motion.button>
               ))}
+
+              {/* Our Story */}
+              <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: CATEGORIES.length * 0.05 }}
+                onClick={() => { setActiveView("our-story"); setMenuOpen(false); }}
+                className="flex items-center gap-4 w-full text-left py-4 border-b mt-6"
+                style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+              >
+                <span className="w-4 h-4 rounded-full" style={{ background: "#C9A96E" }} />
+                <span
+                  className="text-lg tracking-[0.06em] uppercase"
+                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                >
+                  Our Story
+                </span>
+              </motion.button>
             </div>
           </motion.div>
         )}
@@ -488,10 +506,12 @@ export default function Lexi() {
           <TriggersPage {...categoryProps("triggers")} />
         ) : activeView === "faq" ? (
           <FAQPage />
+        ) : activeView === "our-story" ? (
+          <OurStoryPage />
         ) : (
           <CategoryPage
             category={CATEGORIES.find((c) => c.id === activeView)!}
-            {...categoryProps(activeView)}
+            {...categoryProps(activeView as CategoryId)}
           />
         )}
       </main>
@@ -1055,7 +1075,70 @@ function playBeep() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HOME PAGE — Dual Diagnosis: Addiction & Mood Disorders
+   WAITLIST SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+function WaitlistSection() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const joinMutation = trpc.sofiaWaitlist.join.useMutation({
+    onSuccess: () => {
+      setSubmitted(true);
+      setEmail("");
+      setError("");
+    },
+    onError: () => {
+      setError("Something went wrong. Please try again.");
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setError("");
+    joinMutation.mutate({ email: email.trim() });
+  };
+
+  if (submitted) {
+    return (
+      <div className="text-center py-6 rounded-xl" style={{ background: "#E8E3DA" }}>
+        <p className="text-sm" style={{ fontFamily: "'DM Sans', sans-serif", color: "#5C6B4A" }}>
+          You're on the list. We'll be in touch.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col items-center gap-3">
+      <div className="flex w-full max-w-sm gap-2">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="your@email.com"
+          className="flex-1 px-4 py-3 rounded-lg text-sm border border-stone-300 bg-white/80 focus:outline-none focus:border-[#5C6B4A]"
+          style={{ fontFamily: "'DM Sans', sans-serif" }}
+          required
+        />
+        <button
+          type="submit"
+          disabled={joinMutation.isPending}
+          className="px-5 py-3 rounded-lg text-sm text-white transition-opacity"
+          style={{ background: "#5C6B4A", fontFamily: "'DM Sans', sans-serif", opacity: joinMutation.isPending ? 0.6 : 1 }}
+        >
+          {joinMutation.isPending ? "..." : "Join Waitlist"}
+        </button>
+      </div>
+      {error && <p className="text-xs text-red-500">{error}</p>}
+    </form>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HOME PAGE — Towards Wellness
    ═══════════════════════════════════════════════════════════════ */
 
 function HomePage() {
@@ -1071,7 +1154,13 @@ function HomePage() {
         <p className="text-sm opacity-60 max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           Structure. Awareness. A life well lived.
         </p>
+        <p className="text-sm mt-4 opacity-70" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          The best part? Sofía is totally free.
+        </p>
       </div>
+
+      {/* ── WAITLIST ── */}
+      <WaitlistSection />
 
       {/* ── ABOUT SOFÍA ── */}
 
@@ -2143,3 +2232,55 @@ function FAQPage() {
   );
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   OUR STORY
+   ═══════════════════════════════════════════════════════════════ */
+
+function OurStoryPage() {
+  return (
+    <div className="space-y-8">
+      <div className="text-center">
+        <span className="text-3xl">🌿</span>
+        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Our Story</h2>
+      </div>
+
+      <div className="space-y-5 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>
+        <p className="opacity-80">
+          Sofía was never supposed to be an app.
+        </p>
+
+        <p className="opacity-80">
+          It started as something deeply personal. Albert, a patient of Sylvia's, was navigating the daily complexity of mood and addiction recovery. He wanted a way to track his own patterns—sleep, cravings, triggers, medication, therapy notes—and share that progress directly with Sylvia so she could see what was really happening between sessions.
+        </p>
+
+        <p className="opacity-80">
+          So he built it. Not for anyone else. Just for himself.
+        </p>
+
+        <p className="opacity-80">
+          A simple, structured companion that helped him stay aware without being clinical. Something warm. Something that felt like wisdom, not surveillance.
+        </p>
+
+        <p className="opacity-80">
+          He named it Sofía—from the Greek word for wisdom—because that's what it gave him. Not answers, but awareness. Not perfection, but pattern recognition. The ability to catch things before they caught him.
+        </p>
+
+        <p className="opacity-80">
+          Sylvia saw the difference immediately. The conversations in session became richer. The data was there—not as a report card, but as a shared language between patient and therapist.
+        </p>
+
+        <p className="opacity-80">
+          And then, serendipitously, they both had the same thought: <em>what if everyone could have this?</em>
+        </p>
+
+        <p className="opacity-80">
+          Not just people with a diagnosis. Anyone who wants to live more intentionally. Anyone who's ever felt like their days blur together without structure. Anyone who knows that awareness is the first step toward a life well lived.
+        </p>
+
+        <p className="opacity-80">
+          That's Sofía. Born from one person's real need, shaped by a therapist's real insight, and now offered to the world—because everyone deserves a companion on the path towards wellness.
+        </p>
+      </div>
+    </div>
+  );
+}

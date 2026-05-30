@@ -240,6 +240,25 @@ export const appRouter = router({
   /* ═══════════════════════════════════════════
      LEAD CAPTURE , Direct endpoint
      ═══════════════════════════════════════════ */
+  /* ═══════════════════════════════════════════
+     SOFÍA WAITLIST
+     ═══════════════════════════════════════════ */
+  sofiaWaitlist: router({
+    join: publicProcedure
+      .input(z.object({ email: z.string().email() }))
+      .mutation(async ({ input }) => {
+        const success = await saveLead({
+          email: input.email,
+          name: null,
+          source: "sofia-waitlist",
+          channel: "website",
+          propertyInterest: null,
+          notes: "Sofía app waitlist signup",
+        });
+        return { success };
+      }),
+  }),
+
   leads: router({
     save: publicProcedure
       .input(
