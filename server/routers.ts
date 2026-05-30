@@ -4,6 +4,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { invokeLLM } from "./_core/llm";
 import { NAYARA_CONCIERGE_SYSTEM_PROMPT } from "./conciergePrompt";
+import { LEXI_SYSTEM_PROMPT } from "./lexiPrompt";
 import { z } from "zod";
 import { saveLead } from "./db";
 import { transcribeAudio } from "./_core/voiceTranscription";
@@ -135,6 +136,60 @@ export const appRouter = router({
         } catch (e) {
           console.error("[Lead Capture] Failed to extract/save lead:", e);
         }
+
+        return { reply: content };
+      }),
+  }),
+
+  /* ═══════════════════════════════════════════
+     LEXI CHATBOT — Dual Diagnosis AI Companion
+     Public procedure (no auth required)
+     ═══════════════════════════════════════════ */
+  lexi: router({
+    chat: publicProcedure
+      .input(
+        z.object({
+          messages: z.array(messageSchema),
+        })
+      )
+      .mutation(async ({ input }) => {
+        const messagesForLLM = [
+          { role: "system" as const, content: LEXI_SYSTEM_PROMPT },
+          ...input.messages.map((m) => ({
+            role: m.role as "system" | "user" | "assistant",
+            content: m.content,
+          })),
+        ];
+
+        let result;
+        let lastError;
+        for (let attempt = 0; attempt < 3; attempt++) {
+          try {
+            result = await invokeLLM({ messages: messagesForLLM });
+            break;
+          } catch (err: any) {
+            lastError = err;
+            const is429 = err?.message?.includes("429") || err?.message?.includes("Too Many Requests") || err?.message?.includes("request too many");
+            if (is429 && attempt < 2) {
+              await new Promise(r => setTimeout(r, (attempt + 1) * 2000));
+              continue;
+            }
+            throw err;
+          }
+        }
+        if (!result) throw lastError;
+
+        const assistantMessage =
+          result.choices?.[0]?.message?.content ?? "I'm sorry, I wasn't able to process that. Could you try again?";
+
+        const content = typeof assistantMessage === "string"
+          ? assistantMessage
+          : Array.isArray(assistantMessage)
+            ? assistantMessage
+                .filter((p): p is { type: "text"; text: string } => p.type === "text")
+                .map((p) => p.text)
+                .join("\n")
+            : String(assistantMessage);
 
         return { reply: content };
       }),

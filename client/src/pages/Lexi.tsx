@@ -21,24 +21,35 @@ function AskLexiWidget() {
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  const chatMutation = trpc.lexi.chat.useMutation({
+    onSuccess: (data) => {
+      setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
+      setLoading(false);
+    },
+    onError: (err) => {
+      console.error("Ask Lexi error:", err);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: "I'm having trouble connecting right now. Please try again in a moment." },
+      ]);
+      setLoading(false);
+    },
+  });
+
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, open]);
 
   const handleSend = () => {
-    if (!input.trim()) return;
+    if (!input.trim() || loading) return;
     const userMsg = input.trim();
-    setMessages((prev) => [...prev, { role: "user", content: userMsg }]);
+    const newMessages = [...messages, { role: "user" as const, content: userMsg }];
+    setMessages(newMessages);
     setInput("");
     setLoading(true);
-    // Placeholder response — will be replaced with tRPC call
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: "I'm still being set up, but soon I'll be able to help you with anything about mood, therapy, sleep, nutrition, exercise, medications, social health, and triggers. Ask me anything." },
-      ]);
-      setLoading(false);
-    }, 1200);
+    chatMutation.mutate({
+      messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
+    });
   };
 
   return (
