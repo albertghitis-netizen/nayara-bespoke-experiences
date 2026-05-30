@@ -166,7 +166,7 @@ function ScrollToTop() {
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
 // ARCHIVED: Sharalynn paths removed from HIDE_WIDGET_PATHS
-const HIDE_WIDGET_PATHS: string[] = ["/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/lexi", "/sylvia", "/ocean-habitat-restoration", "/newsletter", "/newsletter/april", "/newsletter/may", "/newsletter/june"];
+const HIDE_WIDGET_PATHS: string[] = ["/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/sofia", "/sylvia", "/ocean-habitat-restoration", "/newsletter", "/newsletter/april", "/newsletter/may", "/newsletter/june"];
 
 function Router() {
   const [location] = useLocation();
@@ -312,7 +312,7 @@ function Router() {
 
           {/* ── Internal / Private pages ── */}
           {/* ARCHIVED ROUTES: /internal-brandbook and /internal-henry - Component files still exist */}
-          <Route path="/lexi" component={Lexi} />
+          <Route path="/sofia" component={Lexi} />
           <Route path="/brand-book" component={BrandBook} />
           <Route path="/architecture" component={Architecture} />
           <Route path="/sylvia" component={Sylvia} />

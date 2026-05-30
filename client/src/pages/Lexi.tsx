@@ -345,6 +345,8 @@ function LoggingSection({
 export default function Lexi() {
   const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story" | "about-sylvia" | "sylvia-blog">("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [sofiaExpanded, setSofiaExpanded] = useState(false);
+  const [sylviaExpanded, setSylviaExpanded] = useState(false);
   const [entries, setEntries] = useState<CalendarEntry[]>(() => {
     const saved = localStorage.getItem("lexi-entries");
     return saved ? JSON.parse(saved) : [];
@@ -408,6 +410,7 @@ export default function Lexi() {
 
   return (
     <div className="min-h-screen" style={{ background: "#F7F5F0", color: "#3a2a1a" }}>
+
       {/* Top Navigation Bar */}
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4">
         {/* Hamburger */}
@@ -457,12 +460,13 @@ export default function Lexi() {
             style={{ background: "rgba(247, 245, 240, 0.97)" }}
           >
             <div className="max-w-sm mx-auto px-8 pt-28 pb-16">
-              {CATEGORIES.map((cat, idx) => (
+              {/* Category items - flat list */}
+              {CATEGORIES.filter(c => c.id !== "faq").map((cat, idx) => (
                 <motion.button
                   key={cat.id}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.05 }}
+                  transition={{ delay: 0.05 * idx }}
                   onClick={() => { setActiveView(cat.id); setMenuOpen(false); }}
                   className="flex items-center gap-4 w-full text-left py-4 border-b"
                   style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
@@ -477,59 +481,73 @@ export default function Lexi() {
                 </motion.button>
               ))}
 
-              {/* How Sylvia Met Sofía */}
-              <motion.button
+              {/* Sylvia Accordion */}
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: CATEGORIES.length * 0.05 }}
-                onClick={() => { setActiveView("our-story"); setMenuOpen(false); }}
-                className="flex items-center gap-4 w-full text-left py-4 border-b mt-6"
-                style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+                transition={{ delay: 0.5 }}
               >
-                <span className="w-4 h-4 rounded-full" style={{ background: "#C9A96E" }} />
-                <span
-                  className="text-lg tracking-[0.06em] uppercase"
-                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                <button
+                  onClick={() => setSylviaExpanded(!sylviaExpanded)}
+                  className="flex items-center justify-between w-full text-left py-4 border-b"
+                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
                 >
-                  How Sylvia Met Sofía
-                </span>
-              </motion.button>
+                  <div className="flex items-center gap-4">
+                    <span className="w-4 h-4 rounded-full" style={{ background: "#5C6B4A" }} />
+                    <span
+                      className="text-lg tracking-[0.06em] uppercase"
+                      style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                    >
+                      Sylvia
+                    </span>
+                  </div>
+                  <motion.span
+                    animate={{ rotate: sylviaExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-xs opacity-40"
+                  >
+                    ▼
+                  </motion.span>
+                </button>
 
-              {/* About Sylvia */}
-              <motion.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (CATEGORIES.length + 1) * 0.05 }}
-                onClick={() => { setActiveView("about-sylvia"); setMenuOpen(false); }}
-                className="flex items-center gap-4 w-full text-left py-4 border-b"
-                style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
-              >
-                <span className="w-4 h-4 rounded-full" style={{ background: "#8B6F5C" }} />
-                <span
-                  className="text-lg tracking-[0.06em] uppercase"
-                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
-                >
-                  About Sylvia
-                </span>
-              </motion.button>
-
-              {/* Sylvia's Blog */}
-              <motion.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (CATEGORIES.length + 2) * 0.05 }}
-                onClick={() => { setActiveView("sylvia-blog" as any); setMenuOpen(false); }}
-                className="flex items-center gap-4 w-full text-left py-4 border-b"
-                style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
-              >
-                <span className="w-4 h-4 rounded-full" style={{ background: "#5C6B4A" }} />
-                <span
-                  className="text-lg tracking-[0.06em] uppercase"
-                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
-                >
-                  Sylvia's Blog
-                </span>
-              </motion.button>
+                <AnimatePresence>
+                  {sylviaExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden pl-8"
+                    >
+                      {[
+                        { label: "How Sylvia Met Sof\u00eda", action: () => { setActiveView("our-story"); setMenuOpen(false); setSylviaExpanded(false); } },
+                        { label: "About Sylvia", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia"; } },
+                        { label: "My Approach", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia#approach"; } },
+                        { label: "Testimonials", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia#testimonials"; } },
+                        { label: "Trauma", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia#trauma"; } },
+                        { label: "Addiction", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia#addiction"; } },
+                        { label: "Mood Disorders", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia#mood-disorders"; } },
+                        { label: "Blog", action: () => { setActiveView("sylvia-blog" as any); setMenuOpen(false); setSylviaExpanded(false); } },
+                        { label: "FAQ", action: () => { setActiveView("faq"); setMenuOpen(false); setSylviaExpanded(false); } },
+                      ].map((item, idx) => (
+                        <button
+                          key={item.label}
+                          onClick={item.action}
+                          className="block w-full text-left py-3 border-b"
+                          style={{ borderColor: "rgba(58, 42, 26, 0.06)" }}
+                        >
+                          <span
+                            className="text-sm tracking-[0.04em]"
+                            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400, color: "#5a4a3a" }}
+                          >
+                            {item.label}
+                          </span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             </div>
           </motion.div>
         )}
@@ -539,7 +557,7 @@ export default function Lexi() {
       <AskLexiWidget />
 
       {/* Main Content Area */}
-      <main className="pt-24 px-4 pb-12 max-w-2xl mx-auto">
+      <main className="pt-24 px-4 pb-12 max-w-2xl mx-auto relative z-10">
         {activeView === "home" ? (
           <HomePage />
         ) : activeView === "calendar" ? (
@@ -1250,13 +1268,22 @@ function HomePage() {
           <p className="text-sm leading-relaxed opacity-80 mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             It starts with one conversation. A free 15-minute consultation is a simple first step. Hear my voice, ask your questions—and we'll see if it feels like a good place to land.
           </p>
-          <a
-            href="/sylvia"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-white transition hover:opacity-90"
-            style={{ background: "#8B6F5C", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
-          >
-            Book a free 15-minute consult
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="/sylvia"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm text-white transition hover:opacity-90"
+              style={{ background: "#8B6F5C", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+            >
+              Book a free 15-minute consult with me
+            </a>
+            <a
+              href="/sylvia#newsletter"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm transition hover:opacity-90"
+              style={{ background: "transparent", border: "1px solid #8B6F5C", color: "#8B6F5C", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+            >
+              Sign up for my monthly newsletter
+            </a>
+          </div>
         </div>
       </section>
 
@@ -1719,16 +1746,73 @@ function NutritionPage(props: CategoryPageProps) {
       </InfoSection>
 
       <LoggingSection categoryId="nutrition" categoryColor={category.color} logLabel="Log Meal" {...props} />
+
+      {/* ─── EXERCISE SECTION ─── */}
+      <div className="mt-10 pt-8" style={{ borderTop: '1px solid rgba(58, 42, 26, 0.1)' }}>
+        <div className="text-center mb-6">
+          <span className="text-3xl">△</span>
+          <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: '#B8704A' }}>Exercise</h2>
+          <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Move your body, heal your brain</p>
+        </div>
+
+        <div className="space-y-6">
+          <InfoSection title="HOTWORX">
+            <p>Infrared sauna workouts that combine heat therapy with exercise. The infrared heat penetrates deep into muscle tissue, increasing circulation and accelerating recovery. Sessions typically run 30 to 40 minutes and include isometric exercises, hot yoga, Pilates, and HIIT variations performed inside the sauna. The heat amplifies calorie burn and promotes detoxification through sweat. The controlled environment also has a calming effect on the nervous system, which can help with anxiety and mood regulation. Start with 2 to 3 sessions per week and hydrate aggressively before and after.</p>
+          </InfoSection>
+
+          <InfoSection title="Pilates">
+            <p>Pilates builds core strength, flexibility, and body awareness through controlled, low-impact movements. It strengthens the deep stabilizing muscles of the trunk, improves posture, and reduces chronic pain. The mind-body connection required in Pilates acts as a form of moving meditation — you have to focus on breath and alignment, which pulls attention away from rumination and anxiety. Reformer Pilates adds resistance for a more challenging workout. Mat Pilates is accessible anywhere. Aim for 2 to 3 sessions per week.</p>
+          </InfoSection>
+
+          <InfoSection title="Walking">
+            <p>The most underrated form of exercise. Walking requires no equipment, no gym membership, and no recovery time. A 30-minute walk elevates serotonin and BDNF (brain-derived neurotrophic factor), which supports neuroplasticity and mood regulation. Walking outdoors adds the benefit of sunlight exposure, which regulates circadian rhythm and vitamin D production. It is also a reliable tool for managing cravings — when an urge hits, a 15-minute walk can reduce its intensity significantly. Build a daily walking habit. Morning walks are especially effective for setting your internal clock.</p>
+          </InfoSection>
+
+          <InfoSection title="5K Training">
+            <p>Training for a 5K gives exercise a concrete goal and a timeline, which adds structure and accountability. A standard Couch to 5K program takes 8 to 9 weeks and alternates walking and running intervals that gradually increase in duration. The progression is designed so that anyone can complete it regardless of current fitness level. The sense of accomplishment from finishing a 5K is a powerful mood booster and builds self-efficacy. Sign up for an actual race to add external accountability. Run with a friend or group if possible.</p>
+            <div className="mt-3 space-y-1">
+              <p className="font-semibold text-xs">Sample Week 1:</p>
+              <p>Alternate 60 seconds jogging / 90 seconds walking for 20 minutes, 3 days</p>
+              <p className="font-semibold text-xs mt-2">Sample Week 5:</p>
+              <p>Jog 5 minutes, walk 3 minutes, jog 5 minutes, walk 3 minutes, jog 5 minutes</p>
+              <p className="font-semibold text-xs mt-2">Race Day:</p>
+              <p>Run 3.1 miles continuously at a comfortable pace</p>
+            </div>
+          </InfoSection>
+
+          <InfoSection title="Weight Lifting">
+            <p>Resistance training is essential for bone density, which decreases with age and sedentary periods. Weight-bearing exercise stimulates osteoblasts — the cells that build new bone — and is one of the most effective ways to prevent osteoporosis. Beyond bone health, lifting weights increases lean muscle mass, improves insulin sensitivity, boosts resting metabolism, and has a direct antidepressant effect through increased BDNF and endorphin release.</p>
+            <div className="mt-3 space-y-1">
+              <p className="font-semibold text-xs">Getting Started:</p>
+              <p>Start with bodyweight exercises (squats, lunges, push-ups) or light dumbbells. Focus on compound movements that work multiple muscle groups. Aim for 2 to 3 sessions per week with at least one rest day between sessions. Progressive overload — gradually increasing weight or reps — is the key to continued benefit.</p>
+              <p className="font-semibold text-xs mt-2">Key Compound Movements:</p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Squats — legs, glutes, core</li>
+                <li>Deadlifts — posterior chain, grip strength</li>
+                <li>Bench press — chest, shoulders, triceps</li>
+                <li>Rows — back, biceps, posture</li>
+                <li>Overhead press — shoulders, core stability</li>
+              </ul>
+            </div>
+          </InfoSection>
+
+          <InfoSection title="When Exercise Becomes a Problem">
+            <p>Over-exercise can become a substitute addiction. Warning signs include working out twice a day, inability to take rest days, exercising through injury, and feeling anxious or guilty when you miss a session. Moderation and consistency are the goals. Listen to your body. Rest is part of the program.</p>
+          </InfoSection>
+        </div>
+      </div>
+
+      <LoggingSection categoryId="nutrition" categoryColor={category.color} logLabel="Log Exercise" {...props} />
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXERCISE PAGE — FAQ Format
+   EXERCISE PAGE
    ═══════════════════════════════════════════════════════════════ */
-
 function ExercisePage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "exercise")!;
+
   return (
     <div className="space-y-6">
       <div className="text-center">
@@ -1742,7 +1826,7 @@ function ExercisePage(props: CategoryPageProps) {
       </InfoSection>
 
       <InfoSection title="Pilates">
-        <p>Pilates builds core strength, flexibility, and body awareness through controlled, low-impact movements. It strengthens the deep stabilizing muscles of the trunk, improves posture, and reduces chronic pain. For mood disorders, the mind-body connection required in Pilates acts as a form of moving meditation — you have to focus on breath and alignment, which pulls attention away from rumination and anxiety. Reformer Pilates adds resistance for a more challenging workout. Mat Pilates is accessible anywhere. Aim for 2 to 3 sessions per week.</p>
+        <p>Pilates builds core strength, flexibility, and body awareness through controlled, low-impact movements. It strengthens the deep stabilizing muscles of the trunk, improves posture, and reduces chronic pain. The mind-body connection required in Pilates acts as a form of moving meditation — you have to focus on breath and alignment, which pulls attention away from rumination and anxiety. Reformer Pilates adds resistance for a more challenging workout. Mat Pilates is accessible anywhere. Aim for 2 to 3 sessions per week.</p>
       </InfoSection>
 
       <InfoSection title="Walking">
@@ -1750,7 +1834,7 @@ function ExercisePage(props: CategoryPageProps) {
       </InfoSection>
 
       <InfoSection title="5K Training">
-        <p>Training for a 5K gives exercise a concrete goal and a timeline, which adds structure and accountability. A standard Couch to 5K program takes 8 to 9 weeks and alternates walking and running intervals that gradually increase in duration. The progression is designed so that anyone can complete it regardless of current fitness level. The sense of accomplishment from finishing a 5K is a powerful mood booster and builds self-efficacy — the belief that you can set a goal and follow through. Sign up for an actual race to add external accountability. Run with a friend or group if possible.</p>
+        <p>Training for a 5K gives exercise a concrete goal and a timeline, which adds structure and accountability. A standard Couch to 5K program takes 8 to 9 weeks and alternates walking and running intervals that gradually increase in duration. The progression is designed so that anyone can complete it regardless of current fitness level. The sense of accomplishment from finishing a 5K is a powerful mood booster and builds self-efficacy. Sign up for an actual race to add external accountability. Run with a friend or group if possible.</p>
         <div className="mt-3 space-y-1">
           <p className="font-semibold text-xs">Sample Week 1:</p>
           <p>Alternate 60 seconds jogging / 90 seconds walking for 20 minutes, 3 days</p>
@@ -1762,10 +1846,10 @@ function ExercisePage(props: CategoryPageProps) {
       </InfoSection>
 
       <InfoSection title="Weight Lifting">
-        <p>Resistance training is essential for bone density, which decreases with age, certain medications (like lithium and anticonvulsants), and sedentary periods during depressive episodes. Weight-bearing exercise stimulates osteoblasts — the cells that build new bone — and is one of the most effective ways to prevent osteoporosis. Beyond bone health, lifting weights increases lean muscle mass, improves insulin sensitivity, boosts resting metabolism, and has a direct antidepressant effect through increased BDNF and endorphin release.</p>
+        <p>Resistance training is essential for bone density, which decreases with age and sedentary periods. Weight-bearing exercise stimulates osteoblasts — the cells that build new bone — and is one of the most effective ways to prevent osteoporosis. Beyond bone health, lifting weights increases lean muscle mass, improves insulin sensitivity, boosts resting metabolism, and has a direct antidepressant effect through increased BDNF and endorphin release.</p>
         <div className="mt-3 space-y-1">
           <p className="font-semibold text-xs">Getting Started:</p>
-          <p>Start with bodyweight exercises (squats, lunges, push-ups) or light dumbbells. Focus on compound movements that work multiple muscle groups. Aim for 2 to 3 sessions per week with at least one rest day between sessions. Progressive overload — gradually increasing weight or reps — is the key to continued benefit. Consider working with a trainer for the first few sessions to learn proper form and prevent injury.</p>
+          <p>Start with bodyweight exercises (squats, lunges, push-ups) or light dumbbells. Focus on compound movements that work multiple muscle groups. Aim for 2 to 3 sessions per week with at least one rest day between sessions. Progressive overload — gradually increasing weight or reps — is the key to continued benefit.</p>
           <p className="font-semibold text-xs mt-2">Key Compound Movements:</p>
           <ul className="list-disc pl-5 space-y-1">
             <li>Squats — legs, glutes, core</li>
@@ -1778,7 +1862,7 @@ function ExercisePage(props: CategoryPageProps) {
       </InfoSection>
 
       <InfoSection title="When Exercise Becomes a Problem">
-        <p>Over-exercise can trigger hypomania in people with bipolar disorder. It can also become a substitute addiction. Warning signs include working out twice a day, inability to take rest days, exercising through injury, and feeling anxious or guilty when you miss a session. Moderation and consistency are the goals. Listen to your body. Rest is part of the program.</p>
+        <p>Over-exercise can become a substitute addiction. Warning signs include working out twice a day, inability to take rest days, exercising through injury, and feeling anxious or guilty when you miss a session. Moderation and consistency are the goals. Listen to your body. Rest is part of the program.</p>
       </InfoSection>
 
       <LoggingSection categoryId="exercise" categoryColor={category.color} logLabel="Log Exercise" {...props} />
