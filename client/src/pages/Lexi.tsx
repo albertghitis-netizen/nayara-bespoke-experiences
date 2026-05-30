@@ -11,6 +11,129 @@ import { trpc } from "@/lib/trpc";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ═══════════════════════════════════════════════════════════════
+   ASK LEXI — Floating Chat Widget (bottom-left)
+   Visual shell only — backend wiring TBD
+   ═══════════════════════════════════════════════════════════════ */
+function AskLexiWidget() {
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState<{ role: "user" | "assistant"; content: string }[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, [messages, open]);
+
+  const handleSend = () => {
+    if (!input.trim()) return;
+    const userMsg = input.trim();
+    setMessages((prev) => [...prev, { role: "user", content: userMsg }]);
+    setInput("");
+    setLoading(true);
+    // Placeholder response — will be replaced with tRPC call
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: "I'm still being set up, but soon I'll be able to help you with anything about mood, therapy, sleep, nutrition, exercise, medications, social health, and triggers. Ask me anything." },
+      ]);
+      setLoading(false);
+    }, 1200);
+  };
+
+  return (
+    <>
+      {/* Floating trigger button — bottom left */}
+      {!open && (
+        <button
+          onClick={() => setOpen(true)}
+          className="fixed bottom-6 left-6 z-50 flex items-center gap-2 h-11 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+          style={{ background: "rgba(92, 107, 74, 0.9)", backdropFilter: "blur(8px)" }}
+        >
+          <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Ask Lexi</span>
+        </button>
+      )}
+
+      {/* Chat panel */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.25 }}
+            className="fixed bottom-6 left-6 z-50 w-80 max-h-[70vh] flex flex-col rounded-2xl shadow-2xl overflow-hidden"
+            style={{ background: "#F7F5F0", border: "1px solid rgba(92, 107, 74, 0.2)" }}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between px-4 py-3" style={{ background: "rgba(92, 107, 74, 0.9)" }}>
+              <div className="flex items-center gap-2">
+                <img src={LOGO_URL} alt="Lexi" className="w-7 h-7 rounded-full object-contain" style={{ background: "white" }} />
+                <span className="text-white text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>Ask Lexi</span>
+              </div>
+              <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white text-lg transition">✕</button>
+            </div>
+
+            {/* Messages */}
+            <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3" style={{ maxHeight: "50vh" }}>
+              {messages.length === 0 && (
+                <p className="text-sm opacity-50 italic text-center pt-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  Hi, I'm Lexi. Ask me anything about managing your dual diagnosis journey.
+                </p>
+              )}
+              {messages.map((msg, i) => (
+                <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                  <div
+                    className="max-w-[85%] px-3 py-2 rounded-xl text-sm leading-relaxed"
+                    style={{
+                      background: msg.role === "user" ? "rgba(92, 107, 74, 0.15)" : "white",
+                      fontFamily: "'DM Sans', sans-serif",
+                      border: msg.role === "assistant" ? "1px solid rgba(58, 42, 26, 0.08)" : "none",
+                    }}
+                  >
+                    {msg.content}
+                  </div>
+                </div>
+              ))}
+              {loading && (
+                <div className="flex justify-start">
+                  <div className="px-3 py-2 rounded-xl text-sm opacity-50" style={{ background: "white" }}>...</div>
+                </div>
+              )}
+            </div>
+
+            {/* Input */}
+            <div className="px-3 py-3 border-t" style={{ borderColor: "rgba(58, 42, 26, 0.08)" }}>
+              <form
+                onSubmit={(e) => { e.preventDefault(); handleSend(); }}
+                className="flex items-center gap-2"
+              >
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Type your question..."
+                  className="flex-1 px-3 py-2 rounded-lg border text-sm bg-white"
+                  style={{ borderColor: "rgba(58, 42, 26, 0.12)", fontFamily: "'DM Sans', sans-serif" }}
+                />
+                <button
+                  type="submit"
+                  disabled={!input.trim()}
+                  className="px-3 py-2 rounded-lg text-white text-sm transition"
+                  style={{ background: input.trim() ? "#5C6B4A" : "#ccc" }}
+                >
+                  →
+                </button>
+              </form>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    CONSTANTS & TYPES
    ═══════════════════════════════════════════════════════════════ */
 
@@ -326,6 +449,9 @@ export default function Lexi() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Ask Lexi Floating Chat Widget */}
+      <AskLexiWidget />
 
       {/* Main Content Area */}
       <main className="pt-24 px-4 pb-12 max-w-2xl mx-auto">

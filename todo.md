@@ -3985,3 +3985,9 @@
 - [x] Detail adults-only at Nayara Bocas del Toro (overwater, all-inclusive, private island)
 - [x] Add FAQ section with 5 questions
 - [x] Add proper academic and industry sources
+
+## Ask Lexi — AI Concierge on Lexi Page
+- [ ] Create lexi.chat tRPC procedure with LLM + educational content system prompt
+- [ ] Build floating "Ask Lexi" chat widget (bottom-left, conversational, no explicit options)
+- [ ] Integrate widget into Lexi.tsx page
+- [ ] Test end-to-end
