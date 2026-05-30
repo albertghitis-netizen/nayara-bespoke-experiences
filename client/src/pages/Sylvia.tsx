@@ -5,8 +5,9 @@
  * Bone background (#F7F5F0) + olive green accents (#868B75 / #525642)
  */
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { trpc } from "@/lib/trpc";
 
 /* ─── Color Palette (Tented Camp) ─── */
 const COLORS = {
@@ -85,6 +86,7 @@ export default function Sylvia() {
       <PhilosophySection />
       <CTASection />
       <FooterSection />
+      <AskLexiWidget />
     </div>
   );
 }
@@ -575,6 +577,139 @@ function CTASection() {
         </a>
       </div>
     </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ASK LEXI — Floating Chat Widget (bottom-left)
+   ═══════════════════════════════════════════════════════════════ */
+function AskLexiWidget() {
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState<{ role: "user" | "assistant"; content: string }[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const chatMutation = trpc.lexi.chat.useMutation({
+    onSuccess: (data) => {
+      setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
+      setLoading(false);
+    },
+    onError: (err) => {
+      console.error("Ask Lexi error:", err);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: "I'm having trouble connecting right now. Please try again in a moment." },
+      ]);
+      setLoading(false);
+    },
+  });
+
+  useEffect(() => {
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, [messages, open]);
+
+  const handleSend = () => {
+    if (!input.trim() || loading) return;
+    const userMsg = input.trim();
+    const newMessages = [...messages, { role: "user" as const, content: userMsg }];
+    setMessages(newMessages);
+    setInput("");
+    setLoading(true);
+    chatMutation.mutate({
+      messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
+    });
+  };
+
+  return (
+    <>
+      {/* Floating trigger button — bottom left */}
+      {!open && (
+        <button
+          onClick={() => setOpen(true)}
+          className="fixed bottom-6 left-6 z-50 flex items-center gap-2 h-11 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+          style={{ background: "rgba(82, 86, 66, 0.9)", backdropFilter: "blur(8px)" }}
+        >
+          <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Ask Lexi</span>
+        </button>
+      )}
+
+      {/* Chat panel */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.25 }}
+            className="fixed bottom-6 left-6 z-50 w-80 max-h-[70vh] flex flex-col rounded-2xl shadow-2xl overflow-hidden"
+            style={{ background: COLORS.bone, border: `1px solid ${COLORS.olive}30` }}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between px-4 py-3" style={{ background: COLORS.olive }}>
+              <div className="flex items-center gap-2">
+                <img src={LOGO_URL} alt="Sylvia" className="w-7 h-7 rounded-full object-contain" style={{ background: "white" }} />
+                <span className="text-white text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>Ask Lexi</span>
+              </div>
+              <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white text-lg transition">✕</button>
+            </div>
+
+            {/* Messages */}
+            <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3" style={{ maxHeight: "50vh" }}>
+              {messages.length === 0 && (
+                <p className="text-sm opacity-50 italic text-center pt-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  Hi, I'm Lexi. Ask me anything about therapy, mental health, or Sylvia's services.
+                </p>
+              )}
+              {messages.map((msg, i) => (
+                <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                  <div
+                    className="max-w-[85%] px-3 py-2 rounded-xl text-sm leading-relaxed"
+                    style={{
+                      background: msg.role === "user" ? `${COLORS.olive}20` : "white",
+                      fontFamily: "'DM Sans', sans-serif",
+                      border: msg.role === "assistant" ? `1px solid ${COLORS.divider}` : "none",
+                    }}
+                  >
+                    {msg.content}
+                  </div>
+                </div>
+              ))}
+              {loading && (
+                <div className="flex justify-start">
+                  <div className="px-3 py-2 rounded-xl text-sm opacity-50" style={{ background: "white" }}>...</div>
+                </div>
+              )}
+            </div>
+
+            {/* Input */}
+            <div className="px-3 py-3 border-t" style={{ borderColor: COLORS.divider }}>
+              <form
+                onSubmit={(e) => { e.preventDefault(); handleSend(); }}
+                className="flex items-center gap-2"
+              >
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Type your question..."
+                  className="flex-1 px-3 py-2 rounded-lg border text-sm bg-white"
+                  style={{ borderColor: COLORS.divider, fontFamily: "'DM Sans', sans-serif" }}
+                />
+                <button
+                  type="submit"
+                  disabled={!input.trim()}
+                  className="px-3 py-2 rounded-lg text-white text-sm transition"
+                  style={{ background: input.trim() ? COLORS.olive : "#ccc" }}
+                >
+                  →
+                </button>
+              </form>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
