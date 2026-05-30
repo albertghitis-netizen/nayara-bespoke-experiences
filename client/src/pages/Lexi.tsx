@@ -1621,7 +1621,6 @@ function TherapyPage(props: CategoryPageProps) {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Therapy</h2>
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Track sessions and build your support system</p>
       </div>
@@ -1661,7 +1660,6 @@ function SleepPage(props: CategoryPageProps) {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Sleep</h2>
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Protect the foundation everything else is built on</p>
       </div>
@@ -1702,7 +1700,6 @@ function NutritionPage(props: CategoryPageProps) {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Nutrition</h2>
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Under 20g net carbs · Equal protein & fat</p>
       </div>
@@ -1885,7 +1882,6 @@ function ExercisePage(props: CategoryPageProps) {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Exercise</h2>
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Move your body, heal your brain</p>
       </div>
@@ -2077,7 +2073,6 @@ function MedsPage(props: CategoryPageProps) {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Medications</h2>
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Antidepressants, mood stabilizers, antipsychotics</p>
       </div>
@@ -2225,7 +2220,6 @@ function SocialPage(props: CategoryPageProps) {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Social</h2>
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Build the network that keeps you stable</p>
       </div>
@@ -2264,7 +2258,6 @@ function TriggersPage(props: CategoryPageProps) {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Triggers</h2>
         <p className="text-xs opacity-50 mt-1 max-w-sm mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>Know what destabilizes you before it happens</p>
       </div>
@@ -2303,7 +2296,6 @@ function TraumaPage() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Trauma</h2>
         <p className="text-xs opacity-50 mt-1 max-w-sm mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>Understanding what trauma is, how it lives in the body, and what healing actually looks like</p>
       </div>
@@ -2344,7 +2336,6 @@ function AddictionPage() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Addiction</h2>
         <p className="text-xs opacity-50 mt-1 max-w-sm mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>What addiction really is, why willpower is not the answer, and how recovery works</p>
       </div>
@@ -2385,7 +2376,6 @@ function BipolarPage() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Bipolar Disorder</h2>
         <p className="text-xs opacity-50 mt-1 max-w-sm mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>What bipolar disorder is, what stability actually looks like, and how to build a life around it</p>
       </div>
