@@ -1066,7 +1066,7 @@ function HomePage() {
           className="text-3xl tracking-wide mb-2"
           style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
         >
-          Living Well with Bipolar
+          A Life Well Lived
         </h1>
         <p className="text-sm opacity-60 max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           A personal tool for understanding, tracking, and managing your condition.
