@@ -10,14 +10,14 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 export const romanticBlogPost: BlogPostData = {
   slug: "romance-at-nayara-springs-and-bocas-del-toro",
-  title: "Two Worlds, One Love: The Science of Adults-Only Travel at Nayara",
-  subtitle: "Why the world's most discerning couples are choosing adults-only resorts, what that promise actually means at Nayara Springs and Nayara Bocas del Toro, and how the Atacama Desert offers romance through subtraction",
+  title: "Four Worlds, One Love: The Science of Romance at Nayara",
+  subtitle: "Why the world's most discerning couples are choosing adults-only resorts, what that promise means at Nayara Springs and Nayara Bocas del Toro, and how the Atacama Desert and Rapa Nui offer romance without age restrictions",
   author: "Albert Ghitis",
   authorRole: "Head of Digital Marketing",
   date: "May 2026",
   pillar: "Romance",
-  tags: ["Romance", "Nayara Springs", "Nayara Bocas del Toro", "Nayara Alto Atacama", "Adults-Only", "Couples", "Atacama Desert"],
-  readingTime: 12,
+  tags: ["Romance", "Nayara Springs", "Nayara Bocas del Toro", "Nayara Alto Atacama", "Nayara Hangaroa", "Adults-Only", "Couples", "Atacama Desert", "Easter Island", "Rapa Nui"],
+  readingTime: 15,
   heroImage: `${CDN}/bocas-couple-villa-pool_42fafe14.jpg`,
   keyFindings: [
     "Research from Coffey et al. (2024) shows that couples who share novel, self-expanding experiences on vacation report significantly higher relationship satisfaction, romantic passion, and physical intimacy.",
@@ -25,7 +25,8 @@ export const romanticBlogPost: BlogPostData = {
     "Adults-only is not simply the absence of children. It is a design philosophy: architecture scaled for intimacy, programming curated for connection, and an atmosphere where every detail serves the couple.",
     "The Telegraph reports over 1,000 adults-only properties worldwide, with Google Trends showing searches surging since 2020. TUI now offers 780 adults-only hotels, and bookings rose 20% in 2025.",
     "Environmental psychology shows that low-stimulus landscapes like the Atacama Desert reduce cognitive fatigue and heighten emotional attunement, making deserts natural catalysts for romantic connection.",
-    "Nayara Springs (Three Michelin Keys, Relais & Chateaux), Nayara Bocas del Toro (Two Michelin Keys, #1 Resort in Central America), and Nayara Alto Atacama represent three distinct expressions of romance.",
+    "Nayara Springs (Three Michelin Keys, Relais & Chateaux), Nayara Bocas del Toro (Two Michelin Keys, #1 Resort in Central America), Nayara Alto Atacama, and Nayara Hangaroa on Easter Island represent four distinct expressions of romance.",
+    "On Rapa Nui, the most remote inhabited island on Earth, romance is not curated by policy. It is created by shared wonder: standing before the Moai together, watching sunrise at Ahu Tongariki, and feeling the weight of 1,000 years of ancestral presence.",
   ],
   sections: [
     {
@@ -129,10 +130,41 @@ export const romanticBlogPost: BlogPostData = {
 <p>Romance here is not promised. It is permitted.</p>`,
     },
     {
-      heading: "Three Properties, One Conviction",
-      content: `<p>Nayara Springs, Nayara Bocas del Toro, and Nayara Alto Atacama are separated by borders, ecosystems, and oceans. One wraps you in volcanic warmth beneath a rainforest canopy. Another suspends you above the Caribbean on a private island. The third places you in the driest desert on Earth, where the sky is the largest thing you have ever seen. But they share a single conviction: that romance is not something a resort provides. It is something a resort protects.</p>
-<p>The science confirms what these properties were built to deliver. Novel shared experiences deepen love. Presence requires protection from distraction. Quality of environment matters more than quantity of amenities. And when a resort removes everything that competes for a couple's attention, whether through adults-only curation, all-inclusive simplicity, or the radical subtraction of the desert, what remains is extraordinary.</p>
-<p>Whether you choose the fire of Arenal, the turquoise of Panama's archipelago, or the silence of the Atacama, the result is the same: days that belong only to you, nights that linger, and the kind of memories that become the stories you tell for the rest of your lives.</p>`,
+      heading: "Nayara Hangaroa: Romance at the Edge of the World",
+      content: `<p><a href="/hangaroa">Nayara Hangaroa</a> sits on Rapa Nui, the most remote inhabited island on Earth. Three thousand seven hundred kilometers from the Chilean mainland. Two thousand kilometers from the nearest inhabited island. To arrive here together is itself a declaration: we chose the farthest place we could find, and we chose it for each other.</p>
+<p>Like Nayara Alto Atacama, Hangaroa is not an adults-only property. It does not need to be. The island's extreme isolation does what no age policy can. There are no crowds. No competing resorts. No commercial strip. The entire island has a population smaller than most city blocks. When you walk to Ahu Tongariki at dawn and stand before fifteen Moai as the sun rises behind them, you are not sharing that moment with a tour bus. You are sharing it with one person.</p>
+<p>The architecture of Nayara Hangaroa draws from the island itself. Rooms are curved, insular, and organic, inspired by ancient caves. Artisanal bathtubs are hand-shaped from clay by craftsmen in Pichilemu and fired in local ovens. Volcanic stone, cypress logs, and natural materials connect every surface to the land. Floor-to-ceiling windows frame the Pacific Ocean so completely that the boundary between room and horizon dissolves.</p>
+<p>This is a member of The Leading Hotels of the World, but its luxury is not European. It is Polynesian. Warmth without formality. Generosity without performance. A place where the staff are Rapa Nui, the stories are ancestral, and the energy of the island enters every interaction.</p>`,
+      image: {
+        src: "/manus-storage/hangaroa-couple-moai_cd525826.jpg",
+        alt: "Couple at Ahu Tongariki with fifteen Moai at sunset on Easter Island",
+        caption: "Ahu Tongariki at sunset: fifteen Moai, two people, the edge of the world",
+      },
+    },
+    {
+      heading: "Shared Wonder as a Romantic Language",
+      content: `<p>The psychology of awe, documented extensively by Dacher Keltner and the Greater Good Science Center at UC Berkeley, reveals something counterintuitive: when people feel small together, their bond grows larger. Awe reduces self-focus. It increases prosocial behavior. It makes people more generous, more attentive, and more emotionally available to those beside them. The Moai of Rapa Nui are among the most powerful awe-inducing structures on Earth.</p>
+<p>Standing before Ahu Tongariki, couples do not need to speak. The fifteen stone guardians, carved between 1100 and 1680 CE, each weighing up to 86 tonnes, communicate something that words cannot. They speak of devotion sustained across centuries. Of a civilization that moved mountains, literally, to honor their ancestors. The romantic resonance is not metaphorical. Research on shared peak experiences confirms that couples who encounter the sublime together report deeper emotional connection and a stronger sense of shared identity.</p>
+<p>Rapa Nui offers this at every turn. The volcanic crater of Rano Kau, where a freshwater lake sits inside a collapsed caldera overlooking the Pacific. The ceremonial village of Orongo, perched on a cliff edge where the Birdman competition once determined the island's leader. The wild horses that roam freely across green hills. Every landscape is a conversation starter, and every conversation deepens the bond.</p>`,
+    },
+    {
+      heading: "The Manavai Spa: Ancient Healing for Two",
+      content: `<p>The Manavai Spa at Nayara Hangaroa is a replica of an ancient Manavai, the circular stone structures that Rapa Nui people built to protect crops from the relentless Pacific wind and retain precious water. Surrounded by white sand and beautiful corridors, the spa lives up to its name: a place where you feel the power, energy, and purity of the earth.</p>
+<p>Couples experiences are a signature offering. Treatment rooms are cave-like, enclosed and intimate, with volcanic stone walls that absorb sound and hold warmth. One guest described it simply: "It is totally worth traveling all the way here just to experience a massage in one of their spa's cave-like treatment rooms. Heaven on earth."</p>
+<p>The spa's treatments draw on Polynesian tradition and Pacific botanicals. This is not a franchise wellness concept imported from Bali or Switzerland. It is rooted in the island's own healing lineage, adapted for couples who have traveled to the most remote place on Earth and deserve restoration that matches the journey.</p>`,
+    },
+    {
+      heading: "Dining on the Edge: Polynesian Cuisine for Two",
+      content: `<p>Dining at Nayara Hangaroa is an unexpected culinary journey. Classic and modern techniques safeguard authentic local flavors. The kitchen sources Pacific seafood, island-grown produce, and ingredients that reflect the Polynesian heritage of Rapa Nui. Chilean wines pair with dishes that exist nowhere else on Earth.</p>
+<p>The traditional Umu Earth Oven ceremony transforms dinner into shared ritual. Food is wrapped in banana leaves and cooked underground using heated volcanic stones, a method unchanged for centuries. Couples participate together, learning the technique from Rapa Nui hosts, then sharing the meal as the sun sets over the Pacific. This is not a cooking class. It is an act of cultural communion that happens to produce extraordinary food.</p>
+<p>For couples, the remoteness of the island transforms every meal into an event. There is no restaurant row to compare. No delivery app to default to. You eat what the island provides, prepared by people whose families have lived here for generations. That constraint is liberating. It removes choice fatigue and replaces it with trust, and trust, between a couple and their hosts, is the foundation of every great meal.</p>`,
+    },
+    {
+      heading: "Four Properties, One Conviction",
+      content: `<p>Nayara Springs, Nayara Bocas del Toro, Nayara Alto Atacama, and Nayara Hangaroa are separated by borders, ecosystems, and oceans. One wraps you in volcanic warmth beneath a rainforest canopy. Another suspends you above the Caribbean on a private island. The third places you in the driest desert on Earth, where the sky is the largest thing you have ever seen. The fourth takes you to the most remote inhabited island on the planet, where stone guardians have watched over love for a thousand years.</p>
+<p>Two of these properties are adults-only. Two are not. But all four share a single conviction: that romance is not something a resort provides. It is something a resort protects. At Springs and Bocas, protection comes through curation and exclusivity. At Alto Atacama, it comes through the radical subtraction of the desert. At Hangaroa, it comes through the shared wonder of standing at the edge of the known world with the person you love.</p>
+<p>The science confirms what these properties were built to deliver. Novel shared experiences deepen love. Presence requires protection from distraction. Quality of environment matters more than quantity of amenities. And when a resort removes everything that competes for a couple's attention, whether through adults-only policy, all-inclusive simplicity, desert silence, or oceanic isolation, what remains is extraordinary.</p>
+<p>Whether you choose the fire of Arenal, the turquoise of Panama's archipelago, the silence of the Atacama, or the ancient wonder of Rapa Nui, the result is the same: days that belong only to you, nights that linger, and the kind of memories that become the stories you tell for the rest of your lives.</p>`,
     },
   ],
   sources: [
@@ -149,6 +181,9 @@ export const romanticBlogPost: BlogPostData = {
     { label: "Greater Good Science Center, UC Berkeley: Awe and relational awareness", href: "https://greatergood.berkeley.edu/topic/awe" },
     { label: "European Southern Observatory: Why Chile has the world's best skies", href: "https://www.eso.org/public/teles-instr/paranal-observatory/why-paranal/" },
     { label: "DarkSky International: Light pollution research (80%+ of humanity under light-polluted skies)", href: "https://darksky.org/resources/what-is-light-pollution/" },
+    { label: "Keltner, D. & Haidt, J. (2003). Approaching awe, a moral, spiritual, and aesthetic emotion. Cognition & Emotion.", href: "https://greatergood.berkeley.edu/dacherkeltner/docs/keltner.haidt.awe.2003.pdf" },
+    { label: "The Leading Hotels of the World: Nayara Hangaroa", href: "https://www.lhw.com/hotel/nayara-hangaroa-easter-island-chile" },
+    { label: "UNESCO World Heritage Centre: Rapa Nui National Park", href: "https://whc.unesco.org/en/list/715/" },
   ],
   relatedArticles: [
     {
@@ -177,6 +212,7 @@ export const romanticBlogPost: BlogPostData = {
     { name: "Nayara Springs", route: "/springs" },
     { name: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
     { name: "Nayara Alto Atacama", route: "/alto-atacama" },
+    { name: "Nayara Hangaroa", route: "/hangaroa" },
   ],
   faq: [
     {
@@ -197,7 +233,7 @@ export const romanticBlogPost: BlogPostData = {
     },
     {
       question: "Which property is better for a honeymoon?",
-      answer: "All three are exceptional honeymoon destinations. Nayara Springs suits couples who love rainforest immersion, volcanic hot springs, and adventure. Nayara Bocas del Toro suits couples who prefer Caribbean overwater living, marine life, and the simplicity of an all-inclusive island escape. Nayara Alto Atacama suits couples drawn to silence, stargazing, and the transformative power of the desert.",
+      answer: "All four are exceptional honeymoon destinations. Nayara Springs suits couples who love rainforest immersion, volcanic hot springs, and adventure. Nayara Bocas del Toro suits couples who prefer Caribbean overwater living, marine life, and the simplicity of an all-inclusive island escape. Nayara Alto Atacama suits couples drawn to silence, stargazing, and the transformative power of the desert. Nayara Hangaroa suits couples seeking shared wonder, ancestral energy, and the romance of the most remote inhabited island on Earth.",
     },
     {
       question: "Is Nayara Alto Atacama adults-only?",
@@ -207,9 +243,17 @@ export const romanticBlogPost: BlogPostData = {
       question: "Why is the Atacama Desert considered romantic?",
       answer: "Environmental psychology shows that low-stimulus landscapes reduce cognitive fatigue and heighten emotional attunement. The Atacama combines minimal sensory clutter with exaggerated scale, creating conditions where attention reallocates inward and toward close relationships. Studies on awe from UC Berkeley's Greater Good Science Center confirm that shared exposure to vast environments strengthens bonds.",
     },
+    {
+      question: "Is Nayara Hangaroa adults-only?",
+      answer: "No. Nayara Hangaroa welcomes guests of all ages. Romance at Hangaroa is created by the island itself: the extreme remoteness of Rapa Nui, the awe-inspiring Moai, the volcanic landscapes, and the Polynesian cultural heritage. The isolation of the most remote inhabited island on Earth naturally creates the intimacy and shared wonder that couples seek.",
+    },
+    {
+      question: "What makes Easter Island romantic for couples?",
+      answer: "Research on awe from UC Berkeley shows that shared exposure to vast, sublime environments reduces self-focus and deepens emotional connection. Standing before the Moai at Ahu Tongariki, watching sunrise over volcanic craters, and participating in traditional Umu Earth Oven ceremonies together creates the kind of peak shared experiences that relationship science identifies as the engine of lasting romance.",
+    },
   ],
   seo: {
-    metaTitle: "The Science of Romance at Nayara | Adults-Only Springs & Bocas + Desert Romance at Alto Atacama | Nayara Journal",
-    metaDescription: "Research shows novel shared experiences deepen love. Discover what adults-only means at Nayara Springs and Bocas del Toro, and how the Atacama Desert creates romance through subtraction at Nayara Alto Atacama.",
+    metaTitle: "The Science of Romance at Nayara | Adults-Only Springs & Bocas + Desert & Island Romance at Alto Atacama & Hangaroa | Nayara Journal",
+    metaDescription: "Research shows novel shared experiences deepen love. Discover what adults-only means at Nayara Springs and Bocas del Toro, and how the Atacama Desert and Easter Island create romance through subtraction and shared wonder.",
   },
 };

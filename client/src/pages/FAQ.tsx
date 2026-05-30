@@ -420,7 +420,7 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       },
       {
         question: "Which property is better for a honeymoon?",
-        answer: "All three are exceptional honeymoon destinations. Nayara Springs suits couples who love rainforest immersion, volcanic hot springs, and adventure. Nayara Bocas del Toro suits couples who prefer Caribbean overwater living, marine life, and the simplicity of an all-inclusive island escape. Nayara Alto Atacama suits couples drawn to silence, stargazing, and the transformative power of the desert.",
+        answer: "All four are exceptional honeymoon destinations. Nayara Springs suits couples who love rainforest immersion, volcanic hot springs, and adventure. Nayara Bocas del Toro suits couples who prefer Caribbean overwater living, marine life, and the simplicity of an all-inclusive island escape. Nayara Alto Atacama suits couples drawn to silence, stargazing, and the transformative power of the desert. Nayara Hangaroa suits couples seeking shared wonder, ancestral energy, and the romance of the most remote inhabited island on Earth.",
       },
       {
         question: "Is Nayara Alto Atacama adults-only?",
@@ -429,6 +429,14 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       {
         question: "Why is the Atacama Desert considered romantic?",
         answer: "Environmental psychology shows that low-stimulus landscapes reduce cognitive fatigue and heighten emotional attunement. The Atacama combines minimal sensory clutter with exaggerated scale, creating conditions where attention reallocates inward and toward close relationships. Studies on awe from UC Berkeley's Greater Good Science Center confirm that shared exposure to vast environments strengthens bonds.",
+      },
+      {
+        question: "Is Nayara Hangaroa adults-only?",
+        answer: "No. Nayara Hangaroa welcomes guests of all ages. Romance at Hangaroa is created by the island itself: the extreme remoteness of Rapa Nui, the awe-inspiring Moai, the volcanic landscapes, and the Polynesian cultural heritage. The isolation of the most remote inhabited island on Earth naturally creates the intimacy and shared wonder that couples seek.",
+      },
+      {
+        question: "What makes Easter Island romantic for couples?",
+        answer: "Research on awe from UC Berkeley shows that shared exposure to vast, sublime environments reduces self-focus and deepens emotional connection. Standing before the Moai at Ahu Tongariki, watching sunrise over volcanic craters, and participating in traditional Umu Earth Oven ceremonies together creates the kind of peak shared experiences that relationship science identifies as the engine of lasting romance.",
       },
     ],
   },
