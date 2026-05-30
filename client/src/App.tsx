@@ -38,8 +38,9 @@ const TentedExperiences = lazy(() => import("./pages/TentedExperiences"));
 const Gardens = lazy(() => import("./pages/Gardens"));
 const Springs = lazy(() => import("./pages/Springs"));
 const ConciergeChatWidget = lazy(() => import("./components/ConciergeChatWidget"));
-const Newsletter = lazy(() => import("./pages/Newsletter"));
+const NewsletterApril = lazy(() => import("./pages/NewsletterApril"));
 const NewsletterMay = lazy(() => import("./pages/NewsletterMay"));
+const NewsletterJune = lazy(() => import("./pages/NewsletterJune"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
 const ExperientialTravelBlog = lazy(() => import("./pages/ExperientialTravelBlog"));
@@ -165,7 +166,7 @@ function ScrollToTop() {
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
 // ARCHIVED: Sharalynn paths removed from HIDE_WIDGET_PATHS
-const HIDE_WIDGET_PATHS: string[] = ["/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/lexi", "/sylvia", "/ocean-habitat-restoration"];
+const HIDE_WIDGET_PATHS: string[] = ["/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/lexi", "/sylvia", "/ocean-habitat-restoration", "/newsletter", "/newsletter/april", "/newsletter/may", "/newsletter/june"];
 
 function Router() {
   const [location] = useLocation();
@@ -265,8 +266,10 @@ function Router() {
           
           {/* ARCHIVED REDIRECT: /press - Previously redirected to /awards */}
           <Route path="/gastronomy" component={Gastronomy} />
-          <Route path="/newsletter" component={Newsletter} />
+          <Route path="/newsletter" component={NewsletterJune} />
+          <Route path="/newsletter/april" component={NewsletterApril} />
           <Route path="/newsletter/may" component={NewsletterMay} />
+          <Route path="/newsletter/june" component={NewsletterJune} />
 
           <Route path="/blog/green-globe-certification" component={GreenGlobeBlog} />
           <Route path="/blog/womens-empowerment" component={WomensEmpowermentBlog} />
