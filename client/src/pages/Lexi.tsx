@@ -967,22 +967,14 @@ function CategoryPage({
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-4 mb-8">
-        <span
-          className="text-3xl w-14 h-14 rounded-full flex items-center justify-center"
-          style={{ background: `${category.color}20`, color: category.color }}
+      <div className="mb-8">
+        <h1
+          className="text-2xl uppercase tracking-[0.1em]"
+          style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}
         >
-          {category.icon}
-        </span>
-        <div>
-          <h1
-            className="text-2xl uppercase tracking-[0.1em]"
-            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}
-          >
-            {category.label}
-          </h1>
-          <p className="text-sm opacity-50 mt-1">Track and monitor your {category.label.toLowerCase()}</p>
-        </div>
+          {category.label}
+        </h1>
+        <p className="text-sm opacity-50 mt-1">Track and monitor your {category.label.toLowerCase()}</p>
       </div>
 
       <LoggingSection
