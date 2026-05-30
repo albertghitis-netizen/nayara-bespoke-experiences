@@ -148,7 +148,7 @@ function AskLexiWidget() {
    CONSTANTS & TYPES
    ═══════════════════════════════════════════════════════════════ */
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sofia-logo-v2-asukdCPjq95Z289Qy4MZ5d.png";
+const LOGO_URL = "/manus-storage/sofia-logo-transparent_677d533e.png";
 
 const CATEGORIES = [
   { id: "mood", label: "Journal", color: "#C9A96E", icon: "◐" },
@@ -1066,7 +1066,7 @@ function HomePage() {
           className="text-3xl tracking-wide mb-2"
           style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
         >
-          A Life Well Lived
+          Towards Wellness
         </h1>
         <p className="text-sm opacity-60 max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           A personal tool for understanding, tracking, and managing your condition.
