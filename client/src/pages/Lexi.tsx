@@ -343,7 +343,14 @@ function LoggingSection({
    ═══════════════════════════════════════════════════════════════ */
 
 export default function Lexi() {
-  const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story" | "about-sylvia" | "sylvia-blog">("home");
+  // Support deep-linking via hash: /sofia#mood opens Journal, /sofia#therapy opens Therapy, etc.
+  const getInitialView = (): CategoryId | "calendar" | "home" | "our-story" | "about-sylvia" | "sylvia-blog" => {
+    const hash = window.location.hash.replace("#", "");
+    const validViews = ["mood", "therapy", "sleep", "nutrition", "exercise", "meds", "social", "triggers", "calendar", "our-story", "about-sylvia", "sylvia-blog", "faq"];
+    if (hash && validViews.includes(hash)) return hash as any;
+    return "home";
+  };
+  const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story" | "about-sylvia" | "sylvia-blog">(getInitialView);
   const [menuOpen, setMenuOpen] = useState(false);
   const [sofiaExpanded, setSofiaExpanded] = useState(false);
   const [sylviaExpanded, setSylviaExpanded] = useState(false);
@@ -456,7 +463,7 @@ export default function Lexi() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 backdrop-blur-md overflow-y-auto"
+            className="fixed inset-0 z-[60] backdrop-blur-md overflow-y-auto"
             style={{ background: "rgba(247, 245, 240, 0.97)" }}
           >
             <div className="max-w-sm mx-auto px-8 pt-28 pb-16">

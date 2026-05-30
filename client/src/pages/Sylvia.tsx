@@ -216,7 +216,7 @@ function SofiaNavigation() {
                   {CATEGORIES.map((cat) => (
                     <button
                       key={cat.id}
-                      onClick={() => { setMenuOpen(false); navigate("/sofia"); }}
+                      onClick={() => { setMenuOpen(false); window.location.href = `/sofia#${cat.id}`; }}
                       className="block w-full text-left py-3 border-b transition-colors hover:opacity-70"
                       style={{ borderColor: COLORS.divider }}
                     >
