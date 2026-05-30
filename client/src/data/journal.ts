@@ -406,13 +406,13 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "romance-springs-bocas",
-    title: "Two Worlds, One Love: Romance at Nayara Springs and Nayara Bocas del Toro",
+    title: "Four Worlds, One Love: The Science of Romance at Nayara",
     url: "/blog/romance-at-nayara-springs-and-bocas-del-toro",
-    property: "bocas-del-toro",
-    properties: ["bocas-del-toro", "gardens", "springs", "tented-camp"],
+    property: "brand",
+    properties: ["bocas-del-toro", "gardens", "springs", "tented-camp", "alto-atacama", "hangaroa"],
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-couple-villa-pool_42fafe14.jpg",
-    excerpt: "Volcanic hot springs in Costa Rica and overwater villas on a private Caribbean island. Two adults-only sanctuaries designed for love.",
+    excerpt: "The science of adults-only travel, volcanic intimacy in Costa Rica, Caribbean solitude in Panama, desert romance in the Atacama, and shared wonder on Easter Island. Four properties, one conviction.",
   },
 
   // Caribbean Coral Reef blog removed, content now lives on /bocas-del-toro/sustainability
