@@ -411,7 +411,7 @@ const blogArticles: JournalEntry[] = [
     property: "brand",
     properties: ["bocas-del-toro", "gardens", "springs", "tented-camp", "alto-atacama", "hangaroa"],
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-couple-villa-pool_42fafe14.jpg",
+    image: "/manus-storage/romance-blog-square_241cc3c8.jpg",
     excerpt: "The science of adults-only travel, volcanic intimacy in Costa Rica, Caribbean solitude in Panama, desert romance in the Atacama, and shared wonder on Easter Island. Four properties, one conviction.",
   },
 
