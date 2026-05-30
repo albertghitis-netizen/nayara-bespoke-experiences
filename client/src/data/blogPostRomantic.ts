@@ -20,13 +20,9 @@ export const romanticBlogPost: BlogPostData = {
   readingTime: 15,
   heroImage: `${CDN}/bocas-couple-villa-pool_42fafe14.jpg`,
   keyFindings: [
-    "Research from Coffey et al. (2024) shows that couples who share novel, self-expanding experiences on vacation report significantly higher relationship satisfaction, romantic passion, and physical intimacy.",
-    "A U.S. Travel Association survey found that 61% of couples say a trip reignited their romance, while 73% consider traveling together the ultimate relationship test.",
-    "Adults-only is not simply the absence of children. It is a design philosophy: architecture scaled for intimacy, programming curated for connection, and an atmosphere where every detail serves the couple.",
-    "The Telegraph reports over 1,000 adults-only properties worldwide, with Google Trends showing searches surging since 2020. TUI now offers 780 adults-only hotels, and bookings rose 20% in 2025.",
-    "Environmental psychology shows that low-stimulus landscapes like the Atacama Desert reduce cognitive fatigue and heighten emotional attunement, making deserts natural catalysts for romantic connection.",
-    "Nayara Springs (Three Michelin Keys, Relais & Chateaux), Nayara Bocas del Toro (Two Michelin Keys, #1 Resort in Central America), Nayara Alto Atacama, and Nayara Hangaroa on Easter Island represent four distinct expressions of romance.",
-    "On Rapa Nui, the most remote inhabited island on Earth, romance is not curated by policy. It is created by shared wonder: standing before the Moai together, watching sunrise at Ahu Tongariki, and feeling the weight of 1,000 years of ancestral presence.",
+    "Research from Coffey et al. (2024) shows that couples who share novel, self-expanding experiences on vacation report significantly higher relationship satisfaction, romantic passion, and physical intimacy. The Telegraph reports over 1,000 adults-only properties worldwide, with bookings rising 20% in 2025.",
+    "Adults-only is a design philosophy, not merely an age restriction. At Nayara Springs and Bocas del Toro, architecture is scaled for intimacy, programming is curated for connection, and every detail serves the couple.",
+    "Romance at Nayara takes four forms: volcanic intimacy in the Costa Rican rainforest, Caribbean solitude on a private Panamanian island, radical subtraction in the Atacama Desert, and shared wonder before the Moai on the most remote inhabited island on Earth.",
   ],
   sections: [
     {
@@ -100,8 +96,8 @@ export const romanticBlogPost: BlogPostData = {
 <p>Environmental psychology consistently shows that environments with low sensory clutter heighten emotional attunement. When visual noise, mechanical sound, and constant stimulus fall away, attention reallocates inward and toward nearby social cues. Research published in the Journal of Environmental Psychology links low-stimulus landscapes to reduced cognitive fatigue and increased reflective capacity. Studies on awe, documented extensively by the Greater Good Science Center at UC Berkeley, demonstrate that exposure to vast environments reduces self-focus and increases relational awareness. When people feel small in a shared way, bonds strengthen.</p>
 <p>The Atacama combines both forces at once. It minimizes stimulus while exaggerating scale. Time stretches. Silence gains texture. Proximity gains meaning. Romance, in this context, is not something added. It is something revealed.</p>`,
       image: {
-        src: `${CDN}/atacama-couple-desert-sunset_a1b2c3d4.jpg`,
-        alt: "Couple watching sunset over the Atacama Desert from Nayara Alto Atacama",
+        src: "/manus-storage/atacama-couple-salt-flats_279f86f3.jpg",
+        alt: "Couple at the Atacama salt flats with snow-capped mountains and turquoise lagoon",
         caption: "The Atacama Desert: romance through subtraction",
       },
     },
