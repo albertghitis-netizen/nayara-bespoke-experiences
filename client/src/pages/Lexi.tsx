@@ -9,6 +9,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { trpc } from "@/lib/trpc";
 import { motion, AnimatePresence } from "framer-motion";
+import SofiaReminders from "@/components/SofiaReminders";
 
 /* ═══════════════════════════════════════════════════════════════
    ASK LEXI — Floating Chat Widget (bottom-left)
@@ -830,6 +831,11 @@ function CalendarView({
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Reminders Section */}
+      <div className="mt-8 pt-6 border-t" style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}>
+        <SofiaReminders />
       </div>
     </div>
   );

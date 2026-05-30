@@ -6,9 +6,12 @@ import { invokeLLM } from "./_core/llm";
 import { NAYARA_CONCIERGE_SYSTEM_PROMPT } from "./conciergePrompt";
 import { LEXI_SYSTEM_PROMPT } from "./lexiPrompt";
 import { z } from "zod";
-import { saveLead } from "./db";
+import { saveLead, getDb } from "./db";
 import { transcribeAudio } from "./_core/voiceTranscription";
 import { storagePut } from "./storage";
+import { VAPID_PUBLIC_KEY, savePushSubscription, removePushSubscription, sendPushToUser } from "./pushNotifications";
+import { sofiaReminders } from "../drizzle/schema";
+import { eq, and } from "drizzle-orm";
 
 /* ── Message schema for the chat endpoint ── */
 const messageSchema = z.object({
@@ -281,6 +284,148 @@ export const appRouter = router({
           notes: input.notes ?? null,
         });
         return { success };
+      }),
+  }),
+
+  /* ═══════════════════════════════════════════
+     PUSH NOTIFICATIONS — Subscribe/Unsubscribe
+     ═══════════════════════════════════════════ */
+  push: router({
+    getVapidKey: publicProcedure.query(() => {
+      return { vapidPublicKey: VAPID_PUBLIC_KEY };
+    }),
+
+    subscribe: publicProcedure
+      .input(
+        z.object({
+          endpoint: z.string().url(),
+          keys: z.object({
+            p256dh: z.string(),
+            auth: z.string(),
+          }),
+          userOpenId: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        const userOpenId = ctx.user?.openId ?? input.userOpenId ?? "anonymous";
+        await savePushSubscription(userOpenId, {
+          endpoint: input.endpoint,
+          keys: input.keys,
+        });
+        return { success: true };
+      }),
+
+    unsubscribe: publicProcedure
+      .input(z.object({ endpoint: z.string().url() }))
+      .mutation(async ({ input }) => {
+        await removePushSubscription(input.endpoint);
+        return { success: true };
+      }),
+
+    test: publicProcedure.mutation(async ({ ctx }) => {
+      if (!ctx.user?.openId) return { success: false, error: "Not logged in" };
+      const result = await sendPushToUser(ctx.user.openId, {
+        title: "Sofía",
+        body: "Push notifications are working! 🎉",
+        tag: "test",
+        url: "/sofia",
+      });
+      return { success: true, ...result };
+    }),
+  }),
+
+  /* ═══════════════════════════════════════════
+     SOFÍA REMINDERS — CRUD
+     ═══════════════════════════════════════════ */
+  reminders: router({
+    list: publicProcedure.query(async ({ ctx }) => {
+      if (!ctx.user?.openId) return [];
+      const db = await getDb();
+      if (!db) return [];
+      const rows = await db
+        .select()
+        .from(sofiaReminders)
+        .where(eq(sofiaReminders.userOpenId, ctx.user.openId));
+      return rows;
+    }),
+
+    create: publicProcedure
+      .input(
+        z.object({
+          category: z.string(),
+          label: z.string().min(1).max(128),
+          timeUtc: z.string().regex(/^\d{2}:\d{2}$/), // HH:MM
+          days: z.string().default("0123456"),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        if (!ctx.user?.openId) throw new Error("Login required");
+        const db = await getDb();
+        if (!db) throw new Error("Database not available");
+
+        const [result] = await db.insert(sofiaReminders).values({
+          userOpenId: ctx.user.openId,
+          category: input.category,
+          label: input.label,
+          timeUtc: input.timeUtc,
+          days: input.days,
+          enabled: 1,
+        });
+
+        return { success: true, id: result.insertId };
+      }),
+
+    update: publicProcedure
+      .input(
+        z.object({
+          id: z.number(),
+          label: z.string().min(1).max(128).optional(),
+          timeUtc: z.string().regex(/^\d{2}:\d{2}$/).optional(),
+          days: z.string().optional(),
+          enabled: z.number().min(0).max(1).optional(),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        if (!ctx.user?.openId) throw new Error("Login required");
+        const db = await getDb();
+        if (!db) throw new Error("Database not available");
+
+        const updates: Record<string, any> = {};
+        if (input.label !== undefined) updates.label = input.label;
+        if (input.timeUtc !== undefined) updates.timeUtc = input.timeUtc;
+        if (input.days !== undefined) updates.days = input.days;
+        if (input.enabled !== undefined) updates.enabled = input.enabled;
+
+        await db
+          .update(sofiaReminders)
+          .set(updates)
+          .where(
+            and(
+              eq(sofiaReminders.id, input.id),
+              eq(sofiaReminders.userOpenId, ctx.user.openId)
+            )
+          );
+
+        return { success: true };
+      }),
+
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input, ctx }) => {
+        if (!ctx.user?.openId) throw new Error("Login required");
+        const db = await getDb();
+        if (!db) throw new Error("Database not available");
+
+        await db
+          .delete(sofiaReminders)
+          .where(
+            and(
+              eq(sofiaReminders.id, input.id),
+              eq(sofiaReminders.userOpenId, ctx.user.openId)
+            )
+          );
+
+        return { success: true };
       }),
   }),
 });

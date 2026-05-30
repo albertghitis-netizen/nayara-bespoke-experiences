@@ -1,0 +1,21 @@
+{
+  "name": "Sofía — A Life Well Lived",
+  "short_name": "Sofía",
+  "description": "Track your sleep, nutrition, therapy, exercise, meds, and social life. Voice journal. Calendar reminders.",
+  "start_url": "/sofia",
+  "display": "standalone",
+  "background_color": "#f7f5f0",
+  "theme_color": "#525642",
+  "icons": [
+    {
+      "src": "/sofia-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/sofia-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

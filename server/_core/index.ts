@@ -8,7 +8,10 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
-import { saveLead } from "../db";
+import { saveLead, getDb } from "../db";
+import { sofiaReminders } from "../../drizzle/schema";
+import { eq } from "drizzle-orm";
+import { sendPushToUser } from "../pushNotifications";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -73,6 +76,62 @@ async function startServer() {
       res.status(500).json({ error: "Internal error" });
     }
   });
+  /* ═══ Scheduled Reminder Handler ═══ */
+  app.post("/api/scheduled/sendReminders", async (req, res) => {
+    try {
+      const db = await getDb();
+      if (!db) {
+        res.status(500).json({ error: "Database not available" });
+        return;
+      }
+
+      // Get current UTC time (HH:MM)
+      const now = new Date();
+      const currentHH = String(now.getUTCHours()).padStart(2, "0");
+      const currentMM = String(now.getUTCMinutes()).padStart(2, "0");
+      const currentTime = `${currentHH}:${currentMM}`;
+      const currentDay = String(now.getUTCDay()); // 0=Sun
+
+      // Find all enabled reminders matching this minute
+      const allReminders = await db
+        .select()
+        .from(sofiaReminders)
+        .where(eq(sofiaReminders.enabled, 1));
+
+      const dueReminders = allReminders.filter(
+        (r) => r.timeUtc === currentTime && r.days.includes(currentDay)
+      );
+
+      let sent = 0;
+      let failed = 0;
+
+      for (const reminder of dueReminders) {
+        try {
+          await sendPushToUser(reminder.userOpenId, {
+            title: `Sof\u00eda \u2014 ${reminder.category}`,
+            body: reminder.label,
+            tag: `reminder-${reminder.id}`,
+            url: "/sofia",
+          });
+          sent++;
+        } catch (err) {
+          console.error(`[Reminder] Failed to send push for reminder ${reminder.id}:`, err);
+          failed++;
+        }
+      }
+
+      res.json({ ok: true, currentTime, dueReminders: dueReminders.length, sent, failed });
+    } catch (err: any) {
+      console.error("[Scheduled/sendReminders] Error:", err);
+      res.status(500).json({
+        error: err.message,
+        stack: err.stack,
+        context: { url: req.url },
+        timestamp: new Date().toISOString(),
+      });
+    }
+  });
+
   // tRPC API
   app.use(
     "/api/trpc",
