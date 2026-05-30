@@ -113,7 +113,8 @@ export default function Sylvia() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NAVIGATION — Hamburger left, Logo center, Book pill right
+   NAVIGATION — Hamburger left, ← Sofía center, Book pill right
+   Left-side slide panel menu — IDENTICAL to /sofia
    ═══════════════════════════════════════════════════════════════ */
 function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -140,28 +141,25 @@ function Navigation() {
         >
           <div className="flex flex-col gap-1.5">
             <span
-              className={`block w-4.5 h-px bg-white transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-[3px] w-4" : "w-4"
+              className={`block w-5 h-px bg-white transition-all duration-300 ${
+                menuOpen ? "rotate-45 translate-y-[3.5px]" : ""
               }`}
             />
             <span
-              className={`block w-4.5 h-px bg-white transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-[3px] w-4" : "w-4"
+              className={`block w-5 h-px bg-white transition-all duration-300 ${
+                menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
               }`}
             />
           </div>
         </button>
 
-        {/* Logo center */}
-        <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 top-3">
-          <img
-          loading="lazy"
-            src={LOGO_URL}
-            alt="Sylvia"
-            style={{ width: '80px' }}
-            className="object-contain"
-          />
-        </div>
+        {/* Back to Sofía — center */}
+        <a
+          href="/sofia"
+          className="pointer-events-auto absolute left-1/2 -translate-x-1/2 flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity duration-300"
+        >
+          <span className="text-[10px] tracking-[0.15em] uppercase" style={{ fontFamily: "'DM Sans', sans-serif", color: COLORS.text }}>← Sofía</span>
+        </a>
 
         {/* Book a Free Consult pill */}
         <a
@@ -177,44 +175,33 @@ function Navigation() {
         </a>
       </div>
 
-      {/* Full-screen menu overlay — matches Sof\u00eda */}
+      {/* Left-side slide panel menu — matches Sofía exactly */}
       <AnimatePresence>
         {menuOpen && (
+          <>
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 0.4 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[60] backdrop-blur-md overflow-y-auto"
-            style={{ background: "rgba(247, 245, 240, 0.97)" }}
+            className="fixed inset-0 z-[59] bg-black"
+            onClick={() => setMenuOpen(false)}
+          />
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed top-0 left-0 bottom-0 z-[60] w-72 overflow-y-auto shadow-2xl"
+            style={{ background: "rgba(247, 245, 240, 0.98)" }}
           >
-            <div className="max-w-sm mx-auto px-8 pt-28 pb-16">
-              {/* Category items — same as Sof\u00eda */}
-              {CATEGORIES.map((cat, idx) => (
-                <motion.button
-                  key={cat.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * idx }}
-                  onClick={() => { setMenuOpen(false); window.location.href = `/sofia#${cat.id}`; }}
-                  className="flex items-center gap-4 w-full text-left py-4 border-b"
-                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
-                >
-                  <span className="w-4 h-4 rounded-full" style={{ background: cat.color }} />
-                  <span
-                    className="text-lg tracking-[0.06em] uppercase"
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
-                  >
-                    {cat.label}
-                  </span>
-                </motion.button>
-              ))}
-
-              {/* Sylvia Accordion */}
+            <div className="px-6 pt-24 pb-16">
+              {/* Sylvia — accordion */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.35 }}
+                transition={{ delay: 0.06 }}
               >
                 <button
                   onClick={() => setSylviaExpanded(!sylviaExpanded)}
@@ -235,7 +222,7 @@ function Navigation() {
                     transition={{ duration: 0.3 }}
                     className="text-xs opacity-40"
                   >
-                    \u25BC
+                    ▼
                   </motion.span>
                 </button>
 
@@ -249,13 +236,15 @@ function Navigation() {
                       className="overflow-hidden pl-8"
                     >
                       {[
-                        { label: "About Sylvia", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.scrollTo({ top: 0, behavior: "smooth" }); } },
-                        { label: "Services", action: () => { setMenuOpen(false); setSylviaExpanded(false); const el = document.querySelector("#services"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
-                        { label: "My Approach", action: () => { setMenuOpen(false); setSylviaExpanded(false); const el = document.querySelector("#approach"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
-                        { label: "Testimonials", action: () => { setMenuOpen(false); setSylviaExpanded(false); const el = document.querySelector("#testimonials"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
-                        { label: "Contact", action: () => { setMenuOpen(false); setSylviaExpanded(false); const el = document.querySelector("#contact"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
+                        { label: "My Approach", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.scrollTo({ top: 0, behavior: "smooth" }); } },
+                        { label: "Trauma", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#trauma"; } },
+                        { label: "Addiction", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#addiction"; } },
+                        { label: "Bipolar", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#bipolar"; } },
+                        { label: "My Story", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#my-story"; } },
+                        { label: "Blog", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#sylvia-blog"; } },
                         { label: "FAQ", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#faq"; } },
-                      ].map((item, idx) => (
+                        { label: "Contact", action: () => { setMenuOpen(false); setSylviaExpanded(false); const el = document.querySelector("#contact"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
+                      ].map((item) => (
                         <button
                           key={item.label}
                           onClick={item.action}
@@ -274,8 +263,40 @@ function Navigation() {
                   )}
                 </AnimatePresence>
               </motion.div>
+
+              {/* Daily Tracking label */}
+              <div className="mt-5 mb-3">
+                <span
+                  className="text-[10px] tracking-[0.2em] uppercase opacity-60"
+                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, color: "#3a2a1a" }}
+                >
+                  Daily Tracking
+                </span>
+              </div>
+
+              {/* Category items — daily tracking */}
+              {CATEGORIES.map((cat, idx) => (
+                <motion.button
+                  key={cat.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + 0.05 * idx }}
+                  onClick={() => { setMenuOpen(false); window.location.href = `/sofia#${cat.id}`; }}
+                  className="flex items-center gap-4 w-full text-left py-4 border-b"
+                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+                >
+                  <span className="w-4 h-4 rounded-full" style={{ background: cat.color }} />
+                  <span
+                    className="text-lg tracking-[0.06em] uppercase"
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                  >
+                    {cat.label}
+                  </span>
+                </motion.button>
+              ))}
             </div>
           </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

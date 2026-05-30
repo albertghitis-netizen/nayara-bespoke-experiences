@@ -179,13 +179,16 @@ const CATEGORIES = [
   { id: "meds", label: "Meds", color: "#8B6B7A", icon: "⊕" },
   { id: "social", label: "Social", color: "#6B8A9E", icon: "◇" },
   { id: "triggers", label: "Triggers", color: "#A65D5D", icon: "⚡" },
+  { id: "trauma", label: "Trauma", color: "#8B6B7A", icon: "◎" },
+  { id: "addiction", label: "Addiction", color: "#2E8B6E", icon: "◇" },
+  { id: "bipolar", label: "Bipolar", color: "#B8704A", icon: "◑" },
   { id: "faq", label: "FAQ", color: "#8A7A5A", icon: "?" },
 ] as const;
 
 type CategoryId = (typeof CATEGORIES)[number]["id"];
 
 /* Categories that can be logged in the calendar */
-const NON_LOGGABLE = new Set(["triggers", "faq"]);
+const NON_LOGGABLE = new Set(["triggers", "trauma", "addiction", "bipolar", "faq"]);
 const LOGGABLE_CATEGORIES = CATEGORIES.filter((c) => !NON_LOGGABLE.has(c.id));
 
 interface CalendarEntry {
@@ -344,13 +347,13 @@ function LoggingSection({
 
 export default function Lexi() {
   // Support deep-linking via hash: /sofia#mood opens Journal, /sofia#therapy opens Therapy, etc.
-  const getInitialView = (): CategoryId | "calendar" | "home" | "our-story" | "about-sylvia" | "sylvia-blog" => {
+  const getInitialView = (): CategoryId | "calendar" | "home" | "our-story" | "about-sylvia" | "sylvia-blog" | "my-story" => {
     const hash = window.location.hash.replace("#", "");
-    const validViews = ["mood", "therapy", "sleep", "nutrition", "exercise", "meds", "social", "triggers", "calendar", "our-story", "about-sylvia", "sylvia-blog", "faq"];
+    const validViews = ["mood", "therapy", "sleep", "nutrition", "exercise", "meds", "social", "triggers", "trauma", "addiction", "bipolar", "calendar", "our-story", "about-sylvia", "sylvia-blog", "faq"];
     if (hash && validViews.includes(hash)) return hash as any;
     return "home";
   };
-  const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story" | "about-sylvia" | "sylvia-blog">(getInitialView);
+  const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story" | "about-sylvia" | "sylvia-blog" | "my-story">(getInitialView);
   const [menuOpen, setMenuOpen] = useState(false);
   const [sofiaExpanded, setSofiaExpanded] = useState(false);
   const [sylviaExpanded, setSylviaExpanded] = useState(false);
@@ -455,44 +458,33 @@ export default function Lexi() {
         </button>
       </header>
 
-      {/* Full-screen menu overlay */}
+      {/* Left-side slide panel menu */}
       <AnimatePresence>
         {menuOpen && (
+          <>
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 0.4 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[60] backdrop-blur-md overflow-y-auto"
-            style={{ background: "rgba(247, 245, 240, 0.97)" }}
+            className="fixed inset-0 z-[59] bg-black"
+            onClick={() => setMenuOpen(false)}
+          />
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed top-0 left-0 bottom-0 z-[60] w-72 overflow-y-auto shadow-2xl"
+            style={{ background: "rgba(247, 245, 240, 0.98)" }}
           >
-            <div className="max-w-sm mx-auto px-8 pt-28 pb-16">
-              {/* Category items - flat list */}
-              {CATEGORIES.filter(c => c.id !== "faq" && c.id !== "therapy" && c.id !== "social").map((cat, idx) => (
-                <motion.button
-                  key={cat.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * idx }}
-                  onClick={() => { setActiveView(cat.id); setMenuOpen(false); }}
-                  className="flex items-center gap-4 w-full text-left py-4 border-b"
-                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
-                >
-                  <span className="w-4 h-4 rounded-full" style={{ background: cat.color }} />
-                  <span
-                    className="text-lg tracking-[0.06em] uppercase"
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
-                  >
-                    {cat.label}
-                  </span>
-                </motion.button>
-              ))}
-
-              {/* Sylvia Accordion */}
+            <div className="px-6 pt-24 pb-16">
+              {/* Sylvia — accordion */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.06 }}
               >
                 <button
                   onClick={() => setSylviaExpanded(!sylviaExpanded)}
@@ -527,16 +519,15 @@ export default function Lexi() {
                       className="overflow-hidden pl-8"
                     >
                       {[
-                        { label: "How Sylvia Met Sof\u00eda", action: () => { setActiveView("our-story"); setMenuOpen(false); setSylviaExpanded(false); } },
-                        { label: "About Sylvia", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia"; } },
-                        { label: "My Approach", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia#approach"; } },
-                        { label: "Testimonials", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia#testimonials"; } },
-                        { label: "Trauma", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia#trauma"; } },
-                        { label: "Addiction", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia#addiction"; } },
-                        { label: "Mood Disorders", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sylvia#mood-disorders"; } },
-                        { label: "Blog", action: () => { setActiveView("sylvia-blog" as any); setMenuOpen(false); setSylviaExpanded(false); } },
-                        { label: "FAQ", action: () => { setActiveView("faq"); setMenuOpen(false); setSylviaExpanded(false); } },
-                      ].map((item, idx) => (
+                        { label: "My Approach", action: () => { setMenuOpen(false); window.location.href = "/sylvia"; } },
+                        { label: "Trauma", action: () => { setActiveView("trauma"); setMenuOpen(false); } },
+                        { label: "Addiction", action: () => { setActiveView("addiction"); setMenuOpen(false); } },
+                        { label: "Bipolar", action: () => { setActiveView("bipolar"); setMenuOpen(false); } },
+                        { label: "My Story", action: () => { setActiveView("my-story" as any); setMenuOpen(false); } },
+                        { label: "Blog", action: () => { setActiveView("sylvia-blog" as any); setMenuOpen(false); } },
+                        { label: "FAQ", action: () => { setActiveView("faq"); setMenuOpen(false); } },
+                        { label: "Contact", action: () => { setMenuOpen(false); window.location.href = "/sylvia#contact"; } },
+                      ].map((item) => (
                         <button
                           key={item.label}
                           onClick={item.action}
@@ -555,8 +546,40 @@ export default function Lexi() {
                   )}
                 </AnimatePresence>
               </motion.div>
+
+              {/* Daily Tracking label */}
+              <div className="mt-5 mb-3">
+                <span
+                  className="text-[10px] tracking-[0.2em] uppercase opacity-60"
+                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, color: "#3a2a1a" }}
+                >
+                  Daily Tracking
+                </span>
+              </div>
+
+              {/* Category items — daily tracking only */}
+              {CATEGORIES.filter(c => !['faq', 'therapy', 'social', 'trauma', 'addiction', 'bipolar'].includes(c.id)).map((cat, idx) => (
+                <motion.button
+                  key={cat.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + 0.05 * idx }}
+                  onClick={() => { setActiveView(cat.id); setMenuOpen(false); }}
+                  className="flex items-center gap-4 w-full text-left py-4 border-b"
+                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+                >
+                  <span className="w-4 h-4 rounded-full" style={{ background: cat.color }} />
+                  <span
+                    className="text-lg tracking-[0.06em] uppercase"
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                  >
+                    {cat.label}
+                  </span>
+                </motion.button>
+              ))}
             </div>
           </motion.div>
+          </>
         )}
       </AnimatePresence>
 
@@ -585,6 +608,14 @@ export default function Lexi() {
           <SocialPage {...categoryProps("social")} />
         ) : activeView === "triggers" ? (
           <TriggersPage {...categoryProps("triggers")} />
+        ) : activeView === "trauma" ? (
+          <TraumaPage />
+        ) : activeView === "addiction" ? (
+          <AddictionPage />
+        ) : activeView === "bipolar" ? (
+          <BipolarPage />
+        ) : activeView === "my-story" ? (
+          <MyStoryPage />
         ) : activeView === "faq" ? (
           <FAQPage />
         ) : activeView === "our-story" ? (
@@ -1234,10 +1265,10 @@ function HomePage() {
           className="text-3xl tracking-wide mb-2"
           style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
         >
-          Towards Living
+          A Life Well Lived
         </h1>
         <p className="text-sm opacity-60 max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Structure. Awareness. A life well lived.
+          Structure. Awareness. Intention.
         </p>
       </div>
 
@@ -1245,7 +1276,7 @@ function HomePage() {
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Sofía means wisdom—not the kind that comes from textbooks, but the kind that comes from paying attention to your own life. It was created by Sylvia, a trauma therapist who spent years noticing the same thing: the breakthroughs happened in session, but the patterns lived outside of it. She built Sofía as a way to stay connected to what was really happening in her clients' lives between appointments. A gentle, structured companion that holds the daily details so the deeper work can go deeper.
+          Sofía means wisdom—not the kind that comes from textbooks, but the kind that comes from paying attention to your own life. I'm{" "}<a href="/sylvia" className="underline underline-offset-2 hover:opacity-70 transition-opacity" style={{ color: "#3a2a1a" }}>Sylvia</a>, a trauma therapist, and I built Sofía after years of noticing the same thing: the breakthroughs happened in session, but the patterns lived outside of it. I wanted a way to stay connected to what was really happening in my clients' lives between appointments. A gentle, structured companion that holds the daily details so the deeper work can go deeper.
         </p>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           Now, Sofía is for everyone. A self-guided tool for anyone navigating mood, addiction, or simply wanting more structure and intentionality in their daily life. Track your sleep, exercise, nutrition, triggers, cravings, and emotional rhythms—and start to see yourself clearly.
@@ -1317,20 +1348,50 @@ function HomePage() {
       </section>
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>What You Can Track</h2>
-        <p className="text-sm leading-relaxed opacity-80 mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Sofía helps you track the pillars of a well-lived life:
-        </p>
-      </section>
+        <h2 className="text-lg font-semibold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>How Sofía Works</h2>
 
-      <div className="grid grid-cols-2 gap-3">
-        {CATEGORIES.filter(c => c.id !== "faq").map((cat) => (
-          <div key={cat.id} className="rounded-lg p-4 text-center" style={{ background: cat.color + "15", borderLeft: `3px solid ${cat.color}` }}>
-            <span className="text-2xl block mb-1">{cat.icon}</span>
-            <span className="text-xs uppercase tracking-wider font-medium" style={{ color: cat.color }}>{cat.label}</span>
+        <p className="text-sm leading-relaxed opacity-80 mb-5" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          Sofía is built around five daily pillars — the things that, when tracked consistently, give you the clearest picture of how you're actually doing.
+        </p>
+
+        {/* The 5 pillars */}
+        <div className="space-y-4 mb-6">
+          {[
+            { icon: "☽", label: "Sleep", color: "#5A6B7A", desc: "Log when you went to bed, when you woke up, and how you felt. Sleep is the foundation — everything else builds on it." },
+            { icon: "◈", label: "Nutrition", color: "#7A9E7E", desc: "Track your meals and notice how what you eat affects how you feel. The gut-brain connection is real." },
+            { icon: "◉", label: "Therapy", color: "#5C6B4A", desc: "Log your sessions, breakthroughs, and homework. Keep the thread between appointments so nothing gets lost." },
+            { icon: "△", label: "Exercise", color: "#B8704A", desc: "Record what you did and how it made you feel. Movement is medicine — even a 15-minute walk counts." },
+            { icon: "⊕", label: "Meds", color: "#8B6B7A", desc: "Track what you take, when you take it, and any side effects. Consistency matters, and so does noticing changes." },
+          ].map((item) => (
+            <div key={item.label} className="flex items-start gap-4 p-4 rounded-lg" style={{ background: item.color + "10" }}>
+              <span className="text-xl mt-0.5" style={{ color: item.color }}>{item.icon}</span>
+              <div>
+                <span className="text-sm font-semibold block mb-1" style={{ color: item.color, fontFamily: "'DM Sans', sans-serif" }}>{item.label}</span>
+                <p className="text-sm leading-relaxed opacity-75" style={{ fontFamily: "'DM Sans', sans-serif" }}>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Voice + Calendar */}
+        <div className="space-y-4 pt-2" style={{ borderTop: "1px solid rgba(58, 42, 26, 0.1)" }}>
+          <div className="flex items-start gap-4 pt-4">
+            <span className="text-xl mt-0.5 opacity-60">🎙</span>
+            <div>
+              <span className="text-sm font-semibold block mb-1" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>Voice Journal</span>
+              <p className="text-sm leading-relaxed opacity-75" style={{ fontFamily: "'DM Sans', sans-serif" }}>Don't feel like typing? Voice record your journal entries. Just talk — Sofía captures it for you.</p>
+            </div>
           </div>
-        ))}
-      </div>
+
+          <div className="flex items-start gap-4">
+            <span className="text-xl mt-0.5 opacity-60">📅</span>
+            <div>
+              <span className="text-sm font-semibold block mb-1" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>Calendar & Reminders</span>
+              <p className="text-sm leading-relaxed opacity-75" style={{ fontFamily: "'DM Sans', sans-serif" }}>Add any of your daily items to the calendar and Sofía will beep when it's time — meds, meals, therapy, exercise, sleep. You set the schedule, she keeps you on it.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── AWARENESS SECTION ── */}
 
@@ -2234,102 +2295,305 @@ function TriggersPage(props: CategoryPageProps) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   TRAUMA PAGE — Understanding Trauma
+   ═══════════════════════════════════════════════════════════════ */
+
+function TraumaPage() {
+  const category = CATEGORIES.find((c) => c.id === "trauma")!;
+  return (
+    <div className="space-y-6">
+      <div className="text-center">
+        <span className="text-3xl">{category.icon}</span>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Trauma</h2>
+        <p className="text-xs opacity-50 mt-1 max-w-sm mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>Understanding what trauma is, how it lives in the body, and what healing actually looks like</p>
+      </div>
+
+      <InfoSection title="What Trauma Actually Is">
+        <p>Trauma is not what happened to you. Trauma is what happened inside you as a result of what happened to you. It is the nervous system's response to an overwhelming event that exceeded your capacity to cope at the time. This means trauma is not defined by the severity of the event but by the impact it had on your body and mind. A car accident, childhood neglect, a difficult medical procedure, or a relationship where you were consistently dismissed can all leave the same kind of imprint.</p>
+      </InfoSection>
+
+      <InfoSection title="How Trauma Lives in the Body">
+        <p>Trauma is not just a memory. It is stored in the body as patterns of tension, hypervigilance, and dysregulated nervous system responses. You might notice it as a tight jaw, shallow breathing, a startle response that seems disproportionate, or a feeling of being "on" all the time. The body keeps the score, as Bessel van der Kolk famously put it. This is why talk therapy alone sometimes is not enough. The body needs to process what the mind already understands.</p>
+      </InfoSection>
+
+      <InfoSection title="Types of Trauma">
+        <p><strong>Acute trauma</strong> results from a single overwhelming event: an accident, an assault, a natural disaster. <strong>Chronic trauma</strong> comes from repeated exposure to distressing events: ongoing abuse, living in a war zone, or years of emotional neglect. <strong>Complex trauma</strong> (C-PTSD) develops from prolonged interpersonal trauma, often in childhood, where the source of danger was also the source of safety. <strong>Developmental trauma</strong> occurs when a child's attachment needs are consistently unmet, shaping the brain's wiring for relationships, self-worth, and emotional regulation.</p>
+      </InfoSection>
+
+      <InfoSection title="The Window of Tolerance">
+        <p>Everyone has a window of tolerance: a zone where you can experience emotions, think clearly, and respond to stress without becoming overwhelmed or shutting down. Trauma narrows this window. When you are pushed above it, you enter hyperarousal: anxiety, panic, rage, racing thoughts. When you drop below it, you enter hypoarousal: numbness, dissociation, collapse, feeling nothing. The goal of trauma therapy is not to eliminate stress but to widen your window so you can handle more of life without leaving it.</p>
+      </InfoSection>
+
+      <InfoSection title="How I Work With Trauma">
+        <p>I use a combination of EMDR (Eye Movement Desensitization and Reprocessing), somatic approaches, and relational therapy. We start with stabilization: building the internal resources and coping skills you need before we touch the trauma directly. Then we process at your pace. You do not need to recount every detail. EMDR works with the brain's natural healing mechanisms to reprocess traumatic memories so they lose their emotional charge. The memory remains, but the distress fades. Most clients describe it as the difference between remembering something painful and reliving it.</p>
+      </InfoSection>
+
+      <InfoSection title="Signs You Might Be Carrying Unprocessed Trauma">
+        <p>You feel fine most of the time but occasionally get hijacked by intense emotions that seem to come from nowhere. You avoid certain places, people, or conversations without fully understanding why. You have difficulty trusting people even when they have given you no reason not to. You are hypervigilant in relationships, always scanning for signs of rejection or danger. You feel disconnected from your body or emotions. You have physical symptoms (chronic pain, digestive issues, insomnia) that have no clear medical explanation. You are successful by every external measure but feel empty, anxious, or numb inside.</p>
+      </InfoSection>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ADDICTION PAGE — Understanding Addiction
+   ═══════════════════════════════════════════════════════════════ */
+
+function AddictionPage() {
+  const category = CATEGORIES.find((c) => c.id === "addiction")!;
+  return (
+    <div className="space-y-6">
+      <div className="text-center">
+        <span className="text-3xl">{category.icon}</span>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Addiction</h2>
+        <p className="text-xs opacity-50 mt-1 max-w-sm mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>What addiction really is, why willpower is not the answer, and how recovery works</p>
+      </div>
+
+      <InfoSection title="Addiction Is Not a Moral Failure">
+        <p>Addiction is a chronic brain condition, not a character flaw. Repeated exposure to substances or behaviors changes the brain's reward circuitry, decision-making centers, and stress response systems. The prefrontal cortex (responsible for impulse control and long-term planning) becomes less active, while the limbic system (which drives craving and emotional reactivity) becomes hyperactive. This is why someone can genuinely want to stop and still find themselves unable to. It is not a lack of willpower. It is altered neurobiology.</p>
+      </InfoSection>
+
+      <InfoSection title="The Self-Medication Hypothesis">
+        <p>Most people who develop addiction are not chasing pleasure. They are fleeing pain. Substances and addictive behaviors are remarkably effective at temporarily relieving anxiety, depression, trauma symptoms, loneliness, and emotional dysregulation. The problem is that the relief is temporary and the cost is cumulative. Understanding what you were medicating is essential to recovery because if you remove the substance without addressing the underlying pain, you will either relapse or transfer the addiction to something else.</p>
+      </InfoSection>
+
+      <InfoSection title="Types of Addiction">
+        <p><strong>Substance addiction</strong> includes alcohol, opioids, stimulants, benzodiazepines, cannabis, and nicotine. <strong>Behavioral addiction</strong> includes gambling, sex, pornography, shopping, gaming, and social media. <strong>Process addiction</strong> is a broader term that includes work addiction, exercise addiction, and disordered eating patterns. The mechanism is the same: the brain's reward system gets hijacked by a behavior or substance that provides short-term relief at the cost of long-term wellbeing. The specific substance or behavior matters less than the pattern.</p>
+      </InfoSection>
+
+      <InfoSection title="Why Relapse Is Part of Recovery">
+        <p>Relapse rates for addiction are between 40 and 60 percent, which is comparable to relapse rates for other chronic conditions like hypertension and diabetes. A relapse does not mean treatment has failed. It means the treatment plan needs adjustment. The most dangerous thing about relapse is not the relapse itself but the shame spiral that follows, which often leads to continued use. Recovery is not a straight line. It is a process of learning, adjusting, and building a life that no longer requires the substance to feel manageable.</p>
+      </InfoSection>
+
+      <InfoSection title="How I Work With Addiction">
+        <p>I treat addiction as a symptom of something deeper, not the problem itself. We work together to understand what the addiction was solving for you, build alternative coping strategies, address co-occurring mental health conditions (trauma, anxiety, depression, bipolar disorder), and create a sustainable recovery plan that fits your actual life. I do not use shame, confrontation, or one-size-fits-all approaches. Recovery looks different for everyone, and your plan should reflect that.</p>
+      </InfoSection>
+
+      <InfoSection title="Signs You Might Need Help">
+        <p>You have tried to cut back or stop and found you could not. You need more of the substance or behavior to get the same effect. You continue despite clear negative consequences in your relationships, work, health, or finances. You feel anxious or irritable when you cannot access the substance or behavior. You have started lying about or hiding your use. You have lost interest in things that used to matter to you. You use to cope with stress, boredom, loneliness, or emotional pain. You have thought about getting help but keep putting it off.</p>
+      </InfoSection>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BIPOLAR PAGE — Understanding Bipolar Disorder
+   ═══════════════════════════════════════════════════════════════ */
+
+function BipolarPage() {
+  const category = CATEGORIES.find((c) => c.id === "bipolar")!;
+  return (
+    <div className="space-y-6">
+      <div className="text-center">
+        <span className="text-3xl">{category.icon}</span>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Bipolar Disorder</h2>
+        <p className="text-xs opacity-50 mt-1 max-w-sm mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>What bipolar disorder is, what stability actually looks like, and how to build a life around it</p>
+      </div>
+
+      <InfoSection title="What Bipolar Disorder Actually Is">
+        <p>Bipolar disorder is a chronic mood disorder characterized by episodes of mania (or hypomania) and depression. It is not "mood swings" in the colloquial sense. It is a neurobiological condition involving disruptions in circadian rhythm, neurotransmitter regulation, and the brain's ability to maintain emotional equilibrium. There are several types: Bipolar I involves full manic episodes (often requiring hospitalization), Bipolar II involves hypomanic episodes and major depressive episodes, and Cyclothymia involves chronic fluctuating moods that do not meet the full criteria for either.</p>
+      </InfoSection>
+
+      <InfoSection title="Mania vs. Hypomania">
+        <p><strong>Mania</strong> is a distinct period of abnormally elevated, expansive, or irritable mood lasting at least seven days. It often includes decreased need for sleep, racing thoughts, grandiosity, impulsive spending, risky sexual behavior, and sometimes psychosis. <strong>Hypomania</strong> is a milder version lasting at least four days. It can feel productive and even pleasant, which is why many people with Bipolar II do not seek help during hypomanic episodes. The danger of hypomania is that it almost always precedes a depressive crash, and the decisions made during hypomania often have consequences that outlast the episode.</p>
+      </InfoSection>
+
+      <InfoSection title="The Depressive Side">
+        <p>Bipolar depression is often more debilitating than the manic episodes. It tends to last longer, respond less well to standard antidepressants (which can trigger mania), and carry a higher risk of suicidal ideation. It feels different from unipolar depression: heavier, more leaden, with more hypersomnia (sleeping too much) and psychomotor retardation (feeling physically slowed down). Many people with bipolar disorder spend far more time depressed than manic, which is why it is frequently misdiagnosed as major depressive disorder.</p>
+      </InfoSection>
+
+      <InfoSection title="What Stability Actually Looks Like">
+        <p>Stability is not the absence of mood changes. It is the ability to experience normal emotional fluctuations without them escalating into full episodes. Stability requires a foundation of consistent sleep, medication adherence, stress management, and self-awareness. It means knowing your early warning signs (sleeping less, talking faster, spending more, withdrawing socially) and having a plan for when they appear. Stability is not a destination. It is a daily practice.</p>
+      </InfoSection>
+
+      <InfoSection title="The Role of Sleep and Routine">
+        <p>Sleep disruption is both a symptom and a trigger of bipolar episodes. Research consistently shows that irregular sleep patterns are one of the strongest predictors of mood destabilization. Social Rhythm Therapy (SRT), which focuses on stabilizing daily routines (wake time, meal times, social interactions, sleep time), is one of the most effective adjunct treatments for bipolar disorder. The boring truth is that the most powerful thing you can do for bipolar stability is go to bed and wake up at the same time every day.</p>
+      </InfoSection>
+
+      <InfoSection title="How I Work With Bipolar Disorder">
+        <p>I work collaboratively with your psychiatrist (medication management is essential for bipolar disorder) while providing therapy focused on psychoeducation, early warning sign identification, routine stabilization, and processing the grief that often comes with a bipolar diagnosis. Many of my clients are high-functioning people who have been managing bipolar disorder for years but have never had a therapist who truly understood the condition. I also help with the relational impact: how to communicate with partners and family about what you need, and how to rebuild trust after episodes that may have caused damage.</p>
+      </InfoSection>
+
+      <InfoSection title="Signs You Might Have Bipolar Disorder">
+        <p>You have periods of unusually high energy, decreased need for sleep, and increased productivity followed by crashes into depression. Antidepressants have made you feel worse, agitated, or "wired." You have a family history of bipolar disorder. You make impulsive decisions during high-energy periods that you later regret. Your depression feels heavy and physical, not just sad. You have been treated for depression multiple times without lasting improvement. Your mood changes seem to follow a pattern or cycle. You feel like you are living two different lives.</p>
+      </InfoSection>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    FAQ PAGE — Mega FAQ combining all category questions
    ═══════════════════════════════════════════════════════════════ */
 
 const FAQ_SECTIONS = [
   {
-    title: "Mood",
-    icon: "\u{1F30A}",
-    color: "#C9A96E",
-    items: [
-      { q: "How does addiction affect mood stability?", a: "Substances directly alter the neurotransmitter systems that regulate mood. Alcohol depletes serotonin over time. Stimulants cause dopamine crashes. Even after you stop using, your brain's mood regulation system can take months to recalibrate. During that window, mood swings are more frequent and more intense." },
-      { q: "Why do mood episodes trigger cravings?", a: "During depressive episodes, the brain seeks relief from emotional pain, and substances offer fast but temporary relief. During manic or hypomanic episodes, impulsivity increases and risk assessment decreases, making it easier to justify using." },
-      { q: "How do I tell the difference between withdrawal and a mood episode?", a: "They can look identical. The key differentiator is timeline. Withdrawal symptoms follow a predictable arc after your last use. Mood episodes can emerge at any time. Logging both your substance use and your mood helps your provider distinguish between them." },
-    ],
-  },
-  {
-    title: "Therapy",
-    icon: "\u{1F9E0}",
-    color: "#5C6B4A",
-    items: [
-      { q: "Why is therapy essential?", a: "Medication manages brain chemistry. Therapy manages the behaviors, thought patterns, and relationship dynamics that either stabilize or destabilize you. Integrated treatment addressing both conditions simultaneously produces significantly better outcomes than treating either alone." },
-      { q: "What types of therapy work best?", a: "CBT helps identify distorted thinking. DBT teaches distress tolerance so you can ride out cravings and mood episodes without acting on them. IPSRT stabilizes daily routines. Many people benefit from a combination." },
-      { q: "How often should I go?", a: "Weekly during unstable periods or early recovery. Biweekly during maintenance. Skipping therapy when you feel good is one of the most common mistakes. Stability is when you build the skills you will need during the next crisis." },
-    ],
-  },
-  {
-    title: "Sleep",
-    icon: "\u{1F319}",
-    color: "#5A6B7A",
-    items: [
-      { q: "Why is sleep the number one priority?", a: "Sleep disruption is both the earliest warning sign and the most potent trigger for mood episodes. Even one night of lost sleep can trigger hypomania. Poor sleep is also one of the strongest predictors of relapse." },
-      { q: "How do substances disrupt sleep?", a: "Alcohol fragments sleep architecture. Stimulants prevent sleep onset. Cannabis suppresses dreaming and creates rebound insomnia during withdrawal. Even after substances are removed, sleep disturbance can persist for weeks or months." },
-      { q: "What are the non-negotiable sleep rules?", a: "Same bedtime and wake time every day. No screens one hour before bed. Dark, cool room. No caffeine after noon. No alcohol. If you cannot sleep after 20 minutes, get up and do something boring until drowsy." },
-    ],
-  },
-  {
-    title: "Nutrition",
-    icon: "\u{1F96C}",
-    color: "#7A9E7E",
-    items: [
-      { q: "Why does nutrition matter?", a: "Your brain consumes 20% of your daily calories despite being only 2% of your body weight. What you eat directly impacts neurotransmitter production, inflammation levels, and gut-brain signaling. Chronic substance use depletes essential nutrients." },
-      { q: "How does blood sugar affect mood and cravings?", a: "Blood sugar spikes and crashes can mimic or trigger mood episodes and amplify cravings. The crash after a sugar spike feels similar to the come-down from substances. Eat protein with every meal, prioritize complex carbs, and avoid long gaps between meals." },
-      { q: "What about the gut-brain connection?", a: "90% of serotonin is produced in the gut. Chronic alcohol use, poor diet, and antibiotics disrupt the microbiome, which directly impacts mood regulation and craving intensity. Fermented foods, fiber, and diverse plant intake support a healthy microbiome." },
-    ],
-  },
-  {
-    title: "Exercise",
-    icon: "\u{1F3C3}",
-    color: "#B8704A",
-    items: [
-      { q: "How does exercise help?", a: "Exercise directly impacts serotonin, dopamine, norepinephrine, and BDNF. For depression, aerobic exercise has been shown to be as effective as antidepressants for mild-to-moderate cases. For addiction, exercise provides a natural dopamine release that reduces craving intensity." },
-      { q: "Can exercise replace the high from substances?", a: "Not exactly, but it activates overlapping reward pathways. The endorphin release engages the same opioid receptors that substances target, just at a lower, sustainable level. People who exercise regularly in early recovery have significantly lower relapse rates." },
-      { q: "Can too much exercise be a problem?", a: "Yes. Over-exercise can trigger hypomania. It can also become a substitute addiction. Warning signs include working out twice a day, inability to rest, exercising through injury, and feeling anxious when you miss a session." },
-    ],
-  },
-  {
-    title: "Medications",
-    icon: "\u{1F48A}",
+    title: "Trauma Therapy",
+    icon: "🫂",
     color: "#8B6B7A",
     items: [
-      { q: "Can I drink alcohol on psychiatric medications?", a: "In almost all cases, no. Alcohol interacts dangerously with lithium, benzodiazepines, antidepressants, and antipsychotics. Beyond interactions, alcohol destabilizes the mood you are trying to stabilize." },
-      { q: "What medications help with both conditions?", a: "Naltrexone reduces alcohol and opioid cravings while being safe with most mood stabilizers. Gabapentin helps with anxiety, sleep, and alcohol cravings. Bupropion can help with both depression and nicotine/stimulant cravings." },
-      { q: "What if I relapse while on medication?", a: "Do not stop your medication. Contact your prescriber. A relapse does not erase the progress your medication has made. Stopping medication during a relapse creates a double crisis." },
+      { q: "Will I have to talk about all the details of my trauma?", a: "No. In therapies like EMDR and Somatic Experiencing, you do not need to share every detail. We can process the trauma without you having to recount the entire story." },
+      { q: "How long does trauma therapy take?", a: "It varies for everyone. Some people see significant improvement with EMDR in just a few sessions, while others may need several months of therapy to fully process their experiences." },
+      { q: "What if I get overwhelmed during a session?", a: "Your safety is the priority. We will spend time building grounding and coping skills before we start processing trauma, so you have tools to manage if you feel overwhelmed." },
+      { q: "Is EMDR better than regular talk therapy?", a: "EMDR is specifically designed to process trauma and is often faster and more effective for PTSD than traditional talk therapy, which may not address how trauma is stored in the brain and body." },
     ],
   },
   {
-    title: "Social",
-    icon: "\u{1F465}",
+    title: "High-Functioning Struggles",
+    icon: "🎭",
+    color: "#C9A96E",
+    items: [
+      { q: "What is high-functioning depression?", a: "High-functioning depression refers to individuals who experience persistent depressive symptoms, such as low mood and fatigue, while maintaining their outward success and daily responsibilities." },
+      { q: "How does high-functioning anxiety affect the body?", a: "High-functioning anxiety can cause physical symptoms like muscle tension, racing heart rate, sleep disturbances, and gastrointestinal issues due to chronic stress." },
+      { q: "Why do high achievers avoid seeking therapy?", a: "Many high achievers delay therapy because they view it as a waste of productive time, fear it will undermine their professional credibility, or believe they are not unwell enough to need help." },
+      { q: "What are the signs of high-functioning anxiety?", a: "Signs include perfectionist paralysis, feeling worse after achieving goals, chronic irritability, emotional numbing, and persistent self-doubt despite external success." },
+    ],
+  },
+  {
+    title: "Finding a Provider",
+    icon: "🔍",
     color: "#5A7B9E",
     items: [
-      { q: "How do I handle social situations where people are using?", a: "Early in recovery, avoid them entirely. As you build stability, reintroduce social situations with a plan: bring a sober support person, have an exit strategy, and leave when you feel uncomfortable. Never test your willpower when you do not have to." },
-      { q: "What if my social circle revolves around substance use?", a: "You may need to build an entirely new social network. Recovery meetings, group therapy, volunteer work, and hobby-based communities are all places to find people who support your recovery." },
-      { q: "How does over-socializing affect mood?", a: "During hypomania, the instinct is to say yes to everything. This disrupts sleep, overstimulates the brain, and can accelerate into full mania. If you are suddenly the life of every party, that is data, not just personality." },
+      { q: "Can a psychologist prescribe medication?", a: "In most states, psychologists cannot prescribe medication. They focus on talk therapy and behavioral guidance. Psychiatrists are the medical doctors who prescribe psychiatric medications." },
+      { q: "What is the difference between a therapist and a psychologist?", a: "A psychologist has a doctoral degree (PhD, PsyD, or EdD) and extensive training in psychological testing and diagnosis. A therapist typically has a master's degree (like an LCSW or LPC) and focuses primarily on counseling and talk therapy." },
+      { q: "Should I see a psychiatrist or a therapist first?", a: "It depends on your symptoms. If you are experiencing severe symptoms that might require medication, a psychiatrist is a good starting point. For stress, relationship issues, or mild to moderate mental health concerns, starting with a therapist is often recommended." },
+      { q: "Do I need both a psychiatrist and a therapist?", a: "Many people benefit from a combination of both. A psychiatrist can manage your medication, while a therapist can provide ongoing talk therapy to help you develop coping strategies and work through underlying issues." },
     ],
   },
   {
-    title: "Triggers",
-    icon: "\u26A1",
-    color: "#C45D3E",
+    title: "Bipolar Disorder",
+    icon: "⚡",
+    color: "#B8704A",
     items: [
-      { q: "What are HALT states?", a: "Hungry, Angry, Lonely, Tired. These four basic states are the most common precursors to both mood destabilization and relapse. When you are in a HALT state, your brain's decision-making is compromised." },
-      { q: "Can positive events be triggers?", a: "Absolutely. Falling in love, getting a promotion, or any intense positive emotion can trigger hypomania. Celebrations are also high-risk because they are culturally associated with substance use." },
-      { q: "How do I build a trigger management plan?", a: "List your known triggers. For each one, write down the early warning signs, the action plan, and the support contact. Review this plan with your therapist. The time to build the plan is when you are stable, not when you are in crisis." },
+      { q: "What does stability look like in bipolar disorder?", a: "Stability is not the absence of mood changes. It is the ability to manage them effectively through routine, medication, and self-awareness." },
+      { q: "Why is sleep hygiene important for bipolar disorder?", a: "Disrupted sleep is a common trigger for manic episodes. Maintaining a consistent sleep schedule helps stabilize your circadian rhythm and mood." },
+      { q: "What should I do if I want to stop taking my bipolar medication?", a: "Never stop taking your medication abruptly. Always consult your psychiatrist to discuss side effects and explore alternative dosages or medications." },
+      { q: "What are early warning signs of a bipolar episode?", a: "Early warning signs can include subtle changes in sleep needs, speech patterns, energy levels, or sudden urges to start new projects." },
+      { q: "How can self-tracking help manage bipolar disorder?", a: "Self-tracking apps like Sofía help you monitor your daily rhythms, spot patterns in your mood, and provide valuable data for your therapy sessions." },
     ],
   },
   {
-    title: "Addiction",
-    icon: "\u{1F525}",
+    title: "Dual Diagnosis",
+    icon: "🔗",
     color: "#2E8B6E",
     items: [
-      { q: "How does alcohol interact with mood disorders?", a: "Chronic use suppresses serotonin production and disrupts sleep architecture. For depression, alcohol deepens episodes within days of heavy use. For bipolar disorder, it can trigger rapid cycling. Withdrawal can produce anxiety, insomnia, and seizures." },
-      { q: "What about cocaine?", a: "Cocaine floods the brain with dopamine, producing intense euphoria followed by a severe crash. The comedown mimics a depressive episode so closely that it is often impossible to tell where the drug effect ends and the mood disorder begins." },
-      { q: "How do opiates interact with mood disorders?", a: "For people with depression, opiates feel like the first time they have not been in emotional pain, which makes them extraordinarily addictive. Chronic use suppresses natural endorphin production. Medication-assisted treatment is often essential." },
-      { q: "What about benzodiazepines?", a: "Tolerance develops quickly. Withdrawal is medically dangerous. Benzodiazepine dependence creates a secondary layer of chemical instability. The withdrawal cycle can trigger depressive and manic episodes." },
+      { q: "What is a dual diagnosis?", a: "A dual diagnosis, also known as co-occurring disorders, means having a mental health disorder (like depression or anxiety) and a substance use disorder at the same time." },
+      { q: "Which comes first, the mental health issue or the addiction?", a: "It varies. Sometimes mental health issues lead to self-medicating with substances. Other times, chronic substance use alters the brain and triggers mental health disorders." },
+      { q: "Why is it bad to treat them separately?", a: "Treating one without the other usually fails. Untreated mental health issues can lead to relapse, and ongoing substance use can worsen mental health symptoms and interfere with medications." },
+      { q: "What are common dual diagnosis combinations?", a: "Common combinations include depression with alcohol use, anxiety with benzodiazepine dependence, bipolar disorder with stimulants, and PTSD with opioid addiction." },
+      { q: "What does integrated treatment involve?", a: "Integrated treatment addresses both conditions simultaneously using a unified plan. It often includes behavioral therapies like CBT or DBT, medication management, and coordinated care among providers." },
+    ],
+  },
+  {
+    title: "Recovery",
+    icon: "🌱",
+    color: "#5C6B4A",
+    items: [
+      { q: "Is relapse a sign that addiction treatment has failed?", a: "No. Relapse is a common part of the recovery process for chronic conditions like addiction. It indicates that treatment needs to be resumed, modified, or changed, not that it has failed." },
+      { q: "What is the difference between a lapse and a relapse?", a: "A lapse is a brief, temporary return to substance use, while a relapse is a full return to previous levels of use and an abandonment of recovery goals." },
+      { q: "What are the Stages of Change in addiction recovery?", a: "The Stages of Change model includes precontemplation, contemplation, preparation, action, and maintenance. It is normal to cycle through these stages multiple times." },
+      { q: "How can I prevent a lapse from turning into a relapse?", a: "By viewing a lapse as a learning opportunity rather than a failure, practicing self-compassion, and adjusting your relapse prevention plan to address the triggers that caused the lapse." },
+      { q: "Why is shame harmful in addiction recovery?", a: "Shame can lead to secrecy and paralyzing negative emotions, which often trigger further substance use. Self-compassion and curiosity are more effective tools for maintaining recovery." },
+    ],
+  },
+  {
+    title: "Teens & Social Media",
+    icon: "📱",
+    color: "#5A6B7A",
+    items: [
+      { q: "Why is social media so addictive for teenagers?", a: "Social media exploits the brain's dopamine system through variable ratio reinforcement. The unpredictability of notifications and content creates a loop of anticipation and checking that is highly compelling, especially for a developing teenage brain." },
+      { q: "How does social media affect a teenager's sleep?", a: "Excessive social media use is linked to poor sleep quality and reduced sleep duration. The blue light from screens interferes with natural sleep patterns, and the emotional arousal from engaging with content makes it difficult for teens to wind down before bed." },
+      { q: "Can social media cause anxiety and depression in teens?", a: "While it may not be the sole cause, excessive social media use is strongly associated with increased symptoms of anxiety and depression. Constant social comparison and exposure to curated highlight reels can lead to feelings of inadequacy and exclusion." },
+      { q: "What are some practical screen time rules for parents?", a: "Effective rules include keeping devices out of the bedroom at night, establishing screen-free times during family meals, and turning off phones at least an hour before bedtime. Creating a Family Media Plan can also help set clear boundaries." },
+      { q: "Is all social media use bad for teenagers?", a: "No, social media can have positive effects, such as fostering connections with peers who share similar interests and providing a space for self-expression. The key is moderation and ensuring that online interactions do not replace healthy real-life activities." },
+    ],
+  },
+  {
+    title: "Toxic Positivity",
+    icon: "🚫",
+    color: "#C45D3E",
+    items: [
+      { q: "What is toxic positivity?", a: "Toxic positivity is the belief that people should maintain a positive mindset no matter how difficult a situation is, often leading to the invalidation or suppression of authentic negative emotions." },
+      { q: "Why is emotional suppression harmful?", a: "Emotional suppression requires physiological effort, increasing stress on the body. It doesn't make the emotions go away; instead, it often makes them stronger and more difficult to manage later." },
+      { q: "Do negative emotions have a purpose?", a: "Yes. Negative emotions act as signals. For example, anger can indicate a crossed boundary, while sadness can signal the loss of something important. They provide crucial data about our needs." },
+      { q: "What is the alternative to toxic positivity?", a: "The alternative is emotional acceptance—acknowledging and allowing your feelings without judgment, rather than trying to force yourself to feel happy when you are not." },
+    ],
+  },
+  {
+    title: "Mood Tracking",
+    icon: "📊",
+    color: "#7A9E7E",
+    items: [
+      { q: "Why is mood tracking important?", a: "Mood tracking helps identify patterns and triggers, providing concrete data that can guide therapy and improve treatment outcomes." },
+      { q: "What should I track?", a: "You can track your overall mood, specific emotions, sleep patterns, and any significant events or triggers." },
+      { q: "How often should I track my mood?", a: "Consistency is key. Tracking once or twice a day is usually sufficient to identify patterns over time." },
+      { q: "Can mood tracking help predict episodes?", a: "Yes, by identifying patterns and early warning signs, mood tracking can help you predict and manage potential episodes." },
+    ],
+  },
+  {
+    title: "Sleep & Mental Health",
+    icon: "😴",
+    color: "#5A6B7A",
+    items: [
+      { q: "What is the bidirectional relationship between sleep and mental health?", a: "Sleep disturbances can trigger mood episodes, and mood episodes can disrupt sleep." },
+      { q: "How does sleep deprivation affect cravings?", a: "Sleep deprivation significantly decreases activity in appetitive evaluation regions within the human frontal cortex, increasing cravings for sweet and salty foods." },
+      { q: "What role does circadian rhythm play in bipolar disorder?", a: "Abnormal circadian rhythms underlie sleep difficulties in bipolar disorder, affecting approximately 70% of patients and persisting even during euthymic states." },
+      { q: "What is sleep hygiene?", a: "Sleep hygiene includes maintaining a regular sleep schedule, creating a relaxing bedtime routine, and avoiding screens before bed." },
+      { q: "Why is sleep the first thing a therapist asks about?", a: "Sleep is the foundation of mental health. If you are not sleeping well, it is almost impossible to maintain a stable mood." },
     ],
   },
 ];
+
+/* ═══════════════════════════════════════════════════════════════
+   MY STORY PAGE — Sylvia's immigrant journey
+   ═══════════════════════════════════════════════════════════════ */
+function MyStoryPage() {
+  return (
+    <div className="space-y-8">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+        <h1
+          className="text-3xl md:text-4xl leading-tight tracking-tight mb-6"
+          style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}
+        >
+          My Story
+        </h1>
+
+        <div className="space-y-5 text-sm md:text-base leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a3530" }}>
+          <p>
+            I arrived in the United States at seventeen with a suitcase, a few hundred dollars, and no one waiting for me at the airport. I had left Germany not because I wanted adventure, but because staying felt impossible. The details of why are mine, but the shape of it is something many of my clients recognize: a home that looked fine from the outside and felt unbearable from within.
+          </p>
+
+          <p>
+            Those first years were not romantic. I cleaned hotel rooms. I waitressed doubles on weekends. I worked the overnight shift at a gas station where I taught myself English by reading the backs of cereal boxes during the slow hours. I shared apartments with strangers, missed holidays alone, and learned what it means to be invisible in a country that doesn't know your name.
+          </p>
+
+          <p>
+            What I didn't know then was that those years were teaching me everything I would later need as a therapist.
+          </p>
+
+          <p>
+            I learned what it feels like to sit across from someone who holds power over your life and not be able to say what you actually think. I learned what it's like to carry grief that no one around you can see. I learned that survival is not the same as living, and that "getting through it" can become its own kind of prison if you never stop to ask what you lost along the way.
+          </p>
+
+          <p>
+            I also learned perseverance. Not the inspirational poster kind. The quiet, stubborn, sometimes ugly kind where you keep going because the alternative is worse. I learned that resilience isn't about being strong. It's about being honest with yourself about what hurts and choosing to move toward something better anyway.
+          </p>
+
+          <p>
+            Eventually, I put myself through school. Then graduate school. Then licensure. I specialized in trauma because I understood it from the inside, not just from textbooks. When a client tells me they feel like they're performing a version of themselves that everyone else believes is real, I don't need them to explain. When someone says they've "made it" but can't figure out why they still feel empty, I know exactly what they mean.
+          </p>
+
+          <p>
+            My background doesn't make me a better therapist because of some redemption arc. It makes me a better therapist because I've sat in the places my clients sit. I know what it's like to need help and not know how to ask for it. I know what it's like to finally be safe and realize you don't know how to stop bracing for impact.
+          </p>
+
+          <p>
+            That's why I do this work. Not because I figured everything out, but because I know what it costs to carry things alone. And I know, from my own life, that it doesn't have to stay that way.
+          </p>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
 
 function FAQPage() {
   const [openSection, setOpenSection] = useState<number | null>(null);
@@ -2521,15 +2785,65 @@ function AboutSylviaPage() {
    ═══════════════════════════════════════════════════════════════ */
 
 function SylviaBlogPage() {
+  const blogPosts = [
+    { slug: "what-actually-happens-in-trauma-therapy", title: "What Actually Happens in Trauma Therapy", subtitle: "Demystifying the process so you can stop avoiding it.", tags: ["Trauma", "Therapy"], readingTime: 10 },
+    { slug: "psychologist-vs-psychiatrist-vs-therapist", title: "Psychologist vs Psychiatrist vs Therapist", subtitle: "What you actually need to know before booking.", tags: ["Therapy", "Mental Health"], readingTime: 8 },
+    { slug: "high-functioning-does-not-mean-fine", title: "High-Functioning Does Not Mean Fine", subtitle: "For the people who look together but are struggling.", tags: ["Depression", "Anxiety"], readingTime: 9 },
+    { slug: "living-with-bipolar-stability", title: "Living With Bipolar: What Stability Actually Looks Like", subtitle: "It is not about eliminating episodes.", tags: ["Bipolar", "Mood Disorders"], readingTime: 10 },
+    { slug: "dual-diagnosis-addiction-mental-health", title: "Dual Diagnosis: When Addiction and Mental Health Collide", subtitle: "Why treating one without the other fails.", tags: ["Addiction", "Dual Diagnosis"], readingTime: 11 },
+    { slug: "addiction-recovery-is-not-linear", title: "Addiction Recovery Is Not Linear", subtitle: "Relapse is part of the process, not a failure.", tags: ["Addiction", "Recovery"], readingTime: 9 },
+    { slug: "teen-brain-social-media", title: "Your Teenager's Brain on Social Media", subtitle: "What parents should know, without the panic.", tags: ["Adolescents", "Social Media"], readingTime: 10 },
+    { slug: "why-just-think-positive-is-terrible-advice", title: "Why 'Just Think Positive' Is Terrible Advice", subtitle: "The problem with toxic positivity.", tags: ["Mental Health", "Emotions"], readingTime: 8 },
+    { slug: "power-of-mood-tracking", title: "The Power of Tracking Your Mood", subtitle: "Even when you do not want to.", tags: ["Self-Tracking", "Mood"], readingTime: 8 },
+    { slug: "sleep-and-mental-health", title: "Sleep, Mood, and the Patterns You Are Missing", subtitle: "Why sleep is the first thing I ask about.", tags: ["Sleep", "Mood Disorders"], readingTime: 9 },
+  ];
+
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Sylvia’s Blog</h2>
+        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Sylvia's Blog</h2>
         <p className="text-sm mt-2 opacity-60" style={{ fontFamily: "'DM Sans', sans-serif" }}>Thoughts on trauma, recovery, and living well.</p>
       </div>
 
-      <div className="space-y-4 text-sm" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>
-        <p className="opacity-70 text-center">Coming soon.</p>
+      <div className="space-y-3">
+        {blogPosts.map((post) => (
+          <a
+            key={post.slug}
+            href={`/journal/${post.slug}`}
+            className="block rounded-xl p-5 transition-all duration-200"
+            style={{ background: "#E8E3DA" }}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <h3
+                  className="text-base font-medium leading-snug"
+                  style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}
+                >
+                  {post.title}
+                </h3>
+                <p
+                  className="text-sm mt-1 opacity-60 leading-relaxed"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  {post.subtitle}
+                </p>
+                <div className="flex items-center gap-3 mt-3">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full"
+                      style={{ background: "rgba(92, 107, 74, 0.15)", color: "#5C6B4A", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                  <span className="text-[10px] opacity-40" style={{ fontFamily: "'DM Sans', sans-serif" }}>{post.readingTime} min read</span>
+                </div>
+              </div>
+              <span className="text-lg opacity-30 mt-1">&rarr;</span>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   );
