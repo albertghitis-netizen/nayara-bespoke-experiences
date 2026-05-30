@@ -24,8 +24,8 @@ const COLORS = {
 const IMAGES = {
   hero: "/manus-storage/sylvia-hero_43f08395.jpg",
   services: "/manus-storage/sylvia-services_a10e438a.jpg",
-  about: "/manus-storage/sylvia-about_1d38a1bd.jpg",
-  philosophy: "/manus-storage/sylvia-philosophy_808fefc2.jpg",
+  about: "/manus-storage/sylvia-about-new_0a4859c6.jpg",
+  philosophy: "/manus-storage/sylvia-philosophy-new_5ac4713f.jpg",
   cta: "/manus-storage/sylvia-cta_94ab69d7.jpg",
 };
 
@@ -80,19 +80,23 @@ export default function Sylvia() {
       <Navigation />
       <section className="pt-32 md:pt-40 pb-4 md:pb-6 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
-          <motion.div
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="rounded-xl p-6" style={{ background: "#E8E3DA" }}
+            className="text-2xl md:text-3xl lg:text-4xl leading-[1.2] tracking-tight mb-5"
+            style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
           >
-            <h2 className="text-xl md:text-2xl lg:text-3xl leading-[1.3] tracking-tight mb-5" style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}>
-              Hello, I'm Sylvia.
-            </h2>
-            <div className="text-sm leading-relaxed opacity-80 space-y-3" style={{ fontFamily: "'DM Sans', sans-serif", color: COLORS.text }}>
-              <p>I'm a licensed trauma therapist helping high-functioning people feel more emotionally connected, internally at ease, and genuinely fulfilled.</p>
-              <p>I'm told I'm warm, direct, and occasionally funny. Originally from Germany. Still get unreasonably excited about mossy forests.</p>
-            </div>
+            Hi, I'm Sylvia.
+          </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="space-y-4"
+          >
+            <p className="text-base md:text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>I'm a licensed trauma therapist helping high-functioning people feel more emotionally connected, internally at ease, and genuinely fulfilled.</p>
+            <p className="text-base md:text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>I'm told I'm warm, direct, and occasionally funny. Originally from Germany. Still get unreasonably excited about mossy forests.</p>
           </motion.div>
         </div>
       </section>
@@ -113,31 +117,16 @@ export default function Sylvia() {
    ═══════════════════════════════════════════════════════════════ */
 function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [sylviaExpanded, setSylviaExpanded] = useState(false);
 
-  const menuItems = [
-    { label: "Who I Help", href: "#who-i-help" },
-    { label: "Services", href: "#services" },
-    { label: "Me & My Approach", href: "#approach" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
-    { label: "Blog", href: "/sylvia/blog", isRoute: true },
-    { label: "FAQ", href: "/sylvia/faq", isRoute: true },
-    { label: "My Story", href: "/sylvia/my-story", isRoute: true },
-    { label: "Trauma", href: "/sylvia/trauma", isRoute: true },
-    { label: "Addiction", href: "/sylvia/addiction", isRoute: true },
-    { label: "Mood Disorders", href: "/sylvia/mood-disorders", isRoute: true },
-    { label: "Sofía", href: "/lexi", isRoute: true },
+  const CATEGORIES = [
+    { id: "mood", label: "Journal", color: "#C9A96E" },
+    { id: "sleep", label: "Sleep", color: "#5A6B7A" },
+    { id: "nutrition", label: "Nutrition", color: "#7A9E7E" },
+    { id: "exercise", label: "Exercise", color: "#B8704A" },
+    { id: "meds", label: "Meds", color: "#8B6B7A" },
+    { id: "triggers", label: "Triggers", color: "#A65D5D" },
   ];
-
-  const handleNavClick = (href: string, isRoute?: boolean) => {
-    setMenuOpen(false);
-    if (isRoute) {
-      window.location.href = href;
-      return;
-    }
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <>
@@ -188,36 +177,103 @@ function Navigation() {
         </a>
       </div>
 
-      {/* Full-screen menu overlay */}
+      {/* Full-screen menu overlay — matches Sof\u00eda */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 overflow-y-auto"
-            style={{ backgroundColor: `${COLORS.bone}f8` }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[60] backdrop-blur-md overflow-y-auto"
+            style={{ background: "rgba(247, 245, 240, 0.97)" }}
           >
-            <div className="max-w-md mx-auto px-8 pt-28 pb-16 flex flex-col gap-1">
-              {menuItems.map((item, i) => (
+            <div className="max-w-sm mx-auto px-8 pt-28 pb-16">
+              {/* Category items — same as Sof\u00eda */}
+              {CATEGORIES.map((cat, idx) => (
                 <motion.button
-                  key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                  onClick={() => handleNavClick(item.href, (item as any).isRoute)}
-                  className="block w-full text-left py-5 border-b transition-colors hover:opacity-70"
-                  style={{ borderColor: COLORS.divider }}
+                  key={cat.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 * idx }}
+                  onClick={() => { setMenuOpen(false); window.location.href = `/sofia#${cat.id}`; }}
+                  className="flex items-center gap-4 w-full text-left py-4 border-b"
+                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
                 >
+                  <span className="w-4 h-4 rounded-full" style={{ background: cat.color }} />
                   <span
-                    className="text-lg tracking-[0.06em]"
-                    style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+                    className="text-lg tracking-[0.06em] uppercase"
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
                   >
-                    {item.label}
+                    {cat.label}
                   </span>
                 </motion.button>
               ))}
+
+              {/* Sylvia Accordion */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.35 }}
+              >
+                <button
+                  onClick={() => setSylviaExpanded(!sylviaExpanded)}
+                  className="flex items-center justify-between w-full text-left py-4 border-b"
+                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+                >
+                  <div className="flex items-center gap-4">
+                    <span className="w-4 h-4 rounded-full" style={{ background: "#5C6B4A" }} />
+                    <span
+                      className="text-lg tracking-[0.06em] uppercase"
+                      style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                    >
+                      Sylvia
+                    </span>
+                  </div>
+                  <motion.span
+                    animate={{ rotate: sylviaExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-xs opacity-40"
+                  >
+                    \u25BC
+                  </motion.span>
+                </button>
+
+                <AnimatePresence>
+                  {sylviaExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden pl-8"
+                    >
+                      {[
+                        { label: "About Sylvia", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.scrollTo({ top: 0, behavior: "smooth" }); } },
+                        { label: "Services", action: () => { setMenuOpen(false); setSylviaExpanded(false); const el = document.querySelector("#services"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
+                        { label: "My Approach", action: () => { setMenuOpen(false); setSylviaExpanded(false); const el = document.querySelector("#approach"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
+                        { label: "Testimonials", action: () => { setMenuOpen(false); setSylviaExpanded(false); const el = document.querySelector("#testimonials"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
+                        { label: "Contact", action: () => { setMenuOpen(false); setSylviaExpanded(false); const el = document.querySelector("#contact"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
+                        { label: "FAQ", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#faq"; } },
+                      ].map((item, idx) => (
+                        <button
+                          key={item.label}
+                          onClick={item.action}
+                          className="block w-full text-left py-3 border-b"
+                          style={{ borderColor: "rgba(58, 42, 26, 0.06)" }}
+                        >
+                          <span
+                            className="text-sm tracking-[0.04em]"
+                            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400, color: "#5a4a3a" }}
+                          >
+                            {item.label}
+                          </span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             </div>
           </motion.div>
         )}
