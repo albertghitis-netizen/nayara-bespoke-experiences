@@ -451,9 +451,9 @@ export const atacamaOasisPost: BlogPostData = {
     {
       heading: "Why Location Matters More Than Amenities in the Atacama Desert",
       content: `<p>In the Atacama Desert, where exposure defines experience, the best place to stay is not a matter of luxury. It is a matter of location.</p>
-<p>Oases have always determined where human life can exist in this landscape. Groundwater forced to the surface by geology, vegetation that moderates temperature, and landforms that reduce wind and solar stress create narrow zones where movement, recovery, and continuity become possible. Archaeological research documented by <strong>Memoria Chilena</strong> shows that Indigenous Lickanantay settlements followed these same sheltered valleys rather than exposed plateaus.</p>
-<p>Modern science confirms what early inhabitants understood intuitively. Studies published in <strong>Scientific Reports</strong> and the <strong>Journal of Arid Environments</strong> demonstrate that desert oases measurably reduce temperature extremes, stabilize humidity, and soften wind exposure, creating microclimates that support sustained human activity.</p>
-<p>Across desert cultures globally, hospitality has always emerged where water, shelter, and restraint align, not where amenities are layered onto exposure. These lodges reflect a principle recognized by the United Nations Environment Programme: in arid environments, true comfort begins with respect for water, shade, and restraint.</p>`,
+<p>Oases have always determined where human life can exist in this landscape. Groundwater forced to the surface by geology, vegetation that moderates temperature, and landforms that reduce wind and solar stress create narrow zones where movement, recovery, and continuity become possible. Archaeological research documented by <strong><a href="https://www.memoriachilena.gob.cl/" target="_blank" rel="noopener noreferrer">Memoria Chilena</a></strong> shows that Indigenous Lickanantay settlements followed these same sheltered valleys rather than exposed plateaus.</p>
+<p>Modern science confirms what early inhabitants understood intuitively. Studies published in <strong><a href="https://www.nature.com/srep/" target="_blank" rel="noopener noreferrer">Scientific Reports</a></strong> and the <strong><a href="https://www.sciencedirect.com/journal/journal-of-arid-environments" target="_blank" rel="noopener noreferrer">Journal of Arid Environments</a></strong> demonstrate that desert oases measurably reduce temperature extremes, stabilize humidity, and soften wind exposure, creating microclimates that support sustained human activity.</p>
+<p>Across desert cultures globally, hospitality has always emerged where water, shelter, and restraint align, not where amenities are layered onto exposure. These lodges reflect a principle recognized by the <a href="https://www.unep.org/" target="_blank" rel="noopener noreferrer">United Nations Environment Programme</a>: in arid environments, true comfort begins with respect for water, shade, and restraint.</p>`,
       image: {
         src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/80_57ce5c18.jpg",
         alt: "Atacama desert landscape with volcanic terrain",
@@ -464,8 +464,8 @@ export const atacamaOasisPost: BlogPostData = {
       heading: "What Is a Desert Oasis and How Does It Create a Microclimate?",
       content: `<p>An oasis is not a place where water simply appears. It is a system.</p>
 <p>In arid environments, a reliable source of water triggers a chain reaction. Vegetation becomes viable. Soil retains moisture. Wind slows. Temperatures stabilize. Sound softens. Movement changes. The lived experience of the desert shifts from exposure to continuity.</p>
-<p>Environmental research defines this phenomenon as the <strong>oasis effect</strong>, a measurable microclimate outcome in which vegetated and watered areas remain cooler and more stable than surrounding desert surfaces. Studies published in the <em>Journal of Arid Environments</em> describe oases as localized climate modifiers rather than isolated anomalies.</p>
-<p>Further research in <em>Scientific Reports</em> confirms that oases can reduce surface temperatures by several degrees, particularly during peak heat. Vegetation and hydrology reshape climate. They do not decorate it.</p>`,
+<p>Environmental research defines this phenomenon as the <strong>oasis effect</strong>, a measurable microclimate outcome in which vegetated and watered areas remain cooler and more stable than surrounding desert surfaces. Studies published in the <em><a href="https://www.sciencedirect.com/journal/journal-of-arid-environments" target="_blank" rel="noopener noreferrer">Journal of Arid Environments</a></em> describe oases as localized climate modifiers rather than isolated anomalies.</p>
+<p>Further research in <em><a href="https://www.nature.com/srep/" target="_blank" rel="noopener noreferrer">Scientific Reports</a></em> confirms that oases can reduce surface temperatures by several degrees, particularly during peak heat. Vegetation and hydrology reshape climate. They do not decorate it.</p>`,
     },
     {
       heading: "10,000 Years of Human Settlement Along Atacama Oasis Corridors",
@@ -490,7 +490,7 @@ export const atacamaOasisPost: BlogPostData = {
     {
       heading: "Adobe Architecture in the Atacama: Ancient Desert Building Techniques",
       content: `<p>Desert architecture did not originate as an aesthetic exercise. It emerged as a survival mechanism.</p>
-<p>For millennia, thick earthen walls, recessed courtyards, and shaded passages moderated temperature and light long before mechanical systems existed. These principles are documented extensively by the <strong>Getty Conservation Institute</strong> and the <strong>International Council on Monuments and Sites</strong>.</p>
+<p>For millennia, thick earthen walls, recessed courtyards, and shaded passages moderated temperature and light long before mechanical systems existed. These principles are documented extensively by the <strong><a href="https://www.getty.edu/conservation/" target="_blank" rel="noopener noreferrer">Getty Conservation Institute</a></strong> and the <strong><a href="https://www.icomos.org/" target="_blank" rel="noopener noreferrer">International Council on Monuments and Sites</a></strong>.</p>
 <p>Nayara Alto Atacama draws directly from this lineage. Adobe walls absorb heat during the day and release it slowly at night. Terrace roofs are layered with native brea herbs to filter sunlight and cool interiors. Corridors are shaded with canes of <em>Chusquea quila</em>, a local bamboo species known for diffusing light and reducing heat gain , a passive cooling strategy consistent with arid-zone design principles.</p>
 <p>These materials are not decorative. They regulate the environment.</p>`,
     },
@@ -571,15 +571,15 @@ export const hangaroaRegenerationPost: BlogPostData = {
     },
     {
       heading: "How the Moai Walked: The Science That Confirmed Rapa Nui Oral Tradition",
-      content: `<p>For centuries, the mystery of how the moai moved puzzled historians. Were they dragged on wooden sledges? Rolled on logs? Modern research led by archaeologists <strong>Carl Lipo</strong> and <strong>Terry Hunt</strong> revealed that the statues were <em>walked</em>.</p>
+      content: `<p>For centuries, the mystery of how the moai moved puzzled historians. Were they dragged on wooden sledges? Rolled on logs? Modern research led by archaeologists <strong>Carl Lipo</strong> and <strong>Terry Hunt</strong>, documented by <a href="https://www.nationalgeographic.com/" target="_blank" rel="noopener noreferrer">National Geographic</a>, revealed that the statues were <em>walked</em>.</p>
 <p>With ropes and rhythm, teams could tilt each moai upright. By shifting weight side to side, they walked it forward until it reached its resting place. The discovery confirmed what Rapa Nui oral tradition had always said: the moai walked with <em>mana</em>.</p>
 <p>It was both a scientific revelation and a cultural vindication. What once seemed like myth became proof that belief and physics can coexist. The moai walked because the people walked together.</p>`,
     },
     {
       heading: "From Ecological Collapse to Renewal on Easter Island",
-      content: `<p>Jared Diamond once called Rapa Nui the clearest example of ecological collapse in human history. Yet that label misses the second half of the story: <strong>renewal</strong>.</p>
+      content: `<p><a href="https://www.penguinrandomhouse.com/" target="_blank" rel="noopener noreferrer">Jared Diamond</a> once called Rapa Nui the clearest example of ecological collapse in human history. Yet that label misses the second half of the story: <strong>renewal</strong>.</p>
 <p>Today, forests are returning. Coral reefs are recovering. Traditional agriculture and fishing are being revived through community education. The same ingenuity that built the moai is now rebuilding the ecosystem.</p>
-<p>The <strong>toromiro tree</strong>, long extinct in the wild, has been reintroduced through a global collaboration between Rapa Nui families and botanical gardens. Each new sapling represents both science and faith. The coral reefs around the island, once bleached and lifeless, are showing color again thanks to local conservation programs.</p>`,
+<p>The <strong>toromiro tree</strong>, long extinct in the wild, has been reintroduced through a global collaboration between Rapa Nui families and botanical gardens. The island itself is protected as a <a href="https://whc.unesco.org/en/list/715/" target="_blank" rel="noopener noreferrer">UNESCO World Heritage Site</a>. Each new sapling represents both science and faith. The coral reefs around the island, once bleached and lifeless, are showing color again thanks to local conservation programs.</p>`,
     },
     {
       heading: "Regenerative Luxury at Nayara Hangaroa: Restoration as a Guest Experience",
