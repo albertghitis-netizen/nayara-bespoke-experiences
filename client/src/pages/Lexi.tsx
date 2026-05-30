@@ -1061,7 +1061,7 @@ function playBeep() {
 function HomePage() {
   return (
     <div className="space-y-8">
-      <div className="text-center pt-4">
+      <div className="text-center pt-10">
         <h1
           className="text-3xl tracking-wide mb-2"
           style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
@@ -1069,48 +1069,47 @@ function HomePage() {
           Towards Wellness
         </h1>
         <p className="text-sm opacity-60 max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          A personal tool for understanding, tracking, and managing your condition.
+          Structure. Awareness. A life well lived.
         </p>
       </div>
 
-      {/* ── BIPOLAR SECTION ── */}
+      {/* ── ABOUT SOFÍA ── */}
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>What is Bipolar Disorder?</h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>What is Sofía?</h2>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Bipolar disorder is a chronic condition involving extreme shifts in mood, energy, and activity levels. These shifts go far beyond normal ups and downs. Depressive episodes bring crushing fatigue, hopelessness, and an inability to function. Manic episodes bring elevated energy, reduced need for sleep, impulsivity, and sometimes psychosis. Hypomania is a milder form that can feel productive but often leads to poor decisions.
+          Sofía means wisdom. Not the kind that comes from textbooks, but the kind that comes from paying attention to your own life. From noticing patterns before they become problems. From building structure that holds you steady when everything else feels uncertain.
         </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          There are several types. Bipolar I involves full manic episodes that last at least seven days or require hospitalization. Bipolar II involves hypomanic episodes and major depressive episodes but never full mania. Cyclothymia involves chronic fluctuating mood with periods of hypomania and mild depression lasting at least two years. Each type requires different treatment strategies.
+          This app is a personal companion for anyone navigating mood disorders, addiction, or simply wanting more structure and intentionality in their daily life. Whether you are managing bipolar disorder, depression, anxiety, substance use, or you just want to track your sleep, exercise, and emotional rhythms — Sofía gives you the tools to see yourself clearly.
         </p>
       </section>
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>The Neuroscience</h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Who Is This For?</h2>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Bipolar disorder involves dysregulation of multiple neurotransmitter systems. Dopamine surges during mania and crashes during depression. Serotonin, norepinephrine, and GABA are all affected. The prefrontal cortex, which handles impulse control and decision-making, shows reduced activity during episodes. The amygdala, which processes emotions, becomes hyperactive.
+          Sofía was designed for people who know that wellness is not a destination — it is a daily practice. You might be living with a mood disorder and want to catch episodes before they catch you. You might be in recovery and need to track triggers, cravings, and the routines that keep you grounded. Or you might simply want a structured way to log your mood, sleep, nutrition, exercise, and social life so you can live more deliberately.
         </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          This is not a willpower problem. It is a brain chemistry problem. Medication stabilizes these systems. Therapy builds the skills to manage what medication cannot. Routine protects the circadian rhythms that directly influence episode cycling.
+          There is no diagnosis required. If you believe that self-awareness leads to better living, Sofía is for you.
         </p>
       </section>
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Early Warning Signs</h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>The Philosophy</h2>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Episodes rarely arrive without warning. Depression often starts with sleep changes, social withdrawal, loss of interest, and difficulty concentrating days or weeks before the full episode hits. Mania often starts with decreased need for sleep, racing thoughts, increased talking, and taking on too many projects.
+          The goal is not perfection. It is awareness. Research consistently shows that stabilizing daily routines — consistent sleep, regular meals, structured social activity, predictable rhythms — protects against mood instability and supports long-term recovery. Small, consistent actions compound into transformation.
         </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          The purpose of tracking is to catch these signals early. A mood shift from 7 to 5 over three days is information. A night of 4 hours sleep followed by feeling "great" is a red flag. Sofía helps you see these patterns before they become full episodes.
+          Sofía does not judge. It does not lecture. It simply helps you see your own patterns — so you can make better decisions, catch warning signs early, and build a life that feels intentional rather than reactive.
         </p>
       </section>
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Why Routine Matters</h2>
-        <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Research on Interpersonal and Social Rhythm Therapy (IPSRT) shows that stabilizing daily routines is one of the most effective interventions for bipolar disorder. Consistent sleep and wake times, regular meals, structured social activity, and predictable daily rhythms protect against episode cycling.
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>What You Can Track</h2>
+        <p className="text-sm leading-relaxed opacity-80 mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          Sofía helps you track the pillars of a well-lived life:
         </p>
-        <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Sofía helps you track the pillars of stability:</p>
       </section>
 
       <div className="grid grid-cols-2 gap-3">
@@ -1122,26 +1121,19 @@ function HomePage() {
         ))}
       </div>
 
-      {/* ── DUAL DIAGNOSIS SECTION ── */}
+      {/* ── AWARENESS SECTION ── */}
 
       <div className="pt-4">
         <div className="w-16 h-px mx-auto" style={{ background: "#3a2a1a", opacity: 0.2 }} />
       </div>
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>When Addiction Enters the Picture</h2>
-        <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Nearly half of people with bipolar disorder also experience substance use disorder. This is called dual diagnosis. It is not a coincidence. The same brain chemistry that drives mood episodes also makes substances feel like solutions. A depressive episode makes you reach for relief. A manic episode lowers inhibition and amplifies risk-taking.
-        </p>
-        <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Substances change brain chemistry in the same systems that regulate mood. Alcohol suppresses serotonin. Stimulants flood and then deplete dopamine. Opioids hijack the reward circuitry. When you already have bipolar disorder, these chemical disruptions hit harder and recover slower. Withdrawal mimics and triggers mood episodes. Shame from relapse deepens depression. Without treating both conditions together, recovery from either one is significantly harder.
-        </p>
-      </section>
-
-      <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
         <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Catch It Before It Catches You</h2>
+        <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          Whether it is a mood shift, a craving, a sleep disruption, or creeping isolation — the earlier you notice, the more power you have. A mood shift from 7 to 5 over three days is information. A night of 4 hours sleep followed by feeling "great" is a signal. Withdrawing from friends for a week is a pattern worth examining.
+        </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          The goal is not perfection. It is awareness. By logging your mood, sleep, meds, exercise, nutrition, social activity, therapy, and triggers, you start to see patterns. You notice when sleep is slipping. When you are isolating. When cravings spike after certain situations. These are the early warning signs. Sofía helps you see them before they become episodes or relapses.
+          By logging your mood, sleep, meds, exercise, nutrition, social activity, therapy, and triggers, you start to see what your mind and body are telling you. These are not just data points. They are the early warning system for a life lived with intention. Sofía helps you see them before they become something bigger.
         </p>
       </section>
     </div>
