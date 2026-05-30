@@ -343,7 +343,7 @@ function LoggingSection({
    ═══════════════════════════════════════════════════════════════ */
 
 export default function Lexi() {
-  const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story">("home");
+  const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story" | "about-sylvia">("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [entries, setEntries] = useState<CalendarEntry[]>(() => {
     const saved = localStorage.getItem("lexi-entries");
@@ -491,7 +491,25 @@ export default function Lexi() {
                   className="text-lg tracking-[0.06em] uppercase"
                   style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
                 >
-                  Our Story
+                  Sofía's Story
+                </span>
+              </motion.button>
+
+              {/* About Sylvia */}
+              <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: (CATEGORIES.length + 1) * 0.05 }}
+                onClick={() => { setActiveView("about-sylvia"); setMenuOpen(false); }}
+                className="flex items-center gap-4 w-full text-left py-4 border-b"
+                style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+              >
+                <span className="w-4 h-4 rounded-full" style={{ background: "#8B6F5C" }} />
+                <span
+                  className="text-lg tracking-[0.06em] uppercase"
+                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3a2a1a" }}
+                >
+                  About Sylvia
                 </span>
               </motion.button>
             </div>
@@ -528,6 +546,8 @@ export default function Lexi() {
           <FAQPage />
         ) : activeView === "our-story" ? (
           <OurStoryPage />
+        ) : activeView === "about-sylvia" ? (
+          <AboutSylviaPage />
         ) : (
           <CategoryPage
             category={CATEGORIES.find((c) => c.id === activeView)!}
@@ -2261,7 +2281,7 @@ function OurStoryPage() {
     <div className="space-y-8">
       <div className="text-center">
         <span className="text-3xl">🌿</span>
-        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Our Story</h2>
+        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Sofía's Story</h2>
       </div>
 
       <div className="space-y-5 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>
@@ -2270,7 +2290,7 @@ function OurStoryPage() {
         </p>
 
         <p className="opacity-80">
-          It started as something deeply personal. Albert, a patient of Sylvia's, was navigating the daily complexity of mood and addiction recovery. He wanted a way to track his own patterns—sleep, cravings, triggers, medication, therapy notes—and share that progress directly with Sylvia so she could see what was really happening between sessions.
+          It started as something deeply personal. Sylvia was Albert's life coach, guiding him through the daily complexity of mood and wellness. He wanted a way to track his own patterns—sleep, cravings, triggers, nutrition, exercise—and share that progress directly with Sylvia so she could see what was really happening between sessions.
         </p>
 
         <p className="opacity-80">
@@ -2286,7 +2306,7 @@ function OurStoryPage() {
         </p>
 
         <p className="opacity-80">
-          Sylvia saw the difference immediately. The conversations in session became richer. The data was there—not as a report card, but as a shared language between patient and therapist.
+          Sylvia saw the difference immediately. The conversations in their sessions became richer. The data was there—not as a report card, but as a shared language between coach and client.
         </p>
 
         <p className="opacity-80">
@@ -2298,8 +2318,56 @@ function OurStoryPage() {
         </p>
 
         <p className="opacity-80">
-          That's Sofía. Born from one person's real need, shaped by a therapist's real insight, and now offered to the world—because everyone deserves a companion on the path towards wellness.
+          That's Sofía. Born from one person's real need, shaped by a life coach's real insight, and now offered to the world—because everyone deserves a companion on the path towards wellness.
         </p>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT SYLVIA
+   ═══════════════════════════════════════════════════════════════ */
+
+function AboutSylviaPage() {
+  return (
+    <div className="space-y-8">
+      <div className="text-center">
+        <span className="text-3xl">✦</span>
+        <h2 className="text-2xl mt-3" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>About Sylvia</h2>
+      </div>
+
+      <div className="space-y-5 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>
+        <p className="opacity-80">
+          Sylvia is a certified life coach, integrative wellness practitioner, and the co-creator of Sofía. Her approach blends evidence-based modalities with deep personal insight, helping clients build lives of structure, awareness, and purpose.
+        </p>
+
+        <div className="space-y-3">
+          <h3 className="text-base font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: "#5C6B4A" }}>Credentials & Specializations</h3>
+          <ul className="space-y-2 opacity-80 pl-4">
+            <li>• EMDR Certified Practitioner</li>
+            <li>• Internal Family Systems (IFS) Trained</li>
+            <li>• Clinical Hypnotherapy</li>
+            <li>• Ketamine-Assisted Therapy Facilitator</li>
+            <li>• Psychedelic-Assisted Therapy (PDP)</li>
+            <li>• Integrative Addiction Recovery Specialist</li>
+            <li>• Holistic Wellness & Mood Disorder Support</li>
+          </ul>
+        </div>
+
+        <p className="opacity-80">
+          Sylvia's philosophy is simple: awareness before action, structure before ambition, and compassion always. She believes that everyone—regardless of diagnosis or circumstance—deserves access to tools that help them live intentionally.
+        </p>
+
+        <div className="pt-4">
+          <a
+            href="/sylvia"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-white transition hover:opacity-90"
+            style={{ background: "#5C6B4A", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+          >
+            Visit Sylvia's Website →
+          </a>
+        </div>
       </div>
     </div>
   );
