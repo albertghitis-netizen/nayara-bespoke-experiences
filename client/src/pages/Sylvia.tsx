@@ -23,7 +23,7 @@ const COLORS = {
 /* ─── Image CDN paths ─── */
 const IMAGES = {
   hero: "/manus-storage/purple-leaf-sylvia_ed397cf7.jpg",
-  services: "/manus-storage/sylvia-services_a10e438a.jpg",
+  services: "/manus-storage/purple-leaf-sylvia_ed397cf7.jpg",
   about: "/manus-storage/sylvia-about-new_0a4859c6.jpg",
   philosophy: "/manus-storage/sylvia-philosophy-new_5ac4713f.jpg",
   cta: "/manus-storage/sylvia-cta_94ab69d7.jpg",
