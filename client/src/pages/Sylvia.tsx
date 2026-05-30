@@ -242,6 +242,7 @@ function Navigation() {
                         { label: "Trauma", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#trauma"; } },
                         { label: "Addiction", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#addiction"; } },
                         { label: "Bipolar", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#bipolar"; } },
+                        { label: "Triggers", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#triggers"; } },
                         { label: "My Story", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#my-story"; } },
                         { label: "Blog", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#sylvia-blog"; } },
                         { label: "FAQ", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#faq"; } },

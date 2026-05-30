@@ -523,6 +523,7 @@ export default function Lexi() {
                         { label: "Trauma", action: () => { setActiveView("trauma"); setMenuOpen(false); } },
                         { label: "Addiction", action: () => { setActiveView("addiction"); setMenuOpen(false); } },
                         { label: "Bipolar", action: () => { setActiveView("bipolar"); setMenuOpen(false); } },
+                        { label: "Triggers", action: () => { setActiveView("triggers"); setMenuOpen(false); } },
                         { label: "My Story", action: () => { setActiveView("my-story" as any); setMenuOpen(false); } },
                         { label: "Blog", action: () => { setActiveView("sylvia-blog" as any); setMenuOpen(false); } },
                         { label: "FAQ", action: () => { setActiveView("faq"); setMenuOpen(false); } },
