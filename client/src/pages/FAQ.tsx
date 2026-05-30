@@ -420,7 +420,15 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       },
       {
         question: "Which property is better for a honeymoon?",
-        answer: "Both are exceptional honeymoon destinations. Nayara Springs suits couples who love rainforest immersion, volcanic hot springs, and adventure (zip lining, waterfall rappelling, wildlife). Nayara Bocas del Toro suits couples who prefer Caribbean overwater living, marine life, bioluminescent kayaking, and the simplicity of an all-inclusive island escape.",
+        answer: "All three are exceptional honeymoon destinations. Nayara Springs suits couples who love rainforest immersion, volcanic hot springs, and adventure. Nayara Bocas del Toro suits couples who prefer Caribbean overwater living, marine life, and the simplicity of an all-inclusive island escape. Nayara Alto Atacama suits couples drawn to silence, stargazing, and the transformative power of the desert.",
+      },
+      {
+        question: "Is Nayara Alto Atacama adults-only?",
+        answer: "Nayara Alto Atacama is not an adults-only property, but the Atacama Desert itself creates conditions that are inherently romantic. The extreme low-stimulus environment, vast scale, minimal light pollution, and collapsed soundscape naturally heighten emotional attunement and deepen connection between couples.",
+      },
+      {
+        question: "Why is the Atacama Desert considered romantic?",
+        answer: "Environmental psychology shows that low-stimulus landscapes reduce cognitive fatigue and heighten emotional attunement. The Atacama combines minimal sensory clutter with exaggerated scale, creating conditions where attention reallocates inward and toward close relationships. Studies on awe from UC Berkeley's Greater Good Science Center confirm that shared exposure to vast environments strengthens bonds.",
       },
     ],
   },
