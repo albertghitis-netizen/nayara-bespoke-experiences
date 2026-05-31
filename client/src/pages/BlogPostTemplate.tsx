@@ -368,43 +368,7 @@ export default function BlogPostTemplate({ post, hideNav, hideHero, heroAspect }
         );
       })}
 
-      {/* ── 5b. FAQ SECTION (if present) ── */}
-      {post.faq && post.faq.length > 0 && (
-        <section style={{ backgroundColor: PALETTE.stone }}>
-          <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-12">
-            <p
-              className="uppercase tracking-[0.3em] text-[11px] mb-4 text-center"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
-            >
-              FAQ
-            </p>
-            <h2
-              className="text-2xl md:text-[30px] leading-snug mb-8 text-center"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
-            >
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-6">
-              {post.faq.map((item, idx) => (
-                <div key={idx}>
-                  <h3
-                    className="text-[16px] font-semibold mb-2"
-                    style={{ fontFamily: "var(--font-body)", color: PALETTE.espresso }}
-                  >
-                    {item.question}
-                  </h3>
-                  <p
-                    className="text-[15px] leading-[1.8]"
-                    style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-                  >
-                    {item.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* FAQ removed from individual blog posts — all FAQs live on the dedicated FAQ page */}
 
       {/* ── 6. SOURCES & FURTHER READING (simple flat list) ── */}
       {post.sources && post.sources.length > 0 && (

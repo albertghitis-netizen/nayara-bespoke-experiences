@@ -960,7 +960,357 @@ export const whyJustThinkPositiveIsTerribleAdvicePost: BlogPostData = {
   "ctaProperties": []
 };
 
+export const leftBrainRightBrainMythPost: BlogPostData = {
+  "slug": "left-brain-right-brain-myth",
+  "title": "Left Brain vs Right Brain: What Science Actually Says",
+  "subtitle": "The popular theory that people are either logical left-brainers or creative right-brainers is one of psychology's most persistent myths. Here is what neuroscience actually tells us.",
+  "author": "Sylvia",
+  "authorRole": "Licensed Trauma Therapist",
+  "date": "May 2026",
+  "pillar": "Wellness",
+  "tags": [
+    "Neuroscience",
+    "Brain Hemispheres",
+    "Psychology Myths",
+    "Cognitive Science",
+    "Self-Understanding"
+  ],
+  "readingTime": 7,
+  "heroImage": "",
+  "keyFindings": [
+    "A 2013 University of Utah study analyzing over 1,000 brain scans found no evidence that individuals preferentially use one hemisphere over the other.",
+    "While certain functions are lateralized (language tends to be left-dominant, spatial processing right-dominant), both hemispheres work together for virtually all complex tasks.",
+    "The corpus callosum, containing approximately 200 million nerve fibers, ensures constant communication between hemispheres.",
+    "The left-brain/right-brain personality theory originated from a misinterpretation of Roger Sperry's split-brain research in the 1960s."
+  ],
+  "sections": [
+    {
+      "heading": "Where the Myth Came From",
+      "content": "<p>In the 1960s, neuroscientist Roger Sperry conducted groundbreaking experiments on patients who had their corpus callosum severed to treat severe epilepsy. These split-brain patients showed fascinating differences in how each hemisphere processed information independently. Sperry won the Nobel Prize in 1981 for this work, and rightfully so. It was brilliant science.</p><p>The problem is what popular culture did with it. The nuanced finding that certain functions are lateralized got flattened into a personality test: Are you a left-brainer (logical, analytical, detail-oriented) or a right-brainer (creative, intuitive, big-picture)? Self-help books, corporate training programs, and even educational curricula ran with this idea. But it was never what the science said.</p>",
+      "pullQuote": "The nuanced finding that certain functions are lateralized got flattened into a personality test."
+    },
+    {
+      "heading": "What the Brain Actually Does",
+      "content": "<p>Your brain does not work like a light switch where one side is on and the other is off. A <a href=\"https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0071275\">2013 study from the University of Utah</a> analyzed resting-state brain scans of over 1,000 people and found no evidence that individuals preferentially use one hemisphere more than the other. Both sides are active in virtually everything you do.</p><p>Yes, language processing tends to be left-lateralized in most right-handed people. Yes, spatial reasoning and face recognition tend to involve more right-hemisphere activity. But reading a poem involves both hemispheres. Solving a math problem involves both hemispheres. Having a conversation, painting a picture, playing music, writing code — all of these require the integrated work of your entire brain. The corpus callosum, a thick bundle of approximately 200 million nerve fibers, ensures your hemispheres are in constant dialogue.</p>"
+    },
+    {
+      "heading": "Why This Matters for Therapy",
+      "content": "<p>In my practice, I see clients who have built entire identities around being a certain type of thinker. They say things like, I am just not a creative person, I am too logical. Or, I am bad at math because I am right-brained. These beliefs become self-fulfilling prophecies. They limit what people believe they are capable of.</p><p>The truth is far more empowering. You are not locked into one mode of thinking. Your brain is plastic, adaptable, and capable of developing new skills at any age. When a client tells me they cannot do something because of how their brain is wired, I gently push back. Your brain is wired for learning. It is wired for growth. The hemispheres are not competing. They are collaborating.</p>",
+      "pullQuote": "Your brain is not locked into one mode of thinking. It is plastic, adaptable, and capable of developing new skills at any age."
+    },
+    {
+      "heading": "What Actually Shapes How You Think",
+      "content": "<p>If the left-brain/right-brain dichotomy does not explain cognitive differences, what does? The answer is far more complex and far more interesting. Your thinking style is shaped by a combination of genetics, environment, education, trauma history, attachment patterns, and neuroplasticity.</p><p>For example, someone who grew up in a chaotic household may have developed hypervigilance and pattern recognition as survival skills. That is not a brain-type. That is an adaptation. Someone who was encouraged to draw and paint as a child may have stronger visual-spatial skills not because of hemisphere dominance, but because of practice and neural pathway development. Understanding this gives us much more power to change. You are not stuck with a brain type. You are a product of experience, and experience can be reshaped.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Nielsen et al. (2013) - An Evaluation of the Left-Brain vs. Right-Brain Hypothesis with Resting State Functional Connectivity Magnetic Resonance Imaging",
+      "href": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0071275"
+    },
+    {
+      "label": "Corballis, M.C. (2014) - Left Brain, Right Brain: Facts and Fantasies",
+      "href": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001767"
+    },
+    {
+      "label": "Sperry, R.W. (1982) - Some Effects of Disconnecting the Cerebral Hemispheres (Nobel Lecture)",
+      "href": "https://www.nobelprize.org/prizes/medicine/1981/sperry/lecture/"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is the left-brain/right-brain theory completely wrong?",
+      "answer": "The idea that certain functions are lateralized (like language being left-dominant) is real. What is wrong is the claim that individuals are dominated by one hemisphere, making them either logical or creative types."
+    },
+    {
+      "question": "Can I strengthen my weaker hemisphere?",
+      "answer": "The premise is flawed because both hemispheres are always active. However, you can absolutely develop new cognitive skills through practice, regardless of which brain areas are involved."
+    },
+    {
+      "question": "Why do personality tests still use left-brain/right-brain language?",
+      "answer": "Because it is a simple, appealing framework that feels intuitive. Unfortunately, simplicity does not equal accuracy. These tests have no neuroscientific validity."
+    },
+    {
+      "question": "What did split-brain research actually prove?",
+      "answer": "It proved that the two hemispheres can function independently when physically disconnected, and that certain functions are lateralized. It did not prove that normal, intact brains are dominated by one side."
+    }
+  ],
+  "seo": {
+    "metaTitle": "Left Brain vs Right Brain: The Myth Debunked | Sylvia Therapy",
+    "metaDescription": "The left-brain/right-brain personality theory is a myth. Learn what neuroscience actually says about brain hemispheres and how you really think."
+  },
+  "relatedArticles": [],
+  "ctaProperties": []
+};
+
+export const personalityTestsWhatTheyMissPost: BlogPostData = {
+  "slug": "personality-tests-what-they-miss",
+  "title": "Personality Tests: What They Get Right and What They Completely Miss",
+  "subtitle": "From Myers-Briggs to Enneagram, personality tests are everywhere. A therapist's honest take on what they can and cannot tell you about yourself.",
+  "author": "Sylvia",
+  "authorRole": "Licensed Trauma Therapist",
+  "date": "May 2026",
+  "pillar": "Wellness",
+  "tags": [
+    "Personality",
+    "Psychology",
+    "Self-Discovery",
+    "Myers-Briggs",
+    "Enneagram",
+    "Big Five"
+  ],
+  "readingTime": 7,
+  "heroImage": "",
+  "keyFindings": [
+    "The Myers-Briggs Type Indicator (MBTI) has a test-retest reliability problem: up to 50% of people get a different result when retaking it after just five weeks.",
+    "The Big Five (OCEAN) model is the only personality framework with strong scientific support, measuring Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism.",
+    "Personality is not fixed. Research shows traits shift significantly across the lifespan, with most people becoming more agreeable and conscientious as they age.",
+    "The Barnum Effect explains why people find vague personality descriptions highly accurate — the same descriptions could apply to almost anyone."
+  ],
+  "sections": [
+    {
+      "heading": "Why We Love Being Categorized",
+      "content": "<p>There is something deeply satisfying about being told who you are. When a test says you are an INFJ or a Type 4 or a Sagittarius, it gives you a framework. It makes the chaos of being human feel organized. I understand the appeal. In a world that often feels overwhelming, having a label can feel like having a map.</p><p>In my practice, clients bring up their personality types all the time. They use them to explain their behavior, justify their choices, and sometimes excuse patterns that are actually causing them harm. I am an introvert, so I cannot do that. I am a Type 8, so conflict is just how I am. These statements concern me, not because the tests are entirely useless, but because they can become cages disguised as self-knowledge.</p>",
+      "pullQuote": "Personality tests can become cages disguised as self-knowledge."
+    },
+    {
+      "heading": "The Science Behind the Most Popular Tests",
+      "content": "<p>Let us be honest about the evidence. The <a href=\"https://www.apa.org/monitor/2019/09/cover-personality-tests\">Myers-Briggs Type Indicator (MBTI)</a> is the most widely used personality test in the world, taken by approximately 2 million people per year. It is also one of the least scientifically valid. Studies show that up to 50 percent of people receive a different type when they retake the test after just five weeks. It treats personality as binary (you are either Thinking or Feeling) when traits actually exist on a spectrum.</p><p>The Enneagram has even less empirical research behind it, though many people find it therapeutically useful as a framework for self-reflection. The only personality model with robust scientific support is the Big Five (also called OCEAN): Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. Unlike the MBTI, the Big Five measures traits on a continuum and has strong test-retest reliability.</p>"
+    },
+    {
+      "heading": "What Personality Tests Cannot Tell You",
+      "content": "<p>Here is what no personality test can capture: your trauma history, your attachment style, your nervous system state, your cultural context, or the adaptive strategies you developed to survive your childhood. These are often far more relevant to understanding your behavior than any four-letter type.</p><p>For example, someone who tests as introverted might actually be socially anxious due to early relational trauma. Someone who tests as a thinking type might have learned to intellectualize emotions because feeling was not safe in their family. The test result is real in the sense that it describes current behavior, but it misses the why entirely. And in therapy, the why is everything.</p>",
+      "pullQuote": "No personality test can capture your trauma history, your attachment style, or the adaptive strategies you developed to survive your childhood."
+    },
+    {
+      "heading": "A Healthier Way to Use These Tools",
+      "content": "<p>I am not saying throw all personality tests in the trash. Used correctly, they can be starting points for self-reflection. The Enneagram, for instance, can help people identify their core fears and motivations. The Big Five can help you understand where you fall on key trait dimensions. Even the MBTI can spark useful conversations about preferences.</p><p>The key is holding these results loosely. Use them as hypotheses, not verdicts. If a test result resonates, ask yourself why. If it does not, trust your own experience over the algorithm. And most importantly, remember that personality is not destiny. You are not a fixed type. You are a living, evolving person shaped by experience, capable of change at any point in your life. That is not just my opinion. It is what decades of longitudinal research consistently shows.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "label": "APA Monitor - Personality Testing in the Age of Assessment",
+      "href": "https://www.apa.org/monitor/2019/09/cover-personality-tests"
+    },
+    {
+      "label": "Pittenger, D.J. (2005) - Cautionary Comments Regarding the Myers-Briggs Type Indicator",
+      "href": "https://journals.sagepub.com/doi/10.1037/1061-4087.57.3.210"
+    },
+    {
+      "label": "Roberts, B.W. & Mroczek, D. (2008) - Personality Trait Change in Adulthood",
+      "href": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2743415/"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is the Myers-Briggs test scientifically valid?",
+      "answer": "The MBTI has significant reliability issues. Up to 50% of people get a different result when retaking it after five weeks. It lacks the scientific rigor of the Big Five model."
+    },
+    {
+      "question": "Which personality test is the most accurate?",
+      "answer": "The Big Five (OCEAN) model has the strongest scientific support. It measures traits on a continuum rather than putting people into binary categories."
+    },
+    {
+      "question": "Can your personality type change over time?",
+      "answer": "Yes. Longitudinal research shows personality traits shift across the lifespan. Most people become more agreeable, conscientious, and emotionally stable as they age."
+    },
+    {
+      "question": "Should I bring my personality test results to therapy?",
+      "answer": "You can, but a good therapist will look beyond the label to understand the underlying experiences, trauma, and adaptive strategies that shape your behavior."
+    },
+    {
+      "question": "What is the Barnum Effect?",
+      "answer": "The Barnum Effect is the tendency to accept vague, general personality descriptions as highly accurate for oneself. It explains why horoscopes and many personality tests feel so personally relevant."
+    }
+  ],
+  "seo": {
+    "metaTitle": "Personality Tests: What They Get Right and Miss | Sylvia Therapy",
+    "metaDescription": "A therapist's honest take on Myers-Briggs, Enneagram, and the Big Five. Learn what personality tests can and cannot tell you about yourself."
+  },
+  "relatedArticles": [],
+  "ctaProperties": []
+};
+
+export const relationships101AttachmentStylesPost: BlogPostData = {
+  "slug": "relationships-101-attachment-styles",
+  "title": "Relationships 101: Why You Keep Repeating the Same Patterns",
+  "subtitle": "Attachment theory explains why you are attracted to certain people, why relationships feel hard, and what you can actually do about it.",
+  "author": "Sylvia",
+  "authorRole": "Licensed Trauma Therapist",
+  "date": "May 2026",
+  "pillar": "Wellness",
+  "tags": [
+    "Relationships",
+    "Attachment Theory",
+    "Love",
+    "Therapy",
+    "Communication",
+    "Patterns"
+  ],
+  "readingTime": 8,
+  "heroImage": "",
+  "keyFindings": [
+    "Research estimates that approximately 50% of adults have a secure attachment style, 25% are avoidant, 20% are anxious, and 5% are disorganized.",
+    "Attachment styles are formed in the first 18 months of life based on how consistently caregivers respond to a child's needs.",
+    "Anxious-avoidant pairings are the most common insecure relationship dynamic, creating a pursue-withdraw cycle that feels intensely familiar to both partners.",
+    "Attachment styles are not permanent. Earned secure attachment is achievable through consistent, healthy relationships and therapy."
+  ],
+  "sections": [
+    {
+      "heading": "The Pattern You Cannot See",
+      "content": "<p>Every client who comes to me with relationship problems says some version of the same thing: Why do I keep ending up here? They date different people who look different, work in different fields, and come from different backgrounds. But somehow the relationship always ends the same way. The same fights. The same feelings. The same devastating conclusion that something must be wrong with them.</p><p>What I tell them is this: you are not broken. You are running a program that was installed before you could speak. <a href=\"https://www.attachmentproject.com/blog/four-attachment-styles/\">Attachment theory</a>, developed by John Bowlby and later expanded by Mary Ainsworth, explains that the way your caregivers responded to your needs in the first 18 months of your life created a template for how you expect all relationships to work. You are not choosing badly. You are choosing familiarly.</p>",
+      "pullQuote": "You are not choosing badly. You are choosing familiarly."
+    },
+    {
+      "heading": "The Four Attachment Styles",
+      "content": "<p><strong>Secure attachment</strong> develops when caregivers are consistently responsive. As adults, securely attached people are comfortable with intimacy and independence. They can communicate needs directly and tolerate conflict without catastrophizing. Roughly 50 percent of adults fall into this category.</p><p><strong>Anxious attachment</strong> develops when caregiving is inconsistent. As adults, anxiously attached people crave closeness but constantly fear abandonment. They may become preoccupied with their partner's availability, read into silences, and need frequent reassurance. About 20 percent of adults have this style.</p><p><strong>Avoidant attachment</strong> develops when caregivers are emotionally unavailable or dismissive. As adults, avoidant individuals value independence to an extreme degree. They may pull away when things get too close, struggle to express emotions, and feel suffocated by their partner's needs. Approximately 25 percent of adults are avoidant.</p><p><strong>Disorganized attachment</strong> develops when caregivers are a source of both comfort and fear. As adults, these individuals simultaneously crave and fear intimacy. Their relationships tend to be chaotic and intense. About 5 percent of adults have this style, and it is strongly associated with childhood trauma.</p>"
+    },
+    {
+      "heading": "The Anxious-Avoidant Trap",
+      "content": "<p>The most common insecure pairing I see in my practice is the anxious-avoidant dynamic. It is magnetic and devastating in equal measure. The anxious partner pursues connection. The avoidant partner withdraws to regulate. The more one pursues, the more the other withdraws. The more one withdraws, the more the other pursues. Both are terrified. Neither feels safe.</p><p>What makes this pairing so common is that it feels intensely familiar to both people. The anxious partner recreates the experience of reaching for an inconsistent caregiver. The avoidant partner recreates the experience of being overwhelmed by someone else's emotional needs. It feels like passion, like intensity, like love. But it is actually two nervous systems triggering each other's deepest wounds.</p>",
+      "pullQuote": "It feels like passion, like intensity, like love. But it is actually two nervous systems triggering each other's deepest wounds."
+    },
+    {
+      "heading": "Earned Secure Attachment Is Real",
+      "content": "<p>The most important thing I want you to know is that attachment styles are not life sentences. The concept of earned secure attachment means that through consistent, healthy relationships and therapeutic work, you can develop a secure attachment style regardless of your childhood experience.</p><p>This happens through what we call corrective emotional experiences. When you are in a relationship (romantic, therapeutic, or friendship) where someone responds to your needs consistently, your nervous system slowly updates its expectations. It learns that reaching out does not always lead to rejection. That closeness does not always lead to engulfment. That you can be fully yourself and still be loved. This is slow work. It is not a weekend workshop. But it is absolutely possible, and I have seen it happen hundreds of times in my practice.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "label": "The Attachment Project - Four Styles of Attachment",
+      "href": "https://www.attachmentproject.com/blog/four-attachment-styles/"
+    },
+    {
+      "label": "Hazan, C. & Shaver, P. (1987) - Romantic Love Conceptualized as an Attachment Process",
+      "href": "https://psycnet.apa.org/record/1987-28515-001"
+    },
+    {
+      "label": "Levine, A. & Heller, R. (2010) - Attached: The New Science of Adult Attachment",
+      "href": "https://www.attachedthebook.com/"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can you have different attachment styles in different relationships?",
+      "answer": "Yes. While you have a primary attachment style, it can shift depending on the relationship. A secure partner can bring out more security in you, while a triggering partner can activate insecure patterns."
+    },
+    {
+      "question": "How do I know my attachment style?",
+      "answer": "Notice your patterns: Do you worry about abandonment and seek constant reassurance (anxious)? Do you pull away when things get close (avoidant)? Do you feel comfortable with both intimacy and independence (secure)? A therapist can help you identify your style."
+    },
+    {
+      "question": "Can two avoidant people be in a relationship?",
+      "answer": "It is possible but uncommon. Two avoidant people may create a relationship with very little emotional intimacy, which can feel comfortable initially but often leads to disconnection and eventual separation."
+    },
+    {
+      "question": "Is anxious attachment the same as codependency?",
+      "answer": "They overlap but are not identical. Anxious attachment is about fear of abandonment and need for reassurance. Codependency involves losing yourself in another person's problems and deriving your identity from caretaking."
+    },
+    {
+      "question": "How long does it take to develop earned secure attachment?",
+      "answer": "There is no fixed timeline. It depends on the severity of early experiences, the quality of current relationships, and engagement with therapy. Most people see significant shifts within one to three years of consistent work."
+    }
+  ],
+  "seo": {
+    "metaTitle": "Relationships 101: Attachment Styles Explained | Sylvia Therapy",
+    "metaDescription": "Learn why you keep repeating the same relationship patterns. A therapist explains attachment theory, the anxious-avoidant trap, and how to develop secure attachment."
+  },
+  "relatedArticles": [],
+  "ctaProperties": []
+};
+
+export const therapistVsLifeCoachPost: BlogPostData = {
+  "slug": "therapist-vs-life-coach",
+  "title": "Why a Therapist Is Basically a Life Coach (But Better)",
+  "subtitle": "The real differences between therapy and coaching, why the lines are blurring, and how to know which one you actually need.",
+  "author": "Sylvia",
+  "authorRole": "Licensed Trauma Therapist",
+  "date": "May 2026",
+  "pillar": "Wellness",
+  "tags": [
+    "Therapy",
+    "Life Coaching",
+    "Mental Health",
+    "Self-Improvement",
+    "Personal Growth"
+  ],
+  "readingTime": 6,
+  "heroImage": "",
+  "keyFindings": [
+    "Licensed therapists require a minimum of a master's degree plus 2,000-4,000 supervised clinical hours before independent practice. Life coaches have no required education, training, or licensure.",
+    "The life coaching industry is valued at approximately $4.5 billion globally, yet remains entirely unregulated in most countries.",
+    "Modern therapy approaches like ACT, DBT, and solution-focused therapy are highly goal-oriented and forward-looking, overlapping significantly with what coaching claims to offer.",
+    "A therapist can do everything a life coach does, but a life coach cannot do what a therapist does — particularly around trauma, mental health diagnoses, and crisis intervention."
+  ],
+  "sections": [
+    {
+      "heading": "The Outdated View of Therapy",
+      "content": "<p>There is a persistent myth that therapy is only for people who are broken. That you go to a therapist when something is wrong with you, and you go to a life coach when you want to level up. This framing is outdated, inaccurate, and frankly, a marketing strategy by the coaching industry.</p><p>The truth is that modern therapy has evolved dramatically. I do not spend my sessions asking clients about their childhood while they lie on a couch. I help people set goals, build habits, navigate career transitions, improve relationships, develop confidence, and create lives they actually want to live. Sound familiar? That is because good therapy has always been about growth. We just did not have a billion-dollar industry competing for the same clients with fewer qualifications.</p>",
+      "pullQuote": "Good therapy has always been about growth. We just did not have a billion-dollar industry competing for the same clients with fewer qualifications."
+    },
+    {
+      "heading": "The Training Gap Is Enormous",
+      "content": "<p>Here is what it takes to become a licensed therapist: a bachelor's degree, a master's degree (often a doctorate), 2,000 to 4,000 hours of supervised clinical practice, passing a national licensing exam, and ongoing continuing education requirements. The entire process takes 7 to 12 years.</p><p>Here is what it takes to become a life coach: nothing. Literally nothing. Anyone can call themselves a life coach tomorrow. There is no required education, no licensing, no oversight, and no accountability. Some coaches pursue certifications through programs like the ICF (International Coach Federation), which is commendable. But these certifications are voluntary, and the training is typically 60 to 200 hours — a fraction of what therapists complete. This matters because when you are vulnerable and seeking help, the person across from you should have the training to handle what comes up.</p>"
+    },
+    {
+      "heading": "What Therapy Does That Coaching Cannot",
+      "content": "<p>A life coach can help you set goals, create accountability, and develop action plans. These are valuable services. But here is what they cannot do: diagnose mental health conditions, treat trauma, manage suicidal ideation, prescribe or coordinate medication, navigate personality disorders, or hold space for deep emotional processing.</p><p>What happens when a coaching client starts talking about their childhood abuse? What happens when goal-setting reveals crippling anxiety? What happens when the reason someone cannot move forward is unprocessed grief? An untrained coach is out of their depth. A therapist is trained for exactly these moments. I can help you build your dream life AND process the trauma that has been holding you back from it. That is not two separate services. That is integrated care.</p>",
+      "pullQuote": "I can help you build your dream life AND process the trauma that has been holding you back from it. That is not two separate services."
+    },
+    {
+      "heading": "When Coaching Makes Sense",
+      "content": "<p>I am not here to trash all life coaches. There are excellent coaches doing meaningful work, particularly in niche areas like executive coaching, career transitions, or fitness accountability. If you have no mental health concerns, no trauma history, and simply want someone to help you stay on track with specific goals, a good coach can be a great fit.</p><p>But if you have ever experienced depression, anxiety, trauma, addiction, relationship dysfunction, grief, or any other emotional struggle — and statistically, most of us have — a therapist is the safer and more comprehensive choice. You get everything coaching offers (goal-setting, accountability, forward momentum) plus the clinical training to handle whatever surfaces along the way. Think of it this way: a therapist can be your life coach. A life coach cannot be your therapist.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "label": "American Psychological Association - How to Choose a Therapist",
+      "href": "https://www.apa.org/topics/psychotherapy/choose-therapist"
+    },
+    {
+      "label": "International Coach Federation - Credential Requirements",
+      "href": "https://coachingfederation.org/credentials-and-standards"
+    },
+    {
+      "label": "Harvard Business Review - What Can Coaches Do for You?",
+      "href": "https://hbr.org/2009/01/what-can-coaches-do-for-you"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is a life coach a licensed professional?",
+      "answer": "No. Life coaching is an unregulated industry with no required education, training, or licensure. Anyone can call themselves a life coach without any credentials."
+    },
+    {
+      "question": "Can a therapist help with goal-setting and personal growth?",
+      "answer": "Absolutely. Modern therapeutic approaches like ACT, solution-focused therapy, and DBT are highly goal-oriented and forward-looking. Therapy is not just about the past."
+    },
+    {
+      "question": "Is therapy only for people with mental health diagnoses?",
+      "answer": "No. Many people seek therapy for personal growth, relationship improvement, career transitions, and life satisfaction — the same reasons people hire coaches."
+    },
+    {
+      "question": "What should I do if my life coach uncovers trauma?",
+      "answer": "Seek a licensed therapist. Trauma processing requires clinical training that life coaches do not have. A responsible coach will refer you to a therapist in this situation."
+    },
+    {
+      "question": "Can I see both a therapist and a life coach?",
+      "answer": "You can, but it is often redundant. A good therapist can address both your mental health needs and your growth goals. If you do use both, make sure they are aware of each other."
+    }
+  ],
+  "seo": {
+    "metaTitle": "Therapist vs Life Coach: Why Therapy Is Better | Sylvia",
+    "metaDescription": "The real differences between therapy and life coaching. Learn why a therapist can do everything a coach does — but better, with clinical training and accountability."
+  },
+  "relatedArticles": [],
+  "ctaProperties": []
+};
+
 export const sylviaBlogPosts: BlogPostData[] = [
+  leftBrainRightBrainMythPost,
+  personalityTestsWhatTheyMissPost,
+  relationships101AttachmentStylesPost,
+  therapistVsLifeCoachPost,
   addictionRecoveryIsNotLinearPost,
   dualDiagnosisAddictionMentalHealthPost,
   highFunctioningDoesNotMeanFinePost,

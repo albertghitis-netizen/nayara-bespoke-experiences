@@ -2247,6 +2247,53 @@ function BipolarPage() {
 
 const FAQ_SECTIONS = [
   {
+    title: "Brain Myths & Neuroscience",
+    icon: "🧠",
+    color: "#6B4C9A",
+    items: [
+      { q: "Is the left-brain/right-brain theory completely wrong?", a: "The idea that certain functions are lateralized (like language being left-dominant) is real. What is wrong is the claim that individuals are dominated by one hemisphere, making them either logical or creative types." },
+      { q: "Can I strengthen my weaker hemisphere?", a: "The premise is flawed because both hemispheres are always active. However, you can absolutely develop new cognitive skills through practice, regardless of which brain areas are involved." },
+      { q: "Why do personality tests still use left-brain/right-brain language?", a: "Because it is a simple, appealing framework that feels intuitive. Unfortunately, simplicity does not equal accuracy. These tests have no neuroscientific validity." },
+      { q: "What did split-brain research actually prove?", a: "It proved that the two hemispheres can function independently when physically disconnected, and that certain functions are lateralized. It did not prove that normal, intact brains are dominated by one side." },
+    ],
+  },
+  {
+    title: "Personality Tests",
+    icon: "🎯",
+    color: "#9B6B8A",
+    items: [
+      { q: "Is the Myers-Briggs test scientifically valid?", a: "The MBTI has significant reliability issues. Up to 50% of people get a different result when retaking it after five weeks. It lacks the scientific rigor of the Big Five model." },
+      { q: "Which personality test is the most accurate?", a: "The Big Five (OCEAN) model has the strongest scientific support. It measures traits on a continuum rather than putting people into binary categories." },
+      { q: "Can your personality type change over time?", a: "Yes. Longitudinal research shows personality traits shift across the lifespan. Most people become more agreeable, conscientious, and emotionally stable as they age." },
+      { q: "Should I bring my personality test results to therapy?", a: "You can, but a good therapist will look beyond the label to understand the underlying experiences, trauma, and adaptive strategies that shape your behavior." },
+      { q: "What is the Barnum Effect?", a: "The Barnum Effect is the tendency to accept vague, general personality descriptions as highly accurate for oneself. It explains why horoscopes and many personality tests feel so personally relevant." },
+    ],
+  },
+  {
+    title: "Relationships & Attachment",
+    icon: "💞",
+    color: "#C45D7A",
+    items: [
+      { q: "Can you have different attachment styles in different relationships?", a: "Yes. While you have a primary attachment style, it can shift depending on the relationship. A secure partner can bring out more security in you, while a triggering partner can activate insecure patterns." },
+      { q: "How do I know my attachment style?", a: "Notice your patterns: Do you worry about abandonment and seek constant reassurance (anxious)? Do you pull away when things get close (avoidant)? Do you feel comfortable with both intimacy and independence (secure)? A therapist can help you identify your style." },
+      { q: "Can two avoidant people be in a relationship?", a: "It is possible but uncommon. Two avoidant people may create a relationship with very little emotional intimacy, which can feel comfortable initially but often leads to disconnection and eventual separation." },
+      { q: "Is anxious attachment the same as codependency?", a: "They overlap but are not identical. Anxious attachment is about fear of abandonment and need for reassurance. Codependency involves losing yourself in another person's problems and deriving your identity from caretaking." },
+      { q: "How long does it take to develop earned secure attachment?", a: "There is no fixed timeline. It depends on the severity of early experiences, the quality of current relationships, and engagement with therapy. Most people see significant shifts within one to three years of consistent work." },
+    ],
+  },
+  {
+    title: "Therapy vs Life Coaching",
+    icon: "⚖️",
+    color: "#4A7B6B",
+    items: [
+      { q: "Is a life coach a licensed professional?", a: "No. Life coaching is an unregulated industry with no required education, training, or licensure. Anyone can call themselves a life coach without any credentials." },
+      { q: "Can a therapist help with goal-setting and personal growth?", a: "Absolutely. Modern therapeutic approaches like ACT, solution-focused therapy, and DBT are highly goal-oriented and forward-looking. Therapy is not just about the past." },
+      { q: "Is therapy only for people with mental health diagnoses?", a: "No. Many people seek therapy for personal growth, relationship improvement, career transitions, and life satisfaction — the same reasons people hire coaches." },
+      { q: "What should I do if my life coach uncovers trauma?", a: "Seek a licensed therapist. Trauma processing requires clinical training that life coaches do not have. A responsible coach will refer you to a therapist in this situation." },
+      { q: "Can I see both a therapist and a life coach?", a: "You can, but it is often redundant. A good therapist can address both your mental health needs and your growth goals. If you do use both, make sure they are aware of each other." },
+    ],
+  },
+  {
     title: "Trauma Therapy",
     icon: "🫂",
     color: "#8B6B7A",
@@ -2633,6 +2680,10 @@ function AboutSylviaPage() {
 
 function SylviaBlogPage() {
   const blogPosts = [
+    { slug: "left-brain-right-brain-myth", title: "Left Brain vs Right Brain: The Myth That Won't Die", subtitle: "Why you are not one or the other, and what neuroscience actually says.", tags: ["Neuroscience", "Brain Myths"], readingTime: 9 },
+    { slug: "personality-tests-what-they-miss", title: "Personality Tests: What They Get Right and What They Miss", subtitle: "MBTI, Enneagram, Big Five — a therapist's honest take.", tags: ["Personality", "Self-Knowledge"], readingTime: 10 },
+    { slug: "relationships-101-attachment-styles", title: "Relationships 101: Why You Keep Choosing the Same Person", subtitle: "Attachment styles, patterns, and how to break the cycle.", tags: ["Relationships", "Attachment"], readingTime: 11 },
+    { slug: "therapist-vs-life-coach", title: "Why a Therapist Is Basically a Life Coach (But Better)", subtitle: "The overlap, the differences, and why credentials matter.", tags: ["Therapy", "Life Coaching"], readingTime: 8 },
     { slug: "types-of-bipolar-disorder", title: "The Different Types of Bipolar Disorder", subtitle: "Bipolar I, Bipolar II, and Cyclothymia — what sets them apart.", tags: ["Bipolar", "Mood Disorders"], readingTime: 10 },
     { slug: "neurotransmitters-and-mental-health", title: "Your Neurotransmitters: The Chemical Messengers Behind How You Feel", subtitle: "Serotonin, dopamine, GABA and why they matter for your mental health.", tags: ["Neuroscience", "Mental Health"], readingTime: 11 },
     { slug: "what-actually-happens-in-trauma-therapy", title: "What Actually Happens in Trauma Therapy", subtitle: "Demystifying the process so you can stop avoiding it.", tags: ["Trauma", "Therapy"], readingTime: 10 },
