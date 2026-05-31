@@ -120,16 +120,6 @@ function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sylviaExpanded, setSylviaExpanded] = useState(false);
 
-  const CATEGORIES = [
-    { id: "mood", label: "Journal", color: "#9B7DB8" },
-    { id: "therapy", label: "Therapy", color: "#5C3D7A" },
-    { id: "sleep", label: "Sleep", color: "#B8A0D4" },
-    { id: "nutrition", label: "Nutrition", color: "#7A5C99" },
-    { id: "exercise", label: "Exercise", color: "#D4A99A" },
-    { id: "meds", label: "Meds", color: "#C4A8D4" },
-    { id: "social", label: "Social", color: "#7A5C99" },
-    { id: "triggers", label: "Triggers", color: "#D4A99A" },
-  ];
 
   return (
     <>
@@ -267,36 +257,21 @@ function Navigation() {
                 </AnimatePresence>
               </motion.div>
 
-              {/* Daily Tracking label */}
-              <div className="mt-5 mb-3">
-                <span
-                  className="text-[10px] tracking-[0.2em] uppercase opacity-60"
-                  style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, color: "#3D4A47" }}
+              {/* Sofía link */}
+              <div className="mt-8 pt-6" style={{ borderTop: "1px solid rgba(61, 74, 71, 0.1)" }}>
+                <a
+                  href="/sofia"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-3 py-3 opacity-70 hover:opacity-100 transition-opacity"
                 >
-                  Daily Tracking
-                </span>
-              </div>
-
-              {/* Category items — daily tracking */}
-              {CATEGORIES.map((cat, idx) => (
-                <motion.button
-                  key={cat.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + 0.05 * idx }}
-                  onClick={() => { setMenuOpen(false); window.location.href = `/sofia#${cat.id}`; }}
-                  className="flex items-center gap-4 w-full text-left py-4 border-b"
-                  style={{ borderColor: "rgba(61, 74, 71, 0.1)" }}
-                >
-                  <span className="w-4 h-4 rounded-full" style={{ background: cat.color }} />
                   <span
-                    className="text-lg tracking-[0.06em] uppercase"
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
+                    className="text-sm tracking-[0.08em] uppercase"
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#4A3B5C" }}
                   >
-                    {cat.label}
+                    Sofía →
                   </span>
-                </motion.button>
-              ))}
+                </a>
+              </div>
             </div>
           </motion.div>
           </>
