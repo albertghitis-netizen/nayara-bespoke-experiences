@@ -7,6 +7,7 @@ import { gastronomyBlogPost, inHouseActivitiesBlogPost } from "./blogPostsNew";
 import { experientialTravelPost, familyBucketListPost } from "./blogPostsExperiential";
 import { romanticBlogPost } from "./blogPostRomantic";
 import { sylviaBlogPosts } from "./blogPostsSylvia";
+import { ifsBlogPosts } from "./blogPostsIFS";
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -903,6 +904,8 @@ export const allBlogPosts: Record<string, BlogPostData> = {
   "romance-at-nayara-springs-and-bocas-del-toro": romanticBlogPost,
   // Sylvia therapy blog posts
   ...Object.fromEntries(sylviaBlogPosts.map(p => [p.slug, p])),
+  // IFS, Bipolar & Neurotransmitter blog posts
+  ...Object.fromEntries(ifsBlogPosts.map(p => [p.slug, p])),
 };
 
 /** Helper to get a blog post by slug */

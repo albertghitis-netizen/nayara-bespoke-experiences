@@ -103,6 +103,53 @@ Recovery is not about willpower. It is about addressing what the substance was s
 
 Support structures: Individual therapy, group support (AA, NA, SMART Recovery), peer community, routine, accountability.
 
+### INTERNAL FAMILY SYSTEMS (IFS) — DEEP KNOWLEDGE
+
+The IFS Model: Internal Family Systems, developed by Dr. Richard Schwartz in the 1980s, views the mind as naturally multiple. Rather than treating inner voices as symptoms to eliminate, IFS sees them as parts of a system. Each part has a role and is trying to protect you.
+
+Self: The Self is not a part. It is the core of who you are when no part is dominating your experience. You know you are in Self when you feel curious rather than reactive. Richard Schwartz describes Self through the 8 C's: Curiosity, Compassion, Calm, Clarity, Confidence, Courage, Creativity, and Connectedness. If you feel intense emotion toward a part (frustration, fear, disgust), that is another part reacting. If you can notice the emotion with gentle interest, that is Self.
+
+Three Types of Parts:
+- Managers: Parts that try to keep you safe by staying in control. They plan, worry, criticize, people-please. Their job is to prevent you from ever feeling the pain that exiles carry. Shows up as perfectionism, chronic overthinking, or the voice that says you are not good enough.
+- Firefighters: Parts that react when pain breaks through despite managers' efforts. They act fast and big. Binge eating, substance use, dissociation, rage, self-harm. They are not trying to destroy you. They are trying to put out an emotional fire as quickly as possible.
+- Exiles: Young, vulnerable parts that carry your deepest wounds. They hold the memories, the shame, the grief, the terror from experiences that were too much. Managers and firefighters work together to keep exiles locked away.
+
+Working With Parts: Start by noticing. When you feel a strong emotion or familiar pattern, pause and ask: "Is this a part of me?" Then get curious. Where do you feel it in your body? How old does it feel? What is it afraid will happen if it stops doing its job? You are not trying to fix anything. You are just building a relationship.
+
+Protectors: Every protector developed for a reason. At some point, something happened that was too much, and a part stepped up to make sure it never happened again. When you fight a protector, it fights back harder. When you approach it with curiosity, it can begin to relax. The inner critic is the most common protector — it criticizes you before the world can, believing this will prevent rejection.
+
+Unburdening: The moment when an exile releases the extreme feelings and beliefs it has been carrying. These burdens are not inherent to the part — they were taken on during overwhelming experiences. The part chooses to release its burden to one of the elements: water, fire, earth, wind, or light. After unburdening, the part does not disappear. It transforms and often takes on a new, lighter role.
+
+After Unburdening (First 30 Days): The system reorganizes. You may feel euphoric, then confused, then oddly empty. Situations that used to trigger you intensely may produce a milder response. Protectors that guarded the unburdened exile suddenly have no job — some transition gracefully, others may flare up testing whether the change is real.
+
+Gratitude and Trauma: For trauma survivors, gratitude can feel threatening because it requires vulnerability. Polyvagal theory explains that gratitude requires a felt sense of safety (ventral vagal state). If the nervous system is stuck in fight/flight or shutdown, gratitude is physiologically inaccessible. A protector part may block gratitude because feeling good has historically preceded feeling devastated.
+
+### BIPOLAR DISORDER — TYPES AND MANAGEMENT
+
+Bipolar I: Defined by at least one manic episode lasting at least 7 days (or any duration if hospitalization is required). Mania involves abnormally elevated, expansive, or irritable mood with decreased need for sleep, rapid speech, racing thoughts, impulsive decisions. Can include psychosis (delusions or hallucinations). Depressive episodes are common but not required for diagnosis.
+
+Bipolar II: Involves at least one major depressive episode and at least one hypomanic episode, but never a full manic episode. Hypomania lasts at least 4 days — elevated mood, increased energy, decreased need for sleep, heightened productivity — but does not cause severe impairment or psychosis. Often missed because hypomanic episodes feel productive. Depression in Bipolar II tends to be severe, prolonged, and treatment-resistant when treated with antidepressants alone.
+
+Cyclothymia: Chronic fluctuating mood with periods of hypomanic and depressive symptoms that do not meet full criteria for either episode. Must persist at least 2 years with no symptom-free period longer than 2 months. Feels like living on a low-grade emotional roller coaster. Some people with cyclothymia eventually develop Bipolar I or II.
+
+Tracking for Bipolar: Log mood multiple times per day, sleep duration and quality, energy level, impulsive behaviors or spending, irritability, and racing thoughts. Sleep often decreases before a hypomanic episode. Irritability may precede a depressive crash. These early warning signs give time to intervene before a full episode develops.
+
+### NEUROTRANSMITTERS & BRAIN CHEMISTRY
+
+Neurotransmitters are chemical messengers that carry signals between nerve cells. They are stored in synaptic vesicles, released into the synaptic junction, and bind to specific receptors on target cells. Three actions: excitatory (fire), inhibitory (block), modulatory (tweak).
+
+Serotonin: Inhibitory neurotransmitter. Regulates mood, sleep, appetite, pain, anxiety. When adequate, you feel emotionally stable and able to cope. When low, persistent sadness, anxiety, irritability, disrupted sleep, changed appetite. SSRIs prevent serotonin from being reabsorbed too quickly, keeping more available. Conditions: depression, anxiety, seasonal affective disorder, fibromyalgia.
+
+Dopamine: Drives motivation, anticipation, reward, focus, concentration. When functioning well, you feel motivated and engaged. When low, everything feels pointless — loss of motivation and pleasure (anhedonia). Implicated in ADHD (too little in prefrontal cortex), addiction (hijacked reward pathways), Parkinson's (loss of dopamine neurons), schizophrenia (too much in certain regions), bipolar (excess during mania). Addictive substances flood dopamine far beyond natural rewards.
+
+GABA: Brain's primary inhibitory neurotransmitter. Reduces neural excitability — the brake pedal for your brain. When functioning well, you can relax, sleep, handle stress. When low, brain stuck in overdrive — anxiety, restlessness, insomnia, seizures. Benzodiazepines enhance GABA's effects. Alcohol also acts on GABA receptors (why anxious people self-medicate with drinking).
+
+Norepinephrine: Alertness, arousal, decision-making, attention, focus. Also affects blood pressure and heart rate.
+
+Endorphins: Natural pain relievers. Produce "feel good" feelings. Released during exercise, laughter, social bonding.
+
+Influencing Neurotransmitters Without Medication: Exercise increases serotonin, dopamine, and endorphins. Sleep allows regulation of neurotransmitter production. Nutrition provides amino acid building blocks. Social connection stimulates oxytocin and serotonin. Meditation increases GABA.
+
 ### ABOUT SYLVIA (THE THERAPIST)
 Sylvia Bischoff is a licensed therapist based in Jupiter, Florida (900 S. US Highway 1, Suite 101, Jupiter, FL 33477). Her practice is called "Hum Being" and her tagline is "Towards Living." She can be reached at hello@humbeing.com.
 

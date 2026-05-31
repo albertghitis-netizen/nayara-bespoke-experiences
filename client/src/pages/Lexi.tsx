@@ -2339,6 +2339,33 @@ const FAQ_SECTIONS = [
     ],
   },
   {
+    title: "Internal Family Systems (IFS)",
+    icon: "🧩",
+    color: "#4F8F75",
+    items: [
+      { q: "Do I need a therapist to do parts work?", a: "You can begin noticing parts on your own, but working with exiles (deep wounds) should be done with a trained IFS therapist. Self-guided work is best for building awareness and working with everyday protector parts." },
+      { q: "What if I cannot feel Self at all?", a: "That usually means a protector part is blended with you so completely that you cannot distinguish it from yourself. This is common and normal. A therapist can help you gently unblend from that part." },
+      { q: "Is IFS evidence-based?", a: "Yes. IFS has been listed in the National Registry of Evidence-Based Programs and Practices (NREPP). Research shows its effectiveness for depression, anxiety, PTSD, and other conditions." },
+      { q: "Can a protector ever fully go away?", a: "Parts do not disappear. But they can transform. When a protector trusts that Self is in charge and the exile it guards has been unburdened, it often takes on a new, less extreme role." },
+      { q: "What if my protector is harmful (like substance use)?", a: "Even harmful behaviors are protector strategies. In IFS, we do not shame the part. We acknowledge its intention while helping it find less destructive ways to achieve its goal of protecting you." },
+      { q: "Is it bad to force gratitude?", a: "Forcing gratitude when your system is not ready can increase shame and disconnection. It is better to first address the nervous system state and any protector parts that are blocking positive emotions." },
+      { q: "Can a burden come back after unburdening?", a: "True unburdening is typically permanent for that specific burden. However, the same part may carry multiple burdens, or similar experiences may have created burdens in other parts." },
+      { q: "Do I need a therapist for unburdening?", a: "Yes. Unburdening involves working directly with exiles, which can be intense and destabilizing without proper support. A trained IFS therapist provides the safety and guidance needed for this deep work." },
+    ],
+  },
+  {
+    title: "Neurotransmitters & Brain Chemistry",
+    icon: "🧠",
+    color: "#1F4D3A",
+    items: [
+      { q: "Can you test your neurotransmitter levels?", a: "There is no reliable clinical test for brain neurotransmitter levels. Blood tests measure peripheral levels, which do not accurately reflect what is happening in the brain. Diagnosis is based on symptoms, not lab values." },
+      { q: "Do antidepressants create artificial happiness?", a: "No. SSRIs and similar medications do not create emotions. They restore the brain's ability to regulate mood naturally by correcting chemical imbalances. Many people describe the effect as feeling like themselves again." },
+      { q: "Can lifestyle changes replace medication?", a: "For mild to moderate conditions, lifestyle changes (exercise, sleep, nutrition) can be very effective. For moderate to severe conditions, medication often provides the foundation that makes lifestyle changes possible." },
+      { q: "Why do some medications take weeks to work?", a: "SSRIs and similar medications need time because they work by gradually changing receptor sensitivity and neurotransmitter availability. The brain needs to adapt to the new chemical environment, which typically takes 2 to 6 weeks." },
+      { q: "What is the role of GABA in anxiety?", a: "GABA is the brain's primary inhibitory neurotransmitter. It calms neural activity. Low GABA is associated with anxiety, insomnia, and seizures. Benzodiazepines work by enhancing GABA's effects." },
+    ],
+  },
+  {
     title: "Mood Tracking",
     icon: "📊",
     color: "#7A9E7E",
@@ -2606,6 +2633,12 @@ function AboutSylviaPage() {
 
 function SylviaBlogPage() {
   const blogPosts = [
+    { slug: "getting-started-with-parts-ifs", title: "Getting Started With Parts: A Gentle Introduction to IFS", subtitle: "How to tell the difference between a part and your true Self.", tags: ["IFS", "Parts Work"], readingTime: 10 },
+    { slug: "understanding-your-protectors", title: "Understanding Your Protectors", subtitle: "The anger, the critic, the cynic — they are trying to help.", tags: ["IFS", "Protectors"], readingTime: 9 },
+    { slug: "why-gratitude-feels-impossible-after-trauma", title: "Why Gratitude Feels Impossible After Trauma", subtitle: "It is not a mindset problem. Your nervous system is involved.", tags: ["IFS", "Trauma", "Gratitude"], readingTime: 11 },
+    { slug: "after-unburdening-what-comes-next", title: "After Unburdening: What Comes Next", subtitle: "The first 30 days after a part releases its burden.", tags: ["IFS", "Unburdening"], readingTime: 9 },
+    { slug: "types-of-bipolar-disorder", title: "The Different Types of Bipolar Disorder", subtitle: "Bipolar I, Bipolar II, and Cyclothymia — what sets them apart.", tags: ["Bipolar", "Mood Disorders"], readingTime: 10 },
+    { slug: "neurotransmitters-and-mental-health", title: "Your Neurotransmitters: The Chemical Messengers Behind How You Feel", subtitle: "Serotonin, dopamine, GABA and why they matter for your mental health.", tags: ["Neuroscience", "Mental Health"], readingTime: 11 },
     { slug: "what-actually-happens-in-trauma-therapy", title: "What Actually Happens in Trauma Therapy", subtitle: "Demystifying the process so you can stop avoiding it.", tags: ["Trauma", "Therapy"], readingTime: 10 },
     { slug: "psychologist-vs-psychiatrist-vs-therapist", title: "Psychologist vs Psychiatrist vs Therapist", subtitle: "What you actually need to know before booking.", tags: ["Therapy", "Mental Health"], readingTime: 8 },
     { slug: "high-functioning-does-not-mean-fine", title: "High-Functioning Does Not Mean Fine", subtitle: "For the people who look together but are struggling.", tags: ["Depression", "Anxiety"], readingTime: 9 },
