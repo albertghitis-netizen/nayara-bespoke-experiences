@@ -9,6 +9,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { trpc } from "@/lib/trpc";
 
+
 /* ─── Color Palette (Purple/Plum) ─── */
 const COLORS = {
   bone: "#F5F0F8",
@@ -332,21 +333,85 @@ function HeroSection() {
    MOBILE MEDIA BREAK — Single media item shown only on mobile
    Used to space media throughout the page
    ═══════════════════════════════════════════════════════════════ */
+function SylviaVideo({ src, className }: { src: string; className?: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  // Load video when within 300px of viewport
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  // Play when visible, pause when not
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !shouldLoad) return;
+    const playObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    playObserver.observe(video);
+    // Also handle tab visibility
+    const handleVisibility = () => {
+      if (!document.hidden && video.getBoundingClientRect().top < window.innerHeight) {
+        video.play().catch(() => {});
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => {
+      playObserver.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
+  }, [shouldLoad]);
+
+  return (
+    <div ref={containerRef} className={className}>
+      {shouldLoad ? (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          controls={false}
+          disablePictureInPicture
+          className="w-full h-full object-cover"
+        >
+          <source src={src} type="video/mp4" />
+        </video>
+      ) : (
+        <div className="w-full h-full bg-[#2D1B3D]/10" />
+      )}
+    </div>
+  );
+}
+
 function MobileMediaBreak({ src, type, alt }: { src: string; type: "video" | "image"; alt?: string }) {
   return (
     <section className="md:hidden px-4 py-6">
       <div className="rounded-sm overflow-hidden shadow-md">
         {type === "video" ? (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full"
-            style={{ aspectRatio: "3/4" }}
-          >
-            <source src={src} type="video/mp4" />
-          </video>
+          <SylviaVideo src={src} className="w-full object-cover aspect-[3/4]" />
         ) : (
           <img
             loading="lazy"
@@ -369,16 +434,10 @@ function MobileMediaFlow() {
     <section className="md:hidden px-4 py-10">
       {/* Single intro video — purple flower */}
       <div className="rounded-sm overflow-hidden shadow-md">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full"
-          style={{ aspectRatio: "3/4" }}
-        >
-          <source src="/manus-storage/sylvia-video_f81fbeee.mp4" type="video/mp4" />
-        </video>
+        <SylviaVideo
+          src="/manus-storage/sylvia-video_f81fbeee.mp4"
+          className="w-full object-cover aspect-[3/4]"
+        />
       </div>
     </section>
   );
@@ -473,16 +532,10 @@ function VideoMomentSection() {
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* Vertical video */}
           <div className="flex justify-center">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full max-w-[280px] md:max-w-[320px] h-auto rounded-sm shadow-lg"
-              style={{ aspectRatio: "9/12" }}
-            >
-              <source src="/manus-storage/sylvia-video_f81fbeee.mp4" type="video/mp4" />
-            </video>
+            <SylviaVideo
+              src="/manus-storage/sylvia-video_f81fbeee.mp4"
+              className="w-full max-w-[280px] md:max-w-[320px] h-auto rounded-sm shadow-lg aspect-[9/12]"
+            />
           </div>
 
           {/* Text */}
@@ -787,16 +840,10 @@ function WaterfallVideoSection() {
       <div className="max-w-5xl mx-auto">
         {/* Desktop — 16:9 horizontal */}
         <div className="hidden md:block relative rounded-sm overflow-hidden shadow-lg">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full"
-            style={{ aspectRatio: "16/9" }}
-          >
-            <source src="/manus-storage/sylvia-waterfall_68b3ab73.mp4" type="video/mp4" />
-          </video>
+          <SylviaVideo
+            src="/manus-storage/sylvia-waterfall_68b3ab73.mp4"
+            className="w-full aspect-[16/9]"
+          />
           <div className="absolute inset-0 flex items-end justify-start p-8 md:p-12 bg-gradient-to-t from-black/40 via-transparent to-transparent">
             <p
               className="text-white text-lg md:text-2xl leading-tight max-w-md"
@@ -889,16 +936,10 @@ function FirstSessionSection() {
 
           {/* Video — desktop: 16:9 horizontal */}
           <div className="hidden md:block rounded-sm overflow-hidden shadow-lg">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full"
-              style={{ aspectRatio: "16/9" }}
-            >
-              <source src="/manus-storage/sylvia-nature-2_ad910d95.mp4" type="video/mp4" />
-            </video>
+            <SylviaVideo
+              src="/manus-storage/sylvia-nature-2_ad910d95.mp4"
+              className="w-full aspect-[16/9]"
+            />
           </div>
 
 
