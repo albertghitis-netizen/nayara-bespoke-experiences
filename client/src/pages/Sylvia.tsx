@@ -100,33 +100,53 @@ export default function Sylvia() {
           </motion.div>
         </div>
       </section>
-      {/* Mobile intro video */}
-      <MobileMediaFlow />
-      {/* Content sections */}
+      {/* 1. Intro text above ↑ */}
+      {/* Media 1: purple flower video */}
+      <MobileMediaBreak src="/manus-storage/sylvia-video_f81fbeee.mp4" type="video" />
+
+      {/* 2. Content sections (Who I Help, What Changes, My Approach) */}
       <ContentBoxes />
       <div className="hidden md:block">
         <VideoMomentSection />
       </div>
-      <ServicesSection />
-      {/* Mobile: lily pad still between Services and Testimonial */}
+      {/* Media 2: lily pad walkway still */}
       <MobileMediaBreak src="/manus-storage/sylvia-lilypad_9727e9e3.jpeg" type="image" alt="Lily pad walkway" />
-      <TestimonialSection />
-      <HowIWorkSection />
-      {/* Mobile: waterfall video between HowIWork and About */}
+
+      {/* 3. Services */}
+      <ServicesSection />
+      {/* Media 3: waterfall video */}
       <MobileMediaBreak src="/manus-storage/sylvia-waterfall-vertical_d48b606e.mp4" type="video" />
-      <AboutSection />
-      {/* Mobile: new video between About and Philosophy */}
+
+      {/* 4. Testimonial */}
+      <TestimonialSection />
+      {/* Media 4: pool with pink chairs still */}
+      <MobileMediaBreak src="/manus-storage/2623B560-0573-40FB-89A0-C1C6242F0797_abf6dd29.jpeg" type="image" alt="Evening pool" />
+
+      {/* 5. How I Work */}
+      <HowIWorkSection />
+      {/* Media 5: video #4 */}
       <MobileMediaBreak src="/manus-storage/sylvia-video-4_14ad8643.mp4" type="video" />
+
+      {/* 6. About */}
+      <AboutSection />
+      {/* Media 6: jungle pool still (about image) */}
+      <MobileMediaBreak src="/manus-storage/sylvia-about-new_0a4859c6.jpg" type="image" alt="Jungle pool" />
+
+      {/* 7. Philosophy */}
+      <PhilosophySection />
       <div className="hidden md:block">
         <WaterfallVideoSection />
       </div>
-      <PhilosophySection />
-      {/* Mobile: pool with pink chairs between Philosophy and FirstSession */}
-      <MobileMediaBreak src="/manus-storage/2623B560-0573-40FB-89A0-C1C6242F0797_abf6dd29.jpeg" type="image" alt="Evening pool" />
-      <FirstSessionSection />
-      {/* Mobile: second purple flower video before CTA */}
+      {/* Media 7: purple flower #2 video */}
       <MobileMediaBreak src="/manus-storage/sylvia-purple-flower-2_f377e2c6.mp4" type="video" />
-      {/* Mobile: nature video before CTA */}
+
+      {/* 8. First Session */}
+      <FirstSessionSection />
+      {/* Media 8: bridge/path still */}
+      <MobileMediaBreak src="/manus-storage/sylvia-philosophy-new_5ac4713f.jpg" type="image" alt="Path through jungle" />
+
+      {/* 9. CTA */}
+      {/* Media 9: nature video */}
       <MobileMediaBreak src="/manus-storage/sylvia-nature-2-vertical_72e17c6b.mp4" type="video" />
       <CTASection />
       <FooterSection />
