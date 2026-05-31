@@ -357,8 +357,7 @@ export default function Lexi() {
   };
   const [activeView, setActiveView] = useState<CategoryId | "calendar" | "home" | "our-story" | "about-sylvia" | "sylvia-blog" | "my-story">(getInitialView);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [sofiaExpanded, setSofiaExpanded] = useState(false);
-  const [sylviaExpanded, setSylviaExpanded] = useState(false);
+
   const [entries, setEntries] = useState<CalendarEntry[]>(() => {
     const saved = localStorage.getItem("lexi-entries");
     return saved ? JSON.parse(saved) : [];
@@ -482,74 +481,6 @@ export default function Lexi() {
             style={{ background: "rgba(247, 245, 240, 0.98)" }}
           >
             <div className="px-6 pt-24 pb-16">
-              {/* Sylvia — accordion */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.06 }}
-              >
-                <button
-                  onClick={() => setSylviaExpanded(!sylviaExpanded)}
-                  className="flex items-center justify-between w-full text-left py-4 border-b"
-                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="w-4 h-4 rounded-full" style={{ background: "#1F4D3A" }} />
-                    <span
-                      className="text-lg tracking-[0.06em] uppercase"
-                      style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
-                    >
-                      Sylvia
-                    </span>
-                  </div>
-                  <motion.span
-                    animate={{ rotate: sylviaExpanded ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-xs opacity-40"
-                  >
-                    ▼
-                  </motion.span>
-                </button>
-
-                <AnimatePresence>
-                  {sylviaExpanded && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden pl-8"
-                    >
-                      {[
-                        { label: "My Approach", action: () => { setMenuOpen(false); window.location.href = "/sylvia"; } },
-                        { label: "Trauma", action: () => { setActiveView("trauma"); setMenuOpen(false); } },
-                        { label: "Addiction", action: () => { setActiveView("addiction"); setMenuOpen(false); } },
-                        { label: "Bipolar", action: () => { setActiveView("bipolar"); setMenuOpen(false); } },
-                        { label: "Triggers", action: () => { setActiveView("triggers"); setMenuOpen(false); } },
-                        { label: "My Story", action: () => { setActiveView("my-story" as any); setMenuOpen(false); } },
-                        { label: "Blog", action: () => { setActiveView("sylvia-blog" as any); setMenuOpen(false); } },
-                        { label: "FAQ", action: () => { setActiveView("faq"); setMenuOpen(false); } },
-                        { label: "Contact", action: () => { setMenuOpen(false); window.location.href = "/sylvia#contact"; } },
-                      ].map((item) => (
-                        <button
-                          key={item.label}
-                          onClick={item.action}
-                          className="block w-full text-left py-3 border-b"
-                          style={{ borderColor: "rgba(58, 42, 26, 0.06)" }}
-                        >
-                          <span
-                            className="text-sm tracking-[0.04em]"
-                            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400, color: "#4A5B56" }}
-                          >
-                            {item.label}
-                          </span>
-                        </button>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-
               {/* Daily Tracking label */}
               <div className="mt-5 mb-3">
                 <span
@@ -580,6 +511,60 @@ export default function Lexi() {
                   </span>
                 </motion.button>
               ))}
+
+              {/* Bottom standalone items: Blog, FAQ, Sylvia */}
+              <div className="mt-6 pt-4" style={{ borderTop: "1px solid rgba(58, 42, 26, 0.15)" }}>
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                  onClick={() => { setActiveView("sylvia-blog" as any); setMenuOpen(false); }}
+                  className="flex items-center gap-4 w-full text-left py-4 border-b"
+                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+                >
+                  <span className="w-4 h-4 rounded-full" style={{ background: "#9B7DB8" }} />
+                  <span
+                    className="text-lg tracking-[0.06em] uppercase"
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
+                  >
+                    Blog
+                  </span>
+                </motion.button>
+
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.55 }}
+                  onClick={() => { setActiveView("faq"); setMenuOpen(false); }}
+                  className="flex items-center gap-4 w-full text-left py-4 border-b"
+                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+                >
+                  <span className="w-4 h-4 rounded-full" style={{ background: "#9B7DB8" }} />
+                  <span
+                    className="text-lg tracking-[0.06em] uppercase"
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
+                  >
+                    FAQ
+                  </span>
+                </motion.button>
+
+                <motion.button
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  onClick={() => { window.location.href = "/sylvia"; setMenuOpen(false); }}
+                  className="flex items-center gap-4 w-full text-left py-4 border-b"
+                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+                >
+                  <span className="w-4 h-4 rounded-full" style={{ background: "#5C3D7A" }} />
+                  <span
+                    className="text-lg tracking-[0.06em] uppercase"
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
+                  >
+                    Sylvia
+                  </span>
+                </motion.button>
+              </div>
             </div>
           </motion.div>
           </>
