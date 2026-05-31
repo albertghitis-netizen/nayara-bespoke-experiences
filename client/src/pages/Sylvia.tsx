@@ -119,8 +119,8 @@ export default function Sylvia() {
 
       {/* 4. Testimonial */}
       <TestimonialSection />
-      {/* Media 4: pool with pink chairs still */}
-      <MobileMediaBreak src="/manus-storage/2623B560-0573-40FB-89A0-C1C6242F0797_abf6dd29.jpeg" type="image" alt="Evening pool" />
+      {/* Media 4: purple leaf still */}
+      <MobileMediaBreak src="/manus-storage/sylvia-purple-leaf-close_29447766.jpg" type="image" alt="Purple leaf" />
 
       {/* 5. How I Work */}
       <HowIWorkSection />
@@ -142,8 +142,7 @@ export default function Sylvia() {
 
       {/* 8. First Session */}
       <FirstSessionSection />
-      {/* Media 8: bridge/path still */}
-      <MobileMediaBreak src="/manus-storage/sylvia-philosophy-new_5ac4713f.jpg" type="image" alt="Path through jungle" />
+
 
       {/* 9. CTA */}
       {/* Media 9: nature video */}

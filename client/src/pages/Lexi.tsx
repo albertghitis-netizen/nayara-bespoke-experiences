@@ -2633,10 +2633,6 @@ function AboutSylviaPage() {
 
 function SylviaBlogPage() {
   const blogPosts = [
-    { slug: "getting-started-with-parts-ifs", title: "Getting Started With Parts: A Gentle Introduction to IFS", subtitle: "How to tell the difference between a part and your true Self.", tags: ["IFS", "Parts Work"], readingTime: 10 },
-    { slug: "understanding-your-protectors", title: "Understanding Your Protectors", subtitle: "The anger, the critic, the cynic — they are trying to help.", tags: ["IFS", "Protectors"], readingTime: 9 },
-    { slug: "why-gratitude-feels-impossible-after-trauma", title: "Why Gratitude Feels Impossible After Trauma", subtitle: "It is not a mindset problem. Your nervous system is involved.", tags: ["IFS", "Trauma", "Gratitude"], readingTime: 11 },
-    { slug: "after-unburdening-what-comes-next", title: "After Unburdening: What Comes Next", subtitle: "The first 30 days after a part releases its burden.", tags: ["IFS", "Unburdening"], readingTime: 9 },
     { slug: "types-of-bipolar-disorder", title: "The Different Types of Bipolar Disorder", subtitle: "Bipolar I, Bipolar II, and Cyclothymia — what sets them apart.", tags: ["Bipolar", "Mood Disorders"], readingTime: 10 },
     { slug: "neurotransmitters-and-mental-health", title: "Your Neurotransmitters: The Chemical Messengers Behind How You Feel", subtitle: "Serotonin, dopamine, GABA and why they matter for your mental health.", tags: ["Neuroscience", "Mental Health"], readingTime: 11 },
     { slug: "what-actually-happens-in-trauma-therapy", title: "What Actually Happens in Trauma Therapy", subtitle: "Demystifying the process so you can stop avoiding it.", tags: ["Trauma", "Therapy"], readingTime: 10 },
@@ -2649,6 +2645,10 @@ function SylviaBlogPage() {
     { slug: "why-just-think-positive-is-terrible-advice", title: "Why 'Just Think Positive' Is Terrible Advice", subtitle: "The problem with toxic positivity.", tags: ["Mental Health", "Emotions"], readingTime: 8 },
     { slug: "power-of-mood-tracking", title: "The Power of Tracking Your Mood", subtitle: "Even when you do not want to.", tags: ["Self-Tracking", "Mood"], readingTime: 8 },
     { slug: "sleep-and-mental-health", title: "Sleep, Mood, and the Patterns You Are Missing", subtitle: "Why sleep is the first thing I ask about.", tags: ["Sleep", "Mood Disorders"], readingTime: 9 },
+    { slug: "getting-started-with-parts-ifs", title: "Getting Started With Parts: A Gentle Introduction to IFS", subtitle: "How to tell the difference between a part and your true Self.", tags: ["IFS", "Parts Work"], readingTime: 10 },
+    { slug: "understanding-your-protectors", title: "Understanding Your Protectors", subtitle: "The anger, the critic, the cynic — they are trying to help.", tags: ["IFS", "Protectors"], readingTime: 9 },
+    { slug: "why-gratitude-feels-impossible-after-trauma", title: "Why Gratitude Feels Impossible After Trauma", subtitle: "It is not a mindset problem. Your nervous system is involved.", tags: ["IFS", "Trauma", "Gratitude"], readingTime: 11 },
+    { slug: "after-unburdening-what-comes-next", title: "After Unburdening: What Comes Next", subtitle: "The first 30 days after a part releases its burden.", tags: ["IFS", "Unburdening"], readingTime: 9 },
   ];
 
   return (
