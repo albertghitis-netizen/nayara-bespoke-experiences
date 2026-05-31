@@ -192,13 +192,13 @@ function Navigation() {
               {/* Menu items — flat list */}
               {[
                 { label: "My Approach", action: () => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); } },
-                { label: "Trauma", action: () => { setMenuOpen(false); window.location.href = "/sofia#trauma"; } },
-                { label: "Addiction", action: () => { setMenuOpen(false); window.location.href = "/sofia#addiction"; } },
-                { label: "Bipolar", action: () => { setMenuOpen(false); window.location.href = "/sofia#bipolar"; } },
-                { label: "Triggers", action: () => { setMenuOpen(false); window.location.href = "/sofia#triggers"; } },
-                { label: "My Story", action: () => { setMenuOpen(false); window.location.href = "/sofia#my-story"; } },
-                { label: "Blog", action: () => { setMenuOpen(false); window.location.href = "/sofia#sylvia-blog"; } },
-                { label: "FAQ", action: () => { setMenuOpen(false); window.location.href = "/sofia#faq"; } },
+                { label: "Trauma", action: () => { setMenuOpen(false); window.location.href = "/sylvia/trauma"; } },
+                { label: "Addiction", action: () => { setMenuOpen(false); window.location.href = "/sylvia/addiction"; } },
+                { label: "Bipolar", action: () => { setMenuOpen(false); window.location.href = "/sylvia/bipolar"; } },
+                { label: "Triggers", action: () => { setMenuOpen(false); window.location.href = "/sylvia/triggers"; } },
+                { label: "My Story", action: () => { setMenuOpen(false); window.location.href = "/sylvia/my-story"; } },
+                { label: "Blog", action: () => { setMenuOpen(false); window.location.href = "/sylvia/blog"; } },
+                { label: "FAQ", action: () => { setMenuOpen(false); window.location.href = "/sylvia/faq"; } },
                 { label: "Contact", action: () => { setMenuOpen(false); const el = document.querySelector("#contact"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
               ].map((item, idx) => (
                 <motion.button

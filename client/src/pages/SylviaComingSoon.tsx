@@ -1,60 +1,449 @@
 /**
- * SYLVIA — Coming Soon placeholder page
- * Used for sub-pages not yet built out (Blog, FAQ, My Story, Trauma, Addiction, Mood Disorders)
+ * SYLVIA — Standalone sub-pages (purple palette)
+ * Renders full content for: Trauma, Addiction, Bipolar, Triggers, My Story, Blog, FAQ
  */
 import { useLocation } from "wouter";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const COLORS = {
-  olive: "#4a5a3a",
-  bone: "#f5f2ec",
-  text: "#2d3a2a",
+/* ═══ PURPLE PALETTE ═══ */
+const C = {
+  deepPlum: "#2D1B3D",
+  amethyst: "#5C3D7A",
+  lavender: "#9B7DB8",
+  softLilac: "#D4C4E0",
+  paleWisteria: "#F5F0F8",
+  dustyRose: "#D4A99A",
+  text: "#2D1B3D",
+  textSoft: "#4A3B5C",
 };
 
-const pageTitles: Record<string, string> = {
-  "/sylvia/blog": "Blog",
-  "/sylvia/faq": "FAQ",
-  "/sylvia/my-story": "My Story",
-  "/sylvia/trauma": "Trauma",
-  "/sylvia/addiction": "Addiction",
-  "/sylvia/mood-disorders": "Mood Disorders",
-};
+const display = { fontFamily: "'Playfair Display', serif", fontWeight: 400 } as const;
+const body = { fontFamily: "'DM Sans', sans-serif", fontWeight: 400 } as const;
 
-export default function SylviaComingSoon() {
-  const [location] = useLocation();
-  const title = pageTitles[location] || "Coming Soon";
-
+/* ═══ SHARED COMPONENTS ═══ */
+function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <div
-      className="min-h-screen flex flex-col items-center justify-center px-6"
-      style={{ backgroundColor: COLORS.bone }}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center max-w-md"
-      >
-        <h1
-          className="text-3xl md:text-4xl mb-4"
-          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
-        >
-          {title}
-        </h1>
-        <p
-          className="text-lg mb-8 opacity-60"
-          style={{ fontFamily: "'DM Sans', sans-serif", color: COLORS.text }}
-        >
-          Coming Soon
-        </p>
+    <div className="min-h-screen" style={{ backgroundColor: C.paleWisteria }}>
+      {/* Back nav */}
+      <div className="fixed top-6 left-6 z-50">
         <a
           href="/sylvia"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white text-sm tracking-wider uppercase transition-opacity hover:opacity-80"
-          style={{ backgroundColor: COLORS.olive }}
+          className="flex items-center justify-center w-10 h-10 rounded-full shadow-lg transition-all hover:opacity-80"
+          style={{ background: `${C.amethyst}cc`, backdropFilter: "blur(8px)" }}
         >
-          ← Back to Sylvia
+          <span className="text-white text-sm">←</span>
         </a>
+      </div>
+      <div className="max-w-2xl mx-auto px-6 pt-24 pb-20">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function InfoSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="space-y-2">
+      <h3 className="text-lg" style={{ ...display, color: C.amethyst }}>{title}</h3>
+      <div className="text-sm leading-relaxed" style={{ ...body, color: C.textSoft }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/* ═══ TRAUMA PAGE ═══ */
+function TraumaContent() {
+  return (
+    <div className="space-y-6">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Trauma</h1>
+        <p className="text-sm mt-2 opacity-60" style={body}>Understanding what trauma is, how it lives in the body, and what healing actually looks like</p>
+      </div>
+      <InfoSection title="What Trauma Actually Is">
+        <p>Trauma is not what happened to you. Trauma is what happened inside you as a result of what happened to you. It is the nervous system's response to an overwhelming event that exceeded your capacity to cope at the time. This means trauma is not defined by the severity of the event but by the impact it had on your body and mind. A car accident, childhood neglect, a difficult medical procedure, or a relationship where you were consistently dismissed can all leave the same kind of imprint.</p>
+      </InfoSection>
+      <InfoSection title="How Trauma Lives in the Body">
+        <p>Trauma is not just a memory. It is stored in the body as patterns of tension, hypervigilance, and dysregulated nervous system responses. You might notice it as a tight jaw, shallow breathing, a startle response that seems disproportionate, or a feeling of being "on" all the time. The body keeps the score, as Bessel van der Kolk famously put it. This is why talk therapy alone sometimes is not enough. The body needs to process what the mind already understands.</p>
+      </InfoSection>
+      <InfoSection title="Types of Trauma">
+        <p><strong>Acute trauma</strong> results from a single overwhelming event: an accident, an assault, a natural disaster. <strong>Chronic trauma</strong> comes from repeated exposure to distressing events: ongoing abuse, living in a war zone, or years of emotional neglect. <strong>Complex trauma</strong> (C-PTSD) develops from prolonged interpersonal trauma, often in childhood, where the source of danger was also the source of safety. <strong>Developmental trauma</strong> occurs when a child's attachment needs are consistently unmet, shaping the brain's wiring for relationships, self-worth, and emotional regulation.</p>
+      </InfoSection>
+      <InfoSection title="The Window of Tolerance">
+        <p>Everyone has a window of tolerance: a zone where you can experience emotions, think clearly, and respond to stress without becoming overwhelmed or shutting down. Trauma narrows this window. When you are pushed above it, you enter hyperarousal: anxiety, panic, rage, racing thoughts. When you drop below it, you enter hypoarousal: numbness, dissociation, collapse, feeling nothing. The goal of trauma therapy is not to eliminate stress but to widen your window so you can handle more of life without leaving it.</p>
+      </InfoSection>
+      <InfoSection title="How I Work With Trauma">
+        <p>I use a combination of EMDR (Eye Movement Desensitization and Reprocessing), somatic approaches, and relational therapy. We start with stabilization: building the internal resources and coping skills you need before we touch the trauma directly. Then we process at your pace. You do not need to recount every detail. EMDR works with the brain's natural healing mechanisms to reprocess traumatic memories so they lose their emotional charge. The memory remains, but the distress fades. Most clients describe it as the difference between remembering something painful and reliving it.</p>
+      </InfoSection>
+      <InfoSection title="Signs You Might Be Carrying Unprocessed Trauma">
+        <p>You feel fine most of the time but occasionally get hijacked by intense emotions that seem to come from nowhere. You avoid certain places, people, or conversations without fully understanding why. You have difficulty trusting people even when they have given you no reason not to. You are hypervigilant in relationships, always scanning for signs of rejection or danger. You feel disconnected from your body or emotions. You have physical symptoms (chronic pain, digestive issues, insomnia) that have no clear medical explanation. You are successful by every external measure but feel empty, anxious, or numb inside.</p>
+      </InfoSection>
+    </div>
+  );
+}
+
+/* ═══ ADDICTION PAGE ═══ */
+function AddictionContent() {
+  return (
+    <div className="space-y-6">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Addiction</h1>
+        <p className="text-sm mt-2 opacity-60" style={body}>Understanding addiction as a brain disease, not a moral failing</p>
+      </div>
+      <InfoSection title="What Addiction Actually Is">
+        <p>Addiction is a chronic brain disorder characterized by compulsive substance use or behavior despite harmful consequences. It is not a choice, a moral failing, or a lack of willpower. The American Society of Addiction Medicine defines it as a primary disease of brain reward, motivation, memory, and related circuitry. When someone is addicted, their brain has been fundamentally altered in ways that make stopping extraordinarily difficult without support.</p>
+      </InfoSection>
+      <InfoSection title="The Neuroscience of Addiction">
+        <p>Addictive substances and behaviors hijack the brain's reward system by flooding it with dopamine at levels far beyond what natural rewards produce. Over time, the brain adapts by reducing its own dopamine production and receptor sensitivity. This creates tolerance (needing more to feel the same effect) and dependence (feeling terrible without it). The prefrontal cortex, responsible for decision-making and impulse control, becomes impaired while the amygdala, which drives fear and stress responses, becomes hyperactive.</p>
+      </InfoSection>
+      <InfoSection title="Why People Use">
+        <p>Nobody wakes up and decides to become addicted. Substance use typically begins as a solution to a problem: pain, anxiety, trauma, social isolation, boredom, or a nervous system that never learned to regulate itself. The substance works, temporarily. It provides relief that nothing else has. Understanding what the substance was solving is essential to recovery because you cannot take away someone's only coping mechanism without replacing it with something that works.</p>
+      </InfoSection>
+      <InfoSection title="Recovery Is Not Linear">
+        <p>Relapse is not failure. It is a common part of the recovery process, occurring in 40-60% of people in recovery, which is comparable to relapse rates for other chronic diseases like diabetes and hypertension. Each relapse provides information about what triggered it and what needs to be strengthened in the recovery plan. The goal is not perfection. It is progress, self-awareness, and building a life where using becomes less necessary.</p>
+      </InfoSection>
+      <InfoSection title="How I Work With Addiction">
+        <p>I treat addiction as inseparable from the underlying conditions that drive it. This means addressing trauma, mood disorders, attachment wounds, and identity alongside the substance use itself. I use a combination of motivational interviewing, relapse prevention, IFS (Internal Family Systems), and somatic approaches. I do not use shame, confrontation, or "tough love" because decades of research show these approaches increase relapse rather than prevent it.</p>
+      </InfoSection>
+      <InfoSection title="Dual Diagnosis">
+        <p>Most people with addiction also have a co-occurring mental health condition: depression, anxiety, PTSD, bipolar disorder, or ADHD. Treating one without the other almost always fails. If you treat the addiction but not the depression, the depression drives relapse. If you treat the depression but not the addiction, the substance use undermines the treatment. Integrated treatment that addresses both simultaneously produces the best outcomes.</p>
+      </InfoSection>
+    </div>
+  );
+}
+
+/* ═══ BIPOLAR PAGE ═══ */
+function BipolarContent() {
+  return (
+    <div className="space-y-6">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Bipolar Disorder</h1>
+        <p className="text-sm mt-2 opacity-60" style={body}>Living with bipolar is not about eliminating episodes — it is about understanding your patterns</p>
+      </div>
+      <InfoSection title="What Bipolar Disorder Is">
+        <p>Bipolar disorder is a mood disorder characterized by alternating episodes of mania (or hypomania) and depression. It is not "mood swings." It is a neurobiological condition that affects energy, sleep, cognition, and behavior in profound and often cyclical ways. There are several types, and understanding which type you have changes everything about how you manage it.</p>
+      </InfoSection>
+      <InfoSection title="Bipolar I vs Bipolar II">
+        <p><strong>Bipolar I</strong> involves full manic episodes that last at least 7 days (or require hospitalization). Mania can include grandiosity, decreased need for sleep, pressured speech, racing thoughts, and impulsive behavior that causes real damage. <strong>Bipolar II</strong> involves hypomanic episodes (less severe, lasting at least 4 days) and major depressive episodes. Bipolar II is not "milder" — the depressions are often more severe and longer-lasting. <strong>Cyclothymia</strong> involves chronic fluctuating mood with periods of hypomanic and depressive symptoms that do not meet full criteria for either episode.</p>
+      </InfoSection>
+      <InfoSection title="Why Bipolar Is Often Misdiagnosed">
+        <p>The average time from first symptoms to correct diagnosis is 5-10 years. This happens because people usually seek help during depression, not mania. Hypomania often feels good — productive, creative, social — so it goes unreported. Antidepressants prescribed for "depression" can trigger mania or rapid cycling in undiagnosed bipolar, making things worse. If antidepressants have ever made you feel agitated, wired, or worse, bipolar should be considered.</p>
+      </InfoSection>
+      <InfoSection title="The Role of Sleep and Routine">
+        <p>Disrupted sleep is both a symptom and a trigger of bipolar episodes. Maintaining a consistent sleep-wake cycle is one of the most powerful stabilizers available. Social Rhythm Therapy (IPSRT) is an evidence-based approach that helps people with bipolar maintain regular daily routines. Even small disruptions — a late night, jet lag, a weekend of irregular sleep — can destabilize mood in vulnerable individuals.</p>
+      </InfoSection>
+      <InfoSection title="How I Work With Bipolar">
+        <p>I help clients develop a deep understanding of their personal patterns: what triggers episodes, what the early warning signs look like, and what interventions work at each stage. I collaborate with psychiatrists on medication management. I also help with the relational impact: how to communicate with partners and family about what you need, and how to rebuild trust after episodes that may have caused damage.</p>
+      </InfoSection>
+      <InfoSection title="Signs You Might Have Bipolar Disorder">
+        <p>You have periods of unusually high energy, decreased need for sleep, and increased productivity followed by crashes into depression. Antidepressants have made you feel worse, agitated, or "wired." You have a family history of bipolar disorder. You make impulsive decisions during high-energy periods that you later regret. Your depression feels heavy and physical, not just sad. You have been treated for depression multiple times without lasting improvement. Your mood changes seem to follow a pattern or cycle. You feel like you are living two different lives.</p>
+      </InfoSection>
+    </div>
+  );
+}
+
+/* ═══ TRIGGERS PAGE ═══ */
+function TriggersContent() {
+  return (
+    <div className="space-y-6">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Triggers</h1>
+        <p className="text-sm mt-2 opacity-60" style={body}>Know what destabilizes you before it happens</p>
+      </div>
+      <InfoSection title="What Are Triggers">
+        <p>Triggers are situations, emotions, people, places, or internal states that increase the risk of either a mood episode or a relapse. Triggers often overlap: the same stressor that destabilizes your mood also activates cravings. Identifying your personal triggers is the first line of defense because you cannot manage what you do not recognize.</p>
+      </InfoSection>
+      <InfoSection title="HALT: Hungry, Angry, Lonely, Tired">
+        <p>These four basic states are the most common precursors to both mood destabilization and relapse. They are deceptively simple but profoundly dangerous. When you are in a HALT state, your brain's prefrontal cortex (the part that makes good decisions) is compromised. Checking in with yourself using HALT before any major decision is a foundational recovery skill.</p>
+      </InfoSection>
+      <InfoSection title="Emotional vs. Environmental Triggers">
+        <p>Emotional triggers are internal states like shame, boredom, excitement, loneliness, or anger that activate craving or mood instability. Environmental triggers are external: a bar you used to drink at, a person you used with, a song associated with past use, or even a time of day. Both types require different strategies. Emotional triggers need coping skills. Environmental triggers need avoidance or reframing.</p>
+      </InfoSection>
+      <InfoSection title="Positive Events as Triggers">
+        <p>Falling in love, getting a promotion, celebrating a milestone, or any intense positive emotion can trigger hypomania. Celebrations are also high-risk because they are culturally associated with substance use. Positive triggers are harder to recognize because they feel good, which makes them more dangerous.</p>
+      </InfoSection>
+      <InfoSection title="Building a Trigger Management Plan">
+        <p>List your known triggers. For each one, write down the early warning signs (what you feel in your body and mind), the action plan (what you will do instead of using or spiraling), and the support contact (who you will call). Review this plan with your therapist. Keep it accessible on your phone. The time to build the plan is when you are stable, not when you are in crisis.</p>
+      </InfoSection>
+    </div>
+  );
+}
+
+/* ═══ MY STORY PAGE ═══ */
+function MyStoryContent() {
+  return (
+    <div className="space-y-8">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+        <h1 className="text-3xl md:text-4xl leading-tight tracking-tight mb-6" style={{ ...display, color: C.deepPlum }}>
+          My Story
+        </h1>
+        <div className="space-y-5 text-sm md:text-base leading-relaxed" style={{ ...body, color: C.textSoft }}>
+          <p>
+            I arrived in the United States at seventeen with a suitcase, a few hundred dollars, and no one waiting for me at the airport. I had left Germany not because I wanted adventure, but because staying felt impossible. The details of why are mine, but the shape of it is something many of my clients recognize: a home that looked fine from the outside and felt unbearable from within.
+          </p>
+          <p>
+            Those first years were not romantic. I cleaned hotel rooms. I waitressed doubles on weekends. I worked the overnight shift at a gas station where I taught myself English by reading the backs of cereal boxes during the slow hours. I shared apartments with strangers, missed holidays alone, and learned what it means to be invisible in a country that doesn't know your name.
+          </p>
+          <p>
+            What I didn't know then was that those years were teaching me everything I would later need as a therapist.
+          </p>
+          <p>
+            I learned what it feels like to sit across from someone who holds power over your life and not be able to say what you actually think. I learned what it's like to carry grief that no one around you can see. I learned that survival is not the same as living, and that "getting through it" can become its own kind of prison if you never stop to ask what you lost along the way.
+          </p>
+          <p>
+            I also learned perseverance. Not the inspirational poster kind. The quiet, stubborn, sometimes ugly kind where you keep going because the alternative is worse. I learned that resilience isn't about being strong. It's about being honest with yourself about what hurts and choosing to move toward something better anyway.
+          </p>
+          <p>
+            Eventually, I put myself through school. Then graduate school. Then licensure. I specialized in trauma because I understood it from the inside, not just from textbooks. When a client tells me they feel like they're performing a version of themselves that everyone else believes is real, I don't need them to explain. When someone says they've "made it" but can't figure out why they still feel empty, I know exactly what they mean.
+          </p>
+          <p>
+            My background doesn't make me a better therapist because of some redemption arc. It makes me a better therapist because I've sat in the places my clients sit. I know what it's like to need help and not know how to ask for it. I know what it's like to finally be safe and realize you don't know how to stop bracing for impact.
+          </p>
+          <p>
+            That's why I do this work. Not because I figured everything out, but because I know what it costs to carry things alone. And I know, from my own life, that it doesn't have to stay that way.
+          </p>
+        </div>
       </motion.div>
     </div>
+  );
+}
+
+/* ═══ BLOG PAGE ═══ */
+function BlogContent() {
+  const blogPosts = [
+    { slug: "getting-started-with-parts", title: "Getting Started With Parts", subtitle: "How to begin recognizing the different parts of yourself.", tags: ["IFS", "Parts Work"], readingTime: 10 },
+    { slug: "why-gratitude-isnt-always-easy-ifs", title: "Why Gratitude Isn't Always Easy", subtitle: "When a protector is involved.", tags: ["IFS", "Trauma", "Gratitude"], readingTime: 11 },
+    { slug: "after-unburdening-what-comes-next", title: "After Unburdening: What Comes Next", subtitle: "The first 30 days after a part releases its burden.", tags: ["IFS", "Unburdening"], readingTime: 9 },
+    { slug: "understanding-your-protectors", title: "Understanding Your Protectors", subtitle: "How anger, cynicism, and criticism shield us from pain.", tags: ["IFS", "Protectors"], readingTime: 10 },
+    { slug: "types-of-bipolar-disorder", title: "The Different Types of Bipolar Disorder", subtitle: "Bipolar I, Bipolar II, and Cyclothymia — what sets them apart.", tags: ["Bipolar", "Mood Disorders"], readingTime: 10 },
+    { slug: "neurotransmitters-and-mental-health", title: "Your Neurotransmitters: The Chemical Messengers Behind How You Feel", subtitle: "Serotonin, dopamine, GABA and why they matter for your mental health.", tags: ["Neuroscience", "Mental Health"], readingTime: 11 },
+    { slug: "what-actually-happens-in-trauma-therapy", title: "What Actually Happens in Trauma Therapy", subtitle: "Demystifying the process so you can stop avoiding it.", tags: ["Trauma", "Therapy"], readingTime: 10 },
+    { slug: "psychologist-vs-psychiatrist-vs-therapist", title: "Psychologist vs Psychiatrist vs Therapist", subtitle: "What you actually need to know before booking.", tags: ["Therapy", "Mental Health"], readingTime: 8 },
+    { slug: "high-functioning-does-not-mean-fine", title: "High-Functioning Does Not Mean Fine", subtitle: "For the people who look together but are struggling.", tags: ["Depression", "Anxiety"], readingTime: 9 },
+    { slug: "living-with-bipolar-stability", title: "Living With Bipolar: What Stability Actually Looks Like", subtitle: "It is not about eliminating episodes.", tags: ["Bipolar", "Mood Disorders"], readingTime: 10 },
+    { slug: "dual-diagnosis-addiction-mental-health", title: "Dual Diagnosis: When Addiction and Mental Health Collide", subtitle: "Why treating one without the other fails.", tags: ["Addiction", "Dual Diagnosis"], readingTime: 11 },
+    { slug: "addiction-recovery-is-not-linear", title: "Addiction Recovery Is Not Linear", subtitle: "Relapse is part of the process, not a failure.", tags: ["Addiction", "Recovery"], readingTime: 9 },
+  ];
+
+  return (
+    <div className="space-y-8">
+      <div className="text-center">
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Blog</h1>
+        <p className="text-sm mt-2 opacity-60" style={body}>Thoughts on trauma, recovery, and living well.</p>
+      </div>
+      <div className="space-y-3">
+        {blogPosts.map((post) => (
+          <a
+            key={post.slug}
+            href={`/journal/${post.slug}`}
+            className="block rounded-xl p-5 transition-all duration-200 hover:shadow-md"
+            style={{ background: `${C.softLilac}60` }}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-base font-medium leading-snug" style={{ ...display, color: C.deepPlum }}>
+                  {post.title}
+                </h3>
+                <p className="text-sm mt-1 opacity-60 leading-relaxed" style={body}>
+                  {post.subtitle}
+                </p>
+                <div className="flex items-center gap-3 mt-3 flex-wrap">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full"
+                      style={{ background: `${C.amethyst}20`, color: C.amethyst, ...body, fontWeight: 500 }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                  <span className="text-[10px] opacity-40" style={body}>{post.readingTime} min read</span>
+                </div>
+              </div>
+              <span className="text-lg opacity-30 mt-1">&rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ═══ FAQ PAGE ═══ */
+const FAQ_DATA = [
+  {
+    title: "Trauma Therapy",
+    color: C.amethyst,
+    items: [
+      { q: "Will I have to talk about all the details of my trauma?", a: "No. In therapies like EMDR and Somatic Experiencing, you do not need to share every detail. We can process the trauma without you having to recount the entire story." },
+      { q: "How long does trauma therapy take?", a: "It varies for everyone. Some people see significant improvement with EMDR in just a few sessions, while others may need several months of therapy to fully process their experiences." },
+      { q: "What if I get overwhelmed during a session?", a: "Your safety is the priority. We will spend time building grounding and coping skills before we start processing trauma, so you have tools to manage if you feel overwhelmed." },
+      { q: "Is EMDR better than regular talk therapy?", a: "EMDR is specifically designed to process trauma and is often faster and more effective for PTSD than traditional talk therapy, which may not address how trauma is stored in the brain and body." },
+    ],
+  },
+  {
+    title: "Bipolar Disorder",
+    color: C.lavender,
+    items: [
+      { q: "What does stability look like in bipolar disorder?", a: "Stability is not the absence of mood changes. It is the ability to manage them effectively through routine, medication, and self-awareness." },
+      { q: "Why is sleep hygiene important for bipolar disorder?", a: "Disrupted sleep is a common trigger for manic episodes. Maintaining a consistent sleep schedule helps stabilize your circadian rhythm and mood." },
+      { q: "What should I do if I want to stop taking my bipolar medication?", a: "Never stop taking your medication abruptly. Always consult your psychiatrist to discuss side effects and explore alternative dosages or medications." },
+      { q: "What are early warning signs of a bipolar episode?", a: "Early warning signs can include subtle changes in sleep needs, speech patterns, energy levels, or sudden urges to start new projects." },
+    ],
+  },
+  {
+    title: "Addiction & Recovery",
+    color: C.dustyRose,
+    items: [
+      { q: "What is a dual diagnosis?", a: "A dual diagnosis, also known as co-occurring disorders, means having a mental health disorder (like depression or anxiety) and a substance use disorder at the same time." },
+      { q: "Is relapse a failure?", a: "No. Relapse occurs in 40-60% of people in recovery, comparable to relapse rates for other chronic diseases. Each relapse provides information about what triggered it and what needs to be strengthened." },
+      { q: "Why do people use substances?", a: "Substance use typically begins as a solution to a problem: pain, anxiety, trauma, social isolation, or a nervous system that never learned to regulate itself. Understanding what the substance was solving is essential to recovery." },
+      { q: "Can you be addicted to behaviors, not just substances?", a: "Yes. Process addictions (gambling, sex, shopping, gaming) activate the same reward pathways as substances and can be equally destructive." },
+    ],
+  },
+  {
+    title: "IFS (Internal Family Systems)",
+    color: C.amethyst,
+    items: [
+      { q: "What is a 'part' in IFS?", a: "A part is a distinct sub-personality within your internal system. Each part has its own feelings, beliefs, and motivations. Parts are not disorders — they are natural aspects of the mind." },
+      { q: "What is Self in IFS?", a: "Self (capital S) is your core essence — the you that exists beneath all your parts. It is characterized by the 8 C's: Curiosity, Calm, Clarity, Compassion, Confidence, Courage, Creativity, and Connectedness." },
+      { q: "What is unburdening?", a: "Unburdening is the process where an exile (wounded part) releases the pain, beliefs, and emotions it has been carrying, often since childhood. It is one of the most transformative moments in IFS therapy." },
+      { q: "Do I need a therapist for IFS?", a: "While you can develop awareness of your parts on your own, deep work — especially with exiles — should be done with a trained IFS therapist for safety and proper support." },
+    ],
+  },
+  {
+    title: "Neurotransmitters & Brain Chemistry",
+    color: C.lavender,
+    items: [
+      { q: "Can you test your neurotransmitter levels?", a: "There is no reliable clinical test for brain neurotransmitter levels. Blood tests measure peripheral levels, which do not accurately reflect what is happening in the brain. Diagnosis is based on symptoms, not lab values." },
+      { q: "Do antidepressants create artificial happiness?", a: "No. SSRIs and similar medications do not create emotions. They restore the brain's ability to regulate mood naturally by correcting chemical imbalances." },
+      { q: "Why do some medications take weeks to work?", a: "SSRIs and similar medications need time because they work by gradually changing receptor sensitivity and neurotransmitter availability. The brain needs to adapt, which typically takes 2 to 6 weeks." },
+      { q: "What is the role of GABA in anxiety?", a: "GABA is the brain's primary inhibitory neurotransmitter. It calms neural activity. Low GABA is associated with anxiety, insomnia, and seizures. Benzodiazepines work by enhancing GABA's effects." },
+    ],
+  },
+  {
+    title: "Finding a Provider",
+    color: C.dustyRose,
+    items: [
+      { q: "What is the difference between a therapist and a psychologist?", a: "A psychologist has a doctoral degree and extensive training in psychological testing. A therapist typically has a master's degree and focuses primarily on counseling and talk therapy." },
+      { q: "Should I see a psychiatrist or a therapist first?", a: "If you are experiencing severe symptoms that might require medication, a psychiatrist is a good starting point. For stress, relationship issues, or mild to moderate concerns, starting with a therapist is often recommended." },
+      { q: "Do I need both a psychiatrist and a therapist?", a: "Many people benefit from both. A psychiatrist manages medication while a therapist provides ongoing talk therapy to help you develop coping strategies and work through underlying issues." },
+    ],
+  },
+];
+
+function FAQContent() {
+  const [openSection, setOpenSection] = useState<number | null>(null);
+  const [openQ, setOpenQ] = useState<string | null>(null);
+
+  return (
+    <div className="space-y-6">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Frequently Asked Questions</h1>
+        <p className="text-sm mt-2 opacity-60" style={body}>Everything you need to know, organized by topic</p>
+      </div>
+      {FAQ_DATA.map((section, sIdx) => (
+        <div key={section.title} className="rounded-xl overflow-hidden" style={{ border: `1px solid ${section.color}30` }}>
+          <button
+            onClick={() => setOpenSection(openSection === sIdx ? null : sIdx)}
+            className="w-full flex items-center gap-3 p-4 text-left transition-colors"
+            style={{ background: openSection === sIdx ? `${section.color}15` : "white" }}
+          >
+            <span className="flex-1 text-base font-semibold" style={{ ...display, color: section.color }}>
+              {section.title}
+            </span>
+            <motion.span
+              animate={{ rotate: openSection === sIdx ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+              className="text-sm opacity-40"
+            >
+              ▼
+            </motion.span>
+          </button>
+          <AnimatePresence>
+            {openSection === sIdx && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-4 pb-4 space-y-2">
+                  {section.items.map((item) => {
+                    const key = `${sIdx}-${item.q}`;
+                    return (
+                      <div key={key} className="rounded-lg" style={{ background: `${C.softLilac}30` }}>
+                        <button
+                          onClick={() => setOpenQ(openQ === key ? null : key)}
+                          className="w-full text-left p-3 flex items-start gap-2"
+                        >
+                          <span className="text-xs mt-0.5 shrink-0" style={{ color: section.color }}>{openQ === key ? "▲" : "▼"}</span>
+                          <span className="text-sm font-medium" style={{ ...body, color: C.deepPlum }}>{item.q}</span>
+                        </button>
+                        <AnimatePresence>
+                          {openQ === key && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden"
+                            >
+                              <p className="px-3 pb-3 text-sm leading-relaxed opacity-70" style={body}>
+                                {item.a}
+                              </p>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ═══ ROUTER ═══ */
+export default function SylviaComingSoon() {
+  const [location] = useLocation();
+
+  const renderContent = () => {
+    switch (location) {
+      case "/sylvia/trauma":
+        return <TraumaContent />;
+      case "/sylvia/addiction":
+        return <AddictionContent />;
+      case "/sylvia/mood-disorders":
+      case "/sylvia/bipolar":
+        return <BipolarContent />;
+      case "/sylvia/triggers":
+        return <TriggersContent />;
+      case "/sylvia/my-story":
+        return <MyStoryContent />;
+      case "/sylvia/blog":
+        return <BlogContent />;
+      case "/sylvia/faq":
+        return <FAQContent />;
+      default:
+        return (
+          <div className="text-center">
+            <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Coming Soon</h1>
+            <p className="text-lg mt-4 opacity-60" style={body}>This page is being prepared.</p>
+          </div>
+        );
+    }
+  };
+
+  return (
+    <PageShell>
+      {renderContent()}
+    </PageShell>
   );
 }

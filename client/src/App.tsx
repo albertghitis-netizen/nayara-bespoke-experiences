@@ -322,6 +322,8 @@ function Router() {
           <Route path="/sylvia/trauma" component={SylviaComingSoon} />
           <Route path="/sylvia/addiction" component={SylviaComingSoon} />
           <Route path="/sylvia/mood-disorders" component={SylviaComingSoon} />
+          <Route path="/sylvia/triggers" component={SylviaComingSoon} />
+          <Route path="/sylvia/bipolar" component={SylviaComingSoon} />
           {/* ARCHIVED ROUTE: /sharalynn - Component file still exists at ./pages/Sharalynn.tsx */}
 
           <Route path="/404" component={NotFound} />
