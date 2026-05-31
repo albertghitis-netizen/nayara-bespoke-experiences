@@ -1,23 +1,23 @@
 /**
  * SYLVIA — "Towards Living" Landing Page
  * Standalone therapy/wellness practice page
- * Design: Elevated editorial, Nayara Tented Camp palette
- * Bone background (#F5F7F5) + olive green accents (#1F4D3A / #0D2F24)
+ * Design: Elevated editorial, purple/plum palette
+ * Pale Wisteria background (#F5F0F8) + deep plum accents (#2D1B3D / #5C3D7A)
  */
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { trpc } from "@/lib/trpc";
 
-/* ─── Color Palette (Tented Camp) ─── */
+/* ─── Color Palette (Purple/Plum) ─── */
 const COLORS = {
-  bone: "#F5F7F5",
-  olive: "#1F4D3A",
-  oliveDark: "#0D2F24",
-  text: "#3D4A47",
-  textSecondary: "#4A5B56",
-  divider: "#D4E8DE",
-  accent: "#E8F0EC",
+  bone: "#F5F0F8",
+  olive: "#5C3D7A",
+  oliveDark: "#2D1B3D",
+  text: "#2D1B3D",
+  textSecondary: "#4A3B5C",
+  divider: "#D4C4E0",
+  accent: "#EDE5F5",
 };
 
 /* ─── Image CDN paths ─── */
@@ -121,13 +121,13 @@ function Navigation() {
   const [sylviaExpanded, setSylviaExpanded] = useState(false);
 
   const CATEGORIES = [
-    { id: "mood", label: "Journal", color: "#D4A99A" },
-    { id: "therapy", label: "Therapy", color: "#1F4D3A" },
-    { id: "sleep", label: "Sleep", color: "#9FC3B2" },
-    { id: "nutrition", label: "Nutrition", color: "#4F8F75" },
-    { id: "exercise", label: "Exercise", color: "#C89888" },
-    { id: "meds", label: "Meds", color: "#E8C4B8" },
-    { id: "social", label: "Social", color: "#4F8F75" },
+    { id: "mood", label: "Journal", color: "#9B7DB8" },
+    { id: "therapy", label: "Therapy", color: "#5C3D7A" },
+    { id: "sleep", label: "Sleep", color: "#B8A0D4" },
+    { id: "nutrition", label: "Nutrition", color: "#7A5C99" },
+    { id: "exercise", label: "Exercise", color: "#D4A99A" },
+    { id: "meds", label: "Meds", color: "#C4A8D4" },
+    { id: "social", label: "Social", color: "#7A5C99" },
     { id: "triggers", label: "Triggers", color: "#D4A99A" },
   ];
 
@@ -211,7 +211,7 @@ function Navigation() {
                   style={{ borderColor: "rgba(61, 74, 71, 0.1)" }}
                 >
                   <div className="flex items-center gap-4">
-                    <span className="w-4 h-4 rounded-full" style={{ background: "#1F4D3A" }} />
+                    <span className="w-4 h-4 rounded-full" style={{ background: "#5C3D7A" }} />
                     <span
                       className="text-lg tracking-[0.06em] uppercase"
                       style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
@@ -726,7 +726,7 @@ function AskLexiWidget() {
         <button
           onClick={() => setOpen(true)}
           className="fixed bottom-6 left-6 z-50 flex items-center gap-2 h-11 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
-          style={{ background: "rgba(82, 86, 66, 0.9)", backdropFilter: "blur(8px)" }}
+          style={{ background: "rgba(92, 61, 122, 0.9)", backdropFilter: "blur(8px)" }}
         >
           <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Ask Sofía</span>
         </button>
