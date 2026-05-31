@@ -212,10 +212,10 @@ function MyStoryContent() {
 /* ═══ BLOG PAGE ═══ */
 function BlogContent() {
   const blogPosts = [
-    { slug: "getting-started-with-parts", title: "Getting Started With Parts", subtitle: "How to begin recognizing the different parts of yourself.", tags: ["IFS", "Parts Work"], readingTime: 10 },
-    { slug: "why-gratitude-isnt-always-easy-ifs", title: "Why Gratitude Isn't Always Easy", subtitle: "When a protector is involved.", tags: ["IFS", "Trauma", "Gratitude"], readingTime: 11 },
-    { slug: "after-unburdening-what-comes-next", title: "After Unburdening: What Comes Next", subtitle: "The first 30 days after a part releases its burden.", tags: ["IFS", "Unburdening"], readingTime: 9 },
-    { slug: "understanding-your-protectors", title: "Understanding Your Protectors", subtitle: "How anger, cynicism, and criticism shield us from pain.", tags: ["IFS", "Protectors"], readingTime: 10 },
+    { slug: "left-brain-right-brain-myth", title: "Left Brain vs Right Brain: The Myth That Won't Die", subtitle: "Why you are not one or the other, and what neuroscience actually says.", tags: ["Neuroscience", "Brain Myths"], readingTime: 9 },
+    { slug: "personality-tests-what-they-miss", title: "Personality Tests: What They Get Right and What They Miss", subtitle: "MBTI, Enneagram, Big Five — a therapist's honest take.", tags: ["Personality", "Self-Knowledge"], readingTime: 10 },
+    { slug: "relationships-101-attachment-styles", title: "Relationships 101: Why You Keep Choosing the Same Person", subtitle: "Attachment styles, patterns, and how to break the cycle.", tags: ["Relationships", "Attachment"], readingTime: 11 },
+    { slug: "therapist-vs-life-coach", title: "Why a Therapist Is Basically a Life Coach (But Better)", subtitle: "The overlap, the differences, and why credentials matter.", tags: ["Therapy", "Life Coaching"], readingTime: 8 },
     { slug: "types-of-bipolar-disorder", title: "The Different Types of Bipolar Disorder", subtitle: "Bipolar I, Bipolar II, and Cyclothymia — what sets them apart.", tags: ["Bipolar", "Mood Disorders"], readingTime: 10 },
     { slug: "neurotransmitters-and-mental-health", title: "Your Neurotransmitters: The Chemical Messengers Behind How You Feel", subtitle: "Serotonin, dopamine, GABA and why they matter for your mental health.", tags: ["Neuroscience", "Mental Health"], readingTime: 11 },
     { slug: "what-actually-happens-in-trauma-therapy", title: "What Actually Happens in Trauma Therapy", subtitle: "Demystifying the process so you can stop avoiding it.", tags: ["Trauma", "Therapy"], readingTime: 10 },
@@ -224,6 +224,14 @@ function BlogContent() {
     { slug: "living-with-bipolar-stability", title: "Living With Bipolar: What Stability Actually Looks Like", subtitle: "It is not about eliminating episodes.", tags: ["Bipolar", "Mood Disorders"], readingTime: 10 },
     { slug: "dual-diagnosis-addiction-mental-health", title: "Dual Diagnosis: When Addiction and Mental Health Collide", subtitle: "Why treating one without the other fails.", tags: ["Addiction", "Dual Diagnosis"], readingTime: 11 },
     { slug: "addiction-recovery-is-not-linear", title: "Addiction Recovery Is Not Linear", subtitle: "Relapse is part of the process, not a failure.", tags: ["Addiction", "Recovery"], readingTime: 9 },
+    { slug: "teen-brain-social-media", title: "Your Teenager's Brain on Social Media", subtitle: "What parents should know, without the panic.", tags: ["Adolescents", "Social Media"], readingTime: 10 },
+    { slug: "why-just-think-positive-is-terrible-advice", title: "Why 'Just Think Positive' Is Terrible Advice", subtitle: "The problem with toxic positivity.", tags: ["Mental Health", "Emotions"], readingTime: 8 },
+    { slug: "power-of-mood-tracking", title: "The Power of Tracking Your Mood", subtitle: "Even when you do not want to.", tags: ["Self-Tracking", "Mood"], readingTime: 8 },
+    { slug: "sleep-and-mental-health", title: "Sleep, Mood, and the Patterns You Are Missing", subtitle: "Why sleep is the first thing I ask about.", tags: ["Sleep", "Mood Disorders"], readingTime: 9 },
+    { slug: "getting-started-with-parts-ifs", title: "Getting Started With Parts: A Gentle Introduction to IFS", subtitle: "How to tell the difference between a part and your true Self.", tags: ["IFS", "Parts Work"], readingTime: 10 },
+    { slug: "understanding-your-protectors", title: "Understanding Your Protectors", subtitle: "The anger, the critic, the cynic — they are trying to help.", tags: ["IFS", "Protectors"], readingTime: 9 },
+    { slug: "why-gratitude-feels-impossible-after-trauma", title: "Why Gratitude Feels Impossible After Trauma", subtitle: "It is not a mindset problem. Your nervous system is involved.", tags: ["IFS", "Trauma", "Gratitude"], readingTime: 11 },
+    { slug: "after-unburdening-what-comes-next", title: "After Unburdening: What Comes Next", subtitle: "The first 30 days after a part releases its burden.", tags: ["IFS", "Unburdening"], readingTime: 9 },
   ];
 
   return (
