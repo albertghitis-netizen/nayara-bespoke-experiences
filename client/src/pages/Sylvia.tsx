@@ -101,10 +101,14 @@ export default function Sylvia() {
         </div>
       </section>
       <ContentBoxes />
+      <VideoMomentSection />
       <ServicesSection />
       <TestimonialSection />
+      <HowIWorkSection />
       <AboutSection />
+      <WaterfallVideoSection />
       <PhilosophySection />
+      <FirstSessionSection />
       <CTASection />
       <FooterSection />
       <AskLexiWidget />
@@ -332,6 +336,56 @@ function ContentBoxes() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   VIDEO MOMENT — Vertical video with ambient text
+   ═══════════════════════════════════════════════════════════════ */
+function VideoMomentSection() {
+  return (
+    <section className="py-14 md:py-20 px-6 md:px-12">
+      <div className="max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+          {/* Vertical video */}
+          <div className="flex justify-center">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full max-w-[280px] md:max-w-[320px] h-auto rounded-sm shadow-lg"
+              style={{ aspectRatio: "9/12" }}
+            >
+              <source src="/manus-storage/sylvia-video_12a46d59.mov" type="video/quicktime" />
+              <source src="/manus-storage/sylvia-video_12a46d59.mov" type="video/mp4" />
+            </video>
+          </div>
+
+          {/* Text */}
+          <div>
+            <h2
+              className="text-2xl md:text-3xl leading-tight mb-6"
+              style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+            >
+              Healing is not a straight line.
+            </h2>
+            <p
+              className="text-base leading-relaxed mb-5"
+              style={{ color: COLORS.textSecondary }}
+            >
+              It moves like water — sometimes rushing forward, sometimes pooling in stillness. Both are part of the process.
+            </p>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: COLORS.textSecondary }}
+            >
+              My work honors that rhythm. We don't force breakthroughs. We create the conditions where they become possible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    SERVICES SECTION
    ═══════════════════════════════════════════════════════════════ */
 function ServicesSection() {
@@ -457,6 +511,74 @@ function TestimonialSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   HOW I WORK — Process steps
+   ═══════════════════════════════════════════════════════════════ */
+function HowIWorkSection() {
+  const steps = [
+    {
+      number: "01",
+      title: "We talk",
+      description: "A free 15-minute call so you can hear my voice, ask questions, and see if it feels like a fit. No pressure, no commitment.",
+    },
+    {
+      number: "02",
+      title: "We map the landscape",
+      description: "In our first sessions, we build a picture of what brought you here — the patterns, the relationships, the parts of you that need attention.",
+    },
+    {
+      number: "03",
+      title: "We go deeper",
+      description: "Using EMDR, IFS, hypnotherapy, or whatever modality fits, we work with what’s underneath. Not just the symptoms, but the roots.",
+    },
+    {
+      number: "04",
+      title: "You integrate",
+      description: "Change doesn’t just happen in session. We build practices, awareness, and support systems that help the work take hold in your daily life.",
+    },
+  ];
+
+  return (
+    <section className="py-14 md:py-20 px-6 md:px-12" style={{ backgroundColor: COLORS.accent }}>
+      <div className="max-w-4xl mx-auto">
+        <h2
+          className="text-2xl md:text-3xl leading-tight mb-12 text-center"
+          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+        >
+          How the work unfolds
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+          {steps.map((step) => (
+            <div key={step.number} className="flex gap-5">
+              <span
+                className="text-3xl font-light flex-shrink-0 leading-none mt-1"
+                style={{ fontFamily: "'Playfair Display', serif", color: COLORS.olive, opacity: 0.4 }}
+              >
+                {step.number}
+              </span>
+              <div>
+                <h3
+                  className="text-base font-medium mb-2"
+                  style={{ fontFamily: "'DM Sans', sans-serif", color: COLORS.text }}
+                >
+                  {step.title}
+                </h3>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: COLORS.textSecondary }}
+                >
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    ABOUT SECTION — "Therapy does not have to feel clinical"
    ═══════════════════════════════════════════════════════════════ */
 function AboutSection() {
@@ -530,6 +652,40 @@ function AboutSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   WATERFALL VIDEO — Full-width cinematic moment
+   ═══════════════════════════════════════════════════════════════ */
+function WaterfallVideoSection() {
+  return (
+    <section className="py-10 md:py-16 px-6 md:px-12">
+      <div className="max-w-5xl mx-auto">
+        <div className="relative rounded-sm overflow-hidden shadow-lg">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full"
+            style={{ aspectRatio: "16/9" }}
+          >
+            <source src="/manus-storage/sylvia-waterfall_cb959859.mov" type="video/quicktime" />
+            <source src="/manus-storage/sylvia-waterfall_cb959859.mov" type="video/mp4" />
+          </video>
+          {/* Subtle overlay text */}
+          <div className="absolute inset-0 flex items-end justify-start p-8 md:p-12 bg-gradient-to-t from-black/40 via-transparent to-transparent">
+            <p
+              className="text-white text-lg md:text-2xl leading-tight max-w-md"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Nature does not rush, yet everything is accomplished.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    PHILOSOPHY SECTION — "Resilience does not roar — it hums"
    ═══════════════════════════════════════════════════════════════ */
 function PhilosophySection() {
@@ -567,6 +723,55 @@ function PhilosophySection() {
             >
               The work I do is grounded in the belief that healing doesn't come from bypassing pain or chasing perfection. It comes from shifting from wish-based optimism to reality-based hope.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIRST SESSION — What to expect
+   ═══════════════════════════════════════════════════════════════ */
+function FirstSessionSection() {
+  return (
+    <section className="py-14 md:py-20 px-6 md:px-12">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+          {/* Text */}
+          <div>
+            <h2
+              className="text-2xl md:text-3xl leading-tight mb-6"
+              style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+            >
+              What your first session looks like
+            </h2>
+            <div className="space-y-4">
+              <p className="text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
+                There’s no clipboard, no intake form marathon, no pressure to “tell me everything.” We start where you are.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
+                I’ll ask a few questions. You’ll talk. I’ll listen — not just to the words, but to what’s underneath them. By the end of our first hour, you’ll have a clearer sense of whether this space feels right.
+              </p>
+              <p className="text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
+                Most people say they feel lighter after the first session. Not because anything was solved, but because they finally felt heard without having to perform.
+              </p>
+            </div>
+          </div>
+
+          {/* Video */}
+          <div className="rounded-sm overflow-hidden shadow-lg">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full"
+              style={{ aspectRatio: "16/9" }}
+            >
+              <source src="/manus-storage/sylvia-nature-2_b9254c61.mov" type="video/quicktime" />
+              <source src="/manus-storage/sylvia-nature-2_b9254c61.mov" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>

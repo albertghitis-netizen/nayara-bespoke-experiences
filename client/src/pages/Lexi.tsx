@@ -561,7 +561,7 @@ export default function Lexi() {
                     className="text-lg tracking-[0.06em] uppercase"
                     style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
                   >
-                    Sylvia
+                    Meet Sylvia
                   </span>
                 </motion.button>
               </div>
@@ -1632,6 +1632,20 @@ function TherapyPage(props: CategoryPageProps) {
       <InfoSection title="What to Tell Your Therapist">
         <p>Everything. Holding back information about your use makes it impossible for your therapist to help you effectively. If your therapist only treats the mood disorder and does not know about the addiction, you are getting half-treatment. The best outcomes come from providers who understand both conditions and treat them as one integrated problem.</p>
       </InfoSection>
+
+      {/* Meet Sylvia CTA */}
+      <div className="mt-8 p-5 rounded-xl text-center" style={{ background: "rgba(92, 61, 122, 0.06)", border: "1px solid rgba(92, 61, 122, 0.12)" }}>
+        <p className="text-sm mb-3" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3D4A47" }}>
+          Looking for one-on-one support? Sylvia is a trauma therapist specializing in addiction, bipolar disorder, and integrative healing.
+        </p>
+        <a
+          href="/sylvia"
+          className="inline-block px-5 py-2.5 rounded-full text-white text-sm tracking-wide transition-opacity hover:opacity-90"
+          style={{ background: "#5C3D7A", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+        >
+          Meet Sylvia →
+        </a>
+      </div>
 
     </div>
   );
