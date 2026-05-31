@@ -665,6 +665,7 @@ function AskLexiWidget() {
           className="fixed bottom-6 left-6 z-50 flex items-center gap-2 h-11 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
           style={{ background: "rgba(92, 61, 122, 0.9)", backdropFilter: "blur(8px)" }}
         >
+          <span className="text-white text-lg">💬</span>
           <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Talk It Out</span>
         </button>
       )}
