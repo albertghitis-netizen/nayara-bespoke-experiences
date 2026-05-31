@@ -170,7 +170,7 @@ const HIDE_WIDGET_PATHS: string[] = ["/blog/family-bucket-list-nayara", "/blog/t
 
 function Router() {
   const [location] = useLocation();
-  const hideWidget = HIDE_WIDGET_PATHS.includes(location);
+  const hideWidget = HIDE_WIDGET_PATHS.includes(location) || location.startsWith("/sylvia/") || location.startsWith("/sofia/");
   const isBlogRoute = location.startsWith("/blog/") || location.startsWith("/journal/");
   const fallback = isBlogRoute ? <BlogLoader /> : <PageLoader />;
 

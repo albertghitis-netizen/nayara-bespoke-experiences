@@ -100,20 +100,34 @@ export default function Sylvia() {
           </motion.div>
         </div>
       </section>
-      {/* Mobile: alternating video/still/video/still/video flow */}
+      {/* Mobile intro video */}
       <MobileMediaFlow />
-      {/* Desktop: original editorial sections (hidden on mobile) */}
+      {/* Content sections */}
+      <ContentBoxes />
       <div className="hidden md:block">
-        <ContentBoxes />
         <VideoMomentSection />
       </div>
       <ServicesSection />
+      {/* Mobile: lily pad still between Services and Testimonial */}
+      <MobileMediaBreak src="/manus-storage/sylvia-lilypad_9727e9e3.jpeg" type="image" alt="Lily pad walkway" />
       <TestimonialSection />
       <HowIWorkSection />
+      {/* Mobile: waterfall video between HowIWork and About */}
+      <MobileMediaBreak src="/manus-storage/sylvia-waterfall-vertical_d48b606e.mp4" type="video" />
       <AboutSection />
-      <WaterfallVideoSection />
+      {/* Mobile: new video between About and Philosophy */}
+      <MobileMediaBreak src="/manus-storage/sylvia-video-4_14ad8643.mp4" type="video" />
+      <div className="hidden md:block">
+        <WaterfallVideoSection />
+      </div>
       <PhilosophySection />
+      {/* Mobile: pool with pink chairs between Philosophy and FirstSession */}
+      <MobileMediaBreak src="/manus-storage/2623B560-0573-40FB-89A0-C1C6242F0797_abf6dd29.jpeg" type="image" alt="Evening pool" />
       <FirstSessionSection />
+      {/* Mobile: second purple flower video before CTA */}
+      <MobileMediaBreak src="/manus-storage/sylvia-purple-flower-2_f377e2c6.mp4" type="video" />
+      {/* Mobile: nature video before CTA */}
+      <MobileMediaBreak src="/manus-storage/sylvia-nature-2-vertical_72e17c6b.mp4" type="video" />
       <CTASection />
       <FooterSection />
       <AskLexiWidget />
@@ -200,7 +214,6 @@ function Navigation() {
             <div className="px-6 pt-24 pb-16">
               {/* Menu items — flat list */}
               {[
-                { label: "My Approach", action: () => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); } },
                 { label: "Trauma", action: () => { setMenuOpen(false); window.location.href = "/sylvia/trauma"; } },
                 { label: "Addiction", action: () => { setMenuOpen(false); window.location.href = "/sylvia/addiction"; } },
                 { label: "Bipolar", action: () => { setMenuOpen(false); window.location.href = "/sylvia/bipolar"; } },
@@ -208,7 +221,6 @@ function Navigation() {
                 { label: "My Story", action: () => { setMenuOpen(false); window.location.href = "/sylvia/my-story"; } },
                 { label: "Blog", action: () => { setMenuOpen(false); window.location.href = "/sylvia/blog"; } },
                 { label: "FAQ", action: () => { setMenuOpen(false); window.location.href = "/sylvia/faq"; } },
-                { label: "Contact", action: () => { setMenuOpen(false); const el = document.querySelector("#contact"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
               ].map((item, idx) => (
                 <motion.button
                   key={item.label}
@@ -298,14 +310,45 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   MOBILE MEDIA FLOW — Alternating video/still/video/still/video
-   Only visible on mobile. Desktop uses the editorial sections below.
+   MOBILE MEDIA BREAK — Single media item shown only on mobile
+   Used to space media throughout the page
+   ═══════════════════════════════════════════════════════════════ */
+function MobileMediaBreak({ src, type, alt }: { src: string; type: "video" | "image"; alt?: string }) {
+  return (
+    <section className="md:hidden px-4 py-6">
+      <div className="rounded-sm overflow-hidden shadow-md">
+        {type === "video" ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full"
+            style={{ aspectRatio: "3/4" }}
+          >
+            <source src={src} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            loading="lazy"
+            src={src}
+            alt={alt || ""}
+            className="w-full object-cover"
+            style={{ aspectRatio: "3/4" }}
+          />
+        )}
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE MEDIA FLOW — Intro video (mobile only)
    ═══════════════════════════════════════════════════════════════ */
 function MobileMediaFlow() {
   return (
-    <section className="md:hidden px-4 py-8 space-y-10">
-
-      {/* 1. VIDEO — Purple flower */}
+    <section className="md:hidden px-4 py-10">
+      {/* Single intro video — purple flower */}
       <div className="rounded-sm overflow-hidden shadow-md">
         <video
           autoPlay
@@ -318,110 +361,6 @@ function MobileMediaFlow() {
           <source src="/manus-storage/sylvia-video_f81fbeee.mp4" type="video/mp4" />
         </video>
       </div>
-
-      {/* Text: Who I Help */}
-      <div className="px-2">
-        <h2
-          className="text-xl leading-tight mb-4"
-          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
-        >
-          Who I Help
-        </h2>
-        <div className="space-y-3 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
-          <p>I work with high-functioning, self-aware people who are ready for more than coping.</p>
-          <p>From the outside, life may look successful, stable, even full. But underneath it all, you may not feel the way you thought you would.</p>
-        </div>
-      </div>
-
-      {/* 2. STILL — Hot spring / jungle pool */}
-      <div className="rounded-sm overflow-hidden shadow-md">
-        <img
-          src={IMAGES.about}
-          alt="Healing space"
-          className="w-full object-cover"
-          style={{ aspectRatio: "3/4" }}
-        />
-      </div>
-
-      {/* Text: What Changes */}
-      <div className="px-2">
-        <h2
-          className="text-xl leading-tight mb-4"
-          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
-        >
-          What Changes
-        </h2>
-        <div className="space-y-3 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
-          <p>This work goes beyond insight. You may notice yourself pausing before responding. The internal dialogue softens.</p>
-          <p>Over time, you begin expressing your feelings more honestly, carrying less responsibility for everyone else, and trusting yourself more.</p>
-        </div>
-      </div>
-
-      {/* 3. VIDEO — Waterfall */}
-      <div className="rounded-sm overflow-hidden shadow-md">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full"
-          style={{ aspectRatio: "3/4" }}
-        >
-          <source src="/manus-storage/sylvia-waterfall-vertical_d48b606e.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      {/* Text: My Approach */}
-      <div className="px-2">
-        <h2
-          className="text-xl leading-tight mb-4"
-          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
-        >
-          My Approach
-        </h2>
-        <div className="space-y-3 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
-          <p>My work is relational, depth-oriented, and grounded in the belief that meaningful change happens when people feel safe enough to understand themselves differently.</p>
-        </div>
-      </div>
-
-      {/* 4. STILL — Bridge / path through jungle */}
-      <div className="rounded-sm overflow-hidden shadow-md">
-        <img
-          src={IMAGES.philosophy}
-          alt="The path forward"
-          className="w-full object-cover"
-          style={{ aspectRatio: "3/4" }}
-        />
-      </div>
-
-      {/* Text: First Session */}
-      <div className="px-2">
-        <h2
-          className="text-xl leading-tight mb-4"
-          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
-        >
-          Your First Session
-        </h2>
-        <div className="space-y-3 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
-          <p>There’s no clipboard, no intake form marathon, no pressure to “tell me everything.” We start where you are.</p>
-          <p>Most people say they feel lighter after the first session. Not because anything was solved, but because they finally felt heard.</p>
-        </div>
-      </div>
-
-      {/* 5. VIDEO — Nature */}
-      <div className="rounded-sm overflow-hidden shadow-md">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full"
-          style={{ aspectRatio: "3/4" }}
-        >
-          <source src="/manus-storage/sylvia-nature-2-vertical_72e17c6b.mp4" type="video/mp4" />
-        </video>
-      </div>
-
     </section>
   );
 }
@@ -437,7 +376,7 @@ function ContentBoxes() {
 
         {/* Who I Help — image left, text right */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
-          <div className="overflow-hidden">
+          <div className="hidden md:block overflow-hidden">
             <img
               src={IMAGES.about}
               alt="Therapy space"
@@ -462,7 +401,7 @@ function ContentBoxes() {
 
         {/* What Changes — text left, image right */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
-          <div className="md:order-2 overflow-hidden">
+          <div className="hidden md:block md:order-2 overflow-hidden">
             <img
               src={IMAGES.philosophy}
               alt="Nature and growth"
@@ -568,8 +507,8 @@ function ServicesSection() {
     >
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-          {/* Image */}
-          <div className="order-2 md:order-1">
+          {/* Image — desktop only */}
+          <div className="hidden md:block order-2 md:order-1">
             <img
           loading="lazy"
               src={IMAGES.services}
@@ -805,8 +744,8 @@ function AboutSection() {
             </ul>
           </div>
 
-          {/* Image */}
-          <div>
+          {/* Image — desktop only */}
+          <div className="hidden md:block">
             <img
           loading="lazy"
               src={IMAGES.about}
@@ -849,27 +788,7 @@ function WaterfallVideoSection() {
           </div>
         </div>
 
-        {/* Mobile — 3:4 vertical */}
-        <div className="md:hidden relative rounded-sm overflow-hidden shadow-lg">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full"
-            style={{ aspectRatio: "3/4" }}
-          >
-            <source src="/manus-storage/sylvia-waterfall-vertical_d48b606e.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 flex items-end justify-start p-6 bg-gradient-to-t from-black/40 via-transparent to-transparent">
-            <p
-              className="text-white text-base leading-tight max-w-xs"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Nature does not rush, yet everything is accomplished.
-            </p>
-          </div>
-        </div>
+
       </div>
     </section>
   );
@@ -883,8 +802,8 @@ function PhilosophySection() {
     <section className="py-14 md:py-20 px-6 md:px-12">
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* Image */}
-          <div>
+          {/* Image — desktop only */}
+          <div className="hidden md:block">
             <img
           loading="lazy"
               src={IMAGES.philosophy}
@@ -963,19 +882,7 @@ function FirstSessionSection() {
             </video>
           </div>
 
-          {/* Video — mobile: 3:4 vertical */}
-          <div className="md:hidden rounded-sm overflow-hidden shadow-lg">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full"
-              style={{ aspectRatio: "3/4" }}
-            >
-              <source src="/manus-storage/sylvia-nature-2-vertical_72e17c6b.mp4" type="video/mp4" />
-            </video>
-          </div>
+
         </div>
       </div>
     </section>
@@ -1164,13 +1071,13 @@ function FooterSection() {
   return (
     <footer className="py-12 md:py-16 px-6 md:px-12" style={{ backgroundColor: COLORS.bone }}>
       <div className="max-w-4xl mx-auto text-center">
-        {/* Logo */}
-        <img
-          loading="lazy"
-          src={LOGO_URL}
-          alt="Sylvia"
-          className="h-20 mx-auto mb-8 object-contain"
-        />
+        {/* Simple text wordmark */}
+        <h3
+          className="text-2xl md:text-3xl tracking-tight mb-6"
+          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+        >
+          Sylvia
+        </h3>
 
         <div className="space-y-1 mb-8">
           <p className="text-xs tracking-[0.04em]" style={{ color: COLORS.textSecondary }}>
@@ -1181,12 +1088,35 @@ function FooterSection() {
           </p>
         </div>
 
+        {/* Newsletter signup */}
+        <p className="text-sm mb-3" style={{ color: COLORS.textSecondary }}>
+          Sign up for my newsletter
+        </p>
+        <form className="flex gap-2 max-w-sm mx-auto mb-8" onSubmit={(e) => { e.preventDefault(); import("sonner").then(({ toast }) => toast("Newsletter signup coming soon")); }}>
+          <input
+            type="email"
+            placeholder="Your email"
+            className="flex-1 px-4 py-2.5 text-sm rounded-sm border focus:outline-none focus:ring-1"
+            style={{ borderColor: COLORS.divider, backgroundColor: "white", color: COLORS.text, fontFamily: "'DM Sans', sans-serif" }}
+          />
+          <button
+            type="submit"
+            className="px-5 py-2.5 text-sm rounded-sm text-white transition-opacity hover:opacity-90"
+            style={{ backgroundColor: COLORS.olive, fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Subscribe
+          </button>
+        </form>
+
+        {/* Book consult CTA */}
         <a
-          href="mailto:hello@humbeing.com?subject=Website%20Inquiry"
-          className="text-xs tracking-[0.08em] transition-colors hover:opacity-70"
-          style={{ color: COLORS.olive }}
+          href="https://calendly.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-6 py-3 text-xs tracking-[0.12em] uppercase text-white rounded-sm transition-opacity hover:opacity-90"
+          style={{ backgroundColor: COLORS.oliveDark, fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
         >
-          hello@humbeing.com
+          Book a 15-Minute Consult
         </a>
 
         <div className="mt-12 pt-8" style={{ borderTop: `1px solid ${COLORS.divider}` }}>
