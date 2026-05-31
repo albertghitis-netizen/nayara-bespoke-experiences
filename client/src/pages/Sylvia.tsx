@@ -118,7 +118,7 @@ export default function Sylvia() {
    ═══════════════════════════════════════════════════════════════ */
 function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [sylviaExpanded, setSylviaExpanded] = useState(false);
+
 
 
   return (
@@ -189,73 +189,35 @@ function Navigation() {
             style={{ background: "rgba(247, 245, 240, 0.98)" }}
           >
             <div className="px-6 pt-24 pb-16">
-              {/* Sylvia — accordion */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.06 }}
-              >
-                <button
-                  onClick={() => setSylviaExpanded(!sylviaExpanded)}
-                  className="flex items-center justify-between w-full text-left py-4 border-b"
+              {/* Menu items — flat list */}
+              {[
+                { label: "My Approach", action: () => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); } },
+                { label: "Trauma", action: () => { setMenuOpen(false); window.location.href = "/sofia#trauma"; } },
+                { label: "Addiction", action: () => { setMenuOpen(false); window.location.href = "/sofia#addiction"; } },
+                { label: "Bipolar", action: () => { setMenuOpen(false); window.location.href = "/sofia#bipolar"; } },
+                { label: "Triggers", action: () => { setMenuOpen(false); window.location.href = "/sofia#triggers"; } },
+                { label: "My Story", action: () => { setMenuOpen(false); window.location.href = "/sofia#my-story"; } },
+                { label: "Blog", action: () => { setMenuOpen(false); window.location.href = "/sofia#sylvia-blog"; } },
+                { label: "FAQ", action: () => { setMenuOpen(false); window.location.href = "/sofia#faq"; } },
+                { label: "Contact", action: () => { setMenuOpen(false); const el = document.querySelector("#contact"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
+              ].map((item, idx) => (
+                <motion.button
+                  key={item.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.06 + 0.04 * idx }}
+                  onClick={item.action}
+                  className="block w-full text-left py-4 border-b"
                   style={{ borderColor: "rgba(61, 74, 71, 0.1)" }}
                 >
-                  <div className="flex items-center gap-4">
-                    <span className="w-4 h-4 rounded-full" style={{ background: "#5C3D7A" }} />
-                    <span
-                      className="text-lg tracking-[0.06em] uppercase"
-                      style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#3D4A47" }}
-                    >
-                      Sylvia
-                    </span>
-                  </div>
-                  <motion.span
-                    animate={{ rotate: sylviaExpanded ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-xs opacity-40"
+                  <span
+                    className="text-lg tracking-[0.06em] uppercase"
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#2D1B3D" }}
                   >
-                    ▼
-                  </motion.span>
-                </button>
-
-                <AnimatePresence>
-                  {sylviaExpanded && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden pl-8"
-                    >
-                      {[
-                        { label: "My Approach", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.scrollTo({ top: 0, behavior: "smooth" }); } },
-                        { label: "Trauma", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#trauma"; } },
-                        { label: "Addiction", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#addiction"; } },
-                        { label: "Bipolar", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#bipolar"; } },
-                        { label: "Triggers", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#triggers"; } },
-                        { label: "My Story", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#my-story"; } },
-                        { label: "Blog", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#sylvia-blog"; } },
-                        { label: "FAQ", action: () => { setMenuOpen(false); setSylviaExpanded(false); window.location.href = "/sofia#faq"; } },
-                        { label: "Contact", action: () => { setMenuOpen(false); setSylviaExpanded(false); const el = document.querySelector("#contact"); if (el) el.scrollIntoView({ behavior: "smooth" }); } },
-                      ].map((item) => (
-                        <button
-                          key={item.label}
-                          onClick={item.action}
-                          className="block w-full text-left py-3 border-b"
-                          style={{ borderColor: "rgba(61, 74, 71, 0.06)" }}
-                        >
-                          <span
-                            className="text-sm tracking-[0.04em]"
-                            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400, color: "#4A5B56" }}
-                          >
-                            {item.label}
-                          </span>
-                        </button>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+                    {item.label}
+                  </span>
+                </motion.button>
+              ))}
 
               {/* Sofía link */}
               <div className="mt-8 pt-6" style={{ borderTop: "1px solid rgba(61, 74, 71, 0.1)" }}>
