@@ -293,38 +293,74 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CONTENT BOXES (Sofia-style) — Who I Help, Possibilities, Approach
+   EDITORIAL CONTENT — Who I Help, What Changes, My Approach
+   Image-and-text editorial layout (no cards)
    ═══════════════════════════════════════════════════════════════ */
 function ContentBoxes() {
   return (
-    <section className="px-6 md:px-12 pb-10">
-      <div className="max-w-3xl mx-auto space-y-4">
+    <section className="py-14 md:py-20 px-6 md:px-12">
+      <div className="max-w-5xl mx-auto space-y-20 md:space-y-28">
 
-        {/* Who I Help */}
-        <div className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-          <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}>Who I Help</h2>
-          <div className="text-sm leading-relaxed opacity-80 space-y-3" style={{ fontFamily: "'DM Sans', sans-serif", color: COLORS.text }}>
-            <p>I work with high-functioning, self-aware people who are ready for more than coping.</p>
-            <p>From the outside, life may look successful, stable, even full. But underneath it all, you may not feel the way you thought you would. Disconnected from yourself, emotionally tired, or carrying more than anyone realizes.</p>
-            <p>This is a place to slow down, reconnect with yourself, and create meaningful change that actually lasts.</p>
+        {/* Who I Help — image left, text right */}
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+          <div className="overflow-hidden">
+            <img
+              src={IMAGES.about}
+              alt="Therapy space"
+              className="w-full h-auto object-cover"
+              style={{ aspectRatio: "4/5" }}
+            />
+          </div>
+          <div>
+            <h2
+              className="text-2xl md:text-3xl leading-tight mb-6"
+              style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+            >
+              Who I Help
+            </h2>
+            <div className="space-y-4 text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
+              <p>I work with high-functioning, self-aware people who are ready for more than coping.</p>
+              <p>From the outside, life may look successful, stable, even full. But underneath it all, you may not feel the way you thought you would. Disconnected from yourself, emotionally tired, or carrying more than anyone realizes.</p>
+              <p>This is a place to slow down, reconnect with yourself, and create meaningful change that actually lasts.</p>
+            </div>
           </div>
         </div>
 
-        {/* What Changes */}
-        <div className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-          <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}>What Changes</h2>
-          <div className="text-sm leading-relaxed opacity-80 space-y-3" style={{ fontFamily: "'DM Sans', sans-serif", color: COLORS.text }}>
-            <p>This work goes beyond insight.</p>
-            <p>You may notice yourself pausing before responding. The internal dialogue softens, and you stop being quite so hard on yourself, and often on others, too. Relationships begin to feel less tense and more emotionally fulfilling.</p>
-            <p>Over time, you may stop living so automatically. You begin expressing your feelings more honestly, carrying less responsibility for everyone else, and trusting yourself more in the way you navigate relationships and life.</p>
-            <p>Not because you thought your way through it, but because something underneath has shifted.</p>
+        {/* What Changes — text left, image right */}
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+          <div className="md:order-2 overflow-hidden">
+            <img
+              src={IMAGES.philosophy}
+              alt="Nature and growth"
+              className="w-full h-auto object-cover"
+              style={{ aspectRatio: "4/5" }}
+            />
+          </div>
+          <div className="md:order-1">
+            <h2
+              className="text-2xl md:text-3xl leading-tight mb-6"
+              style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+            >
+              What Changes
+            </h2>
+            <div className="space-y-4 text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
+              <p>This work goes beyond insight.</p>
+              <p>You may notice yourself pausing before responding. The internal dialogue softens, and you stop being quite so hard on yourself, and often on others, too. Relationships begin to feel less tense and more emotionally fulfilling.</p>
+              <p>Over time, you may stop living so automatically. You begin expressing your feelings more honestly, carrying less responsibility for everyone else, and trusting yourself more in the way you navigate relationships and life.</p>
+              <p>Not because you thought your way through it, but because something underneath has shifted.</p>
+            </div>
           </div>
         </div>
 
-        {/* My Approach */}
-        <div className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-          <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}>My Approach</h2>
-          <div className="text-sm leading-relaxed opacity-80 space-y-3" style={{ fontFamily: "'DM Sans', sans-serif", color: COLORS.text }}>
+        {/* My Approach — full-width text, centered */}
+        <div className="max-w-3xl mx-auto text-center">
+          <h2
+            className="text-2xl md:text-3xl leading-tight mb-6"
+            style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+          >
+            My Approach
+          </h2>
+          <div className="space-y-4 text-base md:text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>
             <p>My work is relational, depth-oriented, and grounded in the belief that meaningful change happens when people feel safe enough to understand themselves differently.</p>
             <p>Over time, people often find themselves reacting less automatically, relating more honestly, and feeling more connected to themselves and the lives they've built. Not because they became someone new, but because the relationship they have with themselves has changed.</p>
           </div>
@@ -353,8 +389,7 @@ function VideoMomentSection() {
               className="w-full max-w-[280px] md:max-w-[320px] h-auto rounded-sm shadow-lg"
               style={{ aspectRatio: "9/12" }}
             >
-              <source src="/manus-storage/sylvia-video_12a46d59.mov" type="video/quicktime" />
-              <source src="/manus-storage/sylvia-video_12a46d59.mov" type="video/mp4" />
+              <source src="/manus-storage/sylvia-video_f81fbeee.mp4" type="video/mp4" />
             </video>
           </div>
 
@@ -667,8 +702,7 @@ function WaterfallVideoSection() {
             className="w-full"
             style={{ aspectRatio: "16/9" }}
           >
-            <source src="/manus-storage/sylvia-waterfall_cb959859.mov" type="video/quicktime" />
-            <source src="/manus-storage/sylvia-waterfall_cb959859.mov" type="video/mp4" />
+            <source src="/manus-storage/sylvia-waterfall_68b3ab73.mp4" type="video/mp4" />
           </video>
           {/* Subtle overlay text */}
           <div className="absolute inset-0 flex items-end justify-start p-8 md:p-12 bg-gradient-to-t from-black/40 via-transparent to-transparent">
@@ -769,8 +803,7 @@ function FirstSessionSection() {
               className="w-full"
               style={{ aspectRatio: "16/9" }}
             >
-              <source src="/manus-storage/sylvia-nature-2_b9254c61.mov" type="video/quicktime" />
-              <source src="/manus-storage/sylvia-nature-2_b9254c61.mov" type="video/mp4" />
+              <source src="/manus-storage/sylvia-nature-2_ad910d95.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
