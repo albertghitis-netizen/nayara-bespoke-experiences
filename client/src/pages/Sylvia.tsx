@@ -336,29 +336,64 @@ function HeroSection() {
 function SylviaVideo({ src, className }: { src: string; className?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const [shouldLoadSource, setShouldLoadSource] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Load video when within 300px of viewport
+  // Load source when within 400px of viewport AND element is visible
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+    // Don't load if hidden (display:none)
+    if (container.offsetParent === null && getComputedStyle(container).position !== 'fixed') {
+      return;
+    }
+    if (!("IntersectionObserver" in window)) {
+      setShouldLoadSource(true);
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setShouldLoad(true);
+          if (container.offsetParent !== null || getComputedStyle(container).position === 'fixed') {
+            setShouldLoadSource(true);
+          }
           observer.disconnect();
         }
       },
-      { rootMargin: "300px" }
+      { rootMargin: "400px", threshold: 0 }
     );
     observer.observe(container);
     return () => observer.disconnect();
   }, []);
 
-  // Play when visible, pause when not
+  // Force load + aggressive autoplay once source is injected
   useEffect(() => {
+    if (!shouldLoadSource) return;
     const video = videoRef.current;
-    if (!video || !shouldLoad) return;
+    if (!video) return;
+    video.load();
+    const tryPlay = () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+    };
+    video.addEventListener("loadeddata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+    video.addEventListener("playing", tryPlay);
+    const timer = setTimeout(tryPlay, 150);
+    return () => {
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+      video.removeEventListener("playing", tryPlay);
+      clearTimeout(timer);
+    };
+  }, [shouldLoadSource]);
+
+  // Play/pause based on visibility
+  useEffect(() => {
+    if (!shouldLoadSource) return;
+    const video = videoRef.current;
+    if (!video) return;
     const playObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -367,10 +402,9 @@ function SylviaVideo({ src, className }: { src: string; className?: string }) {
           video.pause();
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
     playObserver.observe(video);
-    // Also handle tab visibility
     const handleVisibility = () => {
       if (!document.hidden && video.getBoundingClientRect().top < window.innerHeight) {
         video.play().catch(() => {});
@@ -381,26 +415,38 @@ function SylviaVideo({ src, className }: { src: string; className?: string }) {
       playObserver.disconnect();
       document.removeEventListener("visibilitychange", handleVisibility);
     };
-  }, [shouldLoad]);
+  }, [shouldLoadSource]);
 
   return (
-    <div ref={containerRef} className={className}>
-      {shouldLoad ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          controls={false}
-          disablePictureInPicture
-          className="w-full h-full object-cover"
-        >
-          <source src={src} type="video/mp4" />
-        </video>
-      ) : (
-        <div className="w-full h-full bg-[#2D1B3D]/10" />
+    <div ref={containerRef} className={`relative ${className || ""}`}>
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="none"
+        controls={false}
+        disablePictureInPicture
+        controlsList="nofullscreen nodownload"
+        onLoadedData={() => setIsLoaded(true)}
+        className={`w-full h-full object-cover ${isLoaded ? "" : "opacity-0"} transition-opacity duration-500`}
+        style={{ WebkitUserSelect: 'none', WebkitTouchCallout: 'none' } as any}
+      >
+        {shouldLoadSource && <source src={src} type="video/mp4" />}
+      </video>
+      {/* Loading placeholder */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-[#2D1B3D]/10 animate-pulse" />
+      )}
+      {/* Invisible overlay to block native play button on mobile */}
+      {isLoaded && (
+        <div
+          className="absolute inset-0"
+          style={{ background: 'transparent', zIndex: 5, WebkitUserSelect: 'none', WebkitTouchCallout: 'none' } as any}
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+          onTouchStart={(e) => { e.preventDefault(); e.stopPropagation(); }}
+        />
       )}
     </div>
   );
