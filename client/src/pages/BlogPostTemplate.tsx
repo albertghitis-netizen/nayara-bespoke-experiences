@@ -56,6 +56,7 @@ const contentEntrance = {
 interface BlogPostTemplateProps {
   post: BlogPostData;
   hideNav?: boolean;
+  hideHero?: boolean;
   hideConcierge?: boolean;
   hideFooterSections?: boolean;
   hideFooterKeepSources?: boolean;
@@ -65,7 +66,7 @@ interface BlogPostTemplateProps {
 /* ═══════════════════════════════════════════════════════════════
    MAIN TEMPLATE
    ═══════════════════════════════════════════════════════════════ */
-export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPostTemplateProps) {
+export default function BlogPostTemplate({ post, hideNav, hideHero, heroAspect }: BlogPostTemplateProps) {
   const [currentUrl, setCurrentUrl] = useState("");
   const isMobile = useIsMobile();
 

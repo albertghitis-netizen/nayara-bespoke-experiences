@@ -100,8 +100,13 @@ export default function Sylvia() {
           </motion.div>
         </div>
       </section>
-      <ContentBoxes />
-      <VideoMomentSection />
+      {/* Mobile: alternating video/still/video/still/video flow */}
+      <MobileMediaFlow />
+      {/* Desktop: original editorial sections (hidden on mobile) */}
+      <div className="hidden md:block">
+        <ContentBoxes />
+        <VideoMomentSection />
+      </div>
       <ServicesSection />
       <TestimonialSection />
       <HowIWorkSection />
@@ -288,6 +293,135 @@ function HeroSection() {
           className="w-full h-[50vh] md:h-[65vh] object-cover rounded-sm"
         />
       </motion.div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE MEDIA FLOW — Alternating video/still/video/still/video
+   Only visible on mobile. Desktop uses the editorial sections below.
+   ═══════════════════════════════════════════════════════════════ */
+function MobileMediaFlow() {
+  return (
+    <section className="md:hidden px-4 py-8 space-y-10">
+
+      {/* 1. VIDEO — Purple flower */}
+      <div className="rounded-sm overflow-hidden shadow-md">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full"
+          style={{ aspectRatio: "3/4" }}
+        >
+          <source src="/manus-storage/sylvia-video_f81fbeee.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      {/* Text: Who I Help */}
+      <div className="px-2">
+        <h2
+          className="text-xl leading-tight mb-4"
+          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+        >
+          Who I Help
+        </h2>
+        <div className="space-y-3 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
+          <p>I work with high-functioning, self-aware people who are ready for more than coping.</p>
+          <p>From the outside, life may look successful, stable, even full. But underneath it all, you may not feel the way you thought you would.</p>
+        </div>
+      </div>
+
+      {/* 2. STILL — Hot spring / jungle pool */}
+      <div className="rounded-sm overflow-hidden shadow-md">
+        <img
+          src={IMAGES.about}
+          alt="Healing space"
+          className="w-full object-cover"
+          style={{ aspectRatio: "3/4" }}
+        />
+      </div>
+
+      {/* Text: What Changes */}
+      <div className="px-2">
+        <h2
+          className="text-xl leading-tight mb-4"
+          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+        >
+          What Changes
+        </h2>
+        <div className="space-y-3 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
+          <p>This work goes beyond insight. You may notice yourself pausing before responding. The internal dialogue softens.</p>
+          <p>Over time, you begin expressing your feelings more honestly, carrying less responsibility for everyone else, and trusting yourself more.</p>
+        </div>
+      </div>
+
+      {/* 3. VIDEO — Waterfall */}
+      <div className="rounded-sm overflow-hidden shadow-md">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full"
+          style={{ aspectRatio: "3/4" }}
+        >
+          <source src="/manus-storage/sylvia-waterfall-vertical_d48b606e.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      {/* Text: My Approach */}
+      <div className="px-2">
+        <h2
+          className="text-xl leading-tight mb-4"
+          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+        >
+          My Approach
+        </h2>
+        <div className="space-y-3 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
+          <p>My work is relational, depth-oriented, and grounded in the belief that meaningful change happens when people feel safe enough to understand themselves differently.</p>
+        </div>
+      </div>
+
+      {/* 4. STILL — Bridge / path through jungle */}
+      <div className="rounded-sm overflow-hidden shadow-md">
+        <img
+          src={IMAGES.philosophy}
+          alt="The path forward"
+          className="w-full object-cover"
+          style={{ aspectRatio: "3/4" }}
+        />
+      </div>
+
+      {/* Text: First Session */}
+      <div className="px-2">
+        <h2
+          className="text-xl leading-tight mb-4"
+          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+        >
+          Your First Session
+        </h2>
+        <div className="space-y-3 text-sm leading-relaxed" style={{ color: COLORS.textSecondary }}>
+          <p>There’s no clipboard, no intake form marathon, no pressure to “tell me everything.” We start where you are.</p>
+          <p>Most people say they feel lighter after the first session. Not because anything was solved, but because they finally felt heard.</p>
+        </div>
+      </div>
+
+      {/* 5. VIDEO — Nature */}
+      <div className="rounded-sm overflow-hidden shadow-md">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full"
+          style={{ aspectRatio: "3/4" }}
+        >
+          <source src="/manus-storage/sylvia-nature-2-vertical_72e17c6b.mp4" type="video/mp4" />
+        </video>
+      </div>
+
     </section>
   );
 }
@@ -693,7 +827,8 @@ function WaterfallVideoSection() {
   return (
     <section className="py-10 md:py-16 px-6 md:px-12">
       <div className="max-w-5xl mx-auto">
-        <div className="relative rounded-sm overflow-hidden shadow-lg">
+        {/* Desktop — 16:9 horizontal */}
+        <div className="hidden md:block relative rounded-sm overflow-hidden shadow-lg">
           <video
             autoPlay
             muted
@@ -704,10 +839,31 @@ function WaterfallVideoSection() {
           >
             <source src="/manus-storage/sylvia-waterfall_68b3ab73.mp4" type="video/mp4" />
           </video>
-          {/* Subtle overlay text */}
           <div className="absolute inset-0 flex items-end justify-start p-8 md:p-12 bg-gradient-to-t from-black/40 via-transparent to-transparent">
             <p
               className="text-white text-lg md:text-2xl leading-tight max-w-md"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Nature does not rush, yet everything is accomplished.
+            </p>
+          </div>
+        </div>
+
+        {/* Mobile — 3:4 vertical */}
+        <div className="md:hidden relative rounded-sm overflow-hidden shadow-lg">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full"
+            style={{ aspectRatio: "3/4" }}
+          >
+            <source src="/manus-storage/sylvia-waterfall-vertical_d48b606e.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 flex items-end justify-start p-6 bg-gradient-to-t from-black/40 via-transparent to-transparent">
+            <p
+              className="text-white text-base leading-tight max-w-xs"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Nature does not rush, yet everything is accomplished.
@@ -793,8 +949,8 @@ function FirstSessionSection() {
             </div>
           </div>
 
-          {/* Video */}
-          <div className="rounded-sm overflow-hidden shadow-lg">
+          {/* Video — desktop: 16:9 horizontal */}
+          <div className="hidden md:block rounded-sm overflow-hidden shadow-lg">
             <video
               autoPlay
               muted
@@ -804,6 +960,20 @@ function FirstSessionSection() {
               style={{ aspectRatio: "16/9" }}
             >
               <source src="/manus-storage/sylvia-nature-2_ad910d95.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          {/* Video — mobile: 3:4 vertical */}
+          <div className="md:hidden rounded-sm overflow-hidden shadow-lg">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full"
+              style={{ aspectRatio: "3/4" }}
+            >
+              <source src="/manus-storage/sylvia-nature-2-vertical_72e17c6b.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
