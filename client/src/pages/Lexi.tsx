@@ -28,7 +28,7 @@ function AskLexiWidget() {
       setLoading(false);
     },
     onError: (err) => {
-      console.error("Ask Sofía error:", err);
+      console.error("Talk It Out error:", err);
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: "I'm having trouble connecting right now. Please try again in a moment." },
@@ -62,7 +62,7 @@ function AskLexiWidget() {
           className="fixed bottom-6 left-6 z-50 flex items-center gap-2 h-11 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
           style={{ background: "rgba(31, 77, 58, 0.9)", backdropFilter: "blur(8px)" }}
         >
-          <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Ask Sofía</span>
+          <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Talk It Out</span>
         </button>
       )}
 
@@ -81,7 +81,7 @@ function AskLexiWidget() {
             <div className="flex items-center justify-between px-4 py-3" style={{ background: "rgba(31, 77, 58, 0.9)" }}>
               <div className="flex items-center gap-2">
                 <img src={LOGO_URL} alt="Sofía" className="w-7 h-7 rounded-full object-contain" style={{ background: "white" }} />
-                <span className="text-white text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>Ask Sofía</span>
+                <span className="text-white text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>Talk It Out</span>
               </div>
               <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white text-lg transition">✕</button>
             </div>
@@ -585,7 +585,7 @@ export default function Lexi() {
         )}
       </AnimatePresence>
 
-      {/* Ask Sofía Floating Chat Widget */}
+      {/* Talk It Out Floating Chat Widget */}
       <AskLexiWidget />
 
       {/* Main Content Area */}
