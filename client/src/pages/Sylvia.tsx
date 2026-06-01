@@ -234,7 +234,7 @@ function Navigation() {
               {/* Menu items — flat list */}
               {[
                 { label: "Your Brain", action: () => { setMenuOpen(false); window.location.href = "/sylvia/your-brain"; } },
-                { label: "Your Personality", action: () => { setMenuOpen(false); window.open("https://mypersonality.net/free-personality-test", "_blank"); } },
+                { label: "Your Personality", action: () => { setMenuOpen(false); window.location.href = "/sylvia/your-personality"; } },
                 { label: "Trauma", action: () => { setMenuOpen(false); window.location.href = "/sylvia/trauma"; } },
                 { label: "Addiction", action: () => { setMenuOpen(false); window.location.href = "/sylvia/addiction"; } },
                 { label: "Bipolar", action: () => { setMenuOpen(false); window.location.href = "/sylvia/bipolar"; } },

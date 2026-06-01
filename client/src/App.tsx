@@ -317,6 +317,7 @@ function Router() {
           <Route path="/architecture" component={Architecture} />
           <Route path="/sylvia" component={Sylvia} />
           <Route path="/sylvia/your-brain" component={SylviaComingSoon} />
+          <Route path="/sylvia/your-personality" component={SylviaComingSoon} />
           <Route path="/sylvia/blog" component={SylviaComingSoon} />
           <Route path="/sylvia/faq" component={SylviaComingSoon} />
           <Route path="/sylvia/my-story" component={SylviaComingSoon} />

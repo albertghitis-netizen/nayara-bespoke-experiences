@@ -40,6 +40,28 @@ const BLUE = {
   textSoft: "#3B4A5C",
 };
 
+/* ═══ ROSE/ORANGE PALETTE (Your Personality) ═══ */
+const ROSE = {
+  deep: "#8B3A2F",
+  mid: "#C4705A",
+  light: "#D4A99A",
+  soft: "#F0D5CC",
+  pale: "#FDF5F2",
+  text: "#3D1B1B",
+  textSoft: "#5C3B3B",
+};
+
+/* ═══ GREY PALETTE (Triggers) ═══ */
+const GREY = {
+  deep: "#1A1A1A",
+  mid: "#4A4A4A",
+  light: "#8A8A8A",
+  soft: "#D4D4D4",
+  pale: "#F5F5F5",
+  text: "#1A1A1A",
+  textSoft: "#4A4A4A",
+};
+
 const display = { fontFamily: "'Playfair Display', serif", fontWeight: 400 } as const;
 const body = { fontFamily: "'DM Sans', sans-serif", fontWeight: 400 } as const;
 
@@ -104,6 +126,56 @@ function YourBrainContent() {
       </InfoSection>
       <InfoSection title="What This Means for You">
         <p>Understanding your brain is not about becoming a neuroscientist. It is about recognizing that your patterns — the anxiety, the avoidance, the people-pleasing, the shutdown — are not character flaws. They are adaptations. Your brain did exactly what it needed to do to keep you safe. Now we can help it learn that safety looks different than it used to.</p>
+      </InfoSection>
+    </div>
+  );
+}
+
+/* ═══ YOUR PERSONALITY PAGE (Rose/Orange Palette) ═══ */
+function YourPersonalityContent() {
+  return (
+    <div className="space-y-6">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: ROSE.deep }}>Your Personality</h1>
+        <p className="text-sm mt-2" style={{ ...body, color: ROSE.textSoft }}>Why understanding your personality is one of the most powerful things you can do for yourself</p>
+      </div>
+      <div className="flex justify-center mb-8">
+        <img src="/manus-storage/personality-header_e1346ad0.png" alt="Colorful personality silhouette with question marks" className="w-full max-w-lg rounded-sm" />
+      </div>
+
+      <InfoSection title="Why Personality Matters" headingColor={ROSE.deep} textColor={ROSE.text}>
+        <p>Your personality is not just a label or a party trick. It is the lens through which you experience everything: relationships, work, conflict, love, stress, and joy. When you understand your personality deeply, you stop fighting yourself and start working with yourself. You begin to see why certain situations drain you while others energize you, why some relationships feel effortless and others feel like constant friction.</p>
+      </InfoSection>
+
+      <InfoSection title="Beyond the Surface" headingColor={ROSE.deep} textColor={ROSE.text}>
+        <p>Most people have a vague sense of who they are. They know they are introverted or extroverted, sensitive or thick-skinned. But personality runs much deeper than these broad strokes. It shapes how you process emotions, how you handle uncertainty, how you attach to others, and how you respond under pressure. Understanding these patterns gives you choice where before there was only reaction.</p>
+      </InfoSection>
+
+      <InfoSection title="Personality and Relationships" headingColor={ROSE.deep} textColor={ROSE.text}>
+        <p>So much of relationship difficulty comes down to personality differences that neither person understands. What looks like stubbornness might be a need for consistency. What looks like emotional distance might be a need for internal processing time. What looks like neediness might be a deeply wired attachment style. When you understand your own personality — and your partner's — conflict becomes less personal and more navigable.</p>
+      </InfoSection>
+
+      <InfoSection title="Personality and Career" headingColor={ROSE.deep} textColor={ROSE.text}>
+        <p>Many people spend years in careers that look successful from the outside but feel misaligned from the inside. This is often a personality mismatch: a deeply creative person in a rigid structure, a highly sensitive person in a chaotic environment, a natural leader stuck in a role with no autonomy. Understanding your personality helps you make career decisions that honor who you actually are, not who you think you should be.</p>
+      </InfoSection>
+
+      <InfoSection title="Personality in Therapy" headingColor={ROSE.deep} textColor={ROSE.text}>
+        <p>In therapy, understanding your personality helps us work more efficiently. It tells me how you process information, what kind of support feels helpful versus intrusive, how you handle feedback, and what your natural coping strategies are. It also helps you develop self-compassion: many of the things you judge yourself for are simply personality traits that were never validated or understood.</p>
+      </InfoSection>
+
+      <InfoSection title="Take a Free Personality Test" headingColor={ROSE.deep} textColor={ROSE.text}>
+        <p>If you are curious about your personality type, I recommend taking this free assessment. It is not a diagnostic tool — it is a starting point for self-understanding. Answer honestly, not how you think you should answer. There are no right or wrong results.</p>
+        <div className="mt-6 text-center">
+          <a
+            href="https://mypersonality.net/free-personality-test"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-3 rounded-full text-white text-sm tracking-widest uppercase transition-all hover:opacity-90"
+            style={{ backgroundColor: ROSE.mid, fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+          >
+            Take the Free Personality Test →
+          </a>
+        </div>
       </InfoSection>
     </div>
   );
@@ -204,22 +276,22 @@ function TriggersContent() {
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Triggers</h1>
-        <p className="text-sm mt-2 opacity-60" style={body}>Know what destabilizes you before it happens</p>
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: GREY.deep }}>Triggers</h1>
+        <p className="text-sm mt-2" style={{ ...body, color: GREY.textSoft }}>Know what destabilizes you before it happens</p>
       </div>
-      <InfoSection title="What Are Triggers">
+      <InfoSection title="What Are Triggers" headingColor={GREY.deep} textColor={GREY.text}>
         <p>Triggers are situations, emotions, people, places, or internal states that increase the risk of either a mood episode or a relapse. Triggers often overlap: the same stressor that destabilizes your mood also activates cravings. Identifying your personal triggers is the first line of defense because you cannot manage what you do not recognize.</p>
       </InfoSection>
-      <InfoSection title="HALT: Hungry, Angry, Lonely, Tired">
+      <InfoSection title="HALT: Hungry, Angry, Lonely, Tired" headingColor={GREY.deep} textColor={GREY.text}>
         <p>These four basic states are the most common precursors to both mood destabilization and relapse. They are deceptively simple but profoundly dangerous. When you are in a HALT state, your brain's prefrontal cortex (the part that makes good decisions) is compromised. Checking in with yourself using HALT before any major decision is a foundational recovery skill.</p>
       </InfoSection>
-      <InfoSection title="Emotional vs. Environmental Triggers">
+      <InfoSection title="Emotional vs. Environmental Triggers" headingColor={GREY.deep} textColor={GREY.text}>
         <p>Emotional triggers are internal states like shame, boredom, excitement, loneliness, or anger that activate craving or mood instability. Environmental triggers are external: a bar you used to drink at, a person you used with, a song associated with past use, or even a time of day. Both types require different strategies. Emotional triggers need coping skills. Environmental triggers need avoidance or reframing.</p>
       </InfoSection>
-      <InfoSection title="Positive Events as Triggers">
+      <InfoSection title="Positive Events as Triggers" headingColor={GREY.deep} textColor={GREY.text}>
         <p>Falling in love, getting a promotion, celebrating a milestone, or any intense positive emotion can trigger hypomania. Celebrations are also high-risk because they are culturally associated with substance use. Positive triggers are harder to recognize because they feel good, which makes them more dangerous.</p>
       </InfoSection>
-      <InfoSection title="Building a Trigger Management Plan">
+      <InfoSection title="Building a Trigger Management Plan" headingColor={GREY.deep} textColor={GREY.text}>
         <p>List your known triggers. For each one, write down the early warning signs (what you feel in your body and mind), the action plan (what you will do instead of using or spiraling), and the support contact (who you will call). Review this plan with your therapist. Keep it accessible on your phone. The time to build the plan is when you are stable, not when you are in crisis.</p>
       </InfoSection>
     </div>
@@ -482,6 +554,8 @@ export default function SylviaComingSoon() {
     switch (location) {
       case "/sylvia/your-brain":
         return <YourBrainContent />;
+      case "/sylvia/your-personality":
+        return <YourPersonalityContent />;
       case "/sylvia/trauma":
         return <TraumaContent />;
       case "/sylvia/addiction":
@@ -514,6 +588,10 @@ export default function SylviaComingSoon() {
       case "/sylvia/mood-disorders":
       case "/sylvia/bipolar":
         return { bg: BLUE.pale, navColor: BLUE.mid };
+      case "/sylvia/your-personality":
+        return { bg: ROSE.pale, navColor: ROSE.mid };
+      case "/sylvia/triggers":
+        return { bg: GREY.pale, navColor: GREY.mid };
       default:
         return {};
     }
