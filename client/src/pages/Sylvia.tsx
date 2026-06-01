@@ -156,9 +156,7 @@ export default function Sylvia() {
 
       {/* 2. Content sections (Who I Help, What Changes, My Approach) */}
       <ContentBoxes />
-      <div className="hidden md:block">
-        <VideoMomentSection />
-      </div>
+      <VideoMomentSection />
       {/* Media 2: lily pad walkway still */}
       <MobileMediaBreak src="/manus-storage/sylvia-lilypad_9727e9e3.jpeg" type="image" alt="Lily pad walkway" />
       </div>
@@ -569,10 +567,15 @@ function VideoMomentSection() {
     <section className="py-10 md:py-16 px-6 md:px-12">
       <div className="max-w-5xl mx-auto">
         <div className="rounded-sm overflow-hidden shadow-lg">
-          <SylviaVideo
-            src="/manus-storage/my-approach-video_95c8ea6f.mp4"
-            className="w-full aspect-[16/9]"
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full aspect-[16/9] object-cover"
+          >
+            <source src="/manus-storage/my-approach-video_95c8ea6f.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </section>
