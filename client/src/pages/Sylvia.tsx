@@ -107,7 +107,7 @@ export default function Sylvia() {
       </section>
       {/* 1. Intro text above ↑ */}
       {/* Media 1: purple flower video */}
-      <MobileMediaBreak src="/manus-storage/sylvia-video_f81fbeee.mp4" type="video" />
+      <MobileMediaBreak src="/manus-storage/sylvia-video-flowers-only_02f74dba.mp4" type="video" />
 
       {/* 2. Content sections (Who I Help, What Changes, My Approach) */}
       <ContentBoxes />
@@ -478,7 +478,7 @@ function MobileMediaFlow() {
       {/* Single intro video — purple flower */}
       <div className="rounded-sm overflow-hidden shadow-md">
         <SylviaVideo
-          src="/manus-storage/sylvia-video_f81fbeee.mp4"
+          src="/manus-storage/sylvia-video-flowers-only_02f74dba.mp4"
           className="w-full object-cover aspect-[3/4]"
         />
       </div>
@@ -576,7 +576,7 @@ function VideoMomentSection() {
           {/* Vertical video */}
           <div className="flex justify-center">
             <SylviaVideo
-              src="/manus-storage/sylvia-video_f81fbeee.mp4"
+              src="/manus-storage/sylvia-video-flowers-only_02f74dba.mp4"
               className="w-full max-w-[280px] md:max-w-[320px] h-auto rounded-sm shadow-lg aspect-[9/12]"
             />
           </div>
