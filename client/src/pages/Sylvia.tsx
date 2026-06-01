@@ -192,13 +192,6 @@ function Navigation() {
           </div>
         </button>
 
-        {/* Back to Sofía — center */}
-        <a
-          href="/sofia"
-          className="pointer-events-auto absolute left-1/2 -translate-x-1/2 flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity duration-300"
-        >
-          <span className="text-[10px] tracking-[0.15em] uppercase" style={{ fontFamily: "'DM Sans', sans-serif", color: COLORS.text }}>← Sofía</span>
-        </a>
 
         {/* Book a Free Consult pill — eucalyptus green */}
         <a
