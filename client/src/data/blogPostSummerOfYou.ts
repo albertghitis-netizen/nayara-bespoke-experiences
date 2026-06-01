@@ -72,7 +72,7 @@ export const summerOfYouPost: BlogPostData = {
 <p><a href="https://www.sciencedirect.com/science/article/pii/S266695792400003X" target="_blank" rel="noopener noreferrer">A 2024 study published in the journal <em>Leisure Sciences</em></a> found that couples who engaged in novel, self-expanding activities while vacationing together reported significantly higher post-vacation relationship satisfaction and physical intimacy. The number of vacations was not what mattered. What mattered was the extent to which the experience felt new, shared, and outside of routine.</p>
 <p>Separately, research commissioned by the <a href="https://www.ustravel.org/" target="_blank" rel="noopener noreferrer">U.S. Travel Association</a> found that 61% of couples reported a trip reignited their romance, while married Americans described themselves as 65% more romantic on vacation than at home.</p>
 <p>Romance is not a mood. It is a context. And summer, with its long evenings and its permission to slow down, is one of the best contexts there is.</p>
-<p><a href="/blog/romance-at-nayara-springs-and-bocas-del-toro">Read: Four Worlds, One Love: The Science of Romance at Nayara</a></p>`,
+<p><a href="/blog/romance-at-nayara-springs-and-bocas-del-toro">Read: Four Worlds, One Love: Romance at Nayara</a></p>`,
     },
     {
       heading: "But What If Your Summer Is Actually Winter?",
@@ -144,7 +144,7 @@ export const summerOfYouPost: BlogPostData = {
   relatedArticles: [
     {
       slug: "romance-at-nayara-springs-and-bocas-del-toro",
-      title: "Four Worlds, One Love: The Science of Romance at Nayara",
+      title: "Four Worlds, One Love: Romance at Nayara",
       pillar: "Experiences",
       image: "/manus-storage/romance-card-bocas-couple_a626f19a.jpg",
       date: "June 2026",

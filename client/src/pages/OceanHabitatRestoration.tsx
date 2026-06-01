@@ -88,7 +88,6 @@ export default function OceanHabitatRestoration() {
       <ImageBreak />
       <WhatMakesItUnique />
       <GuestExperience />
-      <CommunityEducation />
       <ClosingCTA />
     </div>
   );
@@ -98,11 +97,13 @@ export default function OceanHabitatRestoration() {
 function Hero() {
   return (
     <section className="relative overflow-hidden" style={{ minHeight: "90vh" }}>
-      <img
-        src={`${CDN}/bocas-aerial-villas-turquoise_858d4570.jpg`}
-        alt="Aerial view of Nayara Bocas del Toro overwater villas above turquoise Caribbean waters"
+      <video
+        src="/manus-storage/Underwater1_e83986a7.MP4"
+        autoPlay
+        muted
+        loop
+        playsInline
         className="absolute inset-0 w-full h-full object-cover object-center"
-        loading="eager"
       />
       <div
         className="absolute inset-0"
@@ -638,50 +639,6 @@ function GuestExperience() {
   );
 }
 
-/* ── COMMUNITY & EDUCATION ────────────────────────────────── */
-function CommunityEducation() {
-  return (
-    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.ocean }}>
-      <div className="max-w-3xl">
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
-          >
-            Beyond the Resort
-          </p>
-          <h2
-            className="text-3xl md:text-4xl mb-10 leading-[1.1] text-white"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Community &amp; Education
-          </h2>
-        </AnimateOnScroll>
-
-        <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
-            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
-          >
-            The program's 25 community partners include local schools, fishing cooperatives, and neighboring businesses across the Bocas del Toro archipelago. Caribbean Coral Restoration runs education and training programs that teach reef ecology, restoration techniques, and marine conservation to local students and community members, building the knowledge base that will sustain this work long after any single partnership ends.
-          </p>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
-            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
-          >
-            For local fishing communities, healthy reefs are not an abstraction. They are the foundation of livelihoods. As marine life returns to the restoration sites, the ecological and economic case for reef protection becomes tangible. The program is designed to make reef stewardship a shared value across the archipelago, not just a resort amenity.
-          </p>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9]"
-            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
-          >
-            The long-term ambition is to scale reef restoration across the entire Bocas del Toro archipelago, establishing a model that other hotels, communities, and governments in the region can replicate. What begins at our bay is meant to spread.
-          </p>
-        </AnimateOnScroll>
-      </div>
-    </section>
-  );
-}
 
 /* ── CLOSING CTA ──────────────────────────────────────────── */
 function ClosingCTA() {

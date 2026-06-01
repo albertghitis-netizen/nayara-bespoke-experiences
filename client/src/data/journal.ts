@@ -428,7 +428,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "romance-springs-bocas",
-    title: "Four Worlds, One Love: The Science of Romance at Nayara",
+    title: "Four Worlds, One Love: Romance at Nayara",
     url: "/blog/romance-at-nayara-springs-and-bocas-del-toro",
     property: "brand",
     properties: ["bocas-del-toro", "gardens", "springs", "tented-camp", "alto-atacama", "hangaroa"],

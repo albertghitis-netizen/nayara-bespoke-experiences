@@ -1,7 +1,7 @@
 /*
  * NAYARA NEWSLETTER, June 2026
  * Theme: The Summer of You
- * Three pieces: Summer of You (lead), Ocean Habitat Restoration, Romance
+ * Three pieces: Ocean Habitat (lead), Romance, Summer of You
  * Standalone page, no nav, no footer, no hero
  * Fonts: Playfair Display (display) + DM Sans (body)
  */
@@ -32,15 +32,12 @@ export default function NewsletterJune() {
             Nayara Newsletter &nbsp;&middot;&nbsp; June 2026
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
-            Summer is not a feeling. It is an astronomical event. A cultural
-            invention. A biological shift. And, if you let it be, a permission
-            slip you write yourself.
-          </p>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
-            This month, we published the longest editorial we have ever written.
-            It starts with axial tilt and ends with a question only you can
-            answer. In between: the ocean, the stars, the science of romance,
-            and the history of why summer became the season we treat as ours.
+            This month, we launch something we have been working toward for
+            years: a partnership to rebuild one of the Caribbean's most
+            threatened ocean habitats from the foundation up. We also celebrate
+            romance across four extraordinary properties, and publish the
+            longest editorial we have ever written about what summer actually
+            is and why it belongs to you.
           </p>
         </div>
       </section>
@@ -48,66 +45,8 @@ export default function NewsletterJune() {
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#3B2B26]" />
 
-      {/* ══════════ SECTION 1: The Summer of You (Lead Story) ══════════ */}
+      {/* ══════════ SECTION 1: Ocean Habitat Restoration (Lead/Star) ══════════ */}
       <section className="bg-[#F5F0E8]">
-        <div className="px-8 md:px-16 pt-10 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
-            Editorial &nbsp;&middot;&nbsp; Summer Edition
-          </p>
-
-          <img
-            loading="lazy"
-            src="/manus-storage/summer-of-you-card_691d8a1a.jpeg"
-            alt="The Summer of You"
-            className="w-full rounded mb-8 object-cover"
-            style={{ aspectRatio: "1200/628" }}
-          />
-
-          <h2
-            className="text-2xl md:text-[28px] leading-snug mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            The Summer of You
-          </h2>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
-            Before summer became a feeling, it was a fact. Earth tilted 23.5
-            degrees toward the sun, flooding your hemisphere with light, and
-            your brain responded by rewriting its own chemistry. Serotonin
-            production surges. Melatonin retreats. Cortisol patterns normalize.
-            Your body knows what season it is before your calendar does.
-          </p>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
-            But here is the part no one tells you: the idea that summer is "time
-            off" is barely 150 years old. It was not invented by farmers. It was
-            invented by overheated 19th century urbanites fleeing to Newport and
-            Saratoga. The agrarian calendar myth? Debunked. The harvest is in
-            autumn, not summer.
-          </p>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
-            This editorial traces the full arc: from photobiology to cultural
-            history, from ocean neuroscience to the science of romance, from the
-            longest days in the Northern Hemisphere to the clearest skies in the
-            Southern one. It ends with a question: what is the thing you have
-            been putting off?
-          </p>
-          <a
-            href="/blog/summer-of-you"
-            className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: "#8a7a5a" }}
-          >
-            <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-            </svg>
-            Read: The Summer of You
-          </a>
-        </div>
-      </section>
-
-      {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#3B2B26]" />
-
-      {/* ══════════ SECTION 2: Ocean Habitat Restoration ══════════ */}
-      <section className="bg-[#f7f5f0]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
           <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
             Sustainability &nbsp;&middot;&nbsp; Bocas del Toro
@@ -160,11 +99,11 @@ export default function NewsletterJune() {
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#3B2B26]" />
 
-      {/* ══════════ SECTION 3: Romance ══════════ */}
-      <section className="bg-[#F5F0E8]">
+      {/* ══════════ SECTION 2: Romance ══════════ */}
+      <section className="bg-[#f7f5f0]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
           <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
-            Romance &nbsp;&middot;&nbsp; The Science of Connection
+            Romance &nbsp;&middot;&nbsp; Four Properties
           </p>
 
           <img
@@ -179,7 +118,7 @@ export default function NewsletterJune() {
             className="text-2xl md:text-[28px] leading-snug mb-4"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Four Worlds, One Love: The Science of Romance at Nayara
+            Four Worlds, One Love: Romance at Nayara
           </h2>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
             A 2024 study in <em>Leisure Sciences</em> found that couples who
@@ -195,9 +134,8 @@ export default function NewsletterJune() {
             a package. It is a philosophy built into every property.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
-            This piece traces the neuroscience of intimacy, the architecture of
-            privacy, and what happens when a resort removes everything that
-            competes for a couple's attention.
+            This piece traces the architecture of privacy and what happens when
+            a resort removes everything that competes for a couple's attention.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
@@ -208,7 +146,7 @@ export default function NewsletterJune() {
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
               </svg>
-              Read: The Science of Romance
+              Read: Romance at Nayara
             </a>
             <a
               href="/springs"
@@ -221,6 +159,64 @@ export default function NewsletterJune() {
               Explore: Nayara Springs
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ── GOLD RULE ── */}
+      <div className="h-[3px] bg-[#3B2B26]" />
+
+      {/* ══════════ SECTION 3: The Summer of You ══════════ */}
+      <section className="bg-[#F5F0E8]">
+        <div className="px-8 md:px-16 pt-10 pb-12 text-center">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
+            Editorial &nbsp;&middot;&nbsp; Summer Edition
+          </p>
+
+          <img
+            loading="lazy"
+            src="/manus-storage/summer-of-you-card_691d8a1a.jpeg"
+            alt="The Summer of You"
+            className="w-full rounded mb-8 object-cover"
+            style={{ aspectRatio: "1200/628" }}
+          />
+
+          <h2
+            className="text-2xl md:text-[28px] leading-snug mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            The Summer of You
+          </h2>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
+            Before summer became a feeling, it was a fact. Earth tilted 23.5
+            degrees toward the sun, flooding your hemisphere with light, and
+            your brain responded by rewriting its own chemistry. Serotonin
+            production surges. Melatonin retreats. Cortisol patterns normalize.
+            Your body knows what season it is before your calendar does.
+          </p>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
+            But here is the part no one tells you: the idea that summer is "time
+            off" is barely 150 years old. It was not invented by farmers. It was
+            invented by overheated 19th century urbanites fleeing to Newport and
+            Saratoga. The agrarian calendar myth? Debunked. The harvest is in
+            autumn, not summer.
+          </p>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
+            This editorial traces the full arc: from photobiology to cultural
+            history, from ocean neuroscience to romance, from the longest days
+            in the Northern Hemisphere to the clearest skies in the Southern
+            one. It ends with a question: what is the thing you have been
+            putting off?
+          </p>
+          <a
+            href="/blog/summer-of-you"
+            className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: "#8a7a5a" }}
+          >
+            <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+            Read: The Summer of You
+          </a>
         </div>
       </section>
 

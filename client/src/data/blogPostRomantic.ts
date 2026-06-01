@@ -10,7 +10,7 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 export const romanticBlogPost: BlogPostData = {
   slug: "romance-at-nayara-springs-and-bocas-del-toro",
-  title: "Four Worlds, One Love: The Science of Romance at Nayara",
+  title: "Four Worlds, One Love: Romance at Nayara",
   subtitle: "Why the world's most discerning couples are choosing adults-only resorts, what that promise means at Nayara Springs and Nayara Bocas del Toro, and how the Atacama Desert and Rapa Nui offer romance without age restrictions",
   author: "Albert Ghitis",
   authorRole: "Head of Digital Marketing",
@@ -39,13 +39,7 @@ export const romanticBlogPost: BlogPostData = {
 <p>Liz Taylor, a hospitality and luxury brand consultant with 30 years of experience, summarizes the shift: "Holidays have become more than a luxury. They are a lifeline. People want peace. They want to switch off. And that is hard to do when you are dodging poolside tantrums or trying to enjoy a cocktail during a toddler's tea party."</p>
 <p>Travel specialist Aled Evans adds the business logic: "If you consider how much you would pay for a family of four to stay at a hotel for a week, would you pay the same amount for just two of you if it were an adults-only hotel? The answer seems to be yes. If a hotel or tour operator can differentiate itself and appeal to a certain demographic, then it has a market advantage." The willingness to pay family-of-four prices for a couples-only experience reveals something important: this is not about saving money. It is about protecting attention.</p>`,
     },
-    {
-      heading: "What Adults-Only Actually Means",
-      content: `<p>The phrase "adults-only" is often misunderstood as a simple age restriction. In practice, it is a comprehensive design philosophy that shapes every decision a resort makes, from architecture to acoustics, from programming to plate presentation.</p>
-<p>At an adults-only property, the physical environment is scaled for intimacy rather than activity. Pools are designed for stillness, not splashing. Restaurants seat couples in configurations that encourage conversation, not crowd management. Spa rituals are built around pairs. The soundscape is curated: birdsong, ocean waves, the rustle of tropical canopy. There are no announcements, no children's entertainment schedules, no competing priorities.</p>
-<p>The programming shifts accordingly. Activities are designed for depth rather than breadth. A cooking class becomes a wine-paired tasting journey. A nature walk becomes a guided meditation through old-growth forest. A boat excursion becomes a private Champagne sunset. Every touchpoint assumes that the guests are here for each other, and the resort's role is to create conditions where that connection can deepen without interruption.</p>
-<p>This is not exclusion for its own sake. It is intentional curation. The growing demand for adults-only travel reflects a generation of couples who understand that presence requires protection, and that the most romantic thing a resort can do is remove everything that competes for attention.</p>`,
-    },
+
     {
       heading: "Nayara Springs: Volcanic Intimacy in the Rainforest",
       content: `<p><a href="/springs">Nayara Springs</a> was built with a single vision: to offer an otherworldly adults-only escape in the heart of the world's most vibrant rainforest. <a href="https://guide.michelin.com/en/alajuela/la-fortuna-de-san-carlos/hotel/nayara-springs" target="_blank" rel="noopener">Three Michelin Keys</a>. <a href="https://www.relaischateaux.com/us/hotel/nayara-springs" target="_blank" rel="noopener">Relais & Chateaux</a>. Ranked the #1 hotel in the world on TripAdvisor. These accolades are the result of a philosophy that treats privacy as architecture.</p>
@@ -183,7 +177,7 @@ export const romanticBlogPost: BlogPostData = {
   ],
   faq: [],
   seo: {
-    metaTitle: "The Science of Romance at Nayara | Adults-Only Springs & Bocas + Desert & Island Romance at Alto Atacama & Hangaroa | Nayara Journal",
+    metaTitle: "Romance at Nayara | Adults-Only Springs & Bocas + Desert & Island Romance at Alto Atacama & Hangaroa | Nayara Journal",
     metaDescription: "Research shows novel shared experiences deepen love. Discover what adults-only means at Nayara Springs and Bocas del Toro, and how the Atacama Desert and Easter Island create romance through subtraction and shared wonder.",
   },
 };
