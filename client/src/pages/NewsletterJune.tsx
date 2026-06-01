@@ -27,17 +27,24 @@ export default function NewsletterJune() {
 
       {/* ── INTRO ── */}
       <section className="bg-[#f7f5f0]">
-        <div className="px-8 md:px-16 pt-6 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
+        <div className="px-8 md:px-16 pt-6 pb-14 text-center max-w-2xl mx-auto">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-8">
             Nayara Newsletter &nbsp;&middot;&nbsp; June 2026
           </p>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
-            This month, we launch something we have been working toward for
-            years: a partnership to rebuild one of the Caribbean's most
-            threatened ocean habitats from the foundation up. We also celebrate
-            romance across four extraordinary properties, and publish the
-            longest editorial we have ever written about what summer actually
-            is and why it belongs to you.
+          <h1
+            className="text-2xl md:text-[30px] leading-[1.25] mb-6"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            The Summer of Action
+          </h1>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-5">
+            Somewhere beneath the overwater villas in Bocas del Toro, a city is being built. Not for guests. For coral. For fish. For an ecosystem that lost 80% of itself in fifty years and is now, slowly, being given the architecture to come back.
+          </p>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-5">
+            That is how we are spending this summer. Not watching. Building. And it turns out that is what summer has always been for: the season when you stop negotiating with yourself and do the thing.
+          </p>
+          <p className="text-[15px] text-[#666666] leading-[1.9]">
+            This month: the ocean habitat restoration program we have been working toward for years, a love letter to romance across four properties, and the longest editorial we have ever published about what summer actually is, why it became a season of permission, and why this one belongs to you.
           </p>
         </div>
       </section>
