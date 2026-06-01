@@ -315,7 +315,7 @@ function MyStoryContent() {
   return (
     <div className="space-y-8">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-        <h1 className="text-3xl md:text-4xl leading-tight tracking-tight mb-6" style={{ ...display, color: C.deepPlum }}>
+        <h1 className="text-3xl md:text-4xl leading-tight tracking-tight mb-6 text-center" style={{ ...display, color: C.deepPlum }}>
           My Story
         </h1>
         <div className="flex justify-center mb-8">
