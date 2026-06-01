@@ -40,28 +40,28 @@ const LOGO_URL = "/manus-storage/sylvia-badge-100_dd58ef89.png";
 const SERVICES = [
   {
     title: "EMDR",
-    subtitle: "Eye Movement Desensitization and Reprocessing",
-    description: "Sometimes you can understand something completely and still feel it as if it just happened. That gap between knowing and feeling is where EMDR works. It uses gentle bilateral stimulation to help the thinking and feeling parts of the brain process together. Instead of talking around a painful memory, we work with it directly. Not by reliving it, but by helping the brain do what it was always trying to do: process it and move forward. Most people notice how differently an old memory can feel when it no longer carries the same charge.",
+    subtitle: "",
+    description: "Sometimes you can understand something completely \u2014 and still feel it as if it just happened. That gap between knowing and feeling is where EMDR works. EMDR uses gentle bilateral stimulation \u2014 tapping, eye movements, or sound \u2014 to help the thinking and feeling parts of the brain process together. Instead of talking around a painful memory, we work with it directly. Not by reliving it, but by helping the brain do what it was always trying to do: process it and move forward. Most people notice how differently an old memory can feel when it no longer carries the same charge.",
   },
   {
     title: "IFS",
     subtitle: "Internal Family Systems",
-    description: "You've probably noticed that different parts of you want different things. One part is exhausted and wants rest. Another says there's no time. One part wants to be closer to the people you love. Another doesn't quite know how. This isn't a contradiction. It's how the mind organizes itself. In our work, we get curious about these parts instead of fighting them. We look at where they came from, what they've been trying to protect, and what they need now. That shift from inner conflict to understanding is often where lasting change begins.",
+    description: "You've probably noticed that different parts of you want different things. One part is exhausted and wants rest. Another says there's no time. One part wants to be closer to the people you love. Another doesn't quite know how. This isn't a contradiction. It's how the mind organizes itself. In our work, we get curious about these parts instead of fighting them. We look at where they came from, what they've been trying to protect, and what they need now. That shift \u2014 from inner conflict to understanding \u2014 is often where lasting change begins.",
   },
   {
     title: "Trauma-Informed Hypnotherapy",
     subtitle: "",
-    description: "Hypnotherapy is not what you've seen on television. You're not asleep. You're not under anyone's control. You're simply in a deeply relaxed, focused state where the overthinking mind steps back and something deeper becomes accessible. In that state, the brain becomes more open to change. An old emotional imprint can be updated. Not erased. Updated. The memory stays, but the weight it carries can shift. For people who have spent years thinking their way through everything, this often reaches what thinking alone cannot.",
+    description: "Hypnotherapy is not what you've seen on television. You're not asleep. You're not under anyone's control. You're simply in a deeply relaxed, focused state \u2014 one where the overthinking mind steps back and something deeper becomes accessible. In that state, the brain becomes more open to change \u2014 what neuroscience calls memory reconsolidation. An old emotional imprint can be updated. Not erased. Updated. The memory stays, but the weight it carries can shift. For people who have spent years thinking their way through everything, this often reaches what thinking alone cannot.",
   },
   {
     title: "Ketamine-Assisted Therapy",
     subtitle: "",
-    description: "Ketamine-Assisted Therapy combines the effects of ketamine with the support of psychotherapy. It creates a temporary window where the brain becomes more open, where stuck patterns can loosen and new perspectives can emerge. Within a therapeutic setting, this can allow you to access insight, process difficult emotional states, and shift patterns that have felt hard to move. It's not a standalone experience. The work before and after, making sense of what comes up and integrating it, is what allows the change to last.",
+    description: "Ketamine-Assisted Therapy combines the effects of ketamine with the support of psychotherapy. It creates a temporary window where the brain becomes more open \u2014 where stuck patterns can loosen and new perspectives can emerge. Within a therapeutic setting, this can allow you to access insight, process difficult emotional states, and shift patterns that have felt hard to move. It's not a standalone experience. The work before and after \u2014 making sense of what comes up and integrating it \u2014 is what allows the change to last.",
   },
   {
     title: "PDP Behavioral Assessment",
     subtitle: "",
-    description: "Sometimes the most useful place to start is understanding how you're wired. The PDP ProScan is a behavioral assessment that shows how you naturally think, make decisions, communicate, and respond under pressure, and where the gap is between who you are and who you feel you need to be. I use this with individuals, couples, and organizations. It's especially useful for people in leadership roles who want a clearer picture of how their patterns affect the people around them.",
+    description: "Sometimes the most useful place to start is understanding how you're wired. The PDP ProScan is a behavioral assessment that shows how you naturally think, make decisions, communicate, and respond under pressure \u2014 and where the gap is between who you are and who you feel you need to be. I use this with individuals, couples, and organizations. It's especially useful for people in leadership roles who want a clearer picture of how their patterns affect the people around them.",
   },
   {
     title: "CE Workshops",
@@ -90,19 +90,27 @@ export default function Sylvia() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl md:text-3xl lg:text-4xl leading-[1.2] tracking-tight mb-5"
+            className="text-2xl md:text-3xl lg:text-4xl leading-[1.2] tracking-tight mb-3"
             style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
           >
-            Hi, I'm Sylvia.
+            Towards Living
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-sm md:text-base tracking-[0.08em] uppercase mb-6"
+            style={{ color: COLORS.textSecondary }}
+          >
+            Because success and fulfillment don't always arrive together.
+          </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-4"
           >
-            <p className="text-base md:text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>I'm a licensed trauma therapist helping high-functioning people feel more emotionally connected, internally at ease, and genuinely fulfilled.</p>
-            <p className="text-base md:text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>I'm told I'm warm, direct, and occasionally funny. Originally from Germany. Still get unreasonably excited about mossy forests.</p>
+            <p className="text-base md:text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>Therapy for high-functioning individuals seeking more connection, clarity, and ease within the life they've already built.</p>
           </motion.div>
         </div>
       </section>
@@ -530,9 +538,10 @@ function ContentBoxes() {
             </h2>
             <div className="space-y-4 text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
               <p>This work goes beyond insight.</p>
-              <p>You may notice yourself pausing before responding. The internal dialogue softens, and you stop being quite so hard on yourself, and often on others, too. Relationships begin to feel less tense and more emotionally fulfilling.</p>
+              <p>You may notice yourself pausing before responding. The internal dialogue softens, and you stop being quite so hard on yourself — and often on others, too. Relationships begin to feel less tense and more emotionally fulfilling.</p>
               <p>Over time, you may stop living so automatically. You begin expressing your feelings more honestly, carrying less responsibility for everyone else, and trusting yourself more in the way you navigate relationships and life.</p>
-              <p>Not because you thought your way through it, but because something underneath has shifted.</p>
+              <p>My clients often find themselves feeling less emotionally exhausted, more connected to what matters, and more able to recognize the relationships and ways of living that genuinely support them.</p>
+              <p>Not because you thought your way through it — but because something underneath has shifted.</p>
             </div>
           </div>
         </div>
@@ -559,7 +568,7 @@ function ContentBoxes() {
             </h2>
             <div className="space-y-4 text-base md:text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>
               <p>My work is relational, depth-oriented, and grounded in the belief that meaningful change happens when people feel safe enough to understand themselves differently.</p>
-              <p>Over time, people often find themselves reacting less automatically, relating more honestly, and feeling more connected to themselves and the lives they've built. Not because they became someone new, but because the relationship they have with themselves has changed.</p>
+              <p>Over time, people often find themselves reacting less automatically, relating more honestly, and feeling more connected to themselves and the lives they've built. Not because they became someone new — but because the relationship they have with themselves has changed.</p>
             </div>
           </div>
         </div>
@@ -591,20 +600,12 @@ function VideoMomentSection() {
               className="text-2xl md:text-3xl leading-tight mb-6"
               style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
             >
-              Healing is not a straight line.
+              Hello, I'm Sylvia
             </h2>
-            <p
-              className="text-base leading-relaxed mb-5"
-              style={{ color: COLORS.textSecondary }}
-            >
-              It moves like water — sometimes rushing forward, sometimes pooling in stillness. Both are part of the process.
-            </p>
-            <p
-              className="text-base leading-relaxed"
-              style={{ color: COLORS.textSecondary }}
-            >
-              My work honors that rhythm. We don't force breakthroughs. We create the conditions where they become possible.
-            </p>
+            <div className="space-y-4 text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
+              <p>I'm a licensed trauma therapist helping high-functioning people feel more emotionally connected, internally at ease, and genuinely fulfilled.</p>
+              <p>Warm, direct, and occasionally funny. Originally from Germany. Still get unreasonably excited about mossy forests.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -639,11 +640,14 @@ function ServicesSection() {
           {/* Accordion */}
           <div className="order-1 md:order-2">
             <h2
-              className="text-2xl md:text-3xl mb-10"
+              className="text-2xl md:text-3xl mb-3"
               style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
             >
               Services
             </h2>
+            <p className="text-sm leading-relaxed mb-8" style={{ color: COLORS.textSecondary }}>
+              There is no single path through this work. What I use depends on you — where you are, what you're carrying, and what your system needs to shift.
+            </p>
 
             <div className="space-y-0">
               {SERVICES.map((service, i) => (
@@ -809,15 +813,6 @@ function HowIWorkSection() {
    ABOUT SECTION — "Therapy does not have to feel clinical"
    ═══════════════════════════════════════════════════════════════ */
 function AboutSection() {
-  const challenges = [
-    "Emotional overwhelm",
-    "Burnout and performance pressure",
-    "Life transitions and identity shifts",
-    "Relationship patterns and attachment",
-    "Trauma and unresolved past experiences",
-    "A longing for more calm, clarity, and agency",
-  ];
-
   return (
     <section
       id="approach"
@@ -832,41 +827,21 @@ function AboutSection() {
               className="text-2xl md:text-3xl leading-tight mb-8"
               style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
             >
-              Therapy does not have to feel clinical.
+              About Me
             </h2>
-            <p
-              className="text-base leading-relaxed mb-8"
-              style={{ color: COLORS.textSecondary }}
-            >
-              I help people understand the deeper patterns shaping their thoughts, emotions, and relationships — especially when those patterns have been difficult to change.
-            </p>
-            <p
-              className="text-sm tracking-[0.06em] uppercase mb-4 font-medium"
-              style={{ color: COLORS.slate }}
-            >
-              I work with people navigating:
-            </p>
-            <ul className="space-y-3">
-              {challenges.map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-3 text-sm leading-relaxed"
-                  style={{ color: COLORS.textSecondary }}
-                >
-                  <span
-                    className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
-                    style={{ backgroundColor: COLORS.slate }}
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-4 text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
+              <p>Becoming a therapist was not my original plan — but understanding people always was.</p>
+              <p>I've long been drawn to what lives beneath the surface — the patterns we repeat, the emotions we carry, the ways life shapes us before we fully realize it.</p>
+              <p>I came to this work as a human first, and a therapist second. Parts of my own journey felt difficult to make sense of at times. What made the difference was the support of others — a small but meaningful village I remain deeply grateful for. It taught me something I now see every day in this work: people heal through connection, not isolation.</p>
+              <p>That understanding shapes how I work. The emotions we avoid are often connected to the patterns that keep us stuck. Not something to push through, but something worth getting curious about.</p>
+              <p>After years of sitting with people in some of their hardest moments, I've learned that change is possible, even when it doesn't feel that way at first. Not all at once, and not through willpower or performance — but gradually, in ways that begin to feel real and lasting.</p>
+            </div>
           </div>
 
           {/* Image — desktop only */}
           <div className="hidden md:block">
             <img
-          loading="lazy"
+              loading="lazy"
               src={IMAGES.about}
               alt="Therapeutic environment"
               className="w-full h-[400px] md:h-[550px] object-cover rounded-sm"
@@ -918,9 +893,9 @@ function PhilosophySection() {
           {/* Image — desktop only */}
           <div className="hidden md:block">
             <img
-          loading="lazy"
+              loading="lazy"
               src={IMAGES.philosophy}
-              alt="Calm interior"
+              alt="Nature and presence"
               className="w-full h-[400px] md:h-[500px] object-cover rounded-sm"
             />
           </div>
@@ -931,20 +906,12 @@ function PhilosophySection() {
               className="text-2xl md:text-3xl leading-tight mb-8"
               style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
             >
-              Resilience does not roar — it hums.
+              Outside the therapy room
             </h2>
-            <p
-              className="text-base leading-relaxed mb-6"
-              style={{ color: COLORS.textSecondary }}
-            >
-              It lives in the quiet ways we keep going, even when life feels uncertain or painful.
-            </p>
-            <p
-              className="text-base leading-relaxed"
-              style={{ color: COLORS.textSecondary }}
-            >
-              The work I do is grounded in the belief that healing doesn't come from bypassing pain or chasing perfection. It comes from shifting from wish-based optimism to reality-based hope.
-            </p>
+            <div className="space-y-4 text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
+              <p>Outside of the therapy room, I go looking for mossy patches. I slow down in the ways I always have — in nature, often with my family beside me. We travel when we can, usually drawn to deep green forests, old trees, and a good local meal we'll later try to recreate at home. I've also taken up pencil drawing, with results that continue to keep me humble.</p>
+              <p>I've come to value the quiet in between — a morning stretch, waves nearby, the first signs of something new growing. Those moments matter. Because presence in the therapy room starts with being present in my own life.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1023,8 +990,11 @@ function CTASection() {
         >
           It starts with one conversation
         </h2>
-        <p className="text-white/80 text-base leading-relaxed mb-10 max-w-lg mx-auto">
+        <p className="text-white/80 text-base leading-relaxed mb-4 max-w-lg mx-auto">
           A free 15-minute consultation is a simple first step. Hear my voice, ask your questions — and we'll see if it feels like a good place to land.
+        </p>
+        <p className="text-white/60 text-sm leading-relaxed mb-10 max-w-lg mx-auto italic">
+          In person or virtual — because good therapy shouldn't require two hours in traffic.
         </p>
         <a
           href="mailto:hello@humbeing.com?subject=Website%20Inquiry%20-%20Initial%20Consultation"
@@ -1216,14 +1186,10 @@ function FooterSection() {
           </button>
         </form>
 
-        {/* Book consult CTA */}
-        <a
-          href="mailto:hello@humbeing.com?subject=Website%20Inquiry%20-%20Initial%20Consultation"
-          className="inline-block px-6 py-3 text-xs tracking-[0.12em] uppercase text-white rounded-sm transition-opacity hover:opacity-90"
-          style={{ backgroundColor: COLORS.blush, fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
-        >
-          Book a 15-Minute Consult
-        </a>
+        {/* Virtual/In-person note */}
+        <p className="text-sm italic" style={{ color: COLORS.textSecondary }}>
+          In person or virtual — because good therapy shouldn't require two hours in traffic.
+        </p>
 
         <div className="mt-12 pt-8" style={{ borderTop: `1px solid ${COLORS.divider}` }}>
           <p className="text-[10px] tracking-[0.1em] uppercase" style={{ color: COLORS.textSecondary, opacity: 0.5 }}>
