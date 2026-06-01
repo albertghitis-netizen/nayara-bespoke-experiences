@@ -70,6 +70,7 @@ const MayaRapaNuiClimateBlog = lazy(() => import("./pages/MayaRapaNuiClimateBlog
 const SunlitSustainabilityBlog = lazy(() => import("./pages/SunlitSustainabilityBlog"));
 const SoloTravelFemaleBlog = lazy(() => import("./pages/SoloTravelFemaleBlog"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
+const SummerOfYouBlog = lazy(() => import("./pages/SummerOfYouBlog"));
 // ToucansArenalBlog and TreehouseDreamsBlog deleted — stubs removed
 const StargazingAtacamaBlog = lazy(() => import("./pages/StargazingAtacamaBlog"));
 const EdgeHabitabilityBlog = lazy(() => import("./pages/EdgeHabitabilityBlog"));
@@ -299,6 +300,7 @@ function Router() {
           <Route path="/blog/solo-travel-female" component={SoloTravelFemaleBlog} />
           <Route path="/blog/arenal-timeless-wonder" component={ArenalTimelessWonderBlog} />
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
+          <Route path="/blog/summer-of-you" component={SummerOfYouBlog} />
           {/* /blog/toucans-arenal and /blog/treehouse-dreams removed — content merged into birdwatching blog */}
           <Route path="/blog/stargazing-atacama" component={StargazingAtacamaBlog} />
           <Route path="/blog/edge-habitability" component={EdgeHabitabilityBlog} />

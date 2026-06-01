@@ -97,6 +97,17 @@ function destToProperty(dest: string): JournalProperty {
 // ─── Blog Articles ───────────────────────────────────────────
 const blogArticles: JournalEntry[] = [
   {
+    id: "summer-of-you",
+    title: "The Summer of You",
+    url: "/blog/summer-of-you",
+    property: "brand",
+    type: "article",
+    image: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
+    excerpt: "This summer doesn't need to be perfect. It just needs to be yours. An editorial on choosing yourself, slowing down, and doing the thing you've been putting off.",
+    featured: true,
+    date: "2026-06-01",
+  },
+  {
     id: "three-kitchens-one-rainforest",
     title: "Forest to Table: Three Kitchens, One Rainforest",
     url: "/blog/three-kitchens-one-rainforest",
