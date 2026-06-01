@@ -77,13 +77,7 @@ export const romanticBlogPost: BlogPostData = {
 <p>The chef uses hand-selected meats, local seafood pulled directly from the sea that morning, and fresh organic vegetables. This is all-inclusive dining reimagined: not a buffet, but a nightly culinary event where every plate is composed with intention. By day, the poolside Coral Cafe offers alfresco breakfast and lunch with the Caribbean stretching out before you.</p>
 <p>The adults-only, all-inclusive combination is powerful. It means that a couple can order a second bottle of wine without hesitation. It means that room service at midnight feels like a gift, not an expense. It means that the entire culinary world of the island exists to nourish the relationship, not the balance sheet.</p>`,
     },
-    {
-      heading: "Experiences Designed for Connection",
-      content: `<p>At Nayara Springs, the adults-only framework shapes every excursion. The <strong>Sacred Journey Together</strong> ($820 per couple, 2 hours 45 minutes) is a multi-phase spa ritual of connection, relaxation, and renewal that unfolds across private treatment rooms surrounded by rainforest. Ceremonial cacao meditations, couples' yoga at sunrise, and guided nature walks through Arenal Volcano National Park all operate on the assumption that two people are sharing the experience.</p>
-<p>At Nayara Bocas del Toro, the Caribbean provides the canvas. The <strong>Sacred Cacao Tribute</strong> ($300, 2 hours 30 minutes) is a holistic ceremony celebrating Bocas del Toro's 100% pure cacao: fresh cacao exfoliation, warm wrap, hot stone massage, and a conclusion of tropical fruits, artisanal chocolates, and Champagne. Private boat excursions with your own captain take you to untouched beaches on Zapatilla Island. Bioluminescent kayaking after dark transforms the ocean into liquid starlight.</p>
-<p>In both settings, the adults-only promise means that these experiences are never diluted. There is no family-friendly version. There is no compromise. Every activity is designed at its full depth, for people who came here to be fully present with each other.</p>`,
-      pullQuote: "Romance flourishes when privacy is absolute, when nature is close, and when every detail is handled so couples can focus entirely on each other.",
-    },
+
     {
       heading: "Nayara Alto Atacama: Romance Through Subtraction",
       content: `<p><a href="/alto-atacama">Nayara Alto Atacama</a> approaches romance from an entirely different direction. Where Springs and Bocas create intimacy through curation and exclusivity, the Atacama Desert creates it through subtraction. One of the driest and oldest landscapes on Earth, the desert strips perception down to essentials. And at Nayara Alto Atacama, the desert is not softened, staged, or over-explained. It is allowed to work exactly as intended.</p>
@@ -95,12 +89,7 @@ export const romanticBlogPost: BlogPostData = {
         caption: "The Atacama Desert: romance through subtraction",
       },
     },
-    {
-      heading: "Brown by Day, Black by Night",
-      content: `<p>By day, the Atacama reduces perception to essentials. Brown and rust-red stone. Dry air. Clean horizon lines unbroken by haze, foliage, or movement. Couples often describe the effect as relief. Conversation becomes easier. Pauses feel natural. Time loosens. The Atacama also collapses the soundscape. Acoustic ecologists describe environments like this as low-density sound fields. With fewer competing frequencies, the nervous system stops filtering and starts registering. Voices drop. Movements synchronize. Pauses lengthen without discomfort.</p>
-<p>When the sun drops behind the ridge, the Atacama trades brown for black. Northern Chile's skies are among the clearest on Earth due to altitude, aridity, and atmospheric stability, conditions documented by the <a href="https://www.eso.org/public/teles-instr/paranal-observatory/why-paranal/" target="_blank" rel="noopener">European Southern Observatory</a>. Globally, more than 80 percent of humanity now lives under light-polluted skies, according to <a href="https://darksky.org/resources/what-is-light-pollution/" target="_blank" rel="noopener">DarkSky International</a>. In the Atacama, the Milky Way remains intact, structured, and slow-moving. Without visual distraction, attention narrows. Presence intensifies. Under a sky this large, couples orient less toward spectacle and more toward each other.</p>
-<p>For honeymoons, this absence is generative. Connection becomes unforced because nothing competes with it. There is no soundtrack. No highlight moment. No urgency. Romance here is not promised. It is permitted.</p>`,
-    },
+
     {
       heading: "Nayara Hangaroa: Romance at the Edge of the World",
       content: `<p><a href="/hangaroa">Nayara Hangaroa</a> sits on Rapa Nui, the most remote inhabited island on Earth. Three thousand seven hundred kilometers from the Chilean mainland. Two thousand kilometers from the nearest inhabited island. To arrive here together is itself a declaration: we chose the farthest place we could find, and we chose it for each other.</p>
