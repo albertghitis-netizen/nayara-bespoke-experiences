@@ -566,40 +566,40 @@ function WhoIHelpContent() {
   return (
     <div className="space-y-12">
       <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl mb-4" style={{ ...display, color: GREEN.text }}>Who I Help</h1>
+        <h1 className="text-3xl md:text-4xl mb-4" style={{ ...display, color: '#3B2218' }}>Who I Help</h1>
         <img src="/manus-storage/who-i-help-hero_c9d5e875.png" alt="Therapy session illustration" className="w-full max-w-md mx-auto rounded-sm mt-6" />
       </div>
 
-      <div className="space-y-5 text-base leading-relaxed" style={{ ...body, color: GREEN.textSoft }}>
+      <div className="space-y-5 text-base leading-relaxed" style={{ ...body, color: '#4A3228' }}>
         <p>You are good at what you do. Really good.</p>
         <p>From the outside, your life may look successful, stable, even full. You manage a great deal — responsibilities, relationships, expectations, pressure — often without slowing down long enough to notice what it's costing you internally.</p>
         <p>And yet, something still feels off.</p>
         <p>You may feel emotionally exhausted despite functioning well. Disconnected from yourself or the people around you. Stuck in patterns that no longer feel sustainable. Always managing, anticipating, performing, carrying.</p>
-        <p className="italic" style={{ color: GREEN.mid }}>You don't really stop.</p>
+        <p className="italic" style={{ color: '#6B4C3B' }}>You don't really stop.</p>
         <p>Over time, relationships can begin to feel more tense, more distant, or less fulfilling than you want them to. You may notice yourself reacting quickly, shutting down, overthinking, people-pleasing, or feeling responsible for everyone else while quietly neglecting yourself.</p>
         <p>This work is for people who are ready for more than coping. People who want to feel more connected, more present, more emotionally alive — and more at home in the lives they've built.</p>
       </div>
 
-      <div className="mt-10 py-8 px-6 rounded-sm text-center" style={{ backgroundColor: GREEN.soft }}>
-        <p className="text-base italic leading-relaxed" style={{ ...body, color: GREEN.text }}>
+      <div className="mt-10 py-8 px-6 rounded-sm text-center" style={{ backgroundColor: '#F5D5D5' }}>
+        <p className="text-base italic leading-relaxed" style={{ ...body, color: '#3B2218' }}>
           If nothing in your life changed a year from now, would that feel okay?
         </p>
-        <p className="text-sm mt-3" style={{ ...body, color: GREEN.textSoft }}>
+        <p className="text-sm mt-3" style={{ ...body, color: '#4A3228' }}>
           If the answer is no, this may be a place to begin.
         </p>
       </div>
 
       {/* Possibilities section */}
       <div className="mt-16">
-        <h2 className="text-2xl md:text-3xl mb-6" style={{ ...display, color: GREEN.text }}>Possibilities</h2>
-        <p className="text-sm uppercase tracking-widest mb-6" style={{ ...body, color: GREEN.mid }}>This is what I often see happen.</p>
-        <div className="space-y-5 text-base leading-relaxed" style={{ ...body, color: GREEN.textSoft }}>
+        <h2 className="text-2xl md:text-3xl mb-6" style={{ ...display, color: '#3B2218' }}>Possibilities</h2>
+        <p className="text-sm uppercase tracking-widest mb-6" style={{ ...body, color: '#6B4C3B' }}>This is what I often see happen.</p>
+        <div className="space-y-5 text-base leading-relaxed" style={{ ...body, color: '#4A3228' }}>
           <p>The internal noise quiets down. That critical voice that has been running in the background for years begins to lose some of its hold. You start noticing it differently — and over time, relating to yourself with more understanding and less pressure.</p>
           <p>Old reactions don't disappear overnight. The shutting down, the snapping, the quietly carrying everything alone. But they begin to loosen. And when they do, there's more space — for connection in your relationships, more ease within yourself, and a fuller presence in the life you have built.</p>
           <p>The constant pressure to chase the next thing often begins to settle. Not because ambition disappears — but because it's no longer carrying the same emotional weight.</p>
           <p>People often find themselves responding differently — less reactive, more grounded, and more intentional in the way they move through life.</p>
           <p>Decisions begin to come from a clearer place. Not perfect decisions — but ones that feel less driven by pressure, fear, or the need to prove something.</p>
-          <p className="italic" style={{ color: GREEN.mid }}>Not because you became someone new.</p>
+          <p className="italic" style={{ color: '#6B4C3B' }}>Not because you became someone new.</p>
           <p>But because life no longer feels quite so far away from you.</p>
         </div>
       </div>
@@ -730,7 +730,7 @@ export default function SylviaComingSoon() {
       case "/sylvia/triggers":
         return { bg: "#FFFFFF", navColor: GREY.mid };
       case "/sylvia/who-i-help":
-        return { bg: GREEN.pale, navColor: GREEN.mid };
+        return { bg: "#FDE8E8", navColor: "#3B2218" };
       default:
         return {};
     }
