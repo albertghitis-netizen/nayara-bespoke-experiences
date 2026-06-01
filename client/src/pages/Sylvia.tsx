@@ -568,24 +568,11 @@ function VideoMomentSection() {
   return (
     <section className="py-10 md:py-16 px-6 md:px-12">
       <div className="max-w-5xl mx-auto">
-        <div className="relative rounded-sm overflow-hidden shadow-lg">
+        <div className="rounded-sm overflow-hidden shadow-lg">
           <SylviaVideo
-            src="/manus-storage/my-approach-video_28d423bb.mov"
+            src="/manus-storage/my-approach-video_95c8ea6f.mp4"
             className="w-full aspect-[16/9]"
           />
-          <div className="absolute inset-0 flex items-end justify-start p-8 md:p-12 bg-gradient-to-t from-black/50 via-transparent to-transparent">
-            <div>
-              <h2
-                className="text-white text-2xl md:text-3xl leading-tight mb-3"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Hello, I'm Sylvia
-              </h2>
-              <p className="text-white/80 text-sm md:text-base max-w-md leading-relaxed">
-                Warm, direct, and occasionally funny. Originally from Germany. Still get unreasonably excited about mossy forests.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
