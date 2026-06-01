@@ -131,7 +131,7 @@ export default function Sylvia() {
           playsInline
           className="w-full"
         >
-          <source src="/manus-storage/my-approach-video_95c8ea6f.mp4" type="video/mp4" />
+          <source src="/manus-storage/sylvia-hero-16x9_4acbe8d6.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 z-10 pb-16 px-12">
