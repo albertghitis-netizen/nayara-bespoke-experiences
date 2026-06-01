@@ -603,7 +603,7 @@ export default function SylviaComingSoon() {
       case "/sylvia/your-personality":
         return { bg: ROSE.pale, navColor: ROSE.mid };
       case "/sylvia/triggers":
-        return { bg: GREY.pale, navColor: GREY.mid };
+        return { bg: "#FFFFFF", navColor: GREY.mid };
       default:
         return {};
     }
