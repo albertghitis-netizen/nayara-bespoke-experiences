@@ -86,6 +86,13 @@ export default function OceanHabitatRestoration() {
       <ImageBreak />
       <WhatMakesItUnique />
       <GuestExperience />
+      <ThePivot />
+      <CorePhilosophy />
+      <TheMethods />
+      <TimelineResults />
+      <CurrentScale />
+      <EcosystemFraming />
+      <LongTermVision />
       <ClosingCTA />
     </div>
   );
@@ -563,6 +570,440 @@ function GuestExperience() {
   );
 }
 
+
+/* ── THE PIVOT ────────────────────────────────────────────── */
+function ThePivot() {
+  return (
+    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+      <div className="max-w-3xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            The Evolution
+          </p>
+          <h2
+            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            Why Cloning Failed
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The program has been running for 12 years. In the early years, the work focused on cloning corals. But cloning carries a fundamental limitation: the DNA never changes, so the coral cannot adapt to shifting conditions.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Despite transplanting tens of thousands of corals per year, the coral collapsed within three years because there was not enough time for it to develop resilience. Ocean temperatures and conditions changed faster than the cloning approach could keep up with.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            This forced a full pivot in methodology: away from cloning toward resilience-based approaches and habitat creation. The question was no longer "how do we grow more coral?" It became "how do we create the conditions in which coral can save itself?"
+          </p>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ── CORE PHILOSOPHY ─────────────────────────────────────────── */
+function CorePhilosophy() {
+  return (
+    <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.light }}>
+      <div className="max-w-3xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            Core Philosophy
+          </p>
+          <h2
+            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            Create a Foothold for the Coral to Save Themselves
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The coral are the only organisms capable of rebuilding the reef at scale. No human program can replicate what coral does over centuries. The program's role is not to rebuild the reef. It is to give coral the conditions and habitat they need to do it themselves.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The artificial structures function as a temporary stand-in for the habitat that took coral hundreds or thousands of years to build, and which collapsed when the coral died. By the time the artificial structures degrade, the restored coral will have rebuilt natural habitat in its place.
+          </p>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ── THE METHODS ─────────────────────────────────────────────── */
+function TheMethods() {
+  return (
+    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+      <div className="max-w-5xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            The Science
+          </p>
+          <h2
+            className="text-3xl md:text-5xl mb-16 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            Four Methods Working Together
+          </h2>
+        </AnimateOnScroll>
+
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+          {[
+            {
+              title: "Seed Bank / Mother Specimens",
+              body: "Resilient coral specimens are identified and brought into a protected facility. These specimens have already demonstrated an ability to adapt to changing conditions. They are the foundation of all future restoration work.",
+            },
+            {
+              title: "Induced Spawning",
+              body: "Technology exists (used by approximately only 60 organizations worldwide) to induce spawning from these mother specimens, generate offspring, and release them strategically into the water at restoration sites.",
+            },
+            {
+              title: "Translocation",
+              body: "Coral populations have died off and are now too far apart to reproduce naturally. Translocation brings compatible (but not identical) specimens together within viable range of each other. Specimens must be regionally sourced; even the same species from Costa Rica has adapted to a different environment and cannot be exchanged directly.",
+            },
+            {
+              title: "Habitat Creation",
+              body: "Artificial structures are placed in the water column. Even just 2 feet off the sea floor dramatically increases survival rates compared to placing coral directly on the degraded seabed. These structures are built from scientifically selected materials designed for low carbon footprint and maximum longevity. The program is continuously testing new materials.",
+            },
+          ].map((method, i) => (
+            <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.08}>
+              <div>
+                <h3
+                  className="text-xl md:text-2xl mb-4"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+                >
+                  {method.title}
+                </h3>
+                <p
+                  className="text-[16px] leading-[1.9]"
+                  style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+                >
+                  {method.body}
+                </p>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <div className="mt-16 pt-10" style={{ borderTop: `1px solid ${PALETTE.divider}` }}>
+            <h3
+              className="text-xl md:text-2xl mb-4"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+            >
+              Regional Specificity
+            </h3>
+            <p
+              className="text-[16px] leading-[1.9] max-w-3xl"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              Coral must stay regional. The program works exclusively with specimens native to the Bocas del Toro archipelago. Introducing species from other regions, even the same species from elsewhere, risks disrupting the local ecosystem. Cross-regional transfers may be possible in the future but require extensive lab research first.
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.35}>
+          <div className="mt-10 pt-10" style={{ borderTop: `1px solid ${PALETTE.divider}` }}>
+            <h3
+              className="text-xl md:text-2xl mb-4"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+            >
+              Why Habitat Over Coral Count
+            </h3>
+            <p
+              className="text-[16px] leading-[1.9] max-w-3xl"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              The story is no longer about how many corals were transplanted. It is about biodiversity and biomass in a given area. The CCRC has developed a structured program to track what happens to each structure over time: film transfers into a database that generates data curves and measurable outcomes. The numbers consistently show increasing biodiversity and biomass as the ecosystems mature.
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.4}>
+          <div className="mt-10 pt-10" style={{ borderTop: `1px solid ${PALETTE.divider}` }}>
+            <h3
+              className="text-xl md:text-2xl mb-4"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+            >
+              Types of Coral
+            </h3>
+            <p
+              className="text-[16px] leading-[1.9] max-w-3xl"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              There are many types of coral: soft corals, fan corals, rod corals. But CCRC specifically works with habitat-building corals. These are the species that form the structural foundation of the entire ocean ecosystem. Soft and fan corals may attach to or near the structures, but they are not the backbone that the total system relies on.
+            </p>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ── TIMELINE & RESULTS ──────────────────────────────────────── */
+function TimelineResults() {
+  return (
+    <section style={{ backgroundColor: PALETTE.ocean }}>
+      <div className="max-w-5xl mx-auto px-8 md:px-16 py-20 md:py-28">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
+          >
+            Timeline & Results
+          </p>
+          <h2
+            className="text-3xl md:text-4xl mb-16 text-white"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            What Happens After a Structure Is Placed
+          </h2>
+        </AnimateOnScroll>
+
+        <div className="grid md:grid-cols-2 gap-12">
+          {[
+            {
+              time: "Immediately",
+              text: "Fish move in almost immediately. They can always swim away, so they are the first to explore. Some resident fish have been observed at the same structures for years: an angelfish at one of the Nayara sites, a cowfish named 'Bob' at another.",
+            },
+            {
+              time: "Weeks to Months",
+              text: "Invertebrates, sponges, and other sea life that attach are more selective. They assess the environment before committing. Then the other corals will grow in 2-3 years.",
+            },
+            {
+              time: "Year 1",
+              text: "Coral spawning in the Bocas del Toro area occurs once a year, in late August. If structures are placed before the spawn, baby coral may attach in the first cycle.",
+            },
+            {
+              time: "Year 2-3",
+              text: "Visible coral growth is present. Knobby brain coral and other species are currently attaching to structures. In earlier years this was visible when bleaching events revealed white spots: coral that had secretly attached and then stressed. These were quarter-size to softball-size circles across the structures.",
+            },
+          ].map((item, i) => (
+            <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.08}>
+              <div>
+                <span
+                  className="text-[12px] uppercase tracking-[0.2em] mb-3 block"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
+                >
+                  {item.time}
+                </span>
+                <p
+                  className="text-[15px] leading-[1.85]"
+                  style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
+                >
+                  {item.text}
+                </p>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <p
+            className="mt-14 text-[16px] leading-[1.9] max-w-3xl"
+            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
+          >
+            The surrounding reef zone amplifies results. Older, more established zones create energy that attracts more life, not just within the structure but in the surrounding area.
+          </p>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ── CURRENT SCALE AT NAYARA ─────────────────────────────────── */
+function CurrentScale() {
+  return (
+    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+      <div className="max-w-4xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            Current Scale
+          </p>
+          <h2
+            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            17 Habitats and Growing
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-10"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            There are currently 17 habitats in the Nayara Bocas del Toro area, deployed across three phases:
+          </p>
+        </AnimateOnScroll>
+
+        <div className="space-y-10">
+          {[
+            {
+              phase: "Phase 1",
+              title: "Under the Water Villas",
+              body: "Structures placed directly beneath the overwater villas. Originally designed to give guests something beautiful to see from their rooms. Now recognized as critical awareness infrastructure: guests witness the restoration every day of their stay.",
+            },
+            {
+              phase: "Phase 2",
+              title: "The Outer Reef",
+              body: "A real reef established just outside the property boundary. Already showing strong results with measurable increases in biodiversity and biomass.",
+            },
+            {
+              phase: "Phase 3",
+              title: "Net-Zero Floating Villas",
+              body: "Planned for one of the bays, with individual structures between the floating villas. The goal: coral offsets that neutralize carbon emissions from the villas, creating a completely net-zero, net-positive floating villa. If successful, it would be the only one in the world.",
+            },
+          ].map((phase, i) => (
+            <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.08}>
+              <div className="pl-6" style={{ borderLeft: `2px solid ${PALETTE.accent}` }}>
+                <span
+                  className="text-[11px] uppercase tracking-[0.2em] mb-2 block"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+                >
+                  {phase.phase}
+                </span>
+                <h3
+                  className="text-xl md:text-2xl mb-3"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+                >
+                  {phase.title}
+                </h3>
+                <p
+                  className="text-[16px] leading-[1.9]"
+                  style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+                >
+                  {phase.body}
+                </p>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── ECOSYSTEM FRAMING ───────────────────────────────────────── */
+function EcosystemFraming() {
+  return (
+    <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.light }}>
+      <div className="max-w-3xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            Ecosystem Framing
+          </p>
+          <h2
+            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            When the Sharks Come Back, You Know It Is Working
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            This is coral habitat restoration, not coral reef restoration. The distinction matters. Coral reefs are the backbone of the entire ocean ecosystem. Healthy coral enables all other marine life to return.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Nurse sharks and other apex predators have returned to the Nayara restoration sites. This is the most reliable indicator of a healthy, functioning ecosystem. Predators are only present because their prey has returned. Prey returned because the coral came back.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The analogy: like keystone species in a rainforest, when the foundational habitat is healthy, everything else follows. One habitat even became home to a Caribbean king crab colony, something the founder had never seen before in decades of reef work. First of its kind.
+          </p>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ── LONG-TERM VISION ────────────────────────────────────────── */
+function LongTermVision() {
+  return (
+    <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+      <div className="max-w-3xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            Long-Term Vision
+          </p>
+          <h2
+            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            A Continuous Reef Across the Archipelago
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The ultimate goal is to connect and create a continuous reef system throughout the entire Bocas del Toro archipelago. Not isolated patches. A living corridor.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Nayara intends to use this as a model for luxury hotels and institutions globally. If a resort can demonstrate that its operations actively restore the ecosystem it sits within, rather than merely minimizing harm, it changes the calculus for the entire industry.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The floating villa net-zero goal is a near-term milestone that anchors the larger vision. Proof that luxury and restoration are not in tension. They are the same project.
+          </p>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
 
 /* ── CLOSING CTA ──────────────────────────────────────────── */
 function ClosingCTA() {
