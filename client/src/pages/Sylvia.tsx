@@ -16,11 +16,11 @@ const COLORS = {
   dustyRose: "#D4A99A",     /* warm dusty rose — accents */
   blush: "#1F4D3A",         /* deep forest green — CTAs, nav pills */
   sage: "#9FC3B2",          /* sage mint — secondary accents */
-  slate: "#3D4A47",         /* dark forest-grey — headings */
-  charcoal: "#0D2F24",      /* deepest green-black — body text */
+  slate: "#2C1810",         /* very dark brown — headings */
+  charcoal: "#1A0F0A",      /* near-black brown — body text */
   /* Semantic aliases */
-  text: "#3D4A47",
-  textSecondary: "#4F8F75",
+  text: "#2C1810",
+  textSecondary: "#4A3228",
   divider: "#9FC3B2",
   accent: "#E8E3DA",        /* warm sand tint for section backgrounds */
 };
@@ -131,8 +131,8 @@ export default function Sylvia() {
 
       {/* 5. How I Work */}
       <HowIWorkSection />
-      {/* Media 5: video #4 */}
-      <MobileMediaBreak src="/manus-storage/sylvia-video-4_14ad8643.mp4" type="video" />
+      {/* Media 5: spa reel video */}
+      <MobileMediaBreak src="/manus-storage/spa-reel4-new_04883a69.mp4" type="video" />
 
       {/* 6. About */}
       <AboutSection />
@@ -572,7 +572,7 @@ function ContentBoxes() {
    ═══════════════════════════════════════════════════════════════ */
 function VideoMomentSection() {
   return (
-    <section className="py-14 md:py-20 px-6 md:px-12">
+    <section className="py-14 md:py-20 px-6 md:px-12" style={{ backgroundColor: '#F0F5F2' }}>
       <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* Vertical video */}
@@ -620,7 +620,7 @@ function ServicesSection() {
     <section
       id="services"
       className="py-14 md:py-20 px-6 md:px-12"
-      style={{ backgroundColor: COLORS.accent }}
+      style={{ backgroundColor: '#F5F0F7' }}
     >
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
@@ -763,7 +763,7 @@ function HowIWorkSection() {
   ];
 
   return (
-    <section className="py-14 md:py-20 px-6 md:px-12" style={{ backgroundColor: COLORS.accent }}>
+    <section className="py-14 md:py-20 px-6 md:px-12" style={{ backgroundColor: '#F0F5F2' }}>
       <div className="max-w-4xl mx-auto">
         <h2
           className="text-2xl md:text-3xl leading-tight mb-12 text-center"
@@ -820,7 +820,7 @@ function AboutSection() {
     <section
       id="approach"
       className="py-14 md:py-20 px-6 md:px-12"
-      style={{ backgroundColor: COLORS.accent }}
+      style={{ backgroundColor: '#F5F0F7' }}
     >
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
