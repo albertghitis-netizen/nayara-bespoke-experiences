@@ -499,7 +499,15 @@ function MobileMediaBreak({ src, type, alt }: { src: string; type: "video" | "im
     <section className="md:hidden px-4 py-6">
       <div className="rounded-sm overflow-hidden shadow-md">
         {type === "video" ? (
-          <SylviaVideo src={src} className="w-full object-cover aspect-[3/4]" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full object-cover aspect-[3/4]"
+          >
+            <source src={src} type="video/mp4" />
+          </video>
         ) : (
           <img
             loading="lazy"
@@ -522,10 +530,15 @@ function MobileMediaFlow() {
     <section className="md:hidden px-4 py-10">
       {/* Single intro video — purple flower */}
       <div className="rounded-sm overflow-hidden shadow-md">
-        <SylviaVideo
-          src="/manus-storage/sylvia-video-flowers-only_02f74dba.mp4"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full object-cover aspect-[3/4]"
-        />
+        >
+          <source src="/manus-storage/sylvia-video-flowers-only_02f74dba.mp4" type="video/mp4" />
+        </video>
       </div>
     </section>
   );
@@ -875,10 +888,15 @@ function WaterfallVideoSection() {
       <div className="max-w-5xl mx-auto">
         {/* Desktop — 16:9 horizontal */}
         <div className="hidden md:block relative rounded-sm overflow-hidden shadow-lg">
-          <SylviaVideo
-            src="/manus-storage/sylvia-waterfall_68b3ab73.mp4"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full aspect-[16/9]"
-          />
+          >
+            <source src="/manus-storage/sylvia-waterfall_68b3ab73.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 flex items-end justify-start p-8 md:p-12 bg-gradient-to-t from-black/40 via-transparent to-transparent">
             <p
               className="text-white text-lg md:text-2xl leading-tight max-w-md"
@@ -963,10 +981,15 @@ function FirstSessionSection() {
 
           {/* Video — desktop: 16:9 horizontal */}
           <div className="hidden md:block rounded-sm overflow-hidden shadow-lg">
-            <SylviaVideo
-              src="/manus-storage/sylvia-nature-2_ad910d95.mp4"
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
               className="w-full aspect-[16/9]"
-            />
+            >
+              <source src="/manus-storage/sylvia-nature-2_ad910d95.mp4" type="video/mp4" />
+            </video>
           </div>
 
 
