@@ -7,7 +7,6 @@
  */
 
 import { motion } from "framer-motion";
-import { Link } from "wouter";
 
 import {
   AnimateOnScroll,
@@ -226,6 +225,20 @@ function TheGlobalCrisis() {
           >
             Over 50% of the world's coral reefs have been lost since the 1950s. Scientists estimate that without significant intervention, the majority of the world's remaining reefs could be functionally extinct within decades. Coral reefs cover less than 1% of the ocean floor but support an estimated 25% of all marine species and the livelihoods of more than a billion people.
           </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <div className="mt-12 max-w-2xl mx-auto">
+            <img
+              src="/manus-storage/coral-bleaching-infographic_427e7440.png"
+              alt="The Extent of Global Coral Bleaching Events: share of coral reefs worldwide that experienced heat stress causing bleaching, by declared event (1998-present). Source: State of the Oceans 2024 via Statista."
+              className="w-full h-auto rounded"
+              loading="lazy"
+            />
+            <p className="text-[12px] mt-3 text-center" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted, opacity: 0.7 }}>
+              Source: State of the Oceans 2024 via Statista
+            </p>
+          </div>
         </AnimateOnScroll>
       </div>
     </section>
@@ -674,8 +687,10 @@ function ClosingCTA() {
             Every guest at Nayara Bocas del Toro has the opportunity to contribute to the ocean habitat's recovery. Arrange your restoration experience through our concierge.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/bocas-del-toro"
+            <a
+              href="https://www.nayarabocasdeltoro.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 py-4 text-[12px] uppercase tracking-[0.12em] transition-all duration-300 hover:-translate-y-0.5"
               style={{
                 backgroundColor: PALETTE.accent,
@@ -685,7 +700,7 @@ function ClosingCTA() {
               }}
             >
               Explore Bocas del Toro
-            </Link>
+            </a>
             <a
               href="https://loveforthesea.com"
               target="_blank"
