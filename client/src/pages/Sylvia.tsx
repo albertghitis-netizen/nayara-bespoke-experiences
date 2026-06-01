@@ -123,20 +123,18 @@ export default function Sylvia() {
       </section>
 
       {/* DESKTOP: Video hero with text overlay — same style as mobile */}
-      <section className="hidden md:block relative h-[85vh] overflow-hidden">
-        <div className="absolute inset-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src="/manus-storage/my-approach-video_95c8ea6f.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30" />
-        </div>
-        <div className="relative z-10 h-full flex flex-col justify-end pb-16 px-12">
+      <section className="hidden md:block relative overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full"
+        >
+          <source src="/manus-storage/my-approach-video_95c8ea6f.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 z-10 pb-16 px-12">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -537,20 +535,9 @@ function ContentBoxes() {
     <section className="py-14 md:py-20 px-6 md:px-12">
       <div className="max-w-5xl mx-auto space-y-20 md:space-y-28">
 
-        {/* My Approach — full-width text with background image */}
-        <div className="relative rounded-sm overflow-hidden py-16 md:py-20 px-8 md:px-14 text-center">
-          {/* Background image */}
-          <div className="absolute inset-0">
-            <img
-              src="/manus-storage/sylvia-approach-bg_f149eeef.jpg"
-              alt=""
-              className="w-full h-full object-cover"
-            />
-            {/* Semi-transparent overlay for readability */}
-            <div className="absolute inset-0" style={{ backgroundColor: 'rgba(240, 247, 244, 0.82)' }} />
-          </div>
-          {/* Content */}
-          <div className="relative z-10 max-w-3xl mx-auto">
+        {/* My Approach — plain text section */}
+        <div className="py-16 md:py-20 px-8 md:px-14 text-center">
+          <div className="max-w-3xl mx-auto">
             <h2
               className="text-2xl md:text-3xl leading-tight mb-6"
               style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
