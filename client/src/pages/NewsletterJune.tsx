@@ -35,16 +35,16 @@ export default function NewsletterJune() {
             className="text-2xl md:text-[30px] leading-[1.25] mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
-            The Summer of Action
+            The Summer of You
           </h1>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-5">
-            Somewhere beneath the overwater villas in Bocas del Toro, a city is being built. Not for guests. For coral. For fish. For an ecosystem that lost 80% of itself in fifty years and is now, slowly, being given the architecture to come back.
+            Beneath our overwater villas in Bocas del Toro, a city is being built. Not for guests. For coral. For fish. For an ecosystem that lost 80% of itself in fifty years and is now being given the architecture to come back.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-5">
-            That is how we are spending this summer. Not watching. Building. And it turns out that is what summer has always been for: the season when you stop negotiating with yourself and do the thing.
+            This is what summer is for. Not watching. Building. Not planning. Doing. The season when you stop negotiating with yourself about whether now is the right time.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9]">
-            This month: the ocean habitat restoration program we have been working toward for years, a love letter to romance across four properties, and the longest editorial we have ever published about what summer actually is, why it became a season of permission, and why this one belongs to you.
+            This month: a reef restoration program twelve years in the making, romance across four properties, and the longest editorial we have ever published about what summer actually is and why this one belongs to you.
           </p>
         </div>
       </section>
