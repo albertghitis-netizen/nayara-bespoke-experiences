@@ -383,6 +383,13 @@ function BlogContent() {
         <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Blog</h1>
         <p className="text-sm mt-2 opacity-60" style={body}>Thoughts on trauma, recovery, and living well.</p>
       </div>
+      <div className="flex justify-center">
+        <img
+          src="/manus-storage/blog-hero-brain_6c3353f1.png"
+          alt="Brain and neural waves"
+          className="w-full max-w-2xl rounded-xl object-contain"
+        />
+      </div>
       <div className="space-y-3">
         {blogPosts.map((post) => (
           <a
