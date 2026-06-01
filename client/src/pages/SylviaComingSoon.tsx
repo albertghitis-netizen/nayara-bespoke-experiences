@@ -318,6 +318,9 @@ function MyStoryContent() {
         <h1 className="text-3xl md:text-4xl leading-tight tracking-tight mb-6" style={{ ...display, color: C.deepPlum }}>
           My Story
         </h1>
+        <div className="flex justify-center mb-8">
+          <img src="/manus-storage/my-story-header_aafe862c.png" alt="Sylvia - therapist portrait" className="w-full max-w-xs rounded-sm" />
+        </div>
         <div className="space-y-5 text-sm md:text-base leading-relaxed" style={{ ...body, color: C.textSoft }}>
           <p>
             I arrived in the United States at seventeen with a suitcase, a few hundred dollars, and no one waiting for me at the airport. I had left Germany not because I wanted adventure, but because staying felt impossible. The details of why are mine, but the shape of it is something many of my clients recognize: a home that looked fine from the outside and felt unbearable from within.
