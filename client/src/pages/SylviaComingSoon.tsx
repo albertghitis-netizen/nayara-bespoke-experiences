@@ -580,7 +580,7 @@ function WhoIHelpContent() {
         <p>This work is for people who are ready for more than coping. People who want to feel more connected, more present, more emotionally alive — and more at home in the lives they've built.</p>
       </div>
 
-      <div className="mt-10 py-8 px-6 rounded-sm text-center" style={{ backgroundColor: '#F5D5D5' }}>
+      <div className="mt-10 py-8 px-6 rounded-sm text-center" style={{ backgroundColor: '#FAE8E8' }}>
         <p className="text-base italic leading-relaxed" style={{ ...body, color: '#3B2218' }}>
           If nothing in your life changed a year from now, would that feel okay?
         </p>
@@ -731,7 +731,7 @@ export default function SylviaComingSoon() {
       case "/sylvia/triggers":
         return { bg: "#FFFFFF", navColor: GREY.mid };
       case "/sylvia/who-i-help":
-        return { bg: "#FDE8E8", navColor: "#3B2218" };
+        return { bg: "#FDF2F2", navColor: "#3B2218" };
       case "/sylvia/my-approach":
         return { bg: "#FFFFFF", navColor: C.deepPlum };
       default:
