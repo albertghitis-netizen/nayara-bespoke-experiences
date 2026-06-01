@@ -83,6 +83,7 @@ export default function Sylvia() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: COLORS.bone, fontFamily: "'DM Sans', sans-serif" }}>
       <Navigation />
+      <div style={{ backgroundColor: COLORS.sageTint }}>
       <section className="pt-32 md:pt-40 pb-4 md:pb-6 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
           <motion.h1
@@ -116,6 +117,7 @@ export default function Sylvia() {
       </div>
       {/* Media 2: lily pad walkway still */}
       <MobileMediaBreak src="/manus-storage/sylvia-lilypad_9727e9e3.jpeg" type="image" alt="Lily pad walkway" />
+      </div>
 
       {/* 3. Services */}
       <ServicesSection />
