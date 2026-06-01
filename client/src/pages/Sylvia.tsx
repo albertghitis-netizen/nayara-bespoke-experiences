@@ -234,12 +234,12 @@ function Navigation() {
               {/* Menu items — flat list */}
               {[
                 { label: "Your Brain", action: () => { setMenuOpen(false); window.location.href = "/sylvia/your-brain"; } },
+                { label: "Your Personality", action: () => { setMenuOpen(false); window.open("https://mypersonality.net/free-personality-test", "_blank"); } },
                 { label: "Trauma", action: () => { setMenuOpen(false); window.location.href = "/sylvia/trauma"; } },
                 { label: "Addiction", action: () => { setMenuOpen(false); window.location.href = "/sylvia/addiction"; } },
                 { label: "Bipolar", action: () => { setMenuOpen(false); window.location.href = "/sylvia/bipolar"; } },
                 { label: "Triggers", action: () => { setMenuOpen(false); window.location.href = "/sylvia/triggers"; } },
                 { label: "My Story", action: () => { setMenuOpen(false); window.location.href = "/sylvia/my-story"; } },
-                { label: "Understanding Your Personality", action: () => { setMenuOpen(false); window.open("https://mypersonality.net/free-personality-test", "_blank"); } },
                 { label: "My Credentials", action: () => { setMenuOpen(false); import("sonner").then(({ toast }) => toast("My Credentials — Coming Soon")); } },
                 { label: "Blog", action: () => { setMenuOpen(false); window.location.href = "/sylvia/blog"; } },
                 { label: "FAQ", action: () => { setMenuOpen(false); window.location.href = "/sylvia/faq"; } },
