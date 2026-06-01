@@ -283,9 +283,9 @@ function Navigation() {
               {/* Menu items — flat list */}
               {[
                 { label: "Who I Help", action: () => { setMenuOpen(false); window.location.href = "/sylvia/who-i-help"; } },
-                { label: "My Approach", action: () => { setMenuOpen(false); window.location.href = "/sylvia/my-approach"; } },
                 { label: "Your Brain", action: () => { setMenuOpen(false); window.location.href = "/sylvia/your-brain"; } },
                 { label: "Your Personality", action: () => { setMenuOpen(false); window.location.href = "/sylvia/your-personality"; } },
+                { label: "My Approach", action: () => { setMenuOpen(false); window.location.href = "/sylvia/my-approach"; } },
                 { label: "Trauma", action: () => { setMenuOpen(false); window.location.href = "/sylvia/trauma"; } },
                 { label: "Addiction", action: () => { setMenuOpen(false); window.location.href = "/sylvia/addiction"; } },
                 { label: "Bipolar", action: () => { setMenuOpen(false); window.location.href = "/sylvia/bipolar"; } },
