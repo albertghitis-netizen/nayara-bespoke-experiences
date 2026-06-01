@@ -176,7 +176,7 @@ function Navigation() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="pointer-events-auto flex items-center justify-center w-11 h-11 rounded-full shadow-md transition-all duration-300 hover:opacity-80"
-          style={{ backgroundColor: COLORS.olive }}
+          style={{ backgroundColor: COLORS.eucalyptus }}
         >
           <div className="flex flex-col gap-1.5">
             <span
@@ -1089,7 +1089,7 @@ function AskLexiWidget() {
         <button
           onClick={() => setOpen(true)}
           className="fixed bottom-6 left-6 z-50 flex items-center gap-2 h-11 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
-          style={{ background: "rgba(92, 61, 122, 0.9)", backdropFilter: "blur(8px)" }}
+          style={{ background: COLORS.eucalyptus, backdropFilter: "blur(8px)" }}
         >
           <span className="text-white text-lg">💬</span>
           <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Talk It Out</span>
