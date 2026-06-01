@@ -84,13 +84,52 @@ export default function Sylvia() {
     <div className="min-h-screen" style={{ backgroundColor: COLORS.bone, fontFamily: "'DM Sans', sans-serif" }}>
       <Navigation />
       <div style={{ backgroundColor: COLORS.accent }}>
-      <section className="pt-32 md:pt-40 pb-4 md:pb-6 px-6 md:px-12">
+      {/* MOBILE: Full hero with video + text overlay */}
+      <section className="md:hidden relative h-[85vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <SylviaVideo
+            src="/manus-storage/sylvia-video-flowers-only_02f74dba.mp4"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
+        </div>
+        <div className="relative z-10 h-full flex flex-col justify-end pb-14 px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-3xl leading-[1.15] tracking-tight mb-3 text-white"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Towards Living
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xs tracking-[0.12em] uppercase mb-4 text-white/70"
+          >
+            Because success and fulfillment don't always arrive together.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-sm leading-relaxed text-white/80 max-w-sm"
+          >
+            Therapy for high-functioning individuals seeking more connection, clarity, and ease within the life they've already built.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* DESKTOP: Keep original text-only intro */}
+      <section className="hidden md:block pt-40 pb-6 px-12">
         <div className="max-w-3xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl md:text-3xl lg:text-4xl leading-[1.2] tracking-tight mb-3"
+            className="text-3xl lg:text-4xl leading-[1.2] tracking-tight mb-3"
             style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
           >
             Towards Living
@@ -99,7 +138,7 @@ export default function Sylvia() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-sm md:text-base tracking-[0.08em] uppercase mb-6"
+            className="text-base tracking-[0.08em] uppercase mb-6"
             style={{ color: COLORS.textSecondary }}
           >
             Because success and fulfillment don't always arrive together.
@@ -110,13 +149,10 @@ export default function Sylvia() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-4"
           >
-            <p className="text-base md:text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>Therapy for high-functioning individuals seeking more connection, clarity, and ease within the life they've already built.</p>
+            <p className="text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>Therapy for high-functioning individuals seeking more connection, clarity, and ease within the life they've already built.</p>
           </motion.div>
         </div>
       </section>
-      {/* 1. Intro text above ↑ */}
-      {/* Media 1: purple flower video */}
-      <MobileMediaBreak src="/manus-storage/sylvia-video-flowers-only_02f74dba.mp4" type="video" />
 
       {/* 2. Content sections (Who I Help, What Changes, My Approach) */}
       <ContentBoxes />
@@ -137,10 +173,8 @@ export default function Sylvia() {
       {/* Media 4: purple leaf still */}
       <MobileMediaBreak src="/manus-storage/sylvia-purple-leaf-close_29447766.jpg" type="image" alt="Purple leaf" />
 
-      {/* 5. How I Work */}
+      {/* 5. How I Work (mobile has built-in image overlay) */}
       <HowIWorkSection />
-      {/* Media 5: spa reel video */}
-      <MobileMediaBreak src="/manus-storage/spa-reel4-new_04883a69.mp4" type="video" />
 
       {/* 6. About */}
       <AboutSection />
@@ -708,53 +742,95 @@ function HowIWorkSection() {
     {
       number: "03",
       title: "We go deeper",
-      description: "Using EMDR, IFS, hypnotherapy, or whatever modality fits, we work with what’s underneath. Not just the symptoms, but the roots.",
+      description: "Using EMDR, IFS, hypnotherapy, or whatever modality fits, we work with what's underneath. Not just the symptoms, but the roots.",
     },
     {
       number: "04",
       title: "You integrate",
-      description: "Change doesn’t just happen in session. We build practices, awareness, and support systems that help the work take hold in your daily life.",
+      description: "Change doesn't just happen in session. We build practices, awareness, and support systems that help the work take hold in your daily life.",
     },
   ];
 
   return (
-    <section className="py-14 md:py-20 px-6 md:px-12" style={{ backgroundColor: '#F0F5F2' }}>
-      <div className="max-w-4xl mx-auto">
-        <h2
-          className="text-2xl md:text-3xl leading-tight mb-12 text-center"
-          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
-        >
-          How the work unfolds
-        </h2>
-
-        <div className="grid md:grid-cols-2 gap-8 md:gap-10">
-          {steps.map((step) => (
-            <div key={step.number} className="flex gap-5">
-              <span
-                className="text-3xl font-light flex-shrink-0 leading-none mt-1"
-                style={{ fontFamily: "'Playfair Display', serif", color: COLORS.slate, opacity: 0.5 }}
-              >
-                {step.number}
-              </span>
-              <div>
-                <h3
-                  className="text-base font-medium mb-2"
-                  style={{ fontFamily: "'DM Sans', sans-serif", color: COLORS.text }}
-                >
-                  {step.title}
-                </h3>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: COLORS.textSecondary }}
-                >
-                  {step.description}
-                </p>
-              </div>
-            </div>
-          ))}
+    <>
+      {/* MOBILE: Overlay on image */}
+      <section className="md:hidden relative min-h-[90vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/manus-storage/sylvia-approach-bg_f149eeef.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
         </div>
-      </div>
-    </section>
+        <div className="relative z-10 flex flex-col justify-end h-full min-h-[90vh] px-6 pb-12 pt-20">
+          <h2
+            className="text-2xl leading-tight mb-8 text-white"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            How the work unfolds
+          </h2>
+          <div className="space-y-6">
+            {steps.map((step) => (
+              <div key={step.number} className="flex gap-4">
+                <span
+                  className="text-2xl font-light flex-shrink-0 leading-none mt-0.5 text-white/40"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  {step.number}
+                </span>
+                <div>
+                  <h3 className="text-sm font-medium mb-1 text-white">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs leading-relaxed text-white/70">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DESKTOP: Original layout */}
+      <section className="hidden md:block py-20 px-12" style={{ backgroundColor: '#F0F5F2' }}>
+        <div className="max-w-4xl mx-auto">
+          <h2
+            className="text-3xl leading-tight mb-12 text-center"
+            style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+          >
+            How the work unfolds
+          </h2>
+          <div className="grid md:grid-cols-2 gap-10">
+            {steps.map((step) => (
+              <div key={step.number} className="flex gap-5">
+                <span
+                  className="text-3xl font-light flex-shrink-0 leading-none mt-1"
+                  style={{ fontFamily: "'Playfair Display', serif", color: COLORS.slate, opacity: 0.5 }}
+                >
+                  {step.number}
+                </span>
+                <div>
+                  <h3
+                    className="text-base font-medium mb-2"
+                    style={{ fontFamily: "'DM Sans', sans-serif", color: COLORS.text }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: COLORS.textSecondary }}
+                  >
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
