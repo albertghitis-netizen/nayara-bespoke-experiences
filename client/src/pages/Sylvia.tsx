@@ -87,10 +87,15 @@ export default function Sylvia() {
       {/* MOBILE: Full hero with video + text overlay */}
       <section className="md:hidden relative h-[85vh] overflow-hidden">
         <div className="absolute inset-0">
-          <SylviaVideo
-            src="/manus-storage/sylvia-video-flowers-only_02f74dba.mp4"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-full object-cover"
-          />
+          >
+            <source src="/manus-storage/sylvia-video-flowers-only_02f74dba.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
         </div>
         <div className="relative z-10 h-full flex flex-col justify-end pb-14 px-6">
