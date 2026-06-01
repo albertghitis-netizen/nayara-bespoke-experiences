@@ -54,50 +54,54 @@ const JOURNAL_CDN = {
  * Row 9: Read · Read         · Read
  */
 const CURATED_IDS: string[] = [
-  // Row 1: Watch · Read · Watch
+  // Row 1: June Newsletter trio — Read · Read · Read
+  "summer-of-you",
+  "ocean-habitat-restoration",
+  "romance-springs-bocas",
+  // Row 2: Watch · Read · Watch
   "hitorangi-rapanui",
   "experiential-travel-2026",
   "atacama-sustainability",
-  // Row 2: Read · Watch · Read
+  // Row 3: Read · Watch · Read
   "family-bucket-list",
   "archaeologist-rapanui",
   "conde-nast-bocas",
-  // Row 3: Watch · Read · Watch
+  // Row 4: Watch · Read · Watch
   "leo-luxury-travel-innovators",
   "three-kitchens-one-rainforest",
   "hangaroa-sustainability",
-  // Row 4: Read · Watch · Read
+  // Row 5: Read · Watch · Read
   "7-michelin-keys",
   "leo-suite-success",
   "arenal-timeless-wonder",
-  // Row 5
+  // Row 6
   "stargazing-atacama",
   "s-certification",
   "hot-springs-plunge-pools",
-  // Row 6
+  // Row 7
   "nature-based-wellness-colors",
   "mars-atacama",
   "birdwatching-costa-rica",
-  // Row 7
+  // Row 8
   "latin-america-luxury-brand",
   "pura-vida",
-  // Row 8
+  // Row 9
   "edge-habitability",
   "wildlife-arenal-bocas",
   "sunlit-sustainability",
-  // Row 9
+  // Row 10
   "solo-travel-female",
   "oasis-atacama",
   "nayara-by-night",
-  // Row 10
+  // Row 11
   "green-globe",
   "travel-trends-2026",
   "rooted-in-community",
-  // Row 11
+  // Row 12
   "wildlife-atacama-easter-island",
   "maya-rapa-nui-climate",
   "womens-empowerment",
-  // Row 12
+  // Row 13
   "how-we-built-a-hotel-on-an-island",
   "hito-family-rapanui",
   "tapati-festival",
