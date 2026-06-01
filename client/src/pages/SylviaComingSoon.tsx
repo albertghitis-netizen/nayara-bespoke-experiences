@@ -567,6 +567,7 @@ function WhoIHelpContent() {
     <div className="space-y-12">
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-4xl mb-4" style={{ ...display, color: GREEN.text }}>Who I Help</h1>
+        <img src="/manus-storage/who-i-help-hero_c9d5e875.png" alt="Therapy session illustration" className="w-full max-w-md mx-auto rounded-sm mt-6" />
       </div>
 
       <div className="space-y-5 text-base leading-relaxed" style={{ ...body, color: GREEN.textSoft }}>
