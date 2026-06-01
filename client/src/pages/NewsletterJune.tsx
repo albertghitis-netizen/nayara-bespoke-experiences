@@ -1,6 +1,7 @@
 /*
- * NAYARA NEWSLETTER — June 2026
- * Theme: Ocean Restoration, Romance, Atacama Traditions
+ * NAYARA NEWSLETTER, June 2026
+ * Theme: The Summer of You
+ * Three pieces: Summer of You (lead), Ocean Habitat Restoration, Romance
  * Standalone page, no nav, no footer, no hero
  * Fonts: Playfair Display (display) + DM Sans (body)
  */
@@ -31,16 +32,15 @@ export default function NewsletterJune() {
             Nayara Newsletter &nbsp;&middot;&nbsp; June 2026
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
-            This month, we launch something we have been working toward for
-            years: a partnership to rebuild one of the Caribbean's most
-            threatened ocean habitats from the foundation up. We also celebrate
-            the science of romance across four extraordinary properties, and
-            take you inside the ancestral food traditions of the Atacama Desert.
+            Summer is not a feeling. It is an astronomical event. A cultural
+            invention. A biological shift. And, if you let it be, a permission
+            slip you write yourself.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
-            At Nayara, luxury is not a finish line. It is a starting point for
-            something deeper: restoration, connection, and the kind of
-            experiences that change how you see the world.
+            This month, we published the longest editorial we have ever written.
+            It starts with axial tilt and ends with a question only you can
+            answer. In between: the ocean, the stars, the science of romance,
+            and the history of why summer became the season we treat as ours.
           </p>
         </div>
       </section>
@@ -48,20 +48,78 @@ export default function NewsletterJune() {
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#3B2B26]" />
 
-      {/* ══════════ SECTION 1 — Ocean Habitat Restoration (Lead Story) ══════════ */}
+      {/* ══════════ SECTION 1: The Summer of You (Lead Story) ══════════ */}
       <section className="bg-[#F5F0E8]">
+        <div className="px-8 md:px-16 pt-10 pb-12 text-center">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
+            Editorial &nbsp;&middot;&nbsp; Summer Edition
+          </p>
+
+          <img
+            loading="lazy"
+            src="/manus-storage/summer-of-you-card_691d8a1a.jpeg"
+            alt="The Summer of You"
+            className="w-full rounded mb-8 object-cover"
+            style={{ aspectRatio: "1200/628" }}
+          />
+
+          <h2
+            className="text-2xl md:text-[28px] leading-snug mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            The Summer of You
+          </h2>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
+            Before summer became a feeling, it was a fact. Earth tilted 23.5
+            degrees toward the sun, flooding your hemisphere with light, and
+            your brain responded by rewriting its own chemistry. Serotonin
+            production surges. Melatonin retreats. Cortisol patterns normalize.
+            Your body knows what season it is before your calendar does.
+          </p>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
+            But here is the part no one tells you: the idea that summer is "time
+            off" is barely 150 years old. It was not invented by farmers. It was
+            invented by overheated 19th century urbanites fleeing to Newport and
+            Saratoga. The agrarian calendar myth? Debunked. The harvest is in
+            autumn, not summer.
+          </p>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
+            This editorial traces the full arc: from photobiology to cultural
+            history, from ocean neuroscience to the science of romance, from the
+            longest days in the Northern Hemisphere to the clearest skies in the
+            Southern one. It ends with a question: what is the thing you have
+            been putting off?
+          </p>
+          <a
+            href="/blog/summer-of-you"
+            className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: "#8a7a5a" }}
+          >
+            <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+            Read: The Summer of You
+          </a>
+        </div>
+      </section>
+
+      {/* ── GOLD RULE ── */}
+      <div className="h-[3px] bg-[#3B2B26]" />
+
+      {/* ══════════ SECTION 2: Ocean Habitat Restoration ══════════ */}
+      <section className="bg-[#f7f5f0]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
           <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
             Sustainability &nbsp;&middot;&nbsp; Bocas del Toro
           </p>
 
-          {/* IMAGE PLACEHOLDER */}
-          <div
-            className="w-full bg-[#e3dfd2] rounded mb-8 flex items-center justify-center"
+          <img
+            loading="lazy"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-turquoise_858d4570.jpg"
+            alt="Ocean Habitat Restoration at Nayara Bocas del Toro"
+            className="w-full rounded mb-8 object-cover"
             style={{ aspectRatio: "1200/628" }}
-          >
-            <p className="text-[#8a7a5a] text-sm tracking-wide">[Image: Ocean Habitat Restoration]</p>
-          </div>
+          />
 
           <h2
             className="text-2xl md:text-[28px] leading-snug mb-4"
@@ -76,7 +134,7 @@ export default function NewsletterJune() {
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
             In partnership with the Caribbean Coral Restoration Center, Nayara
-            Bocas del Toro is rebuilding ocean habitat from the ground up:
+            Bocas del Toro is rebuilding ocean habitat from the foundation up:
             purpose-designed artificial reef structures, climate-resilient coral
             genetics, and a community of 25 local partners working to scale
             restoration across the entire archipelago.
@@ -102,32 +160,33 @@ export default function NewsletterJune() {
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#3B2B26]" />
 
-      {/* ══════════ SECTION 2 — Romance ══════════ */}
-      <section className="bg-[#f7f5f0]">
+      {/* ══════════ SECTION 3: Romance ══════════ */}
+      <section className="bg-[#F5F0E8]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
           <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
             Romance &nbsp;&middot;&nbsp; The Science of Connection
           </p>
 
-          {/* IMAGE PLACEHOLDER */}
-          <div
-            className="w-full bg-[#e3dfd2] rounded mb-8 flex items-center justify-center"
+          <img
+            loading="lazy"
+            src="/manus-storage/romance-card-bocas-couple_a626f19a.jpg"
+            alt="Romance at Nayara"
+            className="w-full rounded mb-8 object-cover"
             style={{ aspectRatio: "1200/628" }}
-          >
-            <p className="text-[#8a7a5a] text-sm tracking-wide">[Image: Romance at Nayara]</p>
-          </div>
+          />
 
           <h2
             className="text-2xl md:text-[28px] leading-snug mb-4"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            The Science of Romance at Nayara
+            Four Worlds, One Love: The Science of Romance at Nayara
           </h2>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
-            Research confirms what we have always believed: novel shared
-            experiences deepen love. Presence requires protection from
-            distraction. And when a resort removes everything that competes for
-            a couple's attention, what remains is extraordinary.
+            A 2024 study in <em>Leisure Sciences</em> found that couples who
+            share novel experiences while traveling report significantly higher
+            relationship satisfaction and physical intimacy afterward. The
+            number of trips did not matter. What mattered was whether the
+            experience felt new, shared, and outside of routine.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
             From the adults-only thermal springs of Nayara Springs to the
@@ -136,10 +195,9 @@ export default function NewsletterJune() {
             a package. It is a philosophy built into every property.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
-            And for those ready to experience it: the Romantic Escape package at
-            Nayara Springs offers the most intimate expression of this
-            philosophy, with private plunge pools, couples' spa rituals, and
-            volcano-view dining designed for two.
+            This piece traces the neuroscience of intimacy, the architecture of
+            privacy, and what happens when a resort removes everything that
+            competes for a couple's attention.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
@@ -160,63 +218,9 @@ export default function NewsletterJune() {
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
               </svg>
-              Explore: Romantic Escape at Springs
+              Explore: Nayara Springs
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#3B2B26]" />
-
-      {/* ══════════ SECTION 3 — Atacama Traditions Podcast ══════════ */}
-      <section className="bg-[#F5F0E8]">
-        <div className="px-8 md:px-16 pt-10 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
-            Podcast &nbsp;&middot;&nbsp; Gastronomy
-          </p>
-
-          {/* IMAGE PLACEHOLDER */}
-          <div
-            className="w-full bg-[#e3dfd2] rounded mb-8 flex items-center justify-center"
-            style={{ aspectRatio: "1200/628" }}
-          >
-            <p className="text-[#8a7a5a] text-sm tracking-wide">[Image: Atacama Menu Traditions]</p>
-          </div>
-
-          <h2
-            className="text-2xl md:text-[28px] leading-snug mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Atacama Menu Traditions
-          </h2>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
-            In the driest desert on Earth, food is memory. The ancestral
-            traditions of the Atacameño people have sustained life in this
-            landscape for thousands of years, and at Nayara Alto Atacama, those
-            traditions are not preserved behind glass. They are alive on the
-            plate.
-          </p>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
-            In this episode, we explore the culinary heritage of the Atacama:
-            the ingredients that survive where almost nothing else can, the
-            techniques passed down through generations, and how our kitchen team
-            translates ancestral knowledge into a modern dining experience that
-            honors its origins.
-          </p>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
-            Listen now wherever you get your podcasts.
-          </p>
-          <a
-            href="/journal/atacama-menu-traditions"
-            className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: "#8a7a5a" }}
-          >
-            <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
-            </svg>
-            Listen: Atacama Menu Traditions
-          </a>
         </div>
       </section>
 
@@ -282,44 +286,16 @@ export default function NewsletterJune() {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
           </a>
           <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 4 12 4 12 4s-7.5 0-9.4.4A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.4 9.4.4 9.4.4s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z" /></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 4 12 4 12 4s-7.5 0-9.4.4A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.4 9.4.4 9.4.4s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-5.5 31 31 0 0 0-.5-5.5zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" /></svg>
           </a>
           <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z" /></svg>
-          </a>
-          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.93 2.93 0 0 1 .88.13V9a6.34 6.34 0 0 0-1-.05 6.34 6.34 0 1 0 6.34 6.34V9.37a8.16 8.16 0 0 0 4.77 1.52V7.44a4.85 4.85 0 0 1-.89-.75z" /></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
           </a>
         </div>
 
-        {/* Divider */}
-        <div className="h-px bg-white/10 mb-6" />
-
-        {/* Bottom line */}
-        <p
-          className="text-white/20 text-[10px] mb-4"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-        >
-          Nayara Resorts, Costa Rica, Chile, Panama, +1 844 865 2002
+        <p className="text-white/20 text-[10px] tracking-[0.15em]">
+          &copy; 2026 Nayara Resorts. All rights reserved.
         </p>
-
-        {/* Unsubscribe / Manage */}
-        <div className="flex items-center justify-center gap-4">
-          <a
-            href="#"
-            className="text-white/30 text-[10px] hover:text-white/60 transition-colors underline"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-          >
-            Unsubscribe
-          </a>
-          <a
-            href="#"
-            className="text-white/30 text-[10px] hover:text-white/60 transition-colors underline"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-          >
-            Manage preferences
-          </a>
-        </div>
       </footer>
     </div>
   );
