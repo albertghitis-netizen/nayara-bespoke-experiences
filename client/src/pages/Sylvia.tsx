@@ -29,7 +29,7 @@ const COLORS = {
 const IMAGES = {
   hero: "/manus-storage/purple-leaf-sylvia_ed397cf7.jpg",
   services: "/manus-storage/purple-leaf-sylvia_ed397cf7.jpg",
-  about: "/manus-storage/sylvia-portrait-blue_586a505e.png",
+  about: "/manus-storage/sylvia-portrait-hq_db465f26.webp",
   philosophy: "/manus-storage/sylvia-philosophy-new_5ac4713f.jpg",
   cta: "/manus-storage/sylvia-cta_94ab69d7.jpg",
 };
@@ -188,7 +188,7 @@ export default function Sylvia() {
       {/* 6. About */}
       <AboutSection />
       {/* Media 6: jungle pool still (about image) */}
-      <MobileMediaBreak src="/manus-storage/sylvia-portrait-blue_586a505e.png" type="image" alt="Sylvia" />
+      <MobileMediaBreak src="/manus-storage/sylvia-portrait-hq_db465f26.webp" type="image" alt="Sylvia" />
 
       {/* 7. Philosophy */}
       <PhilosophySection />
