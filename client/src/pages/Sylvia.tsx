@@ -122,41 +122,52 @@ export default function Sylvia() {
         </div>
       </section>
 
-      {/* DESKTOP: Keep original text-only intro */}
-      <section className="hidden md:block pt-40 pb-6 px-12">
-        <div className="max-w-3xl mx-auto">
+      {/* DESKTOP: Video hero with text overlay — same style as mobile */}
+      <section className="hidden md:block relative h-[85vh] overflow-hidden">
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/manus-storage/my-approach-video_95c8ea6f.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30" />
+        </div>
+        <div className="relative z-10 h-full flex flex-col justify-end pb-16 px-12">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl lg:text-4xl leading-[1.2] tracking-tight mb-3"
-            style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+            className="text-4xl lg:text-5xl leading-[1.15] tracking-tight mb-4 text-white"
+            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Towards Living
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-base tracking-[0.08em] uppercase mb-6"
-            style={{ color: COLORS.textSecondary }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-sm tracking-[0.12em] uppercase mb-4 text-white/70"
           >
             Because success and fulfillment don't always arrive together.
           </motion.p>
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-4"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-lg leading-relaxed text-white/80 max-w-lg"
           >
-            <p className="text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>Therapy for high-functioning individuals seeking more connection, clarity, and ease within the life they've already built.</p>
-          </motion.div>
+            Therapy for high-functioning individuals seeking more connection, clarity, and ease within the life they've already built.
+          </motion.p>
         </div>
       </section>
 
       {/* 2. Content sections (Who I Help, What Changes, My Approach) */}
       <ContentBoxes />
-      <VideoMomentSection />
+
       {/* Media 2: lily pad walkway still */}
       <MobileMediaBreak src="/manus-storage/sylvia-lilypad_9727e9e3.jpeg" type="image" alt="Lily pad walkway" />
       </div>
