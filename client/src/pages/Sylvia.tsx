@@ -2,7 +2,7 @@
  * SYLVIA — "Towards Living" Landing Page
  * Standalone therapy/wellness practice page
  * Design: Elevated editorial, purple/plum palette
- * Pale Wisteria background (#F5F0F8) + deep plum accents (#2D1B3D / #5C3D7A)
+ * Mountain Dusk palette — dusty rose, blush, sage, slate, charcoal
  */
 
 import { useState, useRef, useEffect } from "react";
@@ -10,19 +10,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { trpc } from "@/lib/trpc";
 
 
-/* ─── Color Palette (Purple/Plum + Forest Green accents) ─── */
+/* ─── Color Palette (Mountain Dusk — dusty rose, blush, sage, slate, charcoal) ─── */
 const COLORS = {
-  bone: "#F5F0F8",
-  olive: "#5C3D7A",
-  oliveDark: "#2D1B3D",
-  text: "#2D1B3D",
-  textSecondary: "#4A3B5C",
-  divider: "#D4C4E0",
-  accent: "#EDE5F5",
-  /* Green accents — nature-grounding complement to plum */
-  eucalyptus: "#4F8F75",
-  sageMist: "#9FC3B2",
-  sageTint: "#F0F7F4",
+  bone: "#FAF7F5",           /* warm off-white page background */
+  dustyRose: "#D4A5A5",     /* lightest — soft rose */
+  blush: "#C9918F",         /* warm blush — CTAs, accents */
+  sage: "#9BABA3",          /* muted sage grey — secondary accents */
+  slate: "#4A5859",         /* dark teal-grey — headings, nav pills */
+  charcoal: "#2D3436",      /* near-black — body text, deep contrast */
+  /* Semantic aliases */
+  text: "#2D3436",
+  textSecondary: "#4A5859",
+  divider: "#D4A5A5",
+  accent: "#F5EEEC",        /* very light blush tint for section backgrounds */
 };
 
 /* ─── Image CDN paths ─── */
@@ -83,7 +83,7 @@ export default function Sylvia() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: COLORS.bone, fontFamily: "'DM Sans', sans-serif" }}>
       <Navigation />
-      <div style={{ backgroundColor: COLORS.sageTint }}>
+      <div style={{ backgroundColor: COLORS.accent }}>
       <section className="pt-32 md:pt-40 pb-4 md:pb-6 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
           <motion.h1
@@ -178,7 +178,7 @@ function Navigation() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="pointer-events-auto flex items-center justify-center w-11 h-11 rounded-full shadow-md transition-all duration-300 hover:opacity-80"
-          style={{ backgroundColor: COLORS.eucalyptus }}
+          style={{ backgroundColor: COLORS.blush }}
         >
           <div className="flex flex-col gap-1.5">
             <span
@@ -195,11 +195,11 @@ function Navigation() {
         </button>
 
 
-        {/* Book a Free Consult pill — eucalyptus green */}
+        {/* Book a Free Consult pill — blush */}
         <a
           href="mailto:hello@humbeing.com?subject=Website%20Inquiry%20-%20Initial%20Consultation"
           className="pointer-events-auto flex items-center justify-center h-11 px-5 rounded-full shadow-md transition-all duration-300 hover:opacity-80"
-          style={{ backgroundColor: COLORS.eucalyptus }}
+          style={{ backgroundColor: COLORS.blush }}
         >
           <span
             className="text-white text-[10px] tracking-[0.2em] uppercase font-medium"
@@ -233,6 +233,7 @@ function Navigation() {
             <div className="px-6 pt-24 pb-16">
               {/* Menu items — flat list */}
               {[
+                { label: "Your Brain", action: () => { setMenuOpen(false); window.location.href = "/sylvia/your-brain"; } },
                 { label: "Trauma", action: () => { setMenuOpen(false); window.location.href = "/sylvia/trauma"; } },
                 { label: "Addiction", action: () => { setMenuOpen(false); window.location.href = "/sylvia/addiction"; } },
                 { label: "Bipolar", action: () => { setMenuOpen(false); window.location.href = "/sylvia/bipolar"; } },
@@ -252,28 +253,14 @@ function Navigation() {
                 >
                   <span
                     className="text-lg tracking-[0.06em] uppercase"
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#2D1B3D" }}
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: COLORS.charcoal }}
                   >
                     {item.label}
                   </span>
                 </motion.button>
               ))}
 
-              {/* Sofía link */}
-              <div className="mt-8 pt-6" style={{ borderTop: "1px solid rgba(61, 74, 71, 0.1)" }}>
-                <a
-                  href="/sofia"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 py-3 opacity-70 hover:opacity-100 transition-opacity"
-                >
-                  <span
-                    className="text-sm tracking-[0.08em] uppercase"
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: "#4A3B5C" }}
-                  >
-                    Sofía →
-                  </span>
-                </a>
-              </div>
+
             </div>
           </motion.div>
           </>
@@ -295,7 +282,7 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
           className="text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight"
-          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.olive }}
+          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.slate }}
         >
           Towards Living
         </motion.h1>
@@ -304,7 +291,7 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-5 text-sm md:text-base tracking-[0.15em] uppercase max-w-xl mx-auto"
-          style={{ color: COLORS.olive, fontFamily: "'DM Sans', sans-serif", fontWeight: 400 }}
+          style={{ color: COLORS.slate, fontFamily: "'DM Sans', sans-serif", fontWeight: 400 }}
         >
           Because success and fulfillment<br className="hidden md:block" /> don't always arrive together.
         </motion.p>
@@ -436,7 +423,7 @@ function SylviaVideo({ src, className }: { src: string; className?: string }) {
       </video>
       {/* Loading placeholder */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-[#2D1B3D]/10 animate-pulse" />
+        <div className="absolute inset-0 bg-[#2D3436]/10 animate-pulse" />
       )}
       {/* Invisible overlay to block native play button on mobile */}
       {isLoaded && (
@@ -548,17 +535,30 @@ function ContentBoxes() {
           </div>
         </div>
 
-        {/* My Approach — full-width text, centered */}
-        <div className="max-w-3xl mx-auto text-center">
-          <h2
-            className="text-2xl md:text-3xl leading-tight mb-6"
-            style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
-          >
-            My Approach
-          </h2>
-          <div className="space-y-4 text-base md:text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>
-            <p>My work is relational, depth-oriented, and grounded in the belief that meaningful change happens when people feel safe enough to understand themselves differently.</p>
-            <p>Over time, people often find themselves reacting less automatically, relating more honestly, and feeling more connected to themselves and the lives they've built. Not because they became someone new, but because the relationship they have with themselves has changed.</p>
+        {/* My Approach — full-width text with background image */}
+        <div className="relative rounded-sm overflow-hidden py-16 md:py-20 px-8 md:px-14 text-center">
+          {/* Background image */}
+          <div className="absolute inset-0">
+            <img
+              src="/manus-storage/sylvia-approach-bg_f149eeef.jpg"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+            {/* Semi-transparent overlay for readability */}
+            <div className="absolute inset-0" style={{ backgroundColor: 'rgba(240, 247, 244, 0.82)' }} />
+          </div>
+          {/* Content */}
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <h2
+              className="text-2xl md:text-3xl leading-tight mb-6"
+              style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+            >
+              My Approach
+            </h2>
+            <div className="space-y-4 text-base md:text-lg leading-relaxed" style={{ color: COLORS.textSecondary }}>
+              <p>My work is relational, depth-oriented, and grounded in the belief that meaningful change happens when people feel safe enough to understand themselves differently.</p>
+              <p>Over time, people often find themselves reacting less automatically, relating more honestly, and feeling more connected to themselves and the lives they've built. Not because they became someone new, but because the relationship they have with themselves has changed.</p>
+            </div>
           </div>
         </div>
 
@@ -665,7 +665,7 @@ function ServicesSection() {
                       animate={{ rotate: expanded === i ? 45 : 0 }}
                       transition={{ duration: 0.3 }}
                       className="text-lg ml-4 flex-shrink-0"
-                      style={{ color: COLORS.eucalyptus }}
+                      style={{ color: COLORS.slate }}
                     >
                       +
                     </motion.span>
@@ -708,7 +708,7 @@ function TestimonialSection() {
       <div className="max-w-3xl mx-auto text-center">
         <div
           className="w-12 h-px mx-auto mb-10"
-          style={{ backgroundColor: COLORS.eucalyptus }}
+          style={{ backgroundColor: COLORS.slate }}
         />
         <blockquote>
           <p
@@ -720,7 +720,7 @@ function TestimonialSection() {
           <footer className="mt-8">
             <span
               className="text-xs tracking-[0.15em] uppercase"
-              style={{ color: COLORS.eucalyptus }}
+              style={{ color: COLORS.slate }}
             >
               — {TESTIMONIALS[0].author} ({TESTIMONIALS[0].role})
             </span>
@@ -728,7 +728,7 @@ function TestimonialSection() {
         </blockquote>
         <div
           className="w-12 h-px mx-auto mt-10"
-          style={{ backgroundColor: COLORS.eucalyptus }}
+          style={{ backgroundColor: COLORS.slate }}
         />
       </div>
     </section>
@@ -763,7 +763,7 @@ function HowIWorkSection() {
   ];
 
   return (
-    <section className="py-14 md:py-20 px-6 md:px-12" style={{ backgroundColor: COLORS.sageTint }}>
+    <section className="py-14 md:py-20 px-6 md:px-12" style={{ backgroundColor: COLORS.accent }}>
       <div className="max-w-4xl mx-auto">
         <h2
           className="text-2xl md:text-3xl leading-tight mb-12 text-center"
@@ -777,7 +777,7 @@ function HowIWorkSection() {
             <div key={step.number} className="flex gap-5">
               <span
                 className="text-3xl font-light flex-shrink-0 leading-none mt-1"
-                style={{ fontFamily: "'Playfair Display', serif", color: COLORS.eucalyptus, opacity: 0.5 }}
+                style={{ fontFamily: "'Playfair Display', serif", color: COLORS.slate, opacity: 0.5 }}
               >
                 {step.number}
               </span>
@@ -840,7 +840,7 @@ function AboutSection() {
             </p>
             <p
               className="text-sm tracking-[0.06em] uppercase mb-4 font-medium"
-              style={{ color: COLORS.eucalyptus }}
+              style={{ color: COLORS.slate }}
             >
               I work with people navigating:
             </p>
@@ -853,7 +853,7 @@ function AboutSection() {
                 >
                   <span
                     className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
-                    style={{ backgroundColor: COLORS.eucalyptus }}
+                    style={{ backgroundColor: COLORS.slate }}
                   />
                   {item}
                 </li>
@@ -924,7 +924,7 @@ function PhilosophySection() {
           </div>
 
           {/* Text */}
-          <div className="border-l-2 pl-6 md:pl-8" style={{ borderColor: COLORS.sageMist }}>
+          <div className="border-l-2 pl-6 md:pl-8" style={{ borderColor: COLORS.dustyRose }}>
             <h2
               className="text-2xl md:text-3xl leading-tight mb-8"
               style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
@@ -959,7 +959,7 @@ function FirstSessionSection() {
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* Text */}
-          <div className="border-l-2 pl-6 md:pl-8" style={{ borderColor: COLORS.sageMist }}>
+          <div className="border-l-2 pl-6 md:pl-8" style={{ borderColor: COLORS.dustyRose }}>
             <h2
               className="text-2xl md:text-3xl leading-tight mb-6"
               style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
@@ -1010,7 +1010,7 @@ function CTASection() {
         />
         <div
           className="absolute inset-0"
-          style={{ backgroundColor: `${COLORS.oliveDark}cc` }}
+          style={{ backgroundColor: `${COLORS.charcoal}cc` }}
         />
       </div>
 
@@ -1027,7 +1027,7 @@ function CTASection() {
         <a
           href="mailto:hello@humbeing.com?subject=Website%20Inquiry%20-%20Initial%20Consultation"
           className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white text-[11px] tracking-[0.2em] uppercase font-medium transition-all hover:opacity-90"
-          style={{ backgroundColor: COLORS.eucalyptus }}
+          style={{ backgroundColor: COLORS.blush }}
         >
           Book a free 15-minute consult
         </a>
@@ -1084,7 +1084,7 @@ function AskLexiWidget() {
         <button
           onClick={() => setOpen(true)}
           className="fixed bottom-6 left-6 z-50 flex items-center gap-2 h-11 px-5 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
-          style={{ background: COLORS.eucalyptus, backdropFilter: "blur(8px)" }}
+          style={{ background: COLORS.blush, backdropFilter: "blur(8px)" }}
         >
           <span className="text-white text-lg">💬</span>
           <span className="text-white text-sm tracking-wide" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>Talk It Out</span>
@@ -1100,10 +1100,10 @@ function AskLexiWidget() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25 }}
             className="fixed bottom-6 left-6 z-50 w-80 max-h-[70vh] flex flex-col rounded-2xl shadow-2xl overflow-hidden"
-            style={{ background: COLORS.bone, border: `1px solid ${COLORS.olive}30` }}
+            style={{ background: COLORS.bone, border: `1px solid ${COLORS.slate}30` }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3" style={{ background: COLORS.olive }}>
+            <div className="flex items-center justify-between px-4 py-3" style={{ background: COLORS.slate }}>
               <div className="flex items-center gap-2">
                 <img src={LOGO_URL} alt="Sylvia" className="w-7 h-7 rounded-full object-contain" style={{ background: "white" }} />
                 <span className="text-white text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>Talk It Out</span>
@@ -1123,7 +1123,7 @@ function AskLexiWidget() {
                   <div
                     className="max-w-[85%] px-3 py-2 rounded-xl text-sm leading-relaxed"
                     style={{
-                      background: msg.role === "user" ? `${COLORS.olive}20` : "white",
+                      background: msg.role === "user" ? `${COLORS.slate}20` : "white",
                       fontFamily: "'DM Sans', sans-serif",
                       border: msg.role === "assistant" ? `1px solid ${COLORS.divider}` : "none",
                     }}
@@ -1157,7 +1157,7 @@ function AskLexiWidget() {
                   type="submit"
                   disabled={!input.trim()}
                   className="px-3 py-2 rounded-lg text-white text-sm transition"
-                  style={{ background: input.trim() ? COLORS.olive : "#ccc" }}
+                  style={{ background: input.trim() ? COLORS.slate : "#ccc" }}
                 >
                   →
                 </button>
@@ -1208,7 +1208,7 @@ function FooterSection() {
           <button
             type="submit"
             className="px-5 py-2.5 text-sm rounded-sm text-white transition-opacity hover:opacity-90"
-            style={{ backgroundColor: COLORS.eucalyptus, fontFamily: "'DM Sans', sans-serif" }}
+            style={{ backgroundColor: COLORS.blush, fontFamily: "'DM Sans', sans-serif" }}
           >
             Subscribe
           </button>
@@ -1218,7 +1218,7 @@ function FooterSection() {
         <a
           href="mailto:hello@humbeing.com?subject=Website%20Inquiry%20-%20Initial%20Consultation"
           className="inline-block px-6 py-3 text-xs tracking-[0.12em] uppercase text-white rounded-sm transition-opacity hover:opacity-90"
-          style={{ backgroundColor: COLORS.eucalyptus, fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+          style={{ backgroundColor: COLORS.blush, fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
         >
           Book a 15-Minute Consult
         </a>

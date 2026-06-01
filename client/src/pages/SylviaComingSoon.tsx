@@ -18,19 +18,41 @@ const C = {
   textSoft: "#4A3B5C",
 };
 
+/* ═══ GREEN PALETTE (Trauma) ═══ */
+const GREEN = {
+  deep: "#1B3D2D",
+  mid: "#3D7A5C",
+  light: "#7DB89B",
+  soft: "#C4E0D4",
+  pale: "#F0F8F5",
+  text: "#1B3D2D",
+  textSoft: "#3B5C4A",
+};
+
+/* ═══ BLUE PALETTE (Bipolar) ═══ */
+const BLUE = {
+  deep: "#1B2D3D",
+  mid: "#3D5C7A",
+  light: "#7D9BB8",
+  soft: "#C4D4E0",
+  pale: "#F0F5F8",
+  text: "#1B2D3D",
+  textSoft: "#3B4A5C",
+};
+
 const display = { fontFamily: "'Playfair Display', serif", fontWeight: 400 } as const;
 const body = { fontFamily: "'DM Sans', sans-serif", fontWeight: 400 } as const;
 
 /* ═══ SHARED COMPONENTS ═══ */
-function PageShell({ children }: { children: React.ReactNode }) {
+function PageShell({ children, bg, navColor }: { children: React.ReactNode; bg?: string; navColor?: string }) {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: C.paleWisteria }}>
+    <div className="min-h-screen" style={{ backgroundColor: bg || C.paleWisteria }}>
       {/* Back nav */}
       <div className="fixed top-6 left-6 z-50">
         <a
           href="/sylvia"
           className="flex items-center justify-center w-10 h-10 rounded-full shadow-lg transition-all hover:opacity-80"
-          style={{ background: `${C.amethyst}cc`, backdropFilter: "blur(8px)" }}
+          style={{ background: `${navColor || C.amethyst}cc`, backdropFilter: "blur(8px)" }}
         >
           <span className="text-white text-sm">←</span>
         </a>
@@ -42,41 +64,75 @@ function PageShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-function InfoSection({ title, children }: { title: string; children: React.ReactNode }) {
+function InfoSection({ title, children, headingColor, textColor }: { title: string; children: React.ReactNode; headingColor?: string; textColor?: string }) {
   return (
     <div className="space-y-2">
-      <h3 className="text-lg" style={{ ...display, color: C.amethyst }}>{title}</h3>
-      <div className="text-sm leading-relaxed" style={{ ...body, color: C.textSoft }}>
+      <h3 className="text-lg" style={{ ...display, color: headingColor || C.amethyst }}>{title}</h3>
+      <div className="text-sm leading-relaxed" style={{ ...body, color: textColor || C.textSoft }}>
         {children}
       </div>
     </div>
   );
 }
 
-/* ═══ TRAUMA PAGE ═══ */
+/* ═══ YOUR BRAIN PAGE ═══ */
+function YourBrainContent() {
+  return (
+    <div className="space-y-6">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Your Brain</h1>
+        <p className="text-sm mt-2 opacity-60" style={body}>Understanding how your brain works — and why that matters for therapy</p>
+      </div>
+      <div className="flex justify-center mb-8">
+        <img src="/manus-storage/your-brain-hero_e3899bea.png" alt="Left brain right brain" className="w-full max-w-md rounded-sm" />
+      </div>
+      <InfoSection title="Left Brain vs Right Brain: The Myth That Won't Die">
+        <p>You have probably heard it: left-brained people are logical and analytical, right-brained people are creative and emotional. It is a satisfying story. It gives us a way to explain ourselves. But neuroscience has moved well beyond this. Brain imaging studies consistently show that both hemispheres are active in virtually every cognitive task. Creativity requires logic. Logic requires imagination. The brain does not work in silos.</p>
+        <p className="mt-3">What is true is that the two hemispheres do process information differently. The left hemisphere tends toward sequential, language-based, detail-oriented processing. The right hemisphere tends toward holistic, spatial, emotionally-attuned processing. But they work together constantly, communicating through the corpus callosum — a thick bundle of nerve fibers connecting the two sides.</p>
+      </InfoSection>
+      <InfoSection title="Why This Matters for Therapy">
+        <p>Trauma, anxiety, and depression often involve a disconnect between these processing styles. You might understand something intellectually (left hemisphere) but still feel it emotionally as if nothing has changed (right hemisphere). This is why insight alone rarely resolves deep patterns. Effective therapy engages both sides: the narrative, meaning-making capacity of the left brain and the emotional, somatic, relational processing of the right brain.</p>
+      </InfoSection>
+      <InfoSection title="Neuroplasticity: Your Brain Can Change">
+        <p>Your brain is not fixed. It rewires itself based on experience — this is neuroplasticity. Every time you practice a new response, strengthen a new pattern, or process an old memory differently, you are literally changing the physical structure of your brain. Neural pathways that fire together wire together. This is not metaphor. It is biology. And it is the foundation of why therapy works.</p>
+      </InfoSection>
+      <InfoSection title="The Nervous System and Regulation">
+        <p>Your autonomic nervous system has two main branches: the sympathetic (fight-or-flight) and the parasympathetic (rest-and-digest). When these systems are well-regulated, you can move fluidly between activation and calm. When they are dysregulated — often from trauma, chronic stress, or early attachment disruption — you may find yourself stuck in hyperarousal (anxiety, irritability, insomnia) or hypoarousal (numbness, fatigue, disconnection). Much of therapy is about restoring this flexibility.</p>
+      </InfoSection>
+      <InfoSection title="Your Brain on Stress">
+        <p>Chronic stress shrinks the hippocampus (memory and context), weakens the prefrontal cortex (decision-making and impulse control), and enlarges the amygdala (threat detection). This is why stressed people often feel forgetful, reactive, and unable to see the bigger picture. The good news: these changes are reversible. Meditation, exercise, sleep, secure relationships, and therapy all promote structural recovery in these brain regions.</p>
+      </InfoSection>
+      <InfoSection title="What This Means for You">
+        <p>Understanding your brain is not about becoming a neuroscientist. It is about recognizing that your patterns — the anxiety, the avoidance, the people-pleasing, the shutdown — are not character flaws. They are adaptations. Your brain did exactly what it needed to do to keep you safe. Now we can help it learn that safety looks different than it used to.</p>
+      </InfoSection>
+    </div>
+  );
+}
+
+/* ═══ TRAUMA PAGE (Green Palette) ═══ */
 function TraumaContent() {
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Trauma</h1>
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: GREEN.deep }}>Trauma</h1>
         <p className="text-sm mt-2 opacity-60" style={body}>Understanding what trauma is, how it lives in the body, and what healing actually looks like</p>
       </div>
-      <InfoSection title="What Trauma Actually Is">
+      <InfoSection headingColor={GREEN.mid} textColor={GREEN.textSoft} title="What Trauma Actually Is">
         <p>Trauma is not what happened to you. Trauma is what happened inside you as a result of what happened to you. It is the nervous system's response to an overwhelming event that exceeded your capacity to cope at the time. This means trauma is not defined by the severity of the event but by the impact it had on your body and mind. A car accident, childhood neglect, a difficult medical procedure, or a relationship where you were consistently dismissed can all leave the same kind of imprint.</p>
       </InfoSection>
-      <InfoSection title="How Trauma Lives in the Body">
+      <InfoSection headingColor={GREEN.mid} textColor={GREEN.textSoft} title="How Trauma Lives in the Body">
         <p>Trauma is not just a memory. It is stored in the body as patterns of tension, hypervigilance, and dysregulated nervous system responses. You might notice it as a tight jaw, shallow breathing, a startle response that seems disproportionate, or a feeling of being "on" all the time. The body keeps the score, as Bessel van der Kolk famously put it. This is why talk therapy alone sometimes is not enough. The body needs to process what the mind already understands.</p>
       </InfoSection>
-      <InfoSection title="Types of Trauma">
+      <InfoSection headingColor={GREEN.mid} textColor={GREEN.textSoft} title="Types of Trauma">
         <p><strong>Acute trauma</strong> results from a single overwhelming event: an accident, an assault, a natural disaster. <strong>Chronic trauma</strong> comes from repeated exposure to distressing events: ongoing abuse, living in a war zone, or years of emotional neglect. <strong>Complex trauma</strong> (C-PTSD) develops from prolonged interpersonal trauma, often in childhood, where the source of danger was also the source of safety. <strong>Developmental trauma</strong> occurs when a child's attachment needs are consistently unmet, shaping the brain's wiring for relationships, self-worth, and emotional regulation.</p>
       </InfoSection>
-      <InfoSection title="The Window of Tolerance">
+      <InfoSection headingColor={GREEN.mid} textColor={GREEN.textSoft} title="The Window of Tolerance">
         <p>Everyone has a window of tolerance: a zone where you can experience emotions, think clearly, and respond to stress without becoming overwhelmed or shutting down. Trauma narrows this window. When you are pushed above it, you enter hyperarousal: anxiety, panic, rage, racing thoughts. When you drop below it, you enter hypoarousal: numbness, dissociation, collapse, feeling nothing. The goal of trauma therapy is not to eliminate stress but to widen your window so you can handle more of life without leaving it.</p>
       </InfoSection>
-      <InfoSection title="How I Work With Trauma">
+      <InfoSection headingColor={GREEN.mid} textColor={GREEN.textSoft} title="How I Work With Trauma">
         <p>I use a combination of EMDR (Eye Movement Desensitization and Reprocessing), somatic approaches, and relational therapy. We start with stabilization: building the internal resources and coping skills you need before we touch the trauma directly. Then we process at your pace. You do not need to recount every detail. EMDR works with the brain's natural healing mechanisms to reprocess traumatic memories so they lose their emotional charge. The memory remains, but the distress fades. Most clients describe it as the difference between remembering something painful and reliving it.</p>
       </InfoSection>
-      <InfoSection title="Signs You Might Be Carrying Unprocessed Trauma">
+      <InfoSection headingColor={GREEN.mid} textColor={GREEN.textSoft} title="Signs You Might Be Carrying Unprocessed Trauma">
         <p>You feel fine most of the time but occasionally get hijacked by intense emotions that seem to come from nowhere. You avoid certain places, people, or conversations without fully understanding why. You have difficulty trusting people even when they have given you no reason not to. You are hypervigilant in relationships, always scanning for signs of rejection or danger. You feel disconnected from your body or emotions. You have physical symptoms (chronic pain, digestive issues, insomnia) that have no clear medical explanation. You are successful by every external measure but feel empty, anxious, or numb inside.</p>
       </InfoSection>
     </div>
@@ -118,25 +174,25 @@ function BipolarContent() {
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Bipolar Disorder</h1>
+        <h1 className="text-3xl md:text-4xl" style={{ ...display, color: BLUE.deep }}>Bipolar Disorder</h1>
         <p className="text-sm mt-2 opacity-60" style={body}>Living with bipolar is not about eliminating episodes — it is about understanding your patterns</p>
       </div>
-      <InfoSection title="What Bipolar Disorder Is">
+      <InfoSection headingColor={BLUE.mid} textColor={BLUE.textSoft} title="What Bipolar Disorder Is">
         <p>Bipolar disorder is a mood disorder characterized by alternating episodes of mania (or hypomania) and depression. It is not "mood swings." It is a neurobiological condition that affects energy, sleep, cognition, and behavior in profound and often cyclical ways. There are several types, and understanding which type you have changes everything about how you manage it.</p>
       </InfoSection>
-      <InfoSection title="Bipolar I vs Bipolar II">
+      <InfoSection headingColor={BLUE.mid} textColor={BLUE.textSoft} title="Bipolar I vs Bipolar II">
         <p><strong>Bipolar I</strong> involves full manic episodes that last at least 7 days (or require hospitalization). Mania can include grandiosity, decreased need for sleep, pressured speech, racing thoughts, and impulsive behavior that causes real damage. <strong>Bipolar II</strong> involves hypomanic episodes (less severe, lasting at least 4 days) and major depressive episodes. Bipolar II is not "milder" — the depressions are often more severe and longer-lasting. <strong>Cyclothymia</strong> involves chronic fluctuating mood with periods of hypomanic and depressive symptoms that do not meet full criteria for either episode.</p>
       </InfoSection>
-      <InfoSection title="Why Bipolar Is Often Misdiagnosed">
+      <InfoSection headingColor={BLUE.mid} textColor={BLUE.textSoft} title="Why Bipolar Is Often Misdiagnosed">
         <p>The average time from first symptoms to correct diagnosis is 5-10 years. This happens because people usually seek help during depression, not mania. Hypomania often feels good — productive, creative, social — so it goes unreported. Antidepressants prescribed for "depression" can trigger mania or rapid cycling in undiagnosed bipolar, making things worse. If antidepressants have ever made you feel agitated, wired, or worse, bipolar should be considered.</p>
       </InfoSection>
-      <InfoSection title="The Role of Sleep and Routine">
+      <InfoSection headingColor={BLUE.mid} textColor={BLUE.textSoft} title="The Role of Sleep and Routine">
         <p>Disrupted sleep is both a symptom and a trigger of bipolar episodes. Maintaining a consistent sleep-wake cycle is one of the most powerful stabilizers available. Social Rhythm Therapy (IPSRT) is an evidence-based approach that helps people with bipolar maintain regular daily routines. Even small disruptions — a late night, jet lag, a weekend of irregular sleep — can destabilize mood in vulnerable individuals.</p>
       </InfoSection>
-      <InfoSection title="How I Work With Bipolar">
+      <InfoSection headingColor={BLUE.mid} textColor={BLUE.textSoft} title="How I Work With Bipolar">
         <p>I help clients develop a deep understanding of their personal patterns: what triggers episodes, what the early warning signs look like, and what interventions work at each stage. I collaborate with psychiatrists on medication management. I also help with the relational impact: how to communicate with partners and family about what you need, and how to rebuild trust after episodes that may have caused damage.</p>
       </InfoSection>
-      <InfoSection title="Signs You Might Have Bipolar Disorder">
+      <InfoSection headingColor={BLUE.mid} textColor={BLUE.textSoft} title="Signs You Might Have Bipolar Disorder">
         <p>You have periods of unusually high energy, decreased need for sleep, and increased productivity followed by crashes into depression. Antidepressants have made you feel worse, agitated, or "wired." You have a family history of bipolar disorder. You make impulsive decisions during high-energy periods that you later regret. Your depression feels heavy and physical, not just sad. You have been treated for depression multiple times without lasting improvement. Your mood changes seem to follow a pattern or cycle. You feel like you are living two different lives.</p>
       </InfoSection>
     </div>
@@ -424,6 +480,8 @@ export default function SylviaComingSoon() {
 
   const renderContent = () => {
     switch (location) {
+      case "/sylvia/your-brain":
+        return <YourBrainContent />;
       case "/sylvia/trauma":
         return <TraumaContent />;
       case "/sylvia/addiction":
@@ -449,8 +507,22 @@ export default function SylviaComingSoon() {
     }
   };
 
+  const getTheme = () => {
+    switch (location) {
+      case "/sylvia/trauma":
+        return { bg: GREEN.pale, navColor: GREEN.mid };
+      case "/sylvia/mood-disorders":
+      case "/sylvia/bipolar":
+        return { bg: BLUE.pale, navColor: BLUE.mid };
+      default:
+        return {};
+    }
+  };
+
+  const theme = getTheme();
+
   return (
-    <PageShell>
+    <PageShell bg={theme.bg} navColor={theme.navColor}>
       {renderContent()}
     </PageShell>
   );
