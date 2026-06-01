@@ -10,19 +10,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { trpc } from "@/lib/trpc";
 
 
-/* ─── Color Palette (Mountain Dusk — dusty rose, blush, sage, slate, charcoal) ─── */
+/* ─── Color Palette (Sofía — forest greens, warm neutrals, dusty rose) ─── */
 const COLORS = {
-  bone: "#FAF7F5",           /* warm off-white page background */
-  dustyRose: "#D4A5A5",     /* lightest — soft rose */
-  blush: "#C9918F",         /* warm blush — CTAs, accents */
-  sage: "#9BABA3",          /* muted sage grey — secondary accents */
-  slate: "#4A5859",         /* dark teal-grey — headings, nav pills */
-  charcoal: "#2D3436",      /* near-black — body text, deep contrast */
+  bone: "#F5F7F5",           /* soft sage-white page background */
+  dustyRose: "#D4A99A",     /* warm dusty rose — accents */
+  blush: "#1F4D3A",         /* deep forest green — CTAs, nav pills */
+  sage: "#9FC3B2",          /* sage mint — secondary accents */
+  slate: "#3D4A47",         /* dark forest-grey — headings */
+  charcoal: "#0D2F24",      /* deepest green-black — body text */
   /* Semantic aliases */
-  text: "#2D3436",
-  textSecondary: "#4A5859",
-  divider: "#D4A5A5",
-  accent: "#F5EEEC",        /* very light blush tint for section backgrounds */
+  text: "#3D4A47",
+  textSecondary: "#4F8F75",
+  divider: "#9FC3B2",
+  accent: "#E8E3DA",        /* warm sand tint for section backgrounds */
 };
 
 /* ─── Image CDN paths ─── */
