@@ -29,7 +29,7 @@ const COLORS = {
 const IMAGES = {
   hero: "/manus-storage/purple-leaf-sylvia_ed397cf7.jpg",
   services: "/manus-storage/purple-leaf-sylvia_ed397cf7.jpg",
-  about: "/manus-storage/sylvia-about-new_0a4859c6.jpg",
+  about: "/manus-storage/sylvia-portrait-blue_586a505e.png",
   philosophy: "/manus-storage/sylvia-philosophy-new_5ac4713f.jpg",
   cta: "/manus-storage/sylvia-cta_94ab69d7.jpg",
 };
@@ -188,7 +188,7 @@ export default function Sylvia() {
       {/* 6. About */}
       <AboutSection />
       {/* Media 6: jungle pool still (about image) */}
-      <MobileMediaBreak src="/manus-storage/sylvia-about-new_0a4859c6.jpg" type="image" alt="Jungle pool" />
+      <MobileMediaBreak src="/manus-storage/sylvia-portrait-blue_586a505e.png" type="image" alt="Sylvia" />
 
       {/* 7. Philosophy */}
       <PhilosophySection />
@@ -285,14 +285,13 @@ function Navigation() {
               {/* Menu items — flat list */}
               {[
                 { label: "Who I Help", action: () => { setMenuOpen(false); window.location.href = "/sylvia/who-i-help"; } },
+                { label: "My Approach", action: () => { setMenuOpen(false); window.location.href = "/sylvia/my-approach"; } },
                 { label: "Your Brain", action: () => { setMenuOpen(false); window.location.href = "/sylvia/your-brain"; } },
                 { label: "Your Personality", action: () => { setMenuOpen(false); window.location.href = "/sylvia/your-personality"; } },
                 { label: "Trauma", action: () => { setMenuOpen(false); window.location.href = "/sylvia/trauma"; } },
                 { label: "Addiction", action: () => { setMenuOpen(false); window.location.href = "/sylvia/addiction"; } },
                 { label: "Bipolar", action: () => { setMenuOpen(false); window.location.href = "/sylvia/bipolar"; } },
                 { label: "Triggers", action: () => { setMenuOpen(false); window.location.href = "/sylvia/triggers"; } },
-                { label: "My Story", action: () => { setMenuOpen(false); window.location.href = "/sylvia/my-story"; } },
-                { label: "My Approach", action: () => { setMenuOpen(false); window.location.href = "/sylvia/my-approach"; } },
                 { label: "Blog", action: () => { setMenuOpen(false); window.location.href = "/sylvia/blog"; } },
                 { label: "FAQ", action: () => { setMenuOpen(false); window.location.href = "/sylvia/faq"; } },
               ].map((item, idx) => (
