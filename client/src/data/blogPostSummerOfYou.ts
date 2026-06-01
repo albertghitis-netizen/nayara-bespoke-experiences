@@ -50,12 +50,7 @@ export const summerOfYouPost: BlogPostData = {
 <p>Or maybe it is not small at all.</p>
 <p>Maybe it is the trip you have been circling for years. The one you keep saving for "when things calm down," as if things have ever once calmed down on their own. Maybe it is the conversation you have been avoiding because it might change everything. Maybe it is the decision you already made six months ago but have not said out loud yet.</p>`,
     },
-    {
-      heading: "What People Who Have a Good Summer Do Differently",
-      content: `<p>Here is what we have noticed about people who actually have a good summer: they do not wait for permission. They do not wait for the calendar to clear. They do not wait until they have earned it.</p>
-<p>They just decide.</p>
-<p>Not recklessly. Not dramatically. They just stop negotiating with themselves about whether now is the right time, and they go. They book the flight. They start the morning walk. They say the thing. They sit still long enough to hear what they actually want, and then they trust it.</p>`,
-    },
+
     {
       heading: "The Ocean and What It Does to Your Brain",
       content: `<p>If summer has a sound, it is probably waves.</p>
