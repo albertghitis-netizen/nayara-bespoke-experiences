@@ -241,6 +241,7 @@ function Navigation() {
             <div className="px-6 pt-24 pb-16">
               {/* Menu items — flat list */}
               {[
+                { label: "Who I Help", action: () => { setMenuOpen(false); window.location.href = "/sylvia/who-i-help"; } },
                 { label: "Your Brain", action: () => { setMenuOpen(false); window.location.href = "/sylvia/your-brain"; } },
                 { label: "Your Personality", action: () => { setMenuOpen(false); window.location.href = "/sylvia/your-personality"; } },
                 { label: "Trauma", action: () => { setMenuOpen(false); window.location.href = "/sylvia/trauma"; } },
@@ -248,7 +249,7 @@ function Navigation() {
                 { label: "Bipolar", action: () => { setMenuOpen(false); window.location.href = "/sylvia/bipolar"; } },
                 { label: "Triggers", action: () => { setMenuOpen(false); window.location.href = "/sylvia/triggers"; } },
                 { label: "My Story", action: () => { setMenuOpen(false); window.location.href = "/sylvia/my-story"; } },
-                { label: "My Credentials", action: () => { setMenuOpen(false); import("sonner").then(({ toast }) => toast("My Credentials — Coming Soon")); } },
+                { label: "My Approach", action: () => { setMenuOpen(false); window.location.href = "/sylvia/my-approach"; } },
                 { label: "Blog", action: () => { setMenuOpen(false); window.location.href = "/sylvia/blog"; } },
                 { label: "FAQ", action: () => { setMenuOpen(false); window.location.href = "/sylvia/faq"; } },
               ].map((item, idx) => (
@@ -493,58 +494,6 @@ function ContentBoxes() {
   return (
     <section className="py-14 md:py-20 px-6 md:px-12">
       <div className="max-w-5xl mx-auto space-y-20 md:space-y-28">
-
-        {/* Who I Help — image left, text right */}
-        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
-          <div className="hidden md:block overflow-hidden">
-            <img
-              src={IMAGES.about}
-              alt="Therapy space"
-              className="w-full h-auto object-cover"
-              style={{ aspectRatio: "4/5" }}
-            />
-          </div>
-          <div>
-            <h2
-              className="text-2xl md:text-3xl leading-tight mb-6"
-              style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
-            >
-              Who I Help
-            </h2>
-            <div className="space-y-4 text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
-              <p>I work with high-functioning, self-aware people who are ready for more than coping.</p>
-              <p>From the outside, life may look successful, stable, even full. But underneath it all, you may not feel the way you thought you would. Disconnected from yourself, emotionally tired, or carrying more than anyone realizes.</p>
-              <p>This is a place to slow down, reconnect with yourself, and create meaningful change that actually lasts.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* What Changes — text left, image right */}
-        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
-          <div className="hidden md:block md:order-2 overflow-hidden">
-            <img
-              src={IMAGES.philosophy}
-              alt="Nature and growth"
-              className="w-full h-auto object-cover"
-              style={{ aspectRatio: "4/5" }}
-            />
-          </div>
-          <div className="md:order-1">
-            <h2
-              className="text-2xl md:text-3xl leading-tight mb-6"
-              style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
-            >
-              What Changes
-            </h2>
-            <div className="space-y-4 text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
-              <p>This work goes beyond insight.</p>
-              <p>You may notice yourself pausing before responding. The internal dialogue softens, and you stop being quite so hard on yourself — and often on others, too. Relationships begin to feel less tense and more emotionally fulfilling.</p>
-              <p>Over time, you may stop living so automatically. You begin expressing your feelings more honestly, carrying less responsibility for everyone else, and trusting yourself more in the way you navigate relationships and life.</p>
-              <p>My clients often find themselves feeling less emotionally exhausted, more connected to what matters, and more able to recognize the relationships and ways of living that genuinely support them.</p>
-              <p>Not because you thought your way through it — but because something underneath has shifted.</p>
-            </div>
-          </div>
-        </div>
 
         {/* My Approach — full-width text with background image */}
         <div className="relative rounded-sm overflow-hidden py-16 md:py-20 px-8 md:px-14 text-center">

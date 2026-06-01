@@ -561,6 +561,123 @@ function FAQContent() {
   );
 }
 
+/* ═══ WHO I HELP PAGE ═══ */
+function WhoIHelpContent() {
+  return (
+    <div className="space-y-12">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl mb-4" style={{ ...display, color: GREEN.text }}>Who I Help</h1>
+      </div>
+
+      <div className="space-y-5 text-base leading-relaxed" style={{ ...body, color: GREEN.textSoft }}>
+        <p>You are good at what you do. Really good.</p>
+        <p>From the outside, your life may look successful, stable, even full. You manage a great deal — responsibilities, relationships, expectations, pressure — often without slowing down long enough to notice what it's costing you internally.</p>
+        <p>And yet, something still feels off.</p>
+        <p>You may feel emotionally exhausted despite functioning well. Disconnected from yourself or the people around you. Stuck in patterns that no longer feel sustainable. Always managing, anticipating, performing, carrying.</p>
+        <p className="italic" style={{ color: GREEN.mid }}>You don't really stop.</p>
+        <p>Over time, relationships can begin to feel more tense, more distant, or less fulfilling than you want them to. You may notice yourself reacting quickly, shutting down, overthinking, people-pleasing, or feeling responsible for everyone else while quietly neglecting yourself.</p>
+        <p>This work is for people who are ready for more than coping. People who want to feel more connected, more present, more emotionally alive — and more at home in the lives they've built.</p>
+      </div>
+
+      <div className="mt-10 py-8 px-6 rounded-sm text-center" style={{ backgroundColor: GREEN.soft }}>
+        <p className="text-base italic leading-relaxed" style={{ ...body, color: GREEN.text }}>
+          If nothing in your life changed a year from now, would that feel okay?
+        </p>
+        <p className="text-sm mt-3" style={{ ...body, color: GREEN.textSoft }}>
+          If the answer is no, this may be a place to begin.
+        </p>
+      </div>
+
+      {/* Possibilities section */}
+      <div className="mt-16">
+        <h2 className="text-2xl md:text-3xl mb-6" style={{ ...display, color: GREEN.text }}>Possibilities</h2>
+        <p className="text-sm uppercase tracking-widest mb-6" style={{ ...body, color: GREEN.mid }}>This is what I often see happen.</p>
+        <div className="space-y-5 text-base leading-relaxed" style={{ ...body, color: GREEN.textSoft }}>
+          <p>The internal noise quiets down. That critical voice that has been running in the background for years begins to lose some of its hold. You start noticing it differently — and over time, relating to yourself with more understanding and less pressure.</p>
+          <p>Old reactions don't disappear overnight. The shutting down, the snapping, the quietly carrying everything alone. But they begin to loosen. And when they do, there's more space — for connection in your relationships, more ease within yourself, and a fuller presence in the life you have built.</p>
+          <p>The constant pressure to chase the next thing often begins to settle. Not because ambition disappears — but because it's no longer carrying the same emotional weight.</p>
+          <p>People often find themselves responding differently — less reactive, more grounded, and more intentional in the way they move through life.</p>
+          <p>Decisions begin to come from a clearer place. Not perfect decisions — but ones that feel less driven by pressure, fear, or the need to prove something.</p>
+          <p className="italic" style={{ color: GREEN.mid }}>Not because you became someone new.</p>
+          <p>But because life no longer feels quite so far away from you.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══ MY APPROACH PAGE ═══ */
+function MyApproachContent() {
+  return (
+    <div className="space-y-12">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl md:text-4xl mb-4" style={{ ...display, color: C.deepPlum }}>My Approach</h1>
+      </div>
+
+      <div className="space-y-5 text-base leading-relaxed" style={{ ...body, color: C.textSoft }}>
+        <p>Most of my clients are insightful. They understand their patterns. They can often explain exactly why they react the way they do.</p>
+        <p>And yet, understanding it hasn't been enough to change it.</p>
+        <p>That's because the part of us that analyzes and understands is not always the same part carrying the emotional experience. You can know something logically and still feel stuck in the same reactions, fears, pressure, or disconnection.</p>
+        <p>Real change happens when insight connects with what's happening underneath the surface — emotionally, relationally, and physically.</p>
+        <p>This work is not about forcing change or talking yourself into it. We work beneath the surface of what you already know — toward change that shows up in your relationships, your reactions, and the way you move through your life.</p>
+      </div>
+
+      {/* Services/Modalities */}
+      <div className="mt-16">
+        <h2 className="text-2xl md:text-3xl mb-4" style={{ ...display, color: C.deepPlum }}>Services / Modalities</h2>
+        <p className="text-sm leading-relaxed mb-8" style={{ ...body, color: C.textSoft }}>
+          There is no single path through this work. What I use depends on you — where you are, what you're carrying, and what your system needs to shift. These are the approaches I draw from.
+        </p>
+
+        <div className="space-y-10">
+          <InfoSection title="EMDR" headingColor={C.amethyst} textColor={C.textSoft}>
+            <div className="space-y-3">
+              <p>Sometimes you can understand something completely — and still feel it as if it just happened. That gap between knowing and feeling is where EMDR works.</p>
+              <p>EMDR uses gentle bilateral stimulation — tapping, eye movements, or sound — to help the thinking and feeling parts of the brain process together. Instead of talking around a painful memory, we work with it directly. Not by reliving it, but by helping the brain do what it was always trying to do: process it and move forward.</p>
+              <p>Most people notice how differently an old memory can feel when it no longer carries the same charge.</p>
+            </div>
+          </InfoSection>
+
+          <InfoSection title="IFS — Internal Family Systems" headingColor={C.amethyst} textColor={C.textSoft}>
+            <div className="space-y-3">
+              <p>You've probably noticed that different parts of you want different things. One part is exhausted and wants rest. Another says there's no time. One part wants to be closer to the people you love. Another doesn't quite know how.</p>
+              <p>This isn't a contradiction. It's how the mind organizes itself.</p>
+              <p>In our work, we get curious about these parts instead of fighting them. We look at where they came from, what they've been trying to protect, and what they need now.</p>
+              <p>That shift — from inner conflict to understanding — is often where lasting change begins.</p>
+            </div>
+          </InfoSection>
+
+          <InfoSection title="Trauma-Informed Hypnotherapy" headingColor={C.amethyst} textColor={C.textSoft}>
+            <div className="space-y-3">
+              <p>Hypnotherapy is not what you've seen on television.</p>
+              <p>You're not asleep. You're not under anyone's control. You're simply in a deeply relaxed, focused state — one where the overthinking mind steps back and something deeper becomes accessible.</p>
+              <p>In that state, the brain becomes more open to change — what neuroscience calls memory reconsolidation. An old emotional imprint can be updated. Not erased. Updated. The memory stays, but the weight it carries can shift.</p>
+              <p>For people who have spent years thinking their way through everything, this often reaches what thinking alone cannot.</p>
+            </div>
+          </InfoSection>
+
+          <InfoSection title="Ketamine-Assisted Therapy" headingColor={C.amethyst} textColor={C.textSoft}>
+            <div className="space-y-3">
+              <p>Ketamine-Assisted Therapy combines the effects of ketamine with the support of psychotherapy.</p>
+              <p>It creates a temporary window where the brain becomes more open — where stuck patterns can loosen and new perspectives can emerge.</p>
+              <p>Within a therapeutic setting, this can allow you to access insight, process difficult emotional states, and shift patterns that have felt hard to move.</p>
+              <p>It's not a standalone experience. The work before and after — making sense of what comes up and integrating it — is what allows the change to last.</p>
+            </div>
+          </InfoSection>
+
+          <InfoSection title="PDP Behavioral Assessment" headingColor={C.amethyst} textColor={C.textSoft}>
+            <div className="space-y-3">
+              <p>Sometimes the most useful place to start is understanding how you're wired.</p>
+              <p>The PDP ProScan is a behavioral assessment that shows how you naturally think, make decisions, communicate, and respond under pressure — and where the gap is between who you are and who you feel you need to be.</p>
+              <p>I use this with individuals, couples, and organizations. It's especially useful for people in leadership roles who want a clearer picture of how their patterns affect the people around them.</p>
+            </div>
+          </InfoSection>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ═══ ROUTER ═══ */
 export default function SylviaComingSoon() {
   const [location] = useLocation();
@@ -582,6 +699,10 @@ export default function SylviaComingSoon() {
         return <TriggersContent />;
       case "/sylvia/my-story":
         return <MyStoryContent />;
+      case "/sylvia/who-i-help":
+        return <WhoIHelpContent />;
+      case "/sylvia/my-approach":
+        return <MyApproachContent />;
       case "/sylvia/blog":
         return <BlogContent />;
       case "/sylvia/faq":
@@ -607,6 +728,8 @@ export default function SylviaComingSoon() {
         return { bg: ROSE.pale, navColor: ROSE.mid };
       case "/sylvia/triggers":
         return { bg: "#FFFFFF", navColor: GREY.mid };
+      case "/sylvia/who-i-help":
+        return { bg: GREEN.pale, navColor: GREEN.mid };
       default:
         return {};
     }
