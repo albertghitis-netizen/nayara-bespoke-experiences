@@ -613,6 +613,7 @@ function MyApproachContent() {
     <div className="space-y-12">
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-4xl mb-4" style={{ ...display, color: C.deepPlum }}>My Approach</h1>
+        <img src="/manus-storage/my-approach-hero_daff6a3a.png" alt="Therapy conversation illustration" className="w-full max-w-md mx-auto mt-6" />
       </div>
 
       <div className="space-y-5 text-base leading-relaxed" style={{ ...body, color: C.textSoft }}>
@@ -731,6 +732,8 @@ export default function SylviaComingSoon() {
         return { bg: "#FFFFFF", navColor: GREY.mid };
       case "/sylvia/who-i-help":
         return { bg: "#FDE8E8", navColor: "#3B2218" };
+      case "/sylvia/my-approach":
+        return { bg: "#FFFFFF", navColor: C.deepPlum };
       default:
         return {};
     }

@@ -566,28 +566,24 @@ function ContentBoxes() {
    ═══════════════════════════════════════════════════════════════ */
 function VideoMomentSection() {
   return (
-    <section className="py-14 md:py-20 px-6 md:px-12" style={{ backgroundColor: '#F0F5F2' }}>
-      <div className="max-w-4xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
-          {/* Vertical video */}
-          <div className="flex justify-center">
-            <SylviaVideo
-              src="/manus-storage/sylvia-video-flowers-only_02f74dba.mp4"
-              className="w-full max-w-[280px] md:max-w-[320px] h-auto rounded-sm shadow-lg aspect-[9/12]"
-            />
-          </div>
-
-          {/* Text */}
-          <div>
-            <h2
-              className="text-2xl md:text-3xl leading-tight mb-6"
-              style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
-            >
-              Hello, I'm Sylvia
-            </h2>
-            <div className="space-y-4 text-base leading-relaxed" style={{ color: COLORS.textSecondary }}>
-              <p>I'm a licensed trauma therapist helping high-functioning people feel more emotionally connected, internally at ease, and genuinely fulfilled.</p>
-              <p>Warm, direct, and occasionally funny. Originally from Germany. Still get unreasonably excited about mossy forests.</p>
+    <section className="py-10 md:py-16 px-6 md:px-12">
+      <div className="max-w-5xl mx-auto">
+        <div className="relative rounded-sm overflow-hidden shadow-lg">
+          <SylviaVideo
+            src="/manus-storage/my-approach-video_28d423bb.mov"
+            className="w-full aspect-[16/9]"
+          />
+          <div className="absolute inset-0 flex items-end justify-start p-8 md:p-12 bg-gradient-to-t from-black/50 via-transparent to-transparent">
+            <div>
+              <h2
+                className="text-white text-2xl md:text-3xl leading-tight mb-3"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                Hello, I'm Sylvia
+              </h2>
+              <p className="text-white/80 text-sm md:text-base max-w-md leading-relaxed">
+                Warm, direct, and occasionally funny. Originally from Germany. Still get unreasonably excited about mossy forests.
+              </p>
             </div>
           </div>
         </div>
