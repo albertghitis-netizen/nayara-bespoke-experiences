@@ -567,7 +567,7 @@ function WhoIHelpContent() {
     <div className="space-y-12">
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-4xl mb-4" style={{ ...display, color: '#3B2218' }}>Who I Help</h1>
-        <img src="/manus-storage/who-i-help-hero_c9d5e875.png" alt="Therapy session illustration" className="w-full max-w-md mx-auto rounded-sm mt-6" />
+        <img src="/manus-storage/who-i-help-therapy_93be5cac.png" alt="Therapy session illustration" className="w-full max-w-md mx-auto rounded-sm mt-6" />
       </div>
 
       <div className="space-y-5 text-base leading-relaxed" style={{ ...body, color: '#4A3228' }}>
@@ -580,7 +580,7 @@ function WhoIHelpContent() {
         <p>This work is for people who are ready for more than coping. People who want to feel more connected, more present, more emotionally alive — and more at home in the lives they've built.</p>
       </div>
 
-      <div className="mt-10 py-8 px-6 rounded-sm text-center" style={{ backgroundColor: '#FAE8E8' }}>
+      <div className="mt-10 py-8 px-6 rounded-sm text-center" style={{ backgroundColor: '#F5F5F5' }}>
         <p className="text-base italic leading-relaxed" style={{ ...body, color: '#3B2218' }}>
           If nothing in your life changed a year from now, would that feel okay?
         </p>
@@ -731,7 +731,7 @@ export default function SylviaComingSoon() {
       case "/sylvia/triggers":
         return { bg: "#FFFFFF", navColor: GREY.mid };
       case "/sylvia/who-i-help":
-        return { bg: "#FDF2F2", navColor: "#3B2218" };
+        return { bg: "#FFFFFF", navColor: "#3B2218" };
       case "/sylvia/my-approach":
         return { bg: "#FFFFFF", navColor: C.deepPlum };
       default:
