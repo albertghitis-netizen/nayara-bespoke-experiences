@@ -189,6 +189,9 @@ function TraumaContent() {
         <h1 className="text-3xl md:text-4xl" style={{ ...display, color: GREEN.deep }}>Trauma</h1>
         <p className="text-sm mt-2 opacity-60" style={body}>Understanding what trauma is, how it lives in the body, and what healing actually looks like</p>
       </div>
+      <div className="flex justify-center mb-8">
+        <img src="/manus-storage/trauma-header_3e6ac90c.png" alt="Two silhouettes representing tangled and organized thoughts" className="w-full max-w-md rounded-sm" />
+      </div>
       <InfoSection headingColor={GREEN.mid} textColor={GREEN.textSoft} title="What Trauma Actually Is">
         <p>Trauma is not what happened to you. Trauma is what happened inside you as a result of what happened to you. It is the nervous system's response to an overwhelming event that exceeded your capacity to cope at the time. This means trauma is not defined by the severity of the event but by the impact it had on your body and mind. A car accident, childhood neglect, a difficult medical procedure, or a relationship where you were consistently dismissed can all leave the same kind of imprint.</p>
       </InfoSection>
