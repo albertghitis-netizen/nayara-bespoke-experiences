@@ -222,6 +222,9 @@ function AddictionContent() {
         <h1 className="text-3xl md:text-4xl" style={{ ...display, color: C.deepPlum }}>Addiction</h1>
         <p className="text-sm mt-2 opacity-60" style={body}>Understanding addiction as a brain disease, not a moral failing</p>
       </div>
+      <div className="flex justify-center mb-8">
+        <img src="/manus-storage/addiction-header2_63818450.png" alt="Person breaking free from addiction ball and chain" className="w-full max-w-sm rounded-sm" />
+      </div>
       <InfoSection title="What Addiction Actually Is">
         <p>Addiction is a chronic brain disorder characterized by compulsive substance use or behavior despite harmful consequences. It is not a choice, a moral failing, or a lack of willpower. The American Society of Addiction Medicine defines it as a primary disease of brain reward, motivation, memory, and related circuitry. When someone is addicted, their brain has been fundamentally altered in ways that make stopping extraordinarily difficult without support.</p>
       </InfoSection>
@@ -252,6 +255,9 @@ function BipolarContent() {
         <h1 className="text-3xl md:text-4xl" style={{ ...display, color: BLUE.deep }}>Bipolar Disorder</h1>
         <p className="text-sm mt-2 opacity-60" style={body}>Living with bipolar is not about eliminating episodes — it is about understanding your patterns</p>
       </div>
+      <div className="flex justify-center mb-8">
+        <img src="/manus-storage/bipolar-header_4d7663ff.png" alt="Two overlapping head silhouettes representing dual states of mind" className="w-full max-w-sm rounded-sm" />
+      </div>
       <InfoSection headingColor={BLUE.mid} textColor={BLUE.textSoft} title="What Bipolar Disorder Is">
         <p>Bipolar disorder is a mood disorder characterized by alternating episodes of mania (or hypomania) and depression. It is not "mood swings." It is a neurobiological condition that affects energy, sleep, cognition, and behavior in profound and often cyclical ways. There are several types, and understanding which type you have changes everything about how you manage it.</p>
       </InfoSection>
@@ -281,6 +287,9 @@ function TriggersContent() {
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-4xl" style={{ ...display, color: GREY.deep }}>Triggers</h1>
         <p className="text-sm mt-2" style={{ ...body, color: GREY.textSoft }}>Know what destabilizes you before it happens</p>
+      </div>
+      <div className="flex justify-center mb-8">
+        <img src="/manus-storage/triggers-header_33e7a9ce.png" alt="Finger pressing buttons on a head representing emotional triggers" className="w-full max-w-xs rounded-sm" />
       </div>
       <InfoSection title="What Are Triggers" headingColor={GREY.deep} textColor={GREY.text}>
         <p>Triggers are situations, emotions, people, places, or internal states that increase the risk of either a mood episode or a relapse. Triggers often overlap: the same stressor that destabilizes your mood also activates cravings. Identifying your personal triggers is the first line of defense because you cannot manage what you do not recognize.</p>
