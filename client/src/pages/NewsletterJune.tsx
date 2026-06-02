@@ -126,7 +126,7 @@ export default function NewsletterJune() {
             Adults-only, thermal-fed, surrounded by rainforest, and quiet enough to hear what you came to say.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
-            We also wrote about what romance looks like across all four ecosystems. From the thermal springs of Costa Rica to the overwater villas of Bocas del Toro, from the silence of the Atacama to the ancient wonder of Rapa Nui.
+            We also wrote about romance across all four ecosystems.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
@@ -202,11 +202,23 @@ export default function NewsletterJune() {
       {/* ── CLOSING CTA ── */}
       <section className="bg-[#f7f5f0] text-center py-14 px-8 md:px-16">
         <p
-          className="text-xl md:text-2xl leading-[1.4] max-w-lg mx-auto"
+          className="text-xl md:text-2xl leading-[1.4] max-w-lg mx-auto mb-6"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
         >
           This is the summer of you. Four ecosystems. One invitation. We are ready when you are.
         </p>
+        <p className="text-[14px] text-[#666666] leading-[1.9] max-w-md mx-auto mb-5">
+          If you have enjoyed hearing about what we are doing, or if your stay at Nayara was special, use the link below to vote for us in the Conde Nast Traveler Readers' Choice Awards.
+        </p>
+        <a
+          href="https://www.cntraveler.com/rca/vote"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: "#8a7a5a" }}
+        >
+          Vote for Nayara
+        </a>
       </section>
 
       {/* ── GOLD RULE ── */}
