@@ -120,10 +120,10 @@ export default function NewsletterJune() {
             The Romantic Escape at Nayara Springs
           </h2>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
-            Some places are designed for couples. Nayara Springs was built for them. Adults-only, thermal-fed, surrounded by rainforest, and quiet enough to hear what you came to say.
+            We are introducing the Romantic Escape: a four-night minimum package at Nayara Springs that includes a floating breakfast delivered to your private plunge pool, a private dinner at Besame Mucho, and other amenities designed to remove everything that competes for your attention.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
-            The Romantic Escape includes a floating breakfast delivered to your private plunge pool, a private dinner at Besame Mucho, and other amenities designed to remove everything that competes for your attention.
+            Adults-only, thermal-fed, surrounded by rainforest, and quiet enough to hear what you came to say.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
             We also wrote about what romance looks like across all four ecosystems. From the thermal springs of Costa Rica to the overwater villas of Bocas del Toro, from the silence of the Atacama to the ancient wonder of Rapa Nui.
