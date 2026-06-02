@@ -1,124 +1,83 @@
 /*
  * BOCAS DEL TORO — OCEAN HABITAT RESTORATION
- * Definitive editorial page: the global crisis, the science, the partnership,
- * the program, and how guests participate.
+ * The definitive editorial: global crisis, local science, the partnership,
+ * and how guests participate in rebuilding a Caribbean reef system.
  * Partner: Caribbean Coral Restoration Center (loveforthesea.com)
- * Real photos only. No AI-generated imagery.
+ * Real photos/videos only. No AI-generated imagery.
  */
 
+import { useState } from "react";
+import { AnimateOnScroll, TextReveal, fadeUp, EASE_CINEMATIC } from "@/components/motion";
 import { motion } from "framer-motion";
-
-import {
-  AnimateOnScroll,
-  TextReveal,
-  fadeUp,
-  EASE_CINEMATIC,
-} from "@/components/motion";
+import BlobVideo from "@/components/BlobVideo";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
 const PALETTE = {
-  ocean: "#1E3A8A",      // Bocas royal blue (primary/nav/footer)
-  teal: "#006D75",       // Bocas deep aqua (secondary accents)
-  accent: "#4DC9D1",     // Bocas light aqua (highlights)
-  light: "#E2F0F0",      // Bocas aqua tint (backgrounds)
-  sand: "#F7F5F0",       // Bone (light section bg)
+  ocean: "#1E3A8A",
+  teal: "#006D75",
+  accent: "#4DC9D1",
+  light: "#E2F0F0",
+  sand: "#F7F5F0",
   white: "#FFFFFF",
-  text: "#0D0704",        // Super dark brown on light
-  muted: "#1A0A00",      // Pure dark brown for body text on light backgrounds
+  text: "#0D0704",
+  muted: "#1A0A00",
   divider: "#B8D4E8",
   faint: "rgba(30,58,138,0.07)",
 };
-
-/* ── STATS ─────────────────────────────────────────────────── */
-const STATS = [
-  { number: "500+", label: "Coral Fragments\nOutplanted" },
-  { number: "3", label: "Active\nRestoration Sites" },
-  { number: "25", label: "Community\nPartners" },
-  { number: "12", label: "Research\nProjects" },
-  { number: "1,000+", label: "Volunteer Hours\nper Month" },
-  { number: "80%", label: "Caribbean Habitat\nDecline in 50 Years" },
-];
-
-/* ── RESTORATION STEPS ─────────────────────────────────────── */
-const STEPS = [
-  {
-    n: "01",
-    title: "Survey & Select",
-    body: "Teams scour the Bocas del Toro archipelago for coral specimens that have already survived bleaching events, individuals demonstrating natural resilience to elevated water temperatures.",
-  },
-  {
-    n: "02",
-    title: "Clone & Cultivate",
-    body: "Resilient fragments are cloned and grown in the land-water nursery on Isla Solarte, protected during their most vulnerable growth phase before they are ready to be outplanted.",
-  },
-  {
-    n: "03",
-    title: "Build the Foundation",
-    body: "Artificial reef structures are constructed on land from environmentally friendly materials, designed to mimic natural reef architecture and provide immediate habitat for fish and invertebrates.",
-  },
-  {
-    n: "04",
-    title: "Install & Outplant",
-    body: "Structures are installed at the three active restoration sites in the bay. Nursery-grown coral is then outplanted onto the structures, giving each fragment a stable, clean base to grow from.",
-  },
-  {
-    n: "05",
-    title: "Monitor & Research",
-    body: "Each site is actively monitored for coral growth, fish colonization, and ecosystem health. Twelve ongoing research projects study resilience, bleaching response, and long-term recovery.",
-  },
-  {
-    n: "06",
-    title: "Expand & Educate",
-    body: "The program engages 25 local community partners, including schools, fishing cooperatives, and neighboring hotels, with the long-term goal of scaling reef restoration across the entire archipelago.",
-  },
-];
 
 export default function OceanHabitatRestoration() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.sand }}>
       <Hero />
+      <OpeningText />
       <StatsBar />
-      <TheGlobalCrisis />
-      <BocasContext />
+      <TheCrisis />
+      <WhyBocas />
+      <VideoBreak />
       <ThePartnership />
-      <RestorationProcess />
-      <ImageBreak />
-      <WhatMakesItUnique />
-      <GuestExperience />
       <ThePivot />
       <CorePhilosophy />
       <TheMethods />
+      <WhatNayaraBuilt />
       <TimelineResults />
       <CurrentScale />
       <EcosystemFraming />
       <LongTermVision />
+      <WhatItMeansToParticipate />
+      <RestorationIsABridge />
+      <FAQ />
+      <Sources />
       <ClosingCTA />
     </div>
   );
 }
 
-/* ── HERO ─────────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   HERO — Full-screen progress video (2022-2026) WITH AUDIO
+   Only the title overlaid. Mute/unmute pill via BlobVideo.
+   ══════════════════════════════════════════════════════════════ */
 function Hero() {
   return (
-    <section className="relative overflow-hidden" style={{ minHeight: "90vh" }}>
-      <video
-        src="/manus-storage/Underwater1_e83986a7.MP4"
+    <section className="relative overflow-hidden" style={{ minHeight: "100vh" }}>
+      <BlobVideo
+        src="/manus-storage/ocean-habitat-progress-2022-2026_e7600843.mov"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        hasAudio
+        muted={true}
         autoPlay
-        muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        pillBg="rgba(30,58,138,0.75)"
+        pillColor="#4DC9D1"
       />
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "linear-gradient(to bottom, rgba(11,79,94,0.2) 0%, rgba(11,79,94,0.55) 55%, rgba(11,79,94,0.88) 100%)",
+          background: "linear-gradient(to bottom, rgba(11,79,94,0.15) 0%, rgba(11,79,94,0.5) 60%, rgba(11,79,94,0.85) 100%)",
         }}
       />
-
-      <div className="relative z-10 h-full flex flex-col justify-end px-8 md:px-16 lg:px-24 pb-20 md:pb-28" style={{ minHeight: "90vh" }}>
+      <div className="relative z-10 h-full flex flex-col justify-end px-8 md:px-16 lg:px-24 pb-20 md:pb-28" style={{ minHeight: "100vh" }}>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -128,36 +87,82 @@ function Hero() {
         >
           Ocean Habitat Restoration · Bocas del Toro, Panama
         </motion.p>
-
         <TextReveal as="h1" delay={0.45}>
           <span
             className="text-white text-4xl md:text-6xl lg:text-[5.5rem] leading-[1.02] tracking-wide"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Ocean Habitat Restoration
+            Building a City Beneath the Sea
           </span>
         </TextReveal>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.75, ease: EASE_CINEMATIC }}
-          className="mt-6 text-lg md:text-xl leading-relaxed max-w-2xl"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.82)" }}
-        >
-          Imagine building a city from nothing. First you lay the foundations: the structures, the streets, the architecture. Then the mobile residents arrive. Fish dart through the corridors, crustaceans claim the crevices, invertebrates colonize every surface. Life fills the city because the city is worth living in. And then, finally, the permanent residents settle. Coral, which once attached cannot leave. They are not visitors. They are the city itself. In partnership with Caribbean Coral Restoration, Nayara Bocas del Toro is building that city, restoring one of the Caribbean's most threatened ocean habitats from the foundation up.
-        </motion.p>
       </div>
     </section>
   );
 }
 
-/* ── STATS BAR ────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   OPENING TEXT — "What the Reef Remembers"
+   Standalone section below hero. Both hero and this are "the stars."
+   ══════════════════════════════════════════════════════════════ */
+function OpeningText() {
+  return (
+    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+      <div className="max-w-3xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <h2
+            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            What the Reef Remembers
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Imagine building a city from nothing. First you lay the foundations: the structures, the streets, the architecture. Then the mobile residents arrive. Fish dart through the corridors, crustaceans claim the crevices, invertebrates colonize every surface. Life fills the city because the city is worth living in.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Then, finally, the permanent residents settle. Coral. Once attached, they cannot leave. They are not visitors. They are the city itself.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Water is not a backdrop to life on Earth. It is the system that makes it possible. The ocean is the downstream expression of almost everything humans do on land. What runs off agricultural fields into a lagoon affects the coral growing thirty meters below the surface. What is burned in a city reshapes the temperature of a sea on the other side of the planet.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Coral reefs cover less than one percent of the ocean floor. They support at least 25 percent of all marine species, protect coastlines, sustain fisheries, and underpin the livelihoods of approximately 500 million people. They are also the ecosystem most directly and most irreversibly affected by what the ocean is doing right now.
+          </p>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   STATS BAR
+   ══════════════════════════════════════════════════════════════ */
 function StatsBar() {
+  const stats = [
+    { number: "100K+", label: "Coral Fragments\nOutplanted" },
+    { number: "200+", label: "Artificial Reef\nStructures" },
+    { number: "87%", label: "Panama's Coral\nSpecies in Bocas" },
+    { number: "84.4%", label: "Global Reefs\nBleaching Since 2023" },
+  ];
+
   return (
     <section style={{ backgroundColor: PALETTE.ocean }}>
-      <div className="max-w-7xl mx-auto grid grid-cols-3 md:grid-cols-6 gap-px" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
-        {STATS.map((s, i) => (
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
+        {stats.map((s, i) => (
           <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.06}>
             <div className="flex flex-col items-center justify-center text-center py-10 px-4" style={{ backgroundColor: PALETTE.ocean }}>
               <span
@@ -180,14 +185,16 @@ function StatsBar() {
         className="text-center text-[11px] py-3"
         style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.3)", backgroundColor: PALETTE.ocean }}
       >
-        Sources: Caribbean Coral Restoration Center (loveforthesea.com) · NOAA Coral Reef Watch 2024
+        Sources: Caribbean Coral Restoration Center · ICRI 2025 · Coral Reefs Journal 2025
       </p>
     </section>
   );
 }
 
-/* ── THE GLOBAL CRISIS ────────────────────────────────────── */
-function TheGlobalCrisis() {
+/* ══════════════════════════════════════════════════════════════
+   THE CRISIS — Most devastating bleaching event ever recorded
+   ══════════════════════════════════════════════════════════════ */
+function TheCrisis() {
   return (
     <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
       <div className="max-w-3xl">
@@ -202,7 +209,7 @@ function TheGlobalCrisis() {
             className="text-3xl md:text-5xl mb-10 leading-[1.1]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
-            The Fourth Mass Bleaching Event
+            The Most Devastating Bleaching Event Ever Recorded
           </h2>
         </AnimateOnScroll>
 
@@ -211,25 +218,25 @@ function TheGlobalCrisis() {
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            In 2024, NOAA declared the world's fourth global mass coral bleaching event on record, the most widespread in history, affecting reefs across the Atlantic, Pacific, and Indian Oceans simultaneously. The trigger: sea surface temperatures rising to levels coral cannot survive.
+            In 2025, researchers publishing in <em>Coral Reefs</em> described an era of near-annual bleaching: uninterrupted global coral heat stress from 2018 through 2025, with median heat accumulation roughly 50 percent greater than any previously recorded event. The International Coral Reef Initiative confirmed 84.4 percent of the world's mapped reef area has been exposed to bleaching-level heat stress since 2023. The event remains ongoing.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Coral bleaching occurs when water temperatures rise even slightly above normal for an extended period. Corals expel the symbiotic algae (zooxanthellae) that live in their tissues and provide up to 90% of their energy through photosynthesis. Without them, the coral turns white and, if temperatures don't return to normal quickly, starves to death. What was once a rare event now occurs with increasing frequency and severity.
+            The progression tells the story. The 1998 global bleaching event affected 21 percent of reefs. The 2010 event affected 37 percent. The 2014 to 2017 event affected 68 percent. Each was called the worst ever. What is happening now is not a continuation of that trend. It is a different order of magnitude.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            The Caribbean has been among the hardest hit. Caribbean reefs have declined by approximately <strong>80% over the last fifty years</strong>, a collapse driven by bleaching, ocean acidification, agricultural runoff, coastal development, and overfishing. Six Caribbean coral species are now listed as threatened under the U.S. Endangered Species Act, including Staghorn coral (<em>Acropora cervicornis</em>) and Elkhorn coral (<em>Acropora palmata</em>), once the dominant reef-building species across the entire region.
+            <em>Advances in Atmospheric Sciences</em> confirmed ocean heat content set another record in 2025. The rate of ocean warming has doubled in the most recent two decades. <em>Earth System Dynamics</em> identified 1.2 degrees Celsius as the effective tipping point for warm-water reefs. The planet is at that threshold now.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Over 50% of the world's coral reefs have been lost since the 1950s. Scientists estimate that without significant intervention, the majority of the world's remaining reefs could be functionally extinct within decades. Coral reefs cover less than 1% of the ocean floor but support an estimated 25% of all marine species and the livelihoods of more than a billion people.
+            The Coral Restoration Foundation's 2025 Tipping Point Report was plain about what restoration can and cannot do. It cannot reverse what the ocean is absorbing. It can buy time, preserve genetic diversity, and rebuild the structural conditions that allow recovery when global conditions improve. That is the honest framework. Everything on this page operates inside it.
           </p>
         </AnimateOnScroll>
       </div>
@@ -237,8 +244,10 @@ function TheGlobalCrisis() {
   );
 }
 
-/* ── BOCAS CONTEXT ────────────────────────────────────────── */
-function BocasContext() {
+/* ══════════════════════════════════════════════════════════════
+   WHY BOCAS — 87% of Panama's coral species
+   ══════════════════════════════════════════════════════════════ */
+function WhyBocas() {
   return (
     <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
       {/* Infographic left */}
@@ -266,25 +275,31 @@ function BocasContext() {
             className="text-2xl md:text-3xl mb-6 leading-[1.2]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
-            An Ocean Habitat Worth Fighting For
+            Bocas Holds What the Rest of the Caribbean Is Losing
           </h2>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            The Bocas del Toro archipelago is home to some of the most biodiverse coral reef ecosystems remaining in the Caribbean. Its waters shelter parrotfish, angelfish, nurse sharks, hawksbill sea turtles, and hundreds of invertebrate species that depend on healthy reef structure for shelter and food.
+            The Bocas del Toro archipelago contains approximately 87 percent of all reef-building coral species documented in Panama. The Smithsonian Tropical Research Institute, which has maintained a research station here since 1998, describes it as one of the most significant marine research sites in the western hemisphere.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            But monitoring data from 2023–2024 shows increasing dead coral and bleaching trends across the archipelago. The same forces driving global reef collapse are at work here, and the window for intervention is narrowing.
+            The reef is one third of an integrated system. Mangroves filter the terrestrial runoff that would otherwise smother coral. Seagrass meadows cycle nutrients and feed sea turtles. The reef shelters the juvenile fish that sustain the food web above it. Pull one piece out and the others begin to fail.
+          </p>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            STRI research identified hypoxia from agricultural runoff and untreated sewage as a primary driver of reef diversity loss in Bahia Almirante, alongside heat. Unlike rising ocean temperatures, nutrient runoff is a local problem with local solutions.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Nayara Bocas del Toro was built on stilts, after five independent environmental studies, to avoid disturbing the reef and mangroves below. That same commitment to the bay is what drives our partnership with Caribbean Coral Restoration.
+            Research in <em>Ecosphere</em> found that Bocas del Toro's mangrove forests function as genuine coral refugia. A 2025 study in <em>Science Advances</em> confirmed that corals from mangrove lagoons retained their heat tolerance after a full year transplanted to standard reef conditions. Since Bocas del Toro lacks deep-water refugia, these mangrove corridors may be the most important survival infrastructure the archipelago has.
           </p>
         </AnimateOnScroll>
       </div>
@@ -292,7 +307,32 @@ function BocasContext() {
   );
 }
 
-/* ── THE PARTNERSHIP ──────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   VIDEO BREAK — Bocas horizontal footage
+   ══════════════════════════════════════════════════════════════ */
+function VideoBreak() {
+  return (
+    <section className="relative overflow-hidden" style={{ height: "65vh" }}>
+      <video
+        src="/manus-storage/Edits_Bocas_horizontal_20260319_134622_e1a263ba.mov"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        className="w-full h-full object-cover object-center"
+      />
+      <div
+        className="absolute inset-0"
+        style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(11,79,94,0.6) 100%)" }}
+      />
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   THE PARTNERSHIP — Caribbean Coral Restoration + Doug Marcy
+   ══════════════════════════════════════════════════════════════ */
 function ThePartnership() {
   return (
     <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
@@ -308,7 +348,7 @@ function ThePartnership() {
             className="text-3xl md:text-5xl mb-10 leading-[1.1]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
-            Caribbean Coral Restoration
+            Caribbean Coral Restoration: From Isla Solarte Outward
           </h2>
         </AnimateOnScroll>
 
@@ -317,34 +357,19 @@ function ThePartnership() {
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            In 2022, Nayara Bocas del Toro partnered with the <strong>Caribbean Coral Restoration Center</strong>, a 501(c)(3) nonprofit based on Isla Solarte in Bocas del Toro. Their mission is to be cultivators and guardians of flourishing ocean ecosystems. Their approach is fundamentally different from most restoration programs in the Caribbean.
+            Caribbean Coral Restoration Center is a nonprofit based on Isla Solarte in the Bocas del Toro archipelago. Its founder, <strong>Doug Marcy</strong>, is a civil engineer who has lived in Bocas del Toro for more than 16 years. He did not come here to start a restoration organization. He came because of the water. He started the organization because of what was happening to it.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Most coral restoration programs work with whatever degraded reef structure already exists, transplanting coral fragments directly onto broken, bleached, or algae-covered substrate. Caribbean Coral Restoration takes a different approach: they <strong>build their own artificial reef structures from scratch</strong>, constructed on land and then installed at restoration sites before any coral is outplanted. The foundation is always stable, clean, and purpose-designed for coral attachment and fish habitat.
+            Between 2019 and 2022, Caribbean Coral Restoration established six coral nurseries across the archipelago, cultivating seven reef-building species from eight distinct collection sites, and outplanted approximately 100,000 coral fragments to regional reefs. Over 200 artificial reef structures were built and installed on the ocean floor. Five indigenous Ngabe workers were employed to build and install those structures, creating a direct economic link between reef recovery and the communities whose lives depend on the health of this water.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            The coral they grow isn't randomly selected either. Their team scours the Bocas archipelago specifically for specimens that have already survived bleaching events, individuals demonstrating natural resilience to extreme water temperatures. These are cloned, grown in a land-water nursery on Isla Solarte, and outplanted onto the artificial structures. It is a form of assisted evolution: selecting for the genetic traits that give coral the best chance in a warming ocean.
-          </p>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9]"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            The program takes a holistic view of reef health, not just planting coral, but rebuilding fish habitat, managing the surrounding ecosystem, and creating the conditions in which a reef can sustain itself. Three active restoration sites are currently operating in the bay, with 500+ coral fragments successfully restored and 12 ongoing research projects tracking long-term outcomes.
-          </p>
-        </AnimateOnScroll>
-
-        <AnimateOnScroll variants={fadeUp} delay={0.12}>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9] mt-10 mb-7"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            The center was founded by <strong>Doug Marcy</strong>, who grew up on a ranch in the Nebraska Sandhills and first dove in the ocean near West Palm Beach in 1972. Decades later, among the islands of Bocas del Toro, he watched entire reef systems collapse within months. That experience drove him to build the Caribbean Coral Restoration Center from the ground up, combining structural engineering, marine chemistry, and habitat geometry to design artificial reef systems that restore biomass, biodiversity, and ecological balance.
+            Caribbean Coral Restoration also led the effort to achieve Mission Blue's designation of Bocas del Toro as a Hope Spot in December 2019. That designation was driven by a grassroots team of nine women working in the community. It tells you something about how this organization actually operates.
           </p>
         </AnimateOnScroll>
 
@@ -358,7 +383,7 @@ function ThePartnership() {
               color: "#1A0A00",
             }}
           >
-            "The ocean still remembers how to heal. Our responsibility is to give it that chance."
+            "Every bleaching event tells you something the water has been trying to say for years. The corals that survive are not random. They are the ones this reef is going to rebuild itself around, if we give them the conditions to do it."
           </blockquote>
           <p
             className="mt-4 text-[13px] tracking-[0.08em] uppercase"
@@ -372,209 +397,12 @@ function ThePartnership() {
   );
 }
 
-
-
-/* ── RESTORATION PROCESS ──────────────────────────────────── */
-function RestorationProcess() {
-  return (
-    <section style={{ backgroundColor: PALETTE.ocean }}>
-      <div className="max-w-7xl mx-auto px-8 md:px-16 py-20 md:py-28">
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
-          >
-            How It Works
-          </p>
-          <h2
-            className="text-3xl md:text-4xl mb-16 text-white"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            The Habitat Restoration Process
-          </h2>
-        </AnimateOnScroll>
-
-        <div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-px"
-          style={{ backgroundColor: "rgba(255,255,255,0.08)" }}
-        >
-          {STEPS.map((step, i) => (
-            <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.07}>
-              <div className="p-8 md:p-10 h-full" style={{ backgroundColor: PALETTE.ocean }}>
-                <span
-                  className="text-[11px] uppercase tracking-[0.2em] mb-4 block"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
-                >
-                  Step {step.n}
-                </span>
-                <h3
-                  className="text-xl mb-4 text-white"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                >
-                  {step.title}
-                </h3>
-                <p
-                  className="text-[15px] leading-[1.85]"
-                  style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.65)" }}
-                >
-                  {step.body}
-                </p>
-              </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── VIDEO BREAK ──────────────────────────────────────────── */
-function ImageBreak() {
-  return (
-    <section className="relative overflow-hidden" style={{ height: "65vh" }}>
-      <video
-        src="/manus-storage/Edits_Bocas_horizontal_20260319_134622_e1a263ba.mov"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        className="w-full h-full object-cover object-center"
-        style={{ transition: "transform 700ms ease-in-out" }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(11,79,94,0.6) 100%)" }}
-      />
-    </section>
-  );
-}
-
-/* ── WHAT MAKES IT UNIQUE ─────────────────────────────────── */
-function WhatMakesItUnique() {
-  return (
-    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.light }}>
-      <div className="max-w-6xl">
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-          >
-            What Sets This Apart
-          </p>
-          <h2
-            className="text-3xl md:text-4xl mb-16 leading-[1.1]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-          >
-            Two Things That Truly Differentiate This Program
-          </h2>
-        </AnimateOnScroll>
-
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-          {[
-            {
-              num: "I",
-              title: "Artificial Reef Architecture",
-              body: "Most coral restoration programs work with whatever degraded reef structure already exists. Caribbean Coral Restoration builds their own: purpose-designed artificial reef structures installed at restoration sites before any coral is outplanted. This means the foundation is always stable, clean, and optimized for coral attachment and fish habitat. It is a fundamentally different approach, and it is why the program has been able to operate three active sites simultaneously in the bay.",
-            },
-            {
-              num: "II",
-              title: "Climate-Resilient Genetics",
-              body: "The coral fragments used in this program are not randomly selected. They are chosen specifically because they have already survived bleaching events, specimens that demonstrate natural resilience to elevated water temperatures. By cloning and propagating these individuals, the program is selecting for the genetic traits that give coral the best chance in a warming ocean. It is restoration designed for the climate reality we are already living in, not the one we wish we had.",
-            },
-          ].map((item, i) => (
-            <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.1}>
-              <div>
-                <span
-                  className="text-4xl md:text-5xl mb-4 block"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.divider }}
-                >
-                  {item.num}
-                </span>
-                <h3
-                  className="text-2xl mb-5"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  className="text-[16px] leading-[1.9]"
-                  style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-                >
-                  {item.body}
-                </p>
-              </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── GUEST EXPERIENCE ─────────────────────────────────────── */
-function GuestExperience() {
-  return (
-    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
-      {/* Text left */}
-      <div
-        className="flex flex-col justify-center px-10 md:px-16 py-16 order-2 md:order-1"
-        style={{ backgroundColor: PALETTE.sand }}
-      >
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-          >
-            Your Role
-          </p>
-          <h2
-            className="text-2xl md:text-3xl mb-6 leading-[1.2]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-          >
-            What Guests Experience
-          </h2>
-          <p
-            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            Guests at Nayara Bocas del Toro can participate directly in the restoration program. Led by our team and Caribbean Coral Restoration's marine biologists, the experience takes you beneath the surface of the bay to the active restoration sites, where you will see the artificial reef structures, coral fragments in various stages of growth, and the marine life that has already returned.
-          </p>
-          <p
-            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            Participants learn to identify coral species, understand the science of bleaching and resilience, and in some sessions assist with outplanting coral fragments onto the structures. It is a rare opportunity to contribute something real and lasting to a place you have chosen to visit.
-          </p>
-          <p
-            className="text-[15px] md:text-[16px] leading-[1.85]"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            No prior diving experience is required for snorkeling sessions. For certified divers, deeper reef monitoring dives are available. Both are intimate, small groups only, to minimize impact on the restoration sites. Arrange through the resort concierge.
-          </p>
-        </AnimateOnScroll>
-      </div>
-      {/* Image right */}
-      <div className="overflow-hidden order-1 md:order-2" style={{ minHeight: "380px" }}>
-        <img
-          src={`${CDN}/bocas-resort-aerial-sunset_d536b07d.jpg`}
-          alt="Aerial sunset view of Nayara Bocas del Toro resort on the water"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-          style={{ minHeight: "380px", transition: "transform 700ms ease-in-out" }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")}
-        />
-      </div>
-    </section>
-  );
-}
-
-
-/* ── THE PIVOT ────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   THE PIVOT — Why Cloning Failed
+   ══════════════════════════════════════════════════════════════ */
 function ThePivot() {
   return (
-    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+    <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.light }}>
       <div className="max-w-3xl">
         <AnimateOnScroll variants={fadeUp}>
           <p
@@ -596,7 +424,7 @@ function ThePivot() {
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            The program has been running for 12 years. In the early years, the work focused on cloning corals. But cloning carries a fundamental limitation: the DNA never changes, so the coral cannot adapt to shifting conditions.
+            The bleaching events of 2020, 2023, and 2024 forced a complete rethink. Cumulative losses across Caribbean restoration programs had reached a scale few had anticipated surviving in that compressed a timeframe. Cloning carries a fundamental limitation: the DNA never changes, so the coral cannot adapt to shifting conditions.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
@@ -608,7 +436,7 @@ function ThePivot() {
             className="text-[17px] md:text-[19px] leading-[1.9]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            This forced a full pivot in methodology: away from cloning toward resilience-based approaches and habitat creation. The question was no longer "how do we grow more coral?" It became "how do we create the conditions in which coral can save itself?"
+            The response was not to scale back. It was to change what they were growing and how. The program shifted entirely toward resilient genotypes with demonstrated thermal adaptability. An on-land, closed-system sterile nursery was established where breeding stock could be isolated from predators, disease, and open-water temperature swings. The hardiest survivors become the next generation's breeding stock. The genetic baseline of the restored reef shifts incrementally toward climate resilience with each cycle.
           </p>
         </AnimateOnScroll>
       </div>
@@ -616,10 +444,12 @@ function ThePivot() {
   );
 }
 
-/* ── CORE PHILOSOPHY ─────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   CORE PHILOSOPHY
+   ══════════════════════════════════════════════════════════════ */
 function CorePhilosophy() {
   return (
-    <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.light }}>
+    <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
       <div className="max-w-3xl">
         <AnimateOnScroll variants={fadeUp}>
           <p
@@ -655,10 +485,12 @@ function CorePhilosophy() {
   );
 }
 
-/* ── THE METHODS ─────────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   THE METHODS — Four approaches working together
+   ══════════════════════════════════════════════════════════════ */
 function TheMethods() {
   return (
-    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.light }}>
       <div className="max-w-5xl">
         <AnimateOnScroll variants={fadeUp}>
           <p
@@ -691,7 +523,7 @@ function TheMethods() {
             },
             {
               title: "Habitat Creation",
-              body: "Artificial structures are placed in the water column. Even just 2 feet off the sea floor dramatically increases survival rates compared to placing coral directly on the degraded seabed. These structures are built from scientifically selected materials designed for low carbon footprint and maximum longevity. The program is continuously testing new materials.",
+              body: "Artificial structures are placed in the water column. Even just 2 feet off the sea floor dramatically increases survival rates compared to placing coral directly on the degraded seabed. These structures are built from scientifically selected materials designed for low carbon footprint and maximum longevity.",
             },
           ].map((method, i) => (
             <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.08}>
@@ -719,23 +551,6 @@ function TheMethods() {
               className="text-xl md:text-2xl mb-4"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
             >
-              Regional Specificity
-            </h3>
-            <p
-              className="text-[16px] leading-[1.9] max-w-3xl"
-              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-            >
-              Coral must stay regional. The program works exclusively with specimens native to the Bocas del Toro archipelago. Introducing species from other regions, even the same species from elsewhere, risks disrupting the local ecosystem. Cross-regional transfers may be possible in the future but require extensive lab research first.
-            </p>
-          </div>
-        </AnimateOnScroll>
-
-        <AnimateOnScroll variants={fadeUp} delay={0.35}>
-          <div className="mt-10 pt-10" style={{ borderTop: `1px solid ${PALETTE.divider}` }}>
-            <h3
-              className="text-xl md:text-2xl mb-4"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-            >
               Why Habitat Over Coral Count
             </h3>
             <p
@@ -746,29 +561,67 @@ function TheMethods() {
             </p>
           </div>
         </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
 
-        <AnimateOnScroll variants={fadeUp} delay={0.4}>
-          <div className="mt-10 pt-10" style={{ borderTop: `1px solid ${PALETTE.divider}` }}>
-            <h3
-              className="text-xl md:text-2xl mb-4"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-            >
-              Types of Coral
-            </h3>
-            <p
-              className="text-[16px] leading-[1.9] max-w-3xl"
-              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-            >
-              There are many types of coral: soft corals, fan corals, rod corals. But CCRC specifically works with habitat-building corals. These are the species that form the structural foundation of the entire ocean ecosystem. Soft and fan corals may attach to or near the structures, but they are not the backbone that the total system relies on.
-            </p>
-          </div>
+/* ══════════════════════════════════════════════════════════════
+   WHAT NAYARA BUILT — The proof of concept
+   ══════════════════════════════════════════════════════════════ */
+function WhatNayaraBuilt() {
+  return (
+    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+      <div className="max-w-3xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            The Work
+          </p>
+          <h2
+            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            What Nayara Built. And What Comes Next.
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            When we built <a href="https://www.nayarabocasdeltoro.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2" style={{ color: PALETTE.teal }}>Nayara Bocas del Toro</a> on Isla Frangipani, we ran five environmental studies before a single piling went into the water. The resort runs entirely on solar power. The reef was not backdrop. It was the reason the island was worth building on at all.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            In 2022, we partnered with Caribbean Coral Restoration to install ten artificial reef structures in the waters surrounding Isla Frangipani. Not somewhere across the archipelago. Here. In the bay below the overwater villas, visible through the glass floor panels. We started in our own backyard because that is the only way to start something you intend to stand behind.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The structures were seeded with genetically resilient coral selected from populations that survived the 2020 bleaching event. Within the first year, fish populations had colonized the structures in species and densities we had not seen in the bay before. The water around Isla Frangipani is measurably more alive than it was when we arrived.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            But the ten structures were always a proof of concept, not a final answer. The expansion now underway extends the program outward across the wider archipelago, placing new structures at degraded reef sites across multiple islands, deepening Caribbean Coral Restoration's indigenous Ngabe community partnerships, and scaling the closed-system breeding program built from the hard lessons of 2023.
+          </p>
         </AnimateOnScroll>
       </div>
     </section>
   );
 }
 
-/* ── TIMELINE & RESULTS ──────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   TIMELINE & RESULTS
+   ══════════════════════════════════════════════════════════════ */
 function TimelineResults() {
   return (
     <section style={{ backgroundColor: PALETTE.ocean }}>
@@ -792,19 +645,19 @@ function TimelineResults() {
           {[
             {
               time: "Immediately",
-              text: "Fish move in almost immediately. They can always swim away, so they are the first to explore. Some resident fish have been observed at the same structures for years: an angelfish at one of the Nayara sites, a cowfish named 'Bob' at another.",
+              text: "Fish move in almost immediately. They can always swim away, so they are the first to explore. Some resident fish have been observed at the same structure for years.",
             },
             {
               time: "Weeks to Months",
-              text: "Invertebrates, sponges, and other sea life that attach are more selective. They assess the environment before committing. Then the other corals will grow in 2-3 years.",
+              text: "Invertebrates, sponges, and other sea life that attach are more selective. They assess the environment before committing. Then the other corals will grow in 2 to 3 years.",
             },
             {
               time: "Year 1",
               text: "Coral spawning in the Bocas del Toro area occurs once a year, in late August. If structures are placed before the spawn, baby coral may attach in the first cycle.",
             },
             {
-              time: "Year 2-3",
-              text: "Visible coral growth is present. Knobby brain coral and other species are currently attaching to structures. In earlier years this was visible when bleaching events revealed white spots: coral that had secretly attached and then stressed. These were quarter-size to softball-size circles across the structures.",
+              time: "Year 2 to 3",
+              text: "Visible coral growth is present. Knobby brain coral and other species are currently attaching to structures. In earlier years this was visible when bleaching events revealed white spots: coral that had secretly attached and then stressed.",
             },
           ].map((item, i) => (
             <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.08}>
@@ -839,7 +692,9 @@ function TimelineResults() {
   );
 }
 
-/* ── CURRENT SCALE AT NAYARA ─────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   CURRENT SCALE — 17 Habitats
+   ══════════════════════════════════════════════════════════════ */
 function CurrentScale() {
   return (
     <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
@@ -873,7 +728,7 @@ function CurrentScale() {
             {
               phase: "Phase 1",
               title: "Under the Water Villas",
-              body: "Structures placed directly beneath the overwater villas. Originally designed to give guests something beautiful to see from their rooms. Now recognized as critical awareness infrastructure: guests witness the restoration every day of their stay.",
+              body: "Structures placed directly beneath the overwater villas. Originally designed to give guests something to see from their rooms. Now recognized as critical awareness infrastructure: guests witness the restoration every day of their stay.",
             },
             {
               phase: "Phase 2",
@@ -883,7 +738,7 @@ function CurrentScale() {
             {
               phase: "Phase 3",
               title: "Net-Zero Floating Villas",
-              body: "Planned for one of the bays, with individual structures between the floating villas. The goal: coral offsets that neutralize carbon emissions from the villas, creating a completely net-zero, net-positive floating villa. If successful, it would be the only one in the world.",
+              body: "Planned for one of the bays, with individual structures between the floating villas. The goal: coral offsets that neutralize carbon emissions from the villas, creating a completely net-zero, net-positive floating villa.",
             },
           ].map((phase, i) => (
             <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.08}>
@@ -915,7 +770,9 @@ function CurrentScale() {
   );
 }
 
-/* ── ECOSYSTEM FRAMING ───────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   ECOSYSTEM FRAMING — Nurse Sharks
+   ══════════════════════════════════════════════════════════════ */
 function EcosystemFraming() {
   return (
     <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.light }}>
@@ -952,7 +809,7 @@ function EcosystemFraming() {
             className="text-[17px] md:text-[19px] leading-[1.9]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            The analogy: like keystone species in a rainforest, when the foundational habitat is healthy, everything else follows. One habitat even became home to a Caribbean king crab colony, something the founder had never seen before in decades of reef work. First of its kind.
+            One habitat even became home to a Caribbean king crab colony, something the founder had never seen before in decades of reef work. First of its kind.
           </p>
         </AnimateOnScroll>
       </div>
@@ -960,7 +817,9 @@ function EcosystemFraming() {
   );
 }
 
-/* ── LONG-TERM VISION ────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   LONG-TERM VISION
+   ══════════════════════════════════════════════════════════════ */
 function LongTermVision() {
   return (
     <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
@@ -1005,7 +864,266 @@ function LongTermVision() {
   );
 }
 
-/* ── CLOSING CTA ──────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   WHAT IT MEANS TO PARTICIPATE — Guest experience
+   ══════════════════════════════════════════════════════════════ */
+function WhatItMeansToParticipate() {
+  return (
+    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
+      {/* Text left */}
+      <div
+        className="flex flex-col justify-center px-10 md:px-16 py-16 order-2 md:order-1"
+        style={{ backgroundColor: PALETTE.light }}
+      >
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            Your Role
+          </p>
+          <h2
+            className="text-2xl md:text-3xl mb-6 leading-[1.2]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            What It Means to Participate
+          </h2>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Guests at Nayara Bocas del Toro do not observe this work from a distance. They enter it.
+          </p>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Guided snorkel and dive experiences give guests direct access to the reef structures around Isla Frangipani, with expert interpretation of what they are actually looking at: which coral species are growing, what bleaching looks like versus recovery, how the fish community compares to what was there before. These are not sustainability tours. They are experiences designed to make guests understand something true about the ecosystem they are swimming inside.
+          </p>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The adopt-a-coral program connects guests directly to the archipelago expansion. Each new reef structure costs approximately six thousand dollars to build and install. Guest contributions fund new deployments, each one a permanent addition to the reef system of Bocas del Toro.
+          </p>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            No prior diving experience is required for snorkeling sessions. For certified divers, deeper reef monitoring dives are available. Both are intimate, small groups only, to minimize impact on the restoration sites.
+          </p>
+        </AnimateOnScroll>
+      </div>
+      {/* Image right */}
+      <div className="overflow-hidden order-1 md:order-2" style={{ minHeight: "380px" }}>
+        <img
+          src={`${CDN}/bocas-resort-aerial-sunset_d536b07d.jpg`}
+          alt="Aerial sunset view of Nayara Bocas del Toro resort on the water"
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+          style={{ minHeight: "380px" }}
+        />
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESTORATION IS A BRIDGE — Honest closing editorial
+   ══════════════════════════════════════════════════════════════ */
+function RestorationIsABridge() {
+  return (
+    <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+      <div className="max-w-3xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <h2
+            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            Restoration Is a Bridge. Here Is What That Means.
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The 2025 Tipping Point Report and a 2025 study in PubMed Central are both clear: restoration cannot substitute for emissions reductions. The temperatures driving bleaching are a function of what the world burns. No nursery program reverses that.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            What restoration can do is hold the line. Maintain the genetic diversity future reefs will need to rebuild. Preserve the structural complexity that juvenile fish and invertebrates depend on. Demonstrate, in a specific place, that the people closest to these ecosystems are not passive in the face of their decline.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The reef surrounding Isla Frangipani is recovering. Slowly. Incompletely. With no guarantee the next thermal event does not undo years of progress in a season. But it is recovering. And the expansion outward across the archipelago is the most honest expression of what we believe our responsibility here looks like.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The future of coral reefs depends on decisions made at a global scale. It also depends on what happens on a Tuesday morning in the waters around Isla Solarte when no one is watching. Both are true. We are committed to the part we can control.
+          </p>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FAQ — 7 questions
+   ══════════════════════════════════════════════════════════════ */
+function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const questions = [
+    {
+      q: "What is coral bleaching and why is it accelerating?",
+      a: "When ocean temperatures exceed a coral's thermal threshold, it expels the symbiotic algae that provide its nutrients and color, turning white and beginning to starve. If temperatures drop in time, corals recover. If not, they die. A 2025 paper in Coral Reefs documented the current event as the most severe on record, with heat accumulation 50 percent greater than any previous bleaching event.",
+    },
+    {
+      q: "Why does Bocas del Toro matter specifically for restoration?",
+      a: "It contains approximately 87 percent of Panama's reef-building coral species. Smithsonian research identified that a significant portion of reef loss here is driven by hypoxia from nutrient runoff, a local stressor manageable independently of global ocean temperatures. That combination of genetic richness and addressable local variables makes it one of the most viable restoration sites in the Caribbean.",
+    },
+    {
+      q: "What is an artificial reef structure?",
+      a: "An engineered form placed on the ocean floor to provide the physical substrate and habitat complexity that degraded reef areas no longer offer. Fish colonize them naturally, creating the ecological conditions that support coral outplanting. Caribbean Coral Restoration's structures cost approximately six thousand dollars each to build and install.",
+    },
+    {
+      q: "What does heat-resistant coral mean in practice?",
+      a: "Coral identified as carrying traits that allow survival at temperatures that kill standard reef corals. Research in Nature Communications confirmed these traits are heritable across generations. Caribbean Coral Restoration's program propagates and outplants the genotypes that survived Bocas del Toro's 2020 and 2023 bleaching events.",
+    },
+    {
+      q: "Can guests participate in the restoration program?",
+      a: "Yes. Guided snorkel and dive experiences give guests direct access to the reef structures with expert interpretation. The adopt-a-coral program allows guests to fund new reef structures contributing to the archipelago expansion. Contact the resort for details.",
+    },
+    {
+      q: "How does reef restoration connect to the reforestation at Nayara Tented Camp?",
+      a: "Ecologically, healthy forests reduce the runoff that carries sediment and nutrients into coastal reef systems, directly protecting downstream water quality. Philosophically, both programs follow the same model: begin locally, demonstrate what works, then expand outward.",
+    },
+    {
+      q: "Is coral restoration enough to save reefs?",
+      a: "No. The 2025 Tipping Point Report is clear: restoration cannot substitute for global emissions reductions. What it can do is maintain genetic diversity, preserve structural complexity, and buy time for reef systems to survive long enough to benefit from the climate action that ultimately determines their future.",
+    },
+  ];
+
+  return (
+    <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.light }}>
+      <div className="max-w-3xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            Frequently Asked Questions
+          </p>
+          <h2
+            className="text-3xl md:text-4xl mb-12 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            Questions We Get Asked
+          </h2>
+        </AnimateOnScroll>
+
+        <div className="space-y-0">
+          {questions.map((item, i) => (
+            <div key={i} style={{ borderBottom: `1px solid ${PALETTE.divider}` }}>
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full text-left py-6 flex items-start justify-between gap-4 cursor-pointer"
+              >
+                <span
+                  className="text-[16px] md:text-[17px] leading-[1.5]"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#1A0A00" }}
+                >
+                  {item.q}
+                </span>
+                <span
+                  className="text-xl flex-shrink-0 mt-0.5 transition-transform duration-300"
+                  style={{ color: PALETTE.teal, transform: openIndex === i ? "rotate(45deg)" : "rotate(0deg)" }}
+                >
+                  +
+                </span>
+              </button>
+              {openIndex === i && (
+                <div className="pb-6">
+                  <p
+                    className="text-[15px] leading-[1.85]"
+                    style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+                  >
+                    {item.a}
+                  </p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SOURCES — 17 citations
+   ══════════════════════════════════════════════════════════════ */
+function Sources() {
+  const sources = [
+    "Coral Reefs — 4th Global Bleaching Event: Era of Near-Annual Bleaching",
+    "ICRI — 84% of World's Coral Reefs Impacted",
+    "Earth System Dynamics — Coral Reef Tipping Points 2025",
+    "Advances in Atmospheric Sciences — Ocean Heat Content Record 2025",
+    "Coral Restoration Foundation — 2025 Tipping Point Report",
+    "Smithsonian Tropical Research Institute — Bocas del Toro",
+    "Smithsonian Tropical Research Institute — Smothering Biodiversity",
+    "Rotary Reefs — Bocas del Toro Coral Summary",
+    "Science Advances — Coral Thermotolerance Retained 2025",
+    "Ecosphere — Caribbean Mangroves as Coral Refugia",
+    "Nature Communications — Selective Breeding and Coral Heat Tolerance",
+    "Science — Adaptive Potential of Reef-Building Corals",
+    "EurekAlert — Propagated Corals and Bleaching Resistance",
+    "BioScience — Conservation of Coral Genetic Diversity 2025",
+    "PubMed Central — Restoration Cannot Be Scaled Up Globally",
+    "Caribbean Coral Restoration Center",
+    "The Bocas Breeze — Shifting Gears in a Changing World",
+    "Mission Blue Hope Spot — Bocas del Toro",
+  ];
+
+  return (
+    <section className="py-16 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+      <div className="max-w-3xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-8"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            Sources
+          </p>
+          <ol className="space-y-2">
+            {sources.map((src, i) => (
+              <li
+                key={i}
+                className="text-[13px] leading-[1.7]"
+                style={{ fontFamily: "var(--font-body)", color: "rgba(26,10,0,0.55)" }}
+              >
+                <span style={{ color: PALETTE.teal, marginRight: "8px" }}>{i + 1}.</span>
+                {src}
+              </li>
+            ))}
+          </ol>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CLOSING CTA
+   ══════════════════════════════════════════════════════════════ */
 function ClosingCTA() {
   return (
     <section className="relative overflow-hidden" style={{ height: "70vh" }}>
@@ -1030,13 +1148,13 @@ function ClosingCTA() {
             className="text-3xl md:text-5xl text-white mb-6 max-w-2xl mx-auto leading-[1.1]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Join the Restoration Effort
+            We Started in Our Backyard. We Are Not Stopping There.
           </h2>
           <p
             className="text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-10"
             style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.82)" }}
           >
-            Every guest at Nayara Bocas del Toro has the opportunity to contribute to the ocean habitat's recovery. Arrange your restoration experience through our concierge.
+            Every guest at Nayara Bocas del Toro has the opportunity to enter the reef, understand the science, and contribute to its recovery.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -1066,7 +1184,7 @@ function ClosingCTA() {
                 border: "1px solid rgba(255,255,255,0.45)",
               }}
             >
-              Caribbean Coral Restoration ↗
+              Caribbean Coral Restoration
             </a>
           </div>
         </AnimateOnScroll>

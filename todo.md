@@ -3991,3 +3991,12 @@
 - [ ] Build floating "Ask Lexi" chat widget (bottom-left, conversational, no explicit options)
 - [ ] Integrate widget into Lexi.tsx page
 - [ ] Test end-to-end
+
+## Ocean Habitat Restoration Page — Full Rewrite
+- [x] Complete rewrite combining all content sources (research, Doug Marcy interview, editorial)
+- [x] New progress video (2022-2026) as hero with BlobVideo hasAudio + mute pill
+- [x] Sections: Hero, Opening Text, Stats Bar, The Crisis, Why Bocas, Video Break, The Partnership, The Pivot, Core Philosophy, The Methods, What Nayara Built, Timeline & Results, Current Scale, Ecosystem Framing, Long-Term Vision, What It Means to Participate, Restoration Is a Bridge, FAQ, Sources, Closing CTA
+- [x] 18 academic/scientific sources cited
+- [x] Coral bleaching infographic from Statista
+- [x] Bocas horizontal video break
+- [x] CDN images for WhatItMeansToParticipate and ClosingCTA sections
