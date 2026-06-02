@@ -61,7 +61,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden" style={{ minHeight: "100vh" }}>
       <BlobVideo
-        src="/manus-storage/ocean-habitat-progress-2022-2026_e7600843.mov"
+        src="/manus-storage/ocean-habitat-progress-compressed_6ed782a3.mp4"
         className="absolute inset-0 w-full h-full object-cover object-center"
         hasAudio
         muted={true}
@@ -313,14 +313,13 @@ function WhyBocas() {
 function VideoBreak() {
   return (
     <section className="relative overflow-hidden" style={{ height: "65vh" }}>
-      <video
+      <BlobVideo
         src="/manus-storage/Edits_Bocas_horizontal_20260319_134622_e1a263ba.mov"
+        className="w-full h-full object-cover object-center"
         autoPlay
         loop
-        muted
+        muted={true}
         playsInline
-        preload="metadata"
-        className="w-full h-full object-cover object-center"
       />
       <div
         className="absolute inset-0"
