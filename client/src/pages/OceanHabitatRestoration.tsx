@@ -1140,23 +1140,20 @@ function Sources() {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   CLOSING CTA
+   CLOSING CTA — Progress video background with CTA overlay
    ══════════════════════════════════════════════════════════════ */
 function ClosingCTA() {
   return (
     <section className="relative overflow-hidden" style={{ height: "70vh" }}>
-      {/* PLACEHOLDER: replace with underwater reef panorama */}
-      <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: "#0b3d4a" }}>
-        <div className="text-center px-8">
-          <div className="w-20 h-20 mx-auto mb-5 rounded-full flex items-center justify-center" style={{ border: `2px dashed ${PALETTE.accent}` }}>
-            <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke={PALETTE.accent} strokeWidth="1.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
-            </svg>
-          </div>
-          <p className="text-[11px] uppercase tracking-[0.2em]" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}>Placeholder</p>
-          <p className="text-[14px] mt-2 max-w-[280px] mx-auto" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.6)" }}>Underwater panorama of restored reef with coral and fish</p>
-        </div>
-      </div>
+      {/* Video background — permanently muted, no audio controls */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/manus-storage/Underwater1_e83986a7.MP4"
+      />
       <div
         className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center"
         style={{ background: "rgba(11,79,94,0.68)" }}
