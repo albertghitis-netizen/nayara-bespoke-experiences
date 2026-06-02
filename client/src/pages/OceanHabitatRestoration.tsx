@@ -9,7 +9,7 @@
 import { useState } from "react";
 import { AnimateOnScroll, TextReveal, fadeUp, EASE_CINEMATIC } from "@/components/motion";
 import { motion } from "framer-motion";
-import BlobVideo from "@/components/BlobVideo";
+
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
@@ -62,16 +62,12 @@ export default function OceanHabitatRestoration() {
 function Hero() {
   return (
     <section className="relative overflow-hidden" style={{ minHeight: "100vh" }}>
-      <BlobVideo
-        src="/manus-storage/ocean-habitat-progress-compressed_6ed782a3.mp4"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        hasAudio
-        muted={true}
+      <video
         autoPlay
         loop
         playsInline
-        pillBg="rgba(30,58,138,0.75)"
-        pillColor="#4DC9D1"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        src="/manus-storage/ocean-habitat-progress-compressed_6ed782a3.mp4"
       />
       <div
         className="absolute inset-0"
@@ -251,20 +247,9 @@ function TheCrisis() {
    ══════════════════════════════════════════════════════════════ */
 function WhyBocas() {
   return (
-    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
-      {/* Infographic left */}
-      <div className="flex items-center justify-center p-8 md:p-12" style={{ backgroundColor: "#f0f4f8", minHeight: "380px" }}>
-        <img
-          src="/manus-storage/coral-bleaching-infographic_427e7440.png"
-          alt="The Extent of Global Coral Bleaching Events: share of coral reefs worldwide that experienced heat stress causing bleaching, by declared event (1998-present). Source: State of the Oceans 2024 via Statista."
-          className="w-full h-auto max-h-[480px] object-contain"
-          loading="lazy"
-        />
-      </div>
-      {/* Text right */}
+    <section style={{ backgroundColor: PALETTE.light }}>
       <div
-        className="flex flex-col justify-center px-10 md:px-16 py-16"
-        style={{ backgroundColor: PALETTE.light }}
+        className="max-w-3xl mx-auto px-8 md:px-16 py-20"
       >
         <AnimateOnScroll variants={fadeUp}>
           <p
@@ -315,13 +300,13 @@ function WhyBocas() {
 function VideoBreak() {
   return (
     <section className="relative overflow-hidden" style={{ height: "65vh" }}>
-      <BlobVideo
-        src="/manus-storage/Edits_Bocas_horizontal_20260319_134622_e1a263ba.mov"
-        className="w-full h-full object-cover object-center"
+      <video
         autoPlay
         loop
-        muted={true}
+        muted
         playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        src="/manus-storage/Edits_Bocas_horizontal_20260319_134622_e1a263ba.mov"
       />
       <div
         className="absolute inset-0"
@@ -819,12 +804,12 @@ function EcosystemFraming() {
 
         {/* Nurse sharks video right */}
         <div className="overflow-hidden" style={{ minHeight: "520px" }}>
-          <BlobVideo
+          <video
             src="/manus-storage/nurse-sharks-bocas_1384d3f9.mp4"
             className="w-full h-full object-cover"
             autoPlay
             loop
-            muted={true}
+            muted
             playsInline
           />
         </div>
@@ -1226,12 +1211,12 @@ function DolphinsVideoBreak() {
       <div className="grid md:grid-cols-2 items-stretch">
         {/* Video left */}
         <div className="overflow-hidden" style={{ minHeight: "520px" }}>
-          <BlobVideo
+          <video
             src="/manus-storage/bocas-water-vertical_5d57165d.mp4"
             className="w-full h-full object-cover"
             autoPlay
             loop
-            muted={true}
+            muted
             playsInline
           />
         </div>
