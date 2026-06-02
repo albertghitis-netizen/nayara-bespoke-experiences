@@ -42,7 +42,6 @@ export default function OceanHabitatRestoration() {
       <CurrentScale />
       <EcosystemFraming />
       <LongTermVision />
-      <RestorationIsABridge />
       <FAQ />
       <ClosingCTA />
     </div>
@@ -417,15 +416,22 @@ function TheMethods() {
             },
           ].map((method, i) => (
             <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.08}>
-              <div>
+              <div
+                className="p-6 md:p-8 rounded-lg border"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.5)",
+                  borderColor: PALETTE.teal,
+                  borderWidth: "1px",
+                }}
+              >
                 <h3
                   className="text-lg md:text-xl mb-3"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.teal }}
                 >
                   {method.title}
                 </h3>
                 <p
-                  className="text-[16px] leading-[1.9]"
+                  className="text-[15px] leading-[1.7]"
                   style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
                 >
                   {method.body}
@@ -444,10 +450,16 @@ function TheMethods() {
               Why Habitat Over Coral Count
             </h3>
             <p
-              className="text-[16px] leading-[1.9] max-w-3xl"
+              className="text-[16px] leading-[1.9] max-w-3xl mb-6"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
             >
               The story is no longer about how many corals were transplanted. It is about biodiversity and biomass in a given area. The CCRC has developed a structured program to track what happens to each structure over time: film transfers into a database that generates data curves and measurable outcomes. The numbers consistently show increasing biodiversity and biomass as the ecosystems mature.
+            </p>
+            <p
+              className="text-[15px] leading-[1.7] max-w-3xl"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              Restoration cannot substitute for emissions reductions. But it can hold the line—maintain genetic diversity, preserve structural complexity, and demonstrate that communities are not passive in the face of decline. The reef surrounding Isla Frangipani is recovering. Slowly. Incompletely. But it is recovering.
             </p>
           </div>
         </AnimateOnScroll>
@@ -770,9 +782,7 @@ function LongTermVision() {
 }
 
 
-/* ══════════════════════════════════════════════════════════════
-   RESTORATION IS A BRIDGE — Honest closing editorial
-   ══════════════════════════════════════════════════════════════ */
+
 function RestorationIsABridge() {
   return (
     <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
