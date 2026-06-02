@@ -60,7 +60,7 @@ function Hero() {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover object-center"
-        src="/manus-storage/ocean-habitat-progress-hero-no-audio_3c3cd927.mp4"
+        src="/manus-storage/ocean-hero-final_1e5fcd94.mp4"
       />
       <div
         className="absolute inset-0"
