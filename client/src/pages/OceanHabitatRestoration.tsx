@@ -42,11 +42,8 @@ export default function OceanHabitatRestoration() {
       <CurrentScale />
       <EcosystemFraming />
       <LongTermVision />
-      <WhatItMeansToParticipate />
-      <PlaceholderImageBreak label="Underwater wide-angle: diver inspecting reef structures" />
       <RestorationIsABridge />
       <FAQ />
-      <Sources />
       <ClosingCTA />
     </div>
   );
@@ -772,71 +769,6 @@ function LongTermVision() {
   );
 }
 
-/* ══════════════════════════════════════════════════════════════
-   WHAT IT MEANS TO PARTICIPATE — Guest experience
-   ══════════════════════════════════════════════════════════════ */
-function WhatItMeansToParticipate() {
-  return (
-    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
-      {/* Text left */}
-      <div
-        className="flex flex-col justify-center px-10 md:px-16 py-16 order-2 md:order-1"
-        style={{ backgroundColor: PALETTE.light }}
-      >
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-          >
-            Your Role
-          </p>
-          <h2
-            className="text-2xl md:text-3xl mb-6 leading-[1.2]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-          >
-            What It Means to Participate
-          </h2>
-          <p
-            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            Guests at Nayara Bocas del Toro do not observe this work from a distance. They enter it.
-          </p>
-          <p
-            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            Guided snorkel and dive experiences give guests direct access to the reef structures around Isla Frangipani, with expert interpretation of what they are actually looking at: which coral species are growing, what bleaching looks like versus recovery, how the fish community compares to what was there before. These are not sustainability tours. They are experiences designed to make guests understand something true about the ecosystem they are swimming inside.
-          </p>
-          <p
-            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            The adopt-a-coral program connects guests directly to the archipelago expansion. Each new reef structure costs approximately six thousand dollars to build and install. Guest contributions fund new deployments, each one a permanent addition to the reef system of Bocas del Toro.
-          </p>
-          <p
-            className="text-[15px] md:text-[16px] leading-[1.85]"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            No prior diving experience is required for snorkeling sessions. For certified divers, deeper reef monitoring dives are available. Both are intimate, small groups only, to minimize impact on the restoration sites.
-          </p>
-        </AnimateOnScroll>
-      </div>
-      {/* Image right — PLACEHOLDER: replace with underwater snorkeling/reef photo */}
-      <div className="overflow-hidden order-1 md:order-2 flex items-center justify-center" style={{ minHeight: "380px", backgroundColor: "#1a3a4a" }}>
-        <div className="text-center px-8">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ border: `2px dashed ${PALETTE.accent}` }}>
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke={PALETTE.accent} strokeWidth="1.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
-            </svg>
-          </div>
-          <p className="text-[11px] uppercase tracking-[0.2em]" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}>Placeholder</p>
-          <p className="text-[13px] mt-2 max-w-[200px] mx-auto" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.6)" }}>Guest snorkeling the reef structures at Isla Frangipani</p>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ══════════════════════════════════════════════════════════════
    RESTORATION IS A BRIDGE — Honest closing editorial
@@ -978,58 +910,6 @@ function FAQ() {
   );
 }
 
-/* ══════════════════════════════════════════════════════════════
-   SOURCES — 17 citations
-   ══════════════════════════════════════════════════════════════ */
-function Sources() {
-  const sources = [
-    "Coral Reefs — 4th Global Bleaching Event: Era of Near-Annual Bleaching",
-    "ICRI — 84% of World's Coral Reefs Impacted",
-    "Earth System Dynamics — Coral Reef Tipping Points 2025",
-    "Advances in Atmospheric Sciences — Ocean Heat Content Record 2025",
-    "Coral Restoration Foundation — 2025 Tipping Point Report",
-    "Smithsonian Tropical Research Institute — Bocas del Toro",
-    "Smithsonian Tropical Research Institute — Smothering Biodiversity",
-    "Rotary Reefs — Bocas del Toro Coral Summary",
-    "Science Advances — Coral Thermotolerance Retained 2025",
-    "Ecosphere — Caribbean Mangroves as Coral Refugia",
-    "Nature Communications — Selective Breeding and Coral Heat Tolerance",
-    "Science — Adaptive Potential of Reef-Building Corals",
-    "EurekAlert — Propagated Corals and Bleaching Resistance",
-    "BioScience — Conservation of Coral Genetic Diversity 2025",
-    "PubMed Central — Restoration Cannot Be Scaled Up Globally",
-    "Caribbean Coral Restoration Center",
-    "The Bocas Breeze — Shifting Gears in a Changing World",
-    "Mission Blue Hope Spot — Bocas del Toro",
-  ];
-
-  return (
-    <section className="py-16 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
-      <div className="max-w-3xl">
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-8"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-          >
-            Sources
-          </p>
-          <ol className="space-y-2">
-            {sources.map((src, i) => (
-              <li
-                key={i}
-                className="text-[13px] leading-[1.7]"
-                style={{ fontFamily: "var(--font-body)", color: "rgba(26,10,0,0.55)" }}
-              >
-                <span style={{ color: PALETTE.teal, marginRight: "8px" }}>{i + 1}.</span>
-                {src}
-              </li>
-            ))}
-          </ol>
-        </AnimateOnScroll>
-      </div>
-    </section>
-  );
-}
 
 /* ══════════════════════════════════════════════════════════════
    CLOSING CTA — Progress video background with CTA overlay
