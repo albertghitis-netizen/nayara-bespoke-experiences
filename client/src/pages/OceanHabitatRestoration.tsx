@@ -39,12 +39,14 @@ export default function OceanHabitatRestoration() {
       <ThePivot />
       <CorePhilosophy />
       <TheMethods />
+      <DolphinsVideoBreak />
       <WhatNayaraBuilt />
       <TimelineResults />
       <CurrentScale />
       <EcosystemFraming />
       <LongTermVision />
       <WhatItMeansToParticipate />
+      <PlaceholderImageBreak label="Underwater wide-angle: diver inspecting reef structures" />
       <RestorationIsABridge />
       <FAQ />
       <Sources />
@@ -770,47 +772,62 @@ function CurrentScale() {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   ECOSYSTEM FRAMING — Nurse Sharks
+   ECOSYSTEM FRAMING — Nurse Sharks (side-by-side: text + video)
    ══════════════════════════════════════════════════════════════ */
 function EcosystemFraming() {
   return (
-    <section className="py-20 md:py-28 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.light }}>
-      <div className="max-w-3xl">
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-          >
-            Ecosystem Framing
-          </p>
-          <h2
-            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-          >
-            When the Sharks Come Back, You Know It Is Working
-          </h2>
-        </AnimateOnScroll>
+    <section style={{ backgroundColor: PALETTE.light }}>
+      <div className="grid md:grid-cols-2 items-stretch">
+        {/* Text left */}
+        <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20 py-20 md:py-28">
+          <AnimateOnScroll variants={fadeUp}>
+            <p
+              className="uppercase tracking-[0.28em] text-[11px] mb-5"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+            >
+              Ecosystem Framing
+            </p>
+            <h2
+              className="text-3xl md:text-4xl mb-10 leading-[1.1]"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+            >
+              When the Sharks Come Back, You Know It Is Working
+            </h2>
+          </AnimateOnScroll>
 
-        <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            This is coral habitat restoration, not coral reef restoration. The distinction matters. Coral reefs are the backbone of the entire ocean ecosystem. Healthy coral enables all other marine life to return.
-          </p>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            Nurse sharks and other apex predators have returned to the Nayara restoration sites. This is the most reliable indicator of a healthy, functioning ecosystem. Predators are only present because their prey has returned. Prey returned because the coral came back.
-          </p>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9]"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            One habitat even became home to a Caribbean king crab colony, something the founder had never seen before in decades of reef work. First of its kind.
-          </p>
-        </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              This is coral habitat restoration, not coral reef restoration. The distinction matters. Coral reefs are the backbone of the entire ocean ecosystem. Healthy coral enables all other marine life to return.
+            </p>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              Nurse sharks and other apex predators have returned to the Nayara restoration sites. This is the most reliable indicator of a healthy, functioning ecosystem. Predators are only present because their prey has returned. Prey returned because the coral came back.
+            </p>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.9]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              One habitat even became home to a Caribbean king crab colony, something the founder had never seen before in decades of reef work. First of its kind.
+            </p>
+          </AnimateOnScroll>
+        </div>
+
+        {/* Nurse sharks video right */}
+        <div className="overflow-hidden" style={{ minHeight: "520px" }}>
+          <BlobVideo
+            src="/manus-storage/nurse-sharks-bocas_1384d3f9.mp4"
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted={true}
+            playsInline
+          />
+        </div>
       </div>
     </section>
   );
@@ -913,15 +930,17 @@ function WhatItMeansToParticipate() {
           </p>
         </AnimateOnScroll>
       </div>
-      {/* Image right */}
-      <div className="overflow-hidden order-1 md:order-2" style={{ minHeight: "380px" }}>
-        <img
-          src={`${CDN}/bocas-resort-aerial-sunset_d536b07d.jpg`}
-          alt="Aerial sunset view of Nayara Bocas del Toro resort on the water"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-          style={{ minHeight: "380px" }}
-        />
+      {/* Image right — PLACEHOLDER: replace with underwater snorkeling/reef photo */}
+      <div className="overflow-hidden order-1 md:order-2 flex items-center justify-center" style={{ minHeight: "380px", backgroundColor: "#1a3a4a" }}>
+        <div className="text-center px-8">
+          <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ border: `2px dashed ${PALETTE.accent}` }}>
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke={PALETTE.accent} strokeWidth="1.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+            </svg>
+          </div>
+          <p className="text-[11px] uppercase tracking-[0.2em]" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}>Placeholder</p>
+          <p className="text-[13px] mt-2 max-w-[200px] mx-auto" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.6)" }}>Guest snorkeling the reef structures at Isla Frangipani</p>
+        </div>
       </div>
     </section>
   );
@@ -1126,12 +1145,18 @@ function Sources() {
 function ClosingCTA() {
   return (
     <section className="relative overflow-hidden" style={{ height: "70vh" }}>
-      <img
-        src={`${CDN}/bocas-aerial-full-resort_d27193e4.jpg`}
-        alt="Aerial view of Nayara Bocas del Toro full resort on the private island"
-        className="w-full h-full object-cover object-center"
-        loading="lazy"
-      />
+      {/* PLACEHOLDER: replace with underwater reef panorama */}
+      <div className="w-full h-full flex items-center justify-center" style={{ backgroundColor: "#0b3d4a" }}>
+        <div className="text-center px-8">
+          <div className="w-20 h-20 mx-auto mb-5 rounded-full flex items-center justify-center" style={{ border: `2px dashed ${PALETTE.accent}` }}>
+            <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke={PALETTE.accent} strokeWidth="1.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+            </svg>
+          </div>
+          <p className="text-[11px] uppercase tracking-[0.2em]" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}>Placeholder</p>
+          <p className="text-[14px] mt-2 max-w-[280px] mx-auto" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.6)" }}>Underwater panorama of restored reef with coral and fish</p>
+        </div>
+      </div>
       <div
         className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center"
         style={{ background: "rgba(11,79,94,0.68)" }}
@@ -1187,6 +1212,93 @@ function ClosingCTA() {
             </a>
           </div>
         </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BOCAS WATER VIDEO + TEXT — Side-by-side layout:
+   3:4 vertical video of Bocas del Toro waters on one side,
+   editorial text on the other. Placed between EcosystemFraming
+   and LongTermVision.
+   ══════════════════════════════════════════════════════════════ */
+function DolphinsVideoBreak() {
+  return (
+    <section style={{ backgroundColor: PALETTE.ocean }}>
+      <div className="grid md:grid-cols-2 items-stretch">
+        {/* Video left */}
+        <div className="overflow-hidden" style={{ minHeight: "520px" }}>
+          <BlobVideo
+            src="/manus-storage/bocas-water-vertical_5d57165d.mp4"
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            muted={true}
+            playsInline
+          />
+        </div>
+
+        {/* Text right */}
+        <div className="flex flex-col justify-center px-10 md:px-16 lg:px-20 py-16 md:py-20">
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
+          >
+            The Waters of Bocas
+          </p>
+          <h3
+            className="text-2xl md:text-3xl mb-8 leading-[1.15] text-white"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            A Living System, Not a Postcard
+          </h3>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.9] mb-6"
+            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
+          >
+            The waters around Bocas del Toro are not pristine in the way that word usually implies. They are alive. Turbid with plankton. Warm. Nutrient-rich from the mangrove systems that feed them. This is not a weakness—it is the engine.
+          </p>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.9]"
+            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
+          >
+            The same conditions that make these waters look green rather than blue are what allow coral to grow faster here than almost anywhere else in the Caribbean. The reef does not need crystal clarity. It needs food, warmth, and structure. Bocas provides all three.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PLACEHOLDER IMAGE BREAK — Styled placeholder for underwater stills
+   User will replace with real photos later
+   ══════════════════════════════════════════════════════════════ */
+function PlaceholderImageBreak({ label }: { label: string }) {
+  return (
+    <section className="flex items-center justify-center" style={{ height: "45vh", backgroundColor: "#132f3a" }}>
+      <div className="text-center px-8">
+        <div
+          className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"
+          style={{ border: `2px dashed ${PALETTE.accent}` }}
+        >
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke={PALETTE.accent} strokeWidth="1.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+          </svg>
+        </div>
+        <p
+          className="text-[11px] uppercase tracking-[0.2em] mb-2"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
+        >
+          Placeholder — Replace with Real Photo
+        </p>
+        <p
+          className="text-[13px] max-w-[300px] mx-auto"
+          style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.55)" }}
+        >
+          {label}
+        </p>
       </div>
     </section>
   );
