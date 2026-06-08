@@ -55,12 +55,23 @@ export default function OceanHabitatRestoration() {
 function Hero() {
   return (
     <section className="relative overflow-hidden" style={{ minHeight: "100vh" }}>
+        {/* Horizontal video — desktop */}
       <video
         autoPlay
+        muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        src="/manus-storage/ocean-hero-final_1e5fcd94.mp4"
+        className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
+        src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663090891297/kyvlbtBVWLFdDyvU.mp4"
+      />
+      {/* Vertical video — mobile */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center block md:hidden"
+        src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663090891297/zVKTzSHLwVOYQyLT.mp4"
       />
       <div
         className="absolute inset-0"
