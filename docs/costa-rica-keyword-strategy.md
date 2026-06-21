@@ -1,6 +1,6 @@
 # Costa Rica Keyword Strategy: Nayara
 
-_Date: 2026-06-21. Source: Semrush US database (live). Volumes = US monthly searches; Comp = Semrush competition 0, 1._
+_Date: 2026-06-21. Source: Semrush US database (live). Volumes = US monthly searches; Comp = Semrush competition 0 to 1._
 
 Master keyword universe for the three active Costa Rica properties, grouped by theme and mapped to the
 property + page that should own each, with a realistic ranking play. Aligns with the standing rules and
@@ -21,14 +21,14 @@ nayaragardens.com for now).
 
 | Keyword | Vol | Comp | Play |
 |---|---|---|---|
-| costa rica resorts | 22, 200 | 1.0 | LISTICLE + AI |
-| resorts in costa rica | 12, 100 | 1.0 | LISTICLE + AI |
-| best costa rica resorts | 9, 900 | 1.0 | LISTICLE + AI |
-| beach resorts costa rica | 8, 100 | 0.98 | LISTICLE (not core; Nayara is rainforest) |
-| costa rica luxury resorts | 4, 400 | 0.65 | LISTICLE + AI (primary corporate target) |
-| best resorts in costa rica | 3, 600 | 1.0 | LISTICLE + AI |
-| best hotels in costa rica | 3, 600 | 1.0 | LISTICLE + AI |
-| luxury hotels costa rica | 1, 000 | 0.97 | WIN / LISTICLE |
+| costa rica resorts | 22,200 | 1.0 | LISTICLE + AI |
+| resorts in costa rica | 12,100 | 1.0 | LISTICLE + AI |
+| best costa rica resorts | 9,900 | 1.0 | LISTICLE + AI |
+| beach resorts costa rica | 8,100 | 0.98 | LISTICLE (not core; Nayara is rainforest) |
+| costa rica luxury resorts | 4,400 | 0.65 | LISTICLE + AI (primary corporate target) |
+| best resorts in costa rica | 3,600 | 1.0 | LISTICLE + AI |
+| best hotels in costa rica | 3,600 | 1.0 | LISTICLE + AI |
+| luxury hotels costa rica | 1,000 | 0.97 | WIN / LISTICLE |
 | luxury resorts costa rica | 590 | 0.65 | WIN |
 | costa rica luxury hotels | 590 | 0.97 | WIN |
 | luxury resort costa rica | 390 | 0.65 | WIN |
@@ -44,8 +44,8 @@ outreach as the real lever for the 22K+ head demand.
 
 | Keyword | Vol | Comp | Play |
 |---|---|---|---|
-| costa rica family resorts | 1, 600 | 1.0 | WIN (lead family page) |
-| best family resorts in costa rica | 1, 300 | 1.0 | WIN |
+| costa rica family resorts | 1,600 | 1.0 | WIN (lead family page) |
+| best family resorts in costa rica | 1,300 | 1.0 | WIN |
 | costa rica resorts for families | 720 | 1.0 | WIN |
 | costa rica family vacation | 590 | 0.66 | WIN (supporting/Journal) |
 | family resorts costa rica | 260 | 1.0 | WIN |
@@ -54,7 +54,7 @@ outreach as the real lever for the 22K+ head demand.
 | kid friendly resorts costa rica | 50 | 0 | WIN |
 | luxury family resort costa rica | 30 | 0.94 | WIN (exact positioning) |
 | family hotels costa rica | 20 | 0.83 | WIN |
-| costa rica all inclusive family resorts | 1, 900 | 0.97 | ANSWER (mismatch) |
+| costa rica all inclusive family resorts | 1,900 | 0.97 | ANSWER (mismatch) |
 
 This is the core fix for the Gardens "couples" mis-positioning. Family demand is real and winnable; the
 all-inclusive family variants are large but intent-mismatched, answer honestly, don't chase.
@@ -63,8 +63,8 @@ all-inclusive family variants are large but intent-mismatched, answer honestly, 
 
 | Keyword | Vol | Comp | Play |
 |---|---|---|---|
-| costa rica resorts adults only | 8, 100 | 1.0 | LISTICLE + AI (sizable) |
-| costa rica honeymoon | 1, 900 | 0.64 | WIN |
+| costa rica resorts adults only | 8,100 | 1.0 | LISTICLE + AI (sizable) |
+| costa rica honeymoon | 1,900 | 0.64 | WIN |
 | costa rica honeymoon resorts | 590 | 1.0 | WIN |
 | adults only all inclusive costa rica | 260 | 0.99 | WIN / ANSWER |
 | romantic resorts costa rica | 110 | 1.0 | WIN |
@@ -75,21 +75,21 @@ all-inclusive family variants are large but intent-mismatched, answer honestly, 
 | couples resort costa rica | 20 | 0.88 | WIN |
 | honeymoon resorts costa rica | 20 | 0.92 | WIN |
 
-Springs is healthy (maintenance per brief), but "costa rica resorts adults only" at 8, 100 is a real
+Springs is healthy (maintenance per brief), but "costa rica resorts adults only" at 8,100 is a real
 listicle/AI prize and honeymoon terms are winnable owned pages.
 
 ## 4. Geo: Arenal / La Fortuna → all three (the actual location)
 
 | Keyword | Vol | Comp | Play |
 |---|---|---|---|
-| hotels in la fortuna costa rica | 3, 600 | **0.20** | WIN (low competition, priority) |
-| hotels in arenal costa rica | 1, 300 | 0.68 | WIN |
-| arenal resorts | 1, 000 | 0.99 | WIN |
+| hotels in la fortuna costa rica | 3,600 | **0.20** | WIN (low competition, priority) |
+| hotels in arenal costa rica | 1,300 | 0.68 | WIN |
+| arenal resorts | 1,000 | 0.99 | WIN |
 | la fortuna resorts | 590 | 0.99 | WIN |
 | arenal volcano resorts | 260 | 0.99 | WIN |
 | best hotels in arenal | 140 | 1.0 | WIN |
 
-"hotels in la fortuna costa rica" (3, 600, comp 0.20) is the single most winnable mid-volume term in the
+"hotels in la fortuna costa rica" (3,600, comp 0.20) is the single most winnable mid-volume term in the
 set. A corporate Arenal/La Fortuna umbrella page positioning all three Nayara properties is high-leverage.
 
 ## 5. Resort-type cluster → property by type
@@ -111,11 +111,11 @@ set. A corporate Arenal/La Fortuna umbrella page positioning all three Nayara pr
 
 | Keyword | Vol | Comp | Play |
 |---|---|---|---|
-| costa rica all inclusive | 49, 500 | 0.97 | ANSWER (Nayara is not all-inclusive) |
-| costa rica all inclusive resorts | 27, 100 | 1.0 | ANSWER |
-| all inclusive costa rica | 18, 100 | 1.0 | ANSWER |
-| all inclusive resorts in costa rica | 9, 900 | 0.97 | ANSWER |
-| best all inclusive resorts costa rica | 1, 300 | 0.98 | ANSWER |
+| costa rica all inclusive | 49,500 | 0.97 | ANSWER (Nayara is not all-inclusive) |
+| costa rica all inclusive resorts | 27,100 | 1.0 | ANSWER |
+| all inclusive costa rica | 18,100 | 1.0 | ANSWER |
+| all inclusive resorts in costa rica | 9,900 | 0.97 | ANSWER |
+| best all inclusive resorts costa rica | 1,300 | 0.98 | ANSWER |
 
 Huge volume, wrong intent. The high-leverage move is an honest "what's included at Nayara" answer page
 that ranks for "is nayara gardens all inclusive" (already ranks) and captures the comparison searcher,
@@ -125,7 +125,7 @@ not a play to be listed as an all-inclusive resort.
 
 | Keyword | Vol | Comp | Play |
 |---|---|---|---|
-| nayara costa rica | 1, 300 | 0.61 | OWN (already #1-ish; defend) |
+| nayara costa rica | 1,300 | 0.61 | OWN (already #1-ish; defend) |
 
 (Full branded set covered in `docs/seo-analysis-2026-06.md`.)
 
@@ -133,20 +133,20 @@ not a play to be listed as an all-inclusive resort.
 
 ## Priority ranking targets (decisive)
 
-1. **hotels in la fortuna costa rica** (3, 600, comp 0.20), most winnable mid-volume term. Build a
+1. **hotels in la fortuna costa rica** (3,600, comp 0.20), most winnable mid-volume term. Build a
  corporate Arenal/La Fortuna umbrella page positioning all three properties.
-2. **Family cluster** (costa rica family resorts 1, 600 + best family resorts 1, 300 + for families 720), 
+2. **Family cluster** (costa rica family resorts 1,600 + best family resorts 1,300 + for families 720), 
  the Gardens family page. On-strategy and winnable.
-3. **costa rica luxury resorts** (4, 400) + **costa rica honeymoon** (1, 900), winnable owned pages.
-4. **Listicle-inclusion outreach** for costa rica resorts (22, 200), resorts in costa rica (12, 100),
- costa rica resorts adults only (8, 100), off-page, the real lever for head demand + AI citation.
+3. **costa rica luxury resorts** (4,400) + **costa rica honeymoon** (1,900), winnable owned pages.
+4. **Listicle-inclusion outreach** for costa rica resorts (22,200), resorts in costa rica (12,100),
+ costa rica resorts adults only (8,100), off-page, the real lever for head demand + AI citation.
 5. **Optimize the existing overwater-bungalows page** (already 17K impressions).
 6. **All-inclusive answer page**, honest "what's included, " not a ranking play.
 
 ## Real competitors to track (from Semrush related data)
 
-Four Seasons Peninsula Papagayo (18, 100), Andaz Peninsula Papagayo (12, 100), Tabacón Thermal Resort
-(12, 100), The Springs Resort & Spa (8, 100), Arenas del Mar (6, 600), Tulemar Resort (5, 400),
+Four Seasons Peninsula Papagayo (18,100), Andaz Peninsula Papagayo (12,100), Tabacón Thermal Resort
+(12,100), The Springs Resort & Spa (8,100), Arenas del Mar (6,600), Tulemar Resort (5,400),
 Rancho Pacifico, Nekajui (Ritz-Carlton Reserve, per brief).
 
 ## Caveats

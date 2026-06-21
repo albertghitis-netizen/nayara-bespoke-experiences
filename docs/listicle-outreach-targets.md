@@ -3,8 +3,8 @@
 _Date: 2026-06-21. Source: Semrush live SERP (who ranks for "costa rica resorts" / "best luxury resorts
 in costa rica") + targeted per-domain web search for Nayara presence._
 
-**Why this exists.** Page 1 for the high-volume head terms (costa rica resorts 22, 200; resorts in costa
-rica 12, 100; costa rica resorts adults only 8, 100; best resorts in costa rica 3, 600) is owned almost
+**Why this exists.** Page 1 for the high-volume head terms (costa rica resorts 22,200; resorts in costa
+rica 12,100; costa rica resorts adults only 8,100; best resorts in costa rica 3,600) is owned almost
 entirely by editorial listicles, travel-advisor category pages, OTAs, and Reddit/YouTube. A single
 property domain cannot rank #1 there. The high-leverage move is to be **listed (or upgraded) inside the
 pages that already rank**, which are also the pages AI engines (ChatGPT, Perplexity, Google AI

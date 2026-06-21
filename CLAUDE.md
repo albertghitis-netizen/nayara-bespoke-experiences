@@ -64,11 +64,11 @@ Every page below needs: real photos only, FAQ + Hotel schema so it doubles as an
 1. **Family (the lead).** The core fix for the couples mis-positioning. Rooms that sleep four, kids and multi-generational, getting to Arenal with children, the sloths for families, plus de-risking content (guaranteed adjacent placement, babysitting, on-call doctor, stroller paths). Note: Search Console cannot size family demand because Gardens barely appears for it, so this is justified on the mis-narration and market reality. Get Keyword Planner figures to size it. Verify every amenity claim before publishing.
 
 **On nayararesorts.com (Gardens feeders)**
-2. **Best Luxury Resorts in Costa Rica.** The biggest single demand opportunity: "costa rica resorts" pulls about 10, 091 impressions at average position 9 (a ~15K cluster) and converts almost nothing. Portfolio page that positions Gardens as the family pick.
+2. **Best Luxury Resorts in Costa Rica.** The biggest single demand opportunity: "costa rica resorts" pulls about 10,091 impressions at average position 9 (a ~15K cluster) and converts almost nothing. Portfolio page that positions Gardens as the family pick.
 3. **Which Nayara Is Right For You (comparison).** Fixes confusion between the three properties and is prime AI-citation material. Position Gardens as the family flagship, Springs as adults-only romance, Tented as the adventure or seclusion option, NOT "the ultimate family." Do not call Gardens a "launchpad."
 4. **All-Inclusive (treat as a test).** Real, high-intent demand ("is it all inclusive" volume; "is nayara gardens all inclusive" already ranks). Lead the page with a clear honest answer to "what's included, " then the value. Do not lead with a clever "unpackaged" pitch that argues with the searcher's intent.
 
-**Next wave (not dropped, sequenced behind the four):** Gardens dining page (captures "restaurants, " the biggest non-brand Maps search, 3, 500+/quarter), the sloth experience page, and a plain "what's included" answer on the Gardens site. Dining and sloth content can start as sections before graduating to their own pages.
+**Next wave (not dropped, sequenced behind the four):** Gardens dining page (captures "restaurants, " the biggest non-brand Maps search, 3,500+/quarter), the sloth experience page, and a plain "what's included" answer on the Gardens site. Dining and sloth content can start as sections before graduating to their own pages.
 
 **Build order:** fix measurement (Springs conversion tag first) and continue entity reconnection, then Gardens family page and corporate Best Luxury Resorts in parallel, then the comparison page, then the Gardens answer pages and sloth, then all-inclusive and an Arenal page.
 
@@ -82,7 +82,7 @@ Landing pages lead, because Gardens' bottleneck is conversion and positioning, n
 
 The reconnection runs through the invisible structured-data layer plus listing corrections, NOT a visible "formerly known as" page (not approved, and not necessary).
 
-- On the existing Gardens homepage: add Hotel or LodgingBusiness schema with `alternateName` (the old name), `sameAs` (Wikidata, social, Maps), `award`, and `aggregateRating` (4.9, 1, 065 reviews).
+- On the existing Gardens homepage: add Hotel or LodgingBusiness schema with `alternateName` (the old name), `sameAs` (Wikidata, social, Maps), `award`, and `aggregateRating` (4.9, 1,065 reviews).
 - Set a **Wikidata** "also known as" alias for the former name. This is the strongest lever you control for getting the Knowledge Graph and AI engines to treat the two names as one entity.
 - Keep Google Business Profile name continuity.
 - Correct the editable partner and OTA listings, several of which still show the old name or credit Gardens' award to Springs.
@@ -109,10 +109,10 @@ Awards to reconnect include a 2015 Travel + Leisure number-one in Central and So
 ## Measurement findings (data)
 
 - SynXis cross-domain referral fix landed in June: Gardens referral share dropped from ~84 to 86% (March/April) to ~12% (June), now normal.
-- **Two Google Ads conversion tags are still broken:** Springs reports zero conversion value (worth an estimated $15K to $25K per month in recovered brand bookings), and Gardens value tracking reports near zero per booking against a real AOV around $3, 165. Tented's tag works. No paid strategy changes until tags are repaired per property.
+- **Two Google Ads conversion tags are still broken:** Springs reports zero conversion value (worth an estimated $15K to $25K per month in recovered brand bookings), and Gardens value tracking reports near zero per booking against a real AOV around $3,165. Tented's tag works. No paid strategy changes until tags are repaired per property.
 - Brand auctions are contested (so brand defense is not pure waste, but a geo holdout is the clean incrementality test): impression share roughly Tented 82%, Gardens 74%, Springs 60% (Springs losing ~25% to rank, tag-starved).
 - Clean June ROAS once attribution is trustworthy: Tented ~83x, Springs ~34x, Gardens ~18.4x. The deck's 7.9x for Gardens was an attribution artifact, not real underperformance.
-- Non-brand demand: "costa rica resorts" ~10, 091 impressions at position 9 is the corporate prize. Arenal cluster is modest (~300 impressions) and ranks deep (position 20 to 57). Family and La Fortuna demand are invisible in Search Console because Nayara barely appears for them; size with Keyword Planner.
+- Non-brand demand: "costa rica resorts" ~10,091 impressions at position 9 is the corporate prize. Arenal cluster is modest (~300 impressions) and ranks deep (position 20 to 57). Family and La Fortuna demand are invisible in Search Console because Nayara barely appears for them; size with Keyword Planner.
 - Gardens leads the AI Assistant channel in GA4, so the AEO work pays off here first.
 
 ---
@@ -152,5 +152,6 @@ Awards to reconnect include a 2015 Travel + Leisure number-one in Central and So
 - `docs/integrated-data-analysis-2026-06.md`: integrated analysis combining live GA4 + Google Ads (Windsor), the SynXis-validated KPI workbook, GA4 report exports, Semrush, and the Drive strategy docs. Corrects the measurement picture (Ads value tags broken for Springs/Gardens; corporate cross-domain gap; Gardens GA4 tracks fine) and reconciles the strategy docs (domain-architecture conflict, awards source of record, entity gap).
 - `docs/nayara-digital-strategy-master-2026-06.md`: the master digital strategy report: organic, paid, AEO/GEO, E-E-A-T, social, Journal, YouTube, local/Maps, competitors, keyword gaps, and landing pages, per property + brand, built on live GA4/Ads/IG/GBP + Semrush + KPI data (US + Europe).
 - `docs/nayara-handoff/deliverables/digital-strategy-executive-briefing.html`: leadership-facing plain-language summary of the master report, in the house design system. Sendable to leadership.
+- `docs/nayara-organic-action-plan.md`: the top 10 actionable organic-search steps (measurement, Gardens metadata + schema + Wikidata, family/luxury/Arenal pages, dining + sloth, listicle outreach), sequenced and tied to the data and existing reports.
 
 When building pages, follow the standing rules and design system above, verify any factual or amenity claim before it goes live, and keep Alex's provability standard in mind: lead with what the data supports, and be explicit about what is a test versus a proven move.

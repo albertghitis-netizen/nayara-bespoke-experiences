@@ -14,11 +14,11 @@ Three separate things were tangled together as "Gardens doesn't convert." They a
 
 | Property | Sessions | Key events | GA4 revenue | ~Monthly |
 |---|---|---|---|---|
-| Gardens (357647205) | 83, 695 | 279 | $910, 916 | ~$304K |
-| Springs (360867414) | 73, 691 | 357 | $1, 400, 344 | ~$467K |
-| Tented (357704789) | 102, 692 | 569 | $3, 444, 469 | ~$1.15M |
+| Gardens (357647205) | 83,695 | 279 | $910,916 | ~$304K |
+| Springs (360867414) | 73,691 | 357 | $1,400,344 | ~$467K |
+| Tented (357704789) | 102,692 | 569 | $3,444,469 | ~$1.15M |
 
-Gardens May GA4 ($181, 972 / 53 key events / 24, 638 sessions) matches its report PDF exactly, so the
+Gardens May GA4 ($181,972 / 53 key events / 24,638 sessions) matches its report PDF exactly, so the
 property data is trustworthy. The SynXis KPI sheet confirms the ranking: May pickup Tented $1.15M >
 Springs $479K > Gardens $315K. Gardens books the least of the three, but it is **measured** and it is
 material (~$3.6M/yr GA4-tracked).
@@ -27,30 +27,30 @@ material (~$3.6M/yr GA4-tracked).
 
 | Ads account | Spend | Conversions | Conversion **value** | Ads ROAS |
 |---|---|---|---|---|
-| Tented | $18, 903 | 356 | $1, 793, 195 | ~95x (works) |
-| Springs | $19, 947 | 102 | **$0** | unmeasurable |
-| Gardens | $21, 158 | 222 | **$130** | unmeasurable |
+| Tented | $18,903 | 356 | $1,793,195 | ~95x (works) |
+| Springs | $19,947 | 102 | **$0** | unmeasurable |
+| Gardens | $21,158 | 222 | **$130** | unmeasurable |
 
 GA4 sees Springs/Gardens revenue; **Google Ads does not receive the conversion value**, so Smart Bidding
 and in-platform ROAS are flying blind on ~$41K/quarter of spend. This is the real, fixable tag problem.
 
-**c) The corporate site is the actual blind spot.** nayararesorts.com (364402180) drew **153, 839
-sessions in 90 days** (Paid Social 40, 290; Paid Search 27, 075; Organic Social 27, 196; Organic Search
-17, 665) but recorded only **4 key events / $9, 847**, because the corporate domain has no booking flow.
+**c) The corporate site is the actual blind spot.** nayararesorts.com (364402180) drew **153,839
+sessions in 90 days** (Paid Social 40,290; Paid Search 27,075; Organic Social 27,196; Organic Search
+17,665) but recorded only **4 key events / $9,847**, because the corporate domain has no booking flow.
 Bookings happen on the property domains, so all that brand/social/paid demand on the corporate site
 cannot be tied to revenue. That cross-domain gap, not Gardens, is where money goes dark.
 
-**Caveat:** "Referral" carries 61% of Gardens' GA4 revenue ($556, 687/90d), but the May PDF shows that is
+**Caveat:** "Referral" carries 61% of Gardens' GA4 revenue ($556,687/90d), but the May PDF shows that is
 mostly INTERNAL handoffs (nayaragardens.com/referral, nayararesorts.com/referral, synxis). So
 last-click attribution parks booking revenue on internal referrers and understates the true acquisition
-channels (Paid Search $133, 720, Organic Search $53, 402, Direct $72, 954). Treat channel-level revenue as
+channels (Paid Search $133,720, Organic Search $53,402, Direct $72,954). Treat channel-level revenue as
 directional until cross-domain attribution is clean (the June SynXis fix only partly addresses this).
 
 ---
 
 ## 2. The AI Assistant / LLM channel is real, growing, and under-converting
 
-- GA4 has a dedicated **AI Assistant** channel. Gardens: 494 sessions, 3 key events, **$15, 350** (90d).
+- GA4 has a dedicated **AI Assistant** channel. Gardens: 494 sessions, 3 key events, **$15,350** (90d).
 - On the corporate site, **chatgpt.com is the 3rd-largest source** (~431 of ~5K users in May, ~8%),
  behind only google/organic and direct.
 - Gardens May: chatgpt.com (`ai-assistant` + `(not set)`) ≈ 445 users, high engagement (77-81%), but
@@ -65,15 +65,15 @@ high revenue-per-session when it does.
 ## 3. Gardens deep dive (the strategy focus)
 
 **Audience (GA4 May, Gardens):** Female **60.8%** / Male 39.2%; age peak 25-34 then 35-44; **US 71.6% of
-users and 88.4% of revenue**, UK small in users but **6.6% of revenue** ($11, 958), Costa Rica 12.9% of
+users and 88.4% of revenue**, UK small in users but **6.6% of revenue** ($11,958), Costa Rica 12.9% of
 users but tiny revenue. US + UK ≈ 95% of revenue. Skew is families/women, not couples.
 
 **Channel mix (May, by revenue):** Paid Search 28.6%, Organic Search 18.4%, Direct 10.5%, internal
 referrals ~43% (booking-engine handoffs). Meta Ads + Sojern: high traffic, **$0 tracked revenue**.
 
-**Funnel:** home (25, 515 views) -> Stay -> check-availability (6, 586) -> checkout (853) -> /confirm (25
-views, 23 key events, $73, 089). Heavy drop from availability to confirmation. AOV $3, 184 (KPI sheet),
-matches the ~$3, 165 in the brief.
+**Funnel:** home (25,515 views) -> Stay -> check-availability (6,586) -> checkout (853) -> /confirm (25
+views, 23 key events, $73,089). Heavy drop from availability to confirmation. AOV $3,184 (KPI sheet),
+matches the ~$3,165 in the brief.
 
 **Positioning gap (confirmed):** the audience is family/female, the Masterfile maps Gardens to family
 keywords (best family resorts CR 1.6K, family vacations 1.3K, la fortuna hotels 5.4K), yet the **live
@@ -100,7 +100,7 @@ six-article priority led by Gardens family + Best Luxury Resorts).
  corporate domain. Standing architecture keeps Gardens-brand on nayaragardens.com until tags are
  fixed. Redirect the agency build: non-brand pages to corporate, Gardens-brand to nayaragardens.com.
 2. **Entity reconnection is still unwritten.** No doc contains the `alternateName` ("Arenal Nayara" /
- "Nayara Resort Spa & Gardens"), aggregateRating 4.9/1, 065, or the historical 2015 T+L #1 / 2016 CNT
+ "Nayara Resort Spa & Gardens"), aggregateRating 4.9/1,065, or the historical 2015 T+L #1 / 2016 CNT
  #2 awards. Still needs creating.
 3. **FAQ content lives in 3 conflicting places** with claims that violate verify-before-publish (Gardens
  "sleeps up to 3" vs "sleeps four"; "all villas have plunge pools" vs "Gardens has no thermal

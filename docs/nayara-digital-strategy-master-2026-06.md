@@ -18,7 +18,7 @@ Nayara's digital problem is not demand. It is **measurement, positioning, and ch
 
 1. **Measurement is broken in two specific, fixable places.** Google Ads conversion-value tags report
  $0 (Springs) and $130 (Gardens) over 90 days while GA4 shows those properties earning $1.4M and
- $0.9M, so paid bidding runs blind. And the corporate site draws 153, 839 sessions/90d but tracks
+ $0.9M, so paid bidding runs blind. And the corporate site draws 153,839 sessions/90d but tracks
  only 4 conversions because bookings happen on property domains (a cross-domain gap).
 2. **Paid is ~85% brand defense.** The overwhelming majority of Google Ads spend buys back the Nayara
  name, not new demand. Non-brand and PMax campaigns are barely funded, and the one well-tracked
@@ -30,7 +30,7 @@ Nayara's digital problem is not demand. It is **measurement, positioning, and ch
  organic search) and under-realized for Gardens ($53K). Organic is not a vanity channel here.
 5. **Local/Maps is a fast, underused lever.** "Restaurants" is the #1 non-brand Maps search for Gardens
  and Springs, but no menus, no Maps bookings, are enabled.
-6. **The AI Assistant channel is real and converting** ($15, 350 Gardens / 90d) and is the fastest-growing
+6. **The AI Assistant channel is real and converting** ($15,350 Gardens / 90d) and is the fastest-growing
  referrer. But AI answers actively mis-narrate Gardens: it is **absent from "best family resort Costa
  Rica" and "best hot springs Arenal"** answers entirely, and third-party pages (Oyster,
  unforgettablehoneymoons) re-cast it as couples/honeymoon. GEO/AEO is where the positioning fix lands
@@ -38,7 +38,7 @@ Nayara's digital problem is not demand. It is **measurement, positioning, and ch
 7. **There is a real competitive moat to defend.** The Papagayo ultra-luxury chains (Four Seasons, Andaz,
  Nekajui, Waldorf) own beach/Pacific and the new-opening hype; Tabacón owns "hot springs"; The Springs
  owns generic "Arenal resort." But **none of them owns family-in-Arenal or on-property sloths**, 
- ~2, 700+ of uncontested, destination-locked demand that is Nayara Gardens' to take.
+ ~2,700+ of uncontested, destination-locked demand that is Nayara Gardens' to take.
 
 The throughline: fix measurement, reallocate paid from brand defense toward tracked non-brand, reposition
 Gardens as the family-rainforest-sloth flagship across live assets + schema + AI answers (white space no
@@ -52,27 +52,27 @@ competitor can contest), and harvest the local + AI channels that are already pr
 
 | Property | Sessions | Key events | GA4 revenue | SynXis May pickup (validation) | AOV |
 |---|---|---|---|---|---|
-| Tented | 102, 692 | 569 | $3, 444, 469 | $1, 147, 902 | $5, 978 |
-| Springs | 73, 691 | 357 | $1, 400, 344 | $478, 982 | $4, 129 |
-| Gardens | 83, 695 | 279 | $910, 916 | $315, 276 | $3, 184 |
-| Corporate (nayararesorts.com) | 153, 839 | 4 | $9, 847 | n/a (no booking flow) | n/a |
+| Tented | 102,692 | 569 | $3,444,469 | $1,147,902 | $5,978 |
+| Springs | 73,691 | 357 | $1,400,344 | $478,982 | $4,129 |
+| Gardens | 83,695 | 279 | $910,916 | $315,276 | $3,184 |
+| Corporate (nayararesorts.com) | 153,839 | 4 | $9,847 | n/a (no booking flow) | n/a |
 
 **b) Google Ads conversion-VALUE tags are broken for Springs and Gardens** (90 days):
 
 | Account | Spend | Conversions | Conversion value | In-platform ROAS |
 |---|---|---|---|---|
-| Tented | $18, 903 | 356 | $1, 793, 195 | ~95x (works) |
-| Springs | $19, 947 | 102 | **$0** | unmeasurable |
-| Gardens | $21, 158 | 222 | **$130** | unmeasurable |
+| Tented | $18,903 | 356 | $1,793,195 | ~95x (works) |
+| Springs | $19,947 | 102 | **$0** | unmeasurable |
+| Gardens | $21,158 | 222 | **$130** | unmeasurable |
 
 GA4 sees the revenue; Google Ads does not receive it, so Smart Bidding optimizes Springs/Gardens blind on
 ~$41K/quarter. **Fix #1.**
 
-**c) The corporate cross-domain gap.** nayararesorts.com pulls 153, 839 sessions/90d (Paid Social 40, 290;
-Paid Search 27, 075; Organic Social 27, 196; Organic Search 17, 665) but records ~$0 because it has no
+**c) The corporate cross-domain gap.** nayararesorts.com pulls 153,839 sessions/90d (Paid Social 40,290;
+Paid Search 27,075; Organic Social 27,196; Organic Search 17,665) but records ~$0 because it has no
 booking flow. That brand/social/paid demand cannot be tied to property bookings. **Fix #2.**
 
-**d) Gardens' channel attribution is the most distorted.** 61% of Gardens GA4 revenue ($556, 687/90d)
+**d) Gardens' channel attribution is the most distorted.** 61% of Gardens GA4 revenue ($556,687/90d)
 lands in "Referral, " which the May report shows is mostly INTERNAL booking-engine handoffs
 (nayaragardens.com/referral, synxis). Springs/Tented park only 12-21% in referral. So Gardens'
 true acquisition channels are the most obscured, treat Gardens channel-level revenue as directional
@@ -84,19 +84,19 @@ until cross-domain attribution is clean. (The June SynXis fix only partly addres
 
 | Channel | Gardens rev | Springs rev | Tented rev |
 |---|---|---|---|
-| Paid Search | $133, 720 | $379, 279 | $970, 250 |
-| Organic Search | $53, 402 | $342, 576 | $867, 140 |
-| Referral (incl. internal handoff) | $556, 687 | $161, 889 | $714, 153 |
-| Direct | $72, 954 | $221, 178 | $440, 002 |
-| Cross-network | $18, 254 | $198, 823 | $338, 940 |
-| Organic Social | $2, 489 | $19, 871 | $32, 115 |
-| AI Assistant | $15, 350 | $5, 748 | $140 |
+| Paid Search | $133,720 | $379,279 | $970,250 |
+| Organic Search | $53,402 | $342,576 | $867,140 |
+| Referral (incl. internal handoff) | $556,687 | $161,889 | $714,153 |
+| Direct | $72,954 | $221,178 | $440,002 |
+| Cross-network | $18,254 | $198,823 | $338,940 |
+| Organic Social | $2,489 | $19,871 | $32,115 |
+| AI Assistant | $15,350 | $5,748 | $140 |
 
 **Reads:**
 - **Organic search is a real revenue engine for Springs ($343K) and Tented ($867K)** but tiny for
  Gardens ($53K) despite Gardens having comparable sessions. Gardens organic underconverts, a
  positioning/funnel problem, not a traffic problem.
-- **Gardens' AI Assistant revenue ($15, 350) already exceeds its Organic Social ($2, 489)** and rivals
+- **Gardens' AI Assistant revenue ($15,350) already exceeds its Organic Social ($2,489)** and rivals
  meaningful channels. GEO is not theoretical for Gardens.
 - Paid Search scales with property revenue (Tented > Springs > Gardens), but Gardens' paid is the least
  efficient and its value tag is broken, so it is being optimized blind.
@@ -109,10 +109,10 @@ until cross-domain attribution is clean. (The June SynXis fix only partly addres
 
 | Campaign | Spend | Conv value | Note |
 |---|---|---|---|
-| Tented Brand Search | $6, 787 | $920, 054 | works; ~135x |
-| Gardens Brand Search | $10, 920 | $55 | tag broken |
-| Springs Brand Search | $10, 694 | $0 | tag broken |
-| Tented Destination Search (non-brand, US&CA) | $370 | $16, 809 | **~45x, proof non-brand works when tracked** |
+| Tented Brand Search | $6,787 | $920,054 | works; ~135x |
+| Gardens Brand Search | $10,920 | $55 | tag broken |
+| Springs Brand Search | $10,694 | $0 | tag broken |
+| Tented Destination Search (non-brand, US&CA) | $370 | $16,809 | **~45x, proof non-brand works when tracked** |
 | Gardens PMax No-Brand (Family/Wellness/Arenal) | $109 | $1 | starved + tag broken |
 | Gardens PMax Romance | $308 | $2 | off-strategy (Gardens is family) |
 | Springs PMax General | $639 | $0 | tag broken |
@@ -135,28 +135,28 @@ table, tag-starved and losing to rank).
 
 ## 4. Organic SEO strategy
 
-**Brand context (Semrush):** nayararesorts.com Authority Score 33, ~1, 121 organic keywords, est. organic
-traffic ~10, 900 and **declining ~37% since Dec 2025**. The brand fragments across five domains
+**Brand context (Semrush):** nayararesorts.com Authority Score 33, ~1,121 organic keywords, est. organic
+traffic ~10,900 and **declining ~37% since Dec 2025**. The brand fragments across five domains
 (corporate + four property sites) that compete on the Nayara name.
 
 **Demand map (US volumes, Semrush):** head terms are owned by editorial/OTA listicles, so the owned-page
 play is the winnable mid/long tail + listicle inclusion + AI citation. Full matrix in
 `docs/costa-rica-keyword-strategy.md`. Headlines:
 
-- **Corporate / luxury head terms:** costa rica resorts 22, 200, resorts in costa rica 12, 100, costa rica
- luxury resorts 4, 400, listicle + AI play, plus an owned "Best Luxury Resorts in Costa Rica" page as
+- **Corporate / luxury head terms:** costa rica resorts 22,200, resorts in costa rica 12,100, costa rica
+ luxury resorts 4,400, listicle + AI play, plus an owned "Best Luxury Resorts in Costa Rica" page as
  AI answer + ad lander.
-- **Gardens / family:** costa rica family resorts 1, 600, best family resorts 1, 300, resorts for families
+- **Gardens / family:** costa rica family resorts 1,600, best family resorts 1,300, resorts for families
  720, winnable, on-strategy.
-- **Geo (all three):** la fortuna hotels 2, 900, arenal resorts 1, 000, "hotels in la fortuna costa rica"
+- **Geo (all three):** la fortuna hotels 2,900, arenal resorts 1,000, "hotels in la fortuna costa rica"
  has competition just 0.20, the single most winnable mid-volume term.
-- **Springs / romance:** costa rica honeymoon 1, 900, costa rica resorts adults only 8, 100 (listicle).
+- **Springs / romance:** costa rica honeymoon 1,900, costa rica resorts adults only 8,100 (listicle).
 - **Tented / glamping:** costa rica jungle resort 720, glamping costa rica 260+140.
-- **All-inclusive:** costa rica all inclusive 49, 500, intent mismatch (Nayara is breakfast-only in CR);
+- **All-inclusive:** costa rica all inclusive 49,500, intent mismatch (Nayara is breakfast-only in CR);
  honest "what's included" answer page, not a ranking play.
 
 **UK/Europe (Semrush):** US is primary, but the UK over-indexes on Nayara revenue (GA4) and uses
-different vocabulary: **costa rica holidays 12, 100 (UK)**, costa rica family holidays 590, costa rica
+different vocabulary: **costa rica holidays 12,100 (UK)**, costa rica family holidays 590, costa rica
 honeymoon 390. Capture with British phrasing. Germany/France have no meaningful English-language demand, 
 out of scope unless local-language content is commissioned.
 
@@ -177,14 +177,14 @@ GBP is a fast, underused lever. 90-day performance:
 
 | Property | Maps+Search impressions | Website clicks | Direction req. | Reviews | Rating |
 |---|---|---|---|---|---|
-| Gardens | 67, 898 | 5, 129 | 3, 213 | 1, 070 | 4.9 |
-| Bocas del Toro | 64, 694 | 4, 288 | 664 | 157 | 4.9 |
-| Springs | 59, 143 | 5, 549 | 2, 653 | 523 | 4.9 |
-| Tented | 47, 277 | 6, 467 | 3, 189 | 368 | 4.9 |
-| Alto Atacama | 28, 566 | 2, 212 | 1, 296 | 374 | 4.6 |
+| Gardens | 67,898 | 5,129 | 3,213 | 1,070 | 4.9 |
+| Bocas del Toro | 64,694 | 4,288 | 664 | 157 | 4.9 |
+| Springs | 59,143 | 5,549 | 2,653 | 523 | 4.9 |
+| Tented | 47,277 | 6,467 | 3,189 | 368 | 4.9 |
+| Alto Atacama | 28,566 | 2,212 | 1,296 | 374 | 4.6 |
 
 **Two quick wins, visible in the data:**
-1. **"Restaurants" is the #1 non-brand Maps search** for Gardens (3, 543) and Springs (2, 822), yet
+1. **"Restaurants" is the #1 non-brand Maps search** for Gardens (3,543) and Springs (2,822), yet
  **food-menu clicks = 0**, no menus are attached to the profiles. Add menus to GBP. This is the
  dining-demand capture the brief flagged, confirmed exactly.
 2. **Maps bookings = 0** across every property, the "Book"/reservation link is not enabled on GBP. Enable
@@ -204,9 +204,9 @@ Springs Resort" land on Nayara Gardens. Keep GBP categories/attributes optimized
 
 | Account | Followers | Posts | 90d reach | Audience |
 |---|---|---|---|---|
-| nayararesorts | 71, 197 | 2, 392 | 42, 113 | 65% female; US 37% / Costa Rica 33% / LatAm heavy |
-| nayarasprings | 20, 079 | 425 | 30, 865 | 72% female; US 40% / Costa Rica 40% |
-| nayaragardens | 17, 282 | 835 | 35, 947 | 75% female; US 51% / Costa Rica 23% |
+| nayararesorts | 71,197 | 2,392 | 42,113 | 65% female; US 37% / Costa Rica 33% / LatAm heavy |
+| nayarasprings | 20,079 | 425 | 30,865 | 72% female; US 40% / Costa Rica 40% |
+| nayaragardens | 17,282 | 835 | 35,947 | 75% female; US 51% / Costa Rica 23% |
 | Nayara Tented Camp | not connected to Windsor | n/a | n/a | (gap, connect it) |
 
 **Reads:**
@@ -224,7 +224,7 @@ Springs Resort" land on Nayara Gardens. Keep GBP categories/attributes optimized
  given the booking audience is US/UK.
 3. **Lean into the differentiators that travel on social:** sloths (Gardens, family), hot-springs villas
  (Springs, romance), glamping + Arenal views (Tented).
-4. **Tie social to bookings via the cross-domain fix**, corporate Paid Social alone is 40, 290
+4. **Tie social to bookings via the cross-domain fix**, corporate Paid Social alone is 40,290
  sessions/90d with $0 attributed; that spend is currently unprovable.
 
 ---
@@ -232,8 +232,8 @@ Springs Resort" land on Nayara Gardens. Keep GBP categories/attributes optimized
 ## 7. Pre-opening properties (seeding layer)
 
 GBP shows real, generic, non-brand discovery already underway, seed organic/AEO before launch:
-- **Bocas del Toro (Panama):** "panama resorts" 2, 506, "hotels in panama" 1, 221, "resorts in panama"
- 1, 214, "best resorts in panama" 572, "overwater bungalows panama" 188+256, "bocas del toro all
+- **Bocas del Toro (Panama):** "panama resorts" 2,506, "hotels in panama" 1,221, "resorts in panama"
+ 1,214, "best resorts in panama" 572, "overwater bungalows panama" 188+256, "bocas del toro all
  inclusive" 437. Strongest pre-opening demand; little luxury-branded competition. Build the Bocas page +
  overwater-bungalows angle now.
 - **Alto Atacama (Chile):** "atacama desert hotels" 445, "san pedro de atacama hotels" (high CPC $5.02),
@@ -248,17 +248,17 @@ GBP shows real, generic, non-brand discovery already underway, seed organic/AEO 
 Per the agreed plan + the data, in build order. Every page: real photos, FAQ + Hotel/LodgingBusiness
 schema, "Check availability" CTA, verified claims, clean migration-ready URL.
 
-1. **Gardens Family page** (nayaragardens.com), the lead fix. Targets costa rica family resorts (1, 600)
+1. **Gardens Family page** (nayaragardens.com), the lead fix. Targets costa rica family resorts (1,600)
  cluster; de-risking content; sloths-for-families. Reposition title/H1/schema away from "Luxury Hotel."
-2. **Best Luxury Resorts in Costa Rica** (nayararesorts.com), costa rica resorts (22, 200) / luxury
- resorts (4, 400); AI answer + ad lander; positions Gardens as the family pick.
-3. **Arenal / La Fortuna umbrella** (nayararesorts.com), la fortuna hotels (2, 900) + arenal resorts
- (1, 000); "hotels in la fortuna costa rica" comp 0.20 is the most winnable term; positions all three.
+2. **Best Luxury Resorts in Costa Rica** (nayararesorts.com), costa rica resorts (22,200) / luxury
+ resorts (4,400); AI answer + ad lander; positions Gardens as the family pick.
+3. **Arenal / La Fortuna umbrella** (nayararesorts.com), la fortuna hotels (2,900) + arenal resorts
+ (1,000); "hotels in la fortuna costa rica" comp 0.20 is the most winnable term; positions all three.
 4. **Which Nayara Is Right For You** (nayararesorts.com), comparison; prime AI-citation; Gardens=family,
  Springs=adults romance, Tented=adventure/seclusion.
 5. **All-Inclusive answer**, honest "what's included" (CR = breakfast; Bocas/Atacama/Hangaroa = genuinely
  all-inclusive). Test.
-6. **Next wave:** Gardens dining page (captures the 3, 543 "restaurants" Maps demand), sloth experience,
+6. **Next wave:** Gardens dining page (captures the 3,543 "restaurants" Maps demand), sloth experience,
  Bocas overwater-bungalows pre-opening.
 
 **Domain-architecture flag (must resolve first):** the agency Content Map is building Gardens-brand family
@@ -270,9 +270,9 @@ nayaragardens.com until tags are fixed). Reconcile before shipping.
 ## 9. AEO / GEO / E-E-A-T
 
 **Why this matters here:** Gardens already leads the GA4 AI Assistant channel (chatgpt.com is the
-corporate site's 3rd-largest source, ~8%; Gardens AI revenue $15, 350/90d), so AI answers convert. The
+corporate site's 3rd-largest source, ~8%; Gardens AI revenue $15,350/90d), so AI answers convert. The
 foundation build is schema that is currently absent: Hotel/LodgingBusiness + FAQPage + aggregateRating
-(Gardens 4.9 / 1, 070, verified live). Awards source of record (verified 2025): CNT Central America, 
+(Gardens 4.9 / 1,070, verified live). Awards source of record (verified 2025): CNT Central America, 
 Bocas #1, Springs #3, Gardens #8, Tented #15; T+L, Tented #2, Springs #10; MICHELIN Keys, Springs 3.
 Lead Gardens with its #8 family/resort placement; keep MICHELIN + romance to Springs.
 
@@ -324,7 +324,7 @@ hot-springs, and is actively re-narrated as couples/honeymoon by third-party pag
 
 ### 9d. AEO/E-E-A-T recommendations by property
 - **Gardens (urgent):** Hotel/LodgingBusiness schema with `alternateName` (old names), `aggregateRating`
- 4.9/1, 070, `award`, `sameAs` to unify the split identity; `FAQPage` answering the literal AI questions
+ 4.9/1,070, `award`, `sameAs` to unify the split identity; `FAQPage` answering the literal AI questions
  ("Is Nayara Gardens good for families?", "rooms that sleep four?", "is it all-inclusive?", "can you see
  sloths?") leading each with the family/sloth signal; build the family page so a Nayara page out-cites
  the Oyster "couples" line; correct unforgettablehoneymoons + arenal.net; named naturalist/author
@@ -351,24 +351,24 @@ Two distinct competitive sets, requiring opposite strategies.
 
 | Domain | Authority Score | Organic keywords | Est. organic traffic/mo | Referring domains |
 |---|---|---|---|---|
-| **tabacon.com** (Arenal) | 45 | 3, 006 | 74, 071 | 2, 693 |
-| **thespringscostarica.com** (Arenal) | 35 | 4, 772 | 34, 654 | 1, 629 |
-| **nayaragardens.com** | 35 | 414 | 11, 738 | 933 |
-| arenasdelmar.com (Manuel Antonio) | 36 | 1, 534 | 10, 778 | 745 |
-| **nayarasprings.com** | 34 | 760 | 8, 616 | 991 |
-| tulemarresort.com (Manuel Antonio) | 32 | 1, 079 | 6, 994 | 643 |
-| **nayaratentedcamp.com** | 36 | 299 | 3, 505 | 1, 064 |
+| **tabacon.com** (Arenal) | 45 | 3,006 | 74,071 | 2,693 |
+| **thespringscostarica.com** (Arenal) | 35 | 4,772 | 34,654 | 1,629 |
+| **nayaragardens.com** | 35 | 414 | 11,738 | 933 |
+| arenasdelmar.com (Manuel Antonio) | 36 | 1,534 | 10,778 | 745 |
+| **nayarasprings.com** | 34 | 760 | 8,616 | 991 |
+| tulemarresort.com (Manuel Antonio) | 32 | 1,079 | 6,994 | 643 |
+| **nayaratentedcamp.com** | 36 | 299 | 3,505 | 1,064 |
 | haciendaaltagracia.com | 2 | none indexed | none | 106 |
 
 **The two real Arenal rivals own the non-brand clusters Nayara is absent from:**
-- **Tabacón owns "hot springs / thermal"** (almost all position 1-3): costa rica hot springs (1, 900), hot
- springs in costa rica (880), arenal hot springs (1, 600), la fortuna hot springs (1, 600), costa rica hot
+- **Tabacón owns "hot springs / thermal"** (almost all position 1-3): costa rica hot springs (1,900), hot
+ springs in costa rica (880), arenal hot springs (1,600), la fortuna hot springs (1,600), costa rica hot
  springs resort (480, pos 1), costa rica spa resort (320, pos 1), arenal volcano resort (480). Strongest
- profile in the set (AS 45, 2, 693 ref domains). ~8K combined hot-springs volume.
+ profile in the set (AS 45, 2,693 ref domains). ~8K combined hot-springs volume.
 - **The Springs owns the generic "Arenal resort/hotel" head terms** (mostly pos 1-2): arenal costa rica
  resort (880, pos 1), hotels in arenal costa rica (880, pos 2), arenal resorts (590, pos 2), arenal
  hotel costa rica (320, pos 1), costa rica volcano resort (260, pos 1), **arenal all inclusive (70, pos
- 1)**. Only AS 35 / 1, 629 ref domains, beatable with better content + links.
+ 1)**. Only AS 35 / 1,629 ref domains, beatable with better content + links.
 - **Hacienda AltaGracia is organically invisible** (AS 2, no indexed organic), not a near-term threat
  despite being a named tier-2 competitor.
 
@@ -383,14 +383,14 @@ Gardens, supporting the family-page-first + dining-section build order.
 
 ### 10b. Peninsula Papagayo ultra-luxury chains (Pacific beach)
 
-Brand pull (US monthly search): four seasons costa rica **18, 100**; andaz costa rica **12, 100** (+ andaz
-papagayo 5, 400); waldorf astoria costa rica **5, 400**; ritz carlton costa rica 3, 600 (Nekajui's halo);
-peninsula papagayo 2, 900; nekajui **1, 000** (new, still building name recognition but flooding YouTube/AI).
-For reference, Nayara's brands: nayara springs 8, 100, nayara tented camp 8, 100, nayara gardens 5, 400, 
+Brand pull (US monthly search): four seasons costa rica **18,100**; andaz costa rica **12,100** (+ andaz
+papagayo 5,400); waldorf astoria costa rica **5,400**; ritz carlton costa rica 3,600 (Nekajui's halo);
+peninsula papagayo 2,900; nekajui **1,000** (new, still building name recognition but flooding YouTube/AI).
+For reference, Nayara's brands: nayara springs 8,100, nayara tented camp 8,100, nayara gardens 5,400, 
 **collectively larger than any single Papagayo brand.**
 
 - These chains each win their own brand SERP at #1 and own the **beach/Pacific/Guanacaste axis**: Four
- Seasons vacuums "papagayo costa rica" (4, 400), "papagayo" (6, 600), "resort hotel costa rica" (6, 600);
+ Seasons vacuums "papagayo costa rica" (4,400), "papagayo" (6,600), "resort hotel costa rica" (6,600);
  Andaz has a deep brand footprint; Nekajui already captures the Ritz halo months after opening.
 - On the generic luxury head terms ("best luxury resorts in costa rica, " etc.) **no chain and no Nayara
  property ranks its own page**, those SERPs are listicle/OTA/editorial-owned (Forbes, CNT, Tripadvisor,
@@ -398,7 +398,7 @@ For reference, Nayara's brands: nayara springs 8, 100, nayara tented camp 8, 100
 
 **The moat:** the Papagayo cluster cannot answer rainforest, volcano, hot springs, sloths, or family. The
 Arenal/rainforest/family cluster (arenal resorts, costa rica rainforest resort, costa rica family resort,
-costa rica with kids, hotel with sloths) totals ~2, 700+ of uncontested, destination-locked, high-intent
+costa rica with kids, hotel with sloths) totals ~2,700+ of uncontested, destination-locked, high-intent
 demand they physically cannot serve.
 
 ### 10c. Five competitive takeaways
@@ -454,7 +454,7 @@ weak, mirroring the organic problem, Gardens (~17K) is the smallest and mis-narr
  wild credits the **sloth sanctuary to Springs, not Gardens**, the same entity muddle in the brief, now
  visible in social. Reclaim the sloth narrative for Gardens, packaged for families.
 - **Springs = romance** (best-covered already; maintain).
-- **Tented = volcano-view glamping** (1, 700 sq ft clifftop tents), tailor-made for the luxury-glamping
+- **Tented = volcano-view glamping** (1,700 sq ft clifftop tents), tailor-made for the luxury-glamping
  video genre, but no breakout signature clip yet.
 
 **Recommendations (YouTube/video):**
@@ -495,7 +495,7 @@ blog-system-prompt and agency modules still say "Blog", fix to "Journal."
 
 **Next (build + reallocate):**
 6. Gardens Family page + Best Luxury Resorts page (resolve domain architecture first).
-7. Add Hotel/FAQ/aggregateRating schema + write the entity-reconnection asset (alternateName, 4.9/1, 070,
+7. Add Hotel/FAQ/aggregateRating schema + write the entity-reconnection asset (alternateName, 4.9/1,070,
  historical awards + Wikidata alias).
 8. Fund tracked non-brand paid (replicate Tented's 45x Destination model); run the brand geo-holdout test.
 9. Arenal/La Fortuna umbrella page; all-inclusive answer page.

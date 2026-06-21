@@ -10,27 +10,27 @@ _Sources: Semrush (US database, live API) + Google Search Console (last 90 days,
 | Metric | Value |
 |---|---|
 | Authority Score | **33 / 100** |
-| Organic keywords | 1, 121 |
-| Est. monthly organic traffic | ~10, 900 |
-| Backlinks / referring domains | 1, 353 / 663 |
+| Organic keywords | 1,121 |
+| Est. monthly organic traffic | ~10,900 |
+| Backlinks / referring domains | 1,353 / 663 |
 | Paid presence | None |
 
-**⚠️ Traffic is sliding.** Estimated organic traffic peaked at **13, 254 (Dec 2025)** and fell to
-**8, 367 (May 2026)**, roughly a **‑37% drop in 5 months**, with rank worsening from ~140k to ~205k.
+**⚠️ Traffic is sliding.** Estimated organic traffic peaked at **13,254 (Dec 2025)** and fell to
+**8,367 (May 2026)**, roughly a **‑37% drop in 5 months**, with rank worsening from ~140k to ~205k.
 This is the single most important finding.
 
 ### Traffic trend (Semrush est. organic traffic, monthly)
 
 | Month | Est. organic traffic | Rank |
 |---|---|---|
-| 2025-03 | 5, 021 | 324, 250 |
-| 2025-06 | 10, 948 | 162, 155 |
-| 2025-12 | 13, 254 | 140, 854 |
-| 2026-01 | 13, 131 | 140, 587 |
-| 2026-02 | 12, 643 | 143, 300 |
-| 2026-03 | 12, 504 | 146, 576 |
-| 2026-04 | 11, 217 | 162, 551 |
-| 2026-05 | 8, 367 | 205, 166 |
+| 2025-03 | 5,021 | 324,250 |
+| 2025-06 | 10,948 | 162,155 |
+| 2025-12 | 13,254 | 140,854 |
+| 2026-01 | 13,131 | 140,587 |
+| 2026-02 | 12,643 | 143,300 |
+| 2026-03 | 12,504 | 146,576 |
+| 2026-04 | 11,217 | 162,551 |
+| 2026-05 | 8,367 | 205,166 |
 
 ---
 
@@ -40,10 +40,10 @@ Semrush's "top organic competitors" for nayararesorts.com are **the brand's own 
 
 | Domain | Competitor relevance | Their organic traffic |
 |---|---|---|
-| nayaragardens.com | 0.47 | 11, 668 |
-| nayarasprings.com | 0.45 | 8, 516 |
-| nayaratentedcamp.com | 0.39 | 3, 511 |
-| nayarabocasdeltoro.com | 0.24 | 2, 909 |
+| nayaragardens.com | 0.47 | 11,668 |
+| nayarasprings.com | 0.45 | 8,516 |
+| nayaratentedcamp.com | 0.39 | 3,511 |
+| nayarabocasdeltoro.com | 0.24 | 2,909 |
 
 Five separate domains (nayararesorts.com + 4 property sites) split brand authority, backlinks, and
 rankings instead of consolidating. GSC confirms cannibalization, e.g. "nayara springs" returns
@@ -61,27 +61,27 @@ Almost all traffic is people already searching "nayara." Top GSC queries (90 day
 
 | Query | Clicks | Impr | Pos |
 |---|---|---|---|
-| nayara | 1, 376 | 21, 294 | 4.5 |
-| nayara resorts | 1, 179 | 2, 317 | 1.6 |
-| nayara costa rica | 819 | 4, 647 | 2.4 |
+| nayara | 1,376 | 21,294 | 4.5 |
+| nayara resorts | 1,179 | 2,317 | 1.6 |
+| nayara costa rica | 819 | 4,647 | 2.4 |
 | nayara hotels | 328 | 684 | 2.7 |
-| nayara resort costa rica | 299 | 1, 691 | 1.5 |
+| nayara resort costa rica | 299 | 1,691 | 1.5 |
 
 ### Non-brand opportunities (high impressions, weak position = upside)
 
 | Query | Impr | Pos | Opportunity |
 |---|---|---|---|
-| costa rica resorts | 7, 770 | 8.9 | Page-1 push |
-| resorts in costa rica | 1, 853 | 9.5 | Page-1 push |
-| overwater bungalows (+variants) | ~1, 500 | 30, 44 | Big content gap |
-| bocas del toro resorts / luxury | ~1, 000 | 8, 11 | Bocas property |
+| costa rica resorts | 7,770 | 8.9 | Page-1 push |
+| resorts in costa rica | 1,853 | 9.5 | Page-1 push |
+| overwater bungalows (+variants) | ~1,500 | 30, 44 | Big content gap |
+| bocas del toro resorts / luxury | ~1,000 | 8, 11 | Bocas property |
 | costa rica honeymoon / overwater bungalows costa rica | ~900 | 3, 10 | Quick wins |
 
 **Quick win:** the page `/the-29-most-incredible-overwater-bungalows-in-the-world/` already earns
-**17, 313 impressions but sits at position ~32**, one optimization target with obvious ROI.
+**17,313 impressions but sits at position ~32**, one optimization target with obvious ROI.
 
 **Proof content works:** blog post `/the-top-10-travel-trends-of-2026` ranks **#5 for "travel trends
-2026"** (14, 800 vol) and is the #2 page overall by organic traffic, editorial content can win
+2026"** (14,800 vol) and is the #2 page overall by organic traffic, editorial content can win
 non-brand traffic.
 
 ### Top pages by organic traffic (Semrush)
