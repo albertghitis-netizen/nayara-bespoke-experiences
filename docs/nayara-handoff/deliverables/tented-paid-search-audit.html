@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nayara Tented Camp · Paid Search Audit &amp; Pillar Restructure · June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-body:'DM Sans',-apple-system,Helvetica,Arial,sans-serif;
+    --paper:#F7F5F0;
+    --ink:#0D0704;
+    --bark:#3a2a1a;
+    --teal:#006D75;
+    --teal-light:#4DC9D1;
+    --mist:#E2F0F0;
+    --hairline:rgba(58,42,26,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16.5px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;}
+
+  /* ---------- masthead ---------- */
+  .masthead{background:var(--ink);color:var(--paper);padding:72px 24px 64px;}
+  .masthead-inner{max-width:820px;margin:0 auto;}
+  .kicker{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--teal-light);font-weight:600;margin-bottom:26px;}
+  .masthead h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,5.4vw,54px);line-height:1.12;margin-bottom:22px;}
+  .masthead h1 em{font-style:italic;color:var(--teal-light);}
+  .standfirst{font-size:18px;line-height:1.6;color:rgba(247,245,240,.82);max-width:640px;font-weight:300;}
+  .masthead-meta{margin-top:34px;padding-top:22px;border-top:1px solid rgba(247,245,240,.18);font-size:13px;letter-spacing:.05em;color:rgba(247,245,240,.6);display:flex;flex-wrap:wrap;gap:8px 28px;}
+
+  /* ---------- stat strip ---------- */
+  .statstrip{background:var(--bark);color:var(--paper);padding:0 24px;}
+  .statstrip-inner{max-width:820px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{padding:30px 18px 28px;border-left:1px solid rgba(247,245,240,.14);}
+  .stat:first-child{border-left:none;padding-left:0;}
+  .stat .num{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);font-weight:600;color:#fff;font-variant-numeric:lining-nums;}
+  .stat .lbl{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,245,240,.62);margin-top:8px;line-height:1.5;}
+  @media(max-width:640px){.statstrip-inner{grid-template-columns:1fr 1fr;}.stat{padding-left:0;padding-right:14px;border-left:none;border-top:1px solid rgba(247,245,240,.14);}.stat:nth-child(-n+2){border-top:none;}}
+
+  /* ---------- body shell ---------- */
+  main{max-width:820px;margin:0 auto;padding:64px 24px 90px;}
+  section{margin-bottom:74px;}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:14px;}
+  h2{font-family:var(--font-display);font-weight:600;font-size:clamp(25px,3.4vw,33px);line-height:1.2;margin-bottom:20px;color:var(--ink);}
+  h3{font-family:var(--font-body);font-weight:700;font-size:16px;letter-spacing:.01em;margin:30px 0 10px;color:var(--bark);}
+  p{margin-bottom:16px;max-width:72ch;}
+  p:last-child{margin-bottom:0;}
+  strong{font-weight:600;color:var(--ink);}
+  a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(0,109,117,.3);}
+  a:hover{border-bottom-color:var(--teal);}
+  .rule{border:none;border-top:1px solid var(--hairline);margin:0 0 64px;}
+
+  /* ---------- callouts ---------- */
+  .callout{background:var(--mist);border-left:3px solid var(--teal);padding:22px 26px;margin:26px 0;}
+  .callout p{margin-bottom:10px;}
+  .callout .co-label{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;}
+
+  /* ---------- the ledger (signature) ---------- */
+  .ledger{background:#fff;border:1px solid var(--hairline);padding:34px 36px 30px;margin:30px 0;}
+  .ledger-title{font-family:var(--font-display);font-style:italic;font-size:19px;color:var(--bark);margin-bottom:20px;}
+  .ledger-row{display:flex;align-items:baseline;font-size:15.5px;padding:7px 0;}
+  .ledger-row .l{white-space:nowrap;color:var(--bark);}
+  .ledger-row .dots{flex:1;border-bottom:2px dotted rgba(0,109,117,.45);margin:0 12px;transform:translateY(-4px);}
+  .ledger-row .v{white-space:nowrap;font-weight:600;font-variant-numeric:tabular-nums;}
+  .ledger-row.total{border-top:1px solid var(--hairline);margin-top:12px;padding-top:14px;}
+  .ledger-row.total .l,.ledger-row.total .v{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--teal);}
+  .ledger-note{font-size:13px;color:rgba(13,7,4,.6);margin-top:14px;line-height:1.55;}
+
+  /* ---------- tables ---------- */
+  .tablewrap{overflow-x:auto;margin:24px 0;}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid var(--hairline);}
+  thead th{background:var(--bark);color:var(--paper);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:12px 14px;white-space:nowrap;}
+  tbody td{padding:11px 14px;border-top:1px solid var(--hairline);vertical-align:top;}
+  tbody tr:nth-child(even){background:rgba(226,240,240,.35);}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  td.good{color:var(--teal);font-weight:600;}
+  td.bad{color:#8a3b2e;font-weight:600;}
+  .tnote{font-size:13px;color:rgba(13,7,4,.6);margin-top:10px;line-height:1.55;}
+
+  /* ---------- finding blocks ---------- */
+  .finding{counter-increment:finding;}
+  .f-eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px;}
+
+  /* ---------- pillars ---------- */
+  .pillar{background:#fff;border:1px solid var(--hairline);border-top:3px solid var(--teal);padding:26px 28px;margin:18px 0;}
+  .pillar h3{margin-top:0;font-family:var(--font-display);font-weight:600;font-size:20px;color:var(--ink);}
+  .pillar .meta{font-size:13px;letter-spacing:.06em;color:var(--teal);font-weight:600;text-transform:uppercase;margin-bottom:12px;}
+  .pillar p{font-size:15.5px;}
+
+  /* ---------- action plan ---------- */
+  .phase{margin:26px 0;}
+  .phase h3{font-family:var(--font-display);font-weight:600;font-size:19px;color:var(--teal);margin-bottom:12px;}
+  .phase ol{margin-left:20px;}
+  .phase li{margin-bottom:9px;max-width:70ch;}
+
+  ul.seed{columns:2;column-gap:40px;margin:14px 0 6px 20px;font-size:15px;}
+  ul.seed li{margin-bottom:6px;break-inside:avoid;}
+  @media(max-width:560px){ul.seed{columns:1;}}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--bark);color:rgba(247,245,240,.75);padding:54px 24px 64px;font-size:14px;}
+  .footer-inner{max-width:820px;margin:0 auto;}
+  footer h2{color:var(--paper);font-size:22px;}
+  footer a{color:var(--teal-light);border-bottom-color:rgba(77,201,209,.4);}
+  footer p{max-width:none;}
+  .src{margin:8px 0;line-height:1.6;}
+
+  @media print{
+    body{background:#fff;font-size:12px;}
+    .masthead,.statstrip,footer{background:#fff;color:var(--ink);}
+    .masthead h1 em,.kicker{color:var(--teal);}
+    .standfirst,.masthead-meta,.stat .lbl{color:rgba(13,7,4,.7);}
+    .stat .num{color:var(--ink);}
+    section,.pillar,.ledger,table{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="kicker">Nayara Tented Camp · Paid Media Intelligence</div>
+    <h1>Paid Search Audit <em>&amp;</em> Pillar Restructure</h1>
+    <p class="standfirst">A full teardown of the Google Ads account across the all-time asset report, the all-time ad report, and twelve months of real search-term data, ending in a five-pillar rebuild that redirects roughly $45,000 of identified waste toward demand the brand already owns.</p>
+    <div class="masthead-meta">
+      <span>Prepared June 12, 2026</span>
+      <span>Sources: Google Ads asset &amp; ad exports (all time) · Windsor.ai search terms (trailing 12 months) · Virtuoso 2026 Luxe Report</span>
+    </div>
+  </div>
+</header>
+
+<div class="statstrip">
+  <div class="statstrip-inner">
+    <div class="stat"><div class="num">$71.18</div><div class="lbl">Account cost per booking, all time</div></div>
+    <div class="stat"><div class="num">$44,764</div><div class="lbl">Excess spend in the Luxury&#8209;Market ad group</div></div>
+    <div class="stat"><div class="num">~150</div><div class="lbl">Yearly impressions on all Costa Rica glamping queries</div></div>
+    <div class="stat"><div class="num">11</div><div class="lbl">Yearly impressions on honeymoon intent</div></div>
+  </div>
+</div>
+
+<main>
+
+<section>
+  <div class="eyebrow">Executive Summary</div>
+  <h2>The account defends the brand well and buys almost nothing else on purpose</h2>
+  <p>All-time, the account has spent <strong>$348,804</strong> for <strong>4,900 conversions</strong> at a blended <strong>$71.18</strong> per booking across 12.9M impressions. Underneath that average sit two very different machines. Brand search converts at $41 to $62 per booking. Nearly everything else is either bleeding (a broad-luxury ad group running at $165 per booking), invisible (the glamping category queries Nayara should own get ~150 impressions a year), or unbuilt (romance and honeymoon intent effectively does not exist in the account).</p>
+  <div class="callout">
+    <div class="co-label">Three key findings</div>
+    <p><strong>1. One ad group accounts for the leak.</strong> The two Luxury&#8209;Market RSAs spent $70,380 for 425 bookings, a blended $165.48 against the account's own non-brand benchmark of $60.23. The excess is roughly $44,764, or 743 bookings foregone at the same spend.</p>
+    <p><strong>2. Copy is not the variable; query mix is.</strong> Fifteen RSAs reduce to three near-identical recipes cloned across four geos. The same headline set converts at $41 in one cell and $247 in another. Asset-level "winners" and "losers" largely inherit the traffic they were placed in.</p>
+    <p><strong>3. The growth pillars are already validated.</strong> The brand's own search terms show intense, unconverted family-tent demand and confirmed spa intent; industry data ranks family, multigenerational, adventure, and wellness travel as 2026's top luxury motivations; and the honeymoon cluster, the strongest brand fit of all, is untouched.</p>
+  </div>
+  <p>The recommended structure rebuilds Search into five pillars (Brand Defense, Luxury Glamping, Destination Intent, Romance/Honeymoon, Wellness Retreat), funded entirely by reallocating the Luxury&#8209;Market budget, with family handled first as a landing-page fix and a deliberate positioning decision rather than a paid bet.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">How to Read the Data</div>
+  <h2>One metric decides, the rest is context</h2>
+  <p><strong>Cost per conversion is the decision metric throughout this report</strong>, with one critical qualifier: where it is measured. At the <strong>ad level</strong>, conversions are credited to whole ads, so the numbers are load-bearing. At the <strong>asset level</strong>, Google distributes credit across everything that served together, which is why high-volume sitelinks, callouts, and even the business logo all cluster suspiciously near the account average ($59 to $61): they inherit campaign performance rather than drive it. Asset cost-per-conversion is only meaningful when comparing the same asset type, in the same campaign type, at meaningful volume.</p>
+  <p>Two metrics should be actively distrusted. <strong>Interaction rate and CPM</strong> are not comparable across campaign types (Performance Max long headlines post 70%+ interaction rates as a placement artifact, not great copy). And <strong>Ad Strength</strong> grades checklist compliance, not outcomes: the account's only "Excellent" search ad is its single worst performer at $173.83 per booking, while the "Average" ads are the best converters.</p>
+  <p>One data caveat applies to every all-time figure: <strong>33% of historical spend is invisible</strong> in the enabled-ads exports. Removed and paused ads carry $116,239 of spend and 1,640 conversions ($60,293 of it in deleted Search ads). Any all-time conclusion here is drawn from two-thirds of the history; future pulls should include removed ads or use fixed date ranges.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">Account Snapshot · All Time</div>
+  <h2>Where the money has gone</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Channel / Segment</th><th class="num">Spend</th><th class="num">Conv.</th><th class="num">Cost / Conv.</th><th>Read</th></tr></thead>
+    <tbody>
+      <tr><td>Search, total</td><td class="num">$273,210</td><td class="num">4,012</td><td class="num">$68.10</td><td>The engine; detail below</td></tr>
+      <tr><td>&nbsp;&nbsp;Brand ad group, US (3 RSAs)</td><td class="num">$112,788</td><td class="num">2,422</td><td class="num good">$41 to $62</td><td>Best-in-account economics</td></tr>
+      <tr><td>&nbsp;&nbsp;Luxury&#8209;Market ad group, US (2 RSAs)</td><td class="num">$70,380</td><td class="num">425</td><td class="num bad">$165.48</td><td>The leak; see Finding 01</td></tr>
+      <tr><td>&nbsp;&nbsp;BestResort, destination non-brand</td><td class="num">$11,979</td><td class="num">199</td><td class="num good">$60.23</td><td>Proof non-brand works</td></tr>
+      <tr><td>&nbsp;&nbsp;Call-only ad</td><td class="num">$7,487</td><td class="num">103</td><td class="num">$72.85</td><td>2.97% conv rate; near benchmark</td></tr>
+      <tr><td>&nbsp;&nbsp;Regional brand (CA / EU / Latam, 9 RSAs)</td><td class="num">$10,303</td><td class="num">102</td><td class="num">$48 to $247</td><td>Small, mixed; clones of US ads</td></tr>
+      <tr><td>Performance Max, total</td><td class="num">$55,946</td><td class="num">888</td><td class="num">$63.00</td><td>Beats account average; asset detail in Theme Economics</td></tr>
+      <tr><td>Display (live)</td><td class="num">$10,811</td><td class="num">0</td><td class="num bad">n/a</td><td>5.2M impressions, zero attributed; view-through unmeasured</td></tr>
+      <tr><td>Demand Gen (campaign paused)</td><td class="num">$8,837</td><td class="num">0</td><td class="num">n/a</td><td>Historical, not active bleed</td></tr>
+      <tr><td><strong>Account</strong></td><td class="num"><strong>$348,804</strong></td><td class="num"><strong>4,900</strong></td><td class="num"><strong>$71.18</strong></td><td>Benchmark for everything below</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tnote">Enabled ads only account for $232,565 / 3,260 conversions; the remainder sits in removed or paused ads excluded from the exports. Conversions include fractional credit from Google's data-driven attribution.</p>
+</section>
+
+<hr class="rule">
+
+<section class="finding">
+  <div class="f-eyebrow">Finding 01 · The Leak</div>
+  <h2>Luxury&#8209;Market: cheap clicks, expensive bookings</h2>
+  <p>The largest ad in the account by spend is a Luxury&#8209;Market RSA: $55,234, 1.91M impressions, a seductive $0.56 CPC, a 0.32% conversion rate, and <strong>$173.83 per booking</strong>. Its sibling ran $15,146 at $140.82 (0.26% conversion rate). Both sit inside the campaign labeled "Brand," which means 2.7M impressions of broad "luxury hotel" traffic have been inflating brand reporting while converting at a fifth the rate of true brand queries. Interaction rates tell the story instantly: 5% on Luxury&#8209;Market versus 26 to 32% on the brand ad group next door.</p>
+  <div class="ledger">
+    <div class="ledger-title">The leak, itemized</div>
+    <div class="ledger-row"><span class="l">Luxury&#8209;Market RSA spend, all time</span><span class="dots"></span><span class="v">$70,380</span></div>
+    <div class="ledger-row"><span class="l">Bookings delivered</span><span class="dots"></span><span class="v">425 &nbsp;·&nbsp; $165.48 each</span></div>
+    <div class="ledger-row"><span class="l">Same bookings at the account's non-brand benchmark ($60.23)</span><span class="dots"></span><span class="v">$25,616</span></div>
+    <div class="ledger-row total"><span class="l">Excess spend</span><span class="dots"></span><span class="v">$44,764</span></div>
+    <div class="ledger-note">Framed the other way: the same $70,380 at benchmark efficiency buys ~1,169 bookings, a foregone 743. Benchmark is the account's own BestResort destination ad group, not brand CPCs, to keep the comparison honest.</div>
+  </div>
+  <p><strong>Move:</strong> migrate the Luxury&#8209;Market keywords out of the Brand campaign into the Destination structure with its own tROAS target, and re-aim the budget at the glamping category queries in Pillar 2. This also cleans the brand-versus-non-brand split needed for the GA4 attribution reconciliation work.</p>
+</section>
+
+<hr class="rule">
+
+<section class="finding">
+  <div class="f-eyebrow">Finding 02 · Creative</div>
+  <h2>Fifteen RSAs, three ads: copy is not the variable</h2>
+  <p>Headline-set similarity analysis across all 15 RSAs shows the Search account is three copy recipes rotated across US, Canada, Europe, and Latam. Two Europe/Latam pairs are 100% identical; the $44k US brand ad is a 90% match to a Canada ad; the failing $55k Luxury&#8209;Market ad shares 64 to 83% of its headlines with brand ads converting at $41 to $48.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Same recipe, different cell</th><th class="num">Headline overlap</th><th class="num">Cost / Conv. A</th><th class="num">Cost / Conv. B</th></tr></thead>
+    <tbody>
+      <tr><td>US Brand ($44k) vs Canada Brand ($918)</td><td class="num">90%</td><td class="num good">$41.11</td><td class="num bad">$247.02</td></tr>
+      <tr><td>Europe Brand ($768) vs Latam Brand ($214)</td><td class="num">100%</td><td class="num">$107.21</td><td class="num good">$47.67</td></tr>
+      <tr><td>Luxury&#8209;Market ($55k) vs US Brand ($50k)</td><td class="num">64%</td><td class="num bad">$173.83</td><td class="num good">$47.89</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Same words, five-fold performance spread: <strong>the variable is query mix and geography, not creative.</strong> Two consequences follow. First, asset-report verdicts are entangled with placement ("Leading Hotels of the World" at $114.10 and "Feel enriched by a paradisal escape to the Costa Rican Forest" at $118.83 look weak largely because they live inside Luxury&#8209;Market traffic; do not kill assets on asset numbers alone). Second, there is no genuine creative experimentation running; "used by 13" in the asset report is a recipe echo, not 13 independent tests. Each geo deserves one genuinely new ad.</p>
+  <p>Where asset comparisons are clean (same type, same campaign type, real volume), the spread is still actionable: "Luxury tents in the rainforest" converts at <strong>$40.88</strong> (2.48% conv rate) against "Rustic Elegance in Costa Rica" at $97.34 across 132k impressions; the description "A Luxury Tented Camp nestled in the Costa Rica Rainforest" at <strong>$28.42</strong> against the high-volume "Indulge in ultimate glamping luxury" at $65.52. Concrete place-and-product language wins the next copy refresh.</p>
+</section>
+
+<hr class="rule">
+
+<section class="finding">
+  <div class="f-eyebrow">Finding 03 · Structure</div>
+  <h2>Pinning monoculture, and what Ad Strength actually measures</h2>
+  <p>Thirteen of fifteen RSAs pin "Nayara Tented Camp" to position 1, and Google flags every one of them with the same improvement note ("add unique headlines or unpin some assets"). The only two unpinned ads in the account are the ones rated Excellent and Good, and one of them is the worst performer in the entire account. Ad Strength rewarded checklist compliance on $55k of waste while grading the $41 to $48 workhorses "Average."</p>
+  <p><strong>Move:</strong> treat Ad Strength as decorative. Pinning the brand name on brand queries is defensible; the real cost is unmeasured rotation. Run one unpinned variant per major ad group as a controlled test rather than unpinning wholesale.</p>
+</section>
+
+<hr class="rule">
+
+<section class="finding">
+  <div class="f-eyebrow">Finding 04 · Brand Quality</div>
+  <h2>A typo has ~$10.5k of media behind it</h2>
+  <p>"Nestled in a <strong>magnificiant</strong> ancient jungle. Book your stay now." is live in 6 of 18 enabled ads, including the two biggest spenders (the $55k Luxury&#8209;Market RSA and the Display ad), with roughly <strong>$10,480</strong> of all-time spend behind the line across Search, Performance Max, and Display. The Performance Max asset pool also contains "Family-<strong>firendly</strong> Glamping" ($348 spend). For a Leading Hotels of the World property, both are same-day fixes.</p>
+</section>
+
+<hr class="rule">
+
+<section class="finding">
+  <div class="f-eyebrow">Finding 05 · Measurement &amp; Hygiene</div>
+  <h2>Tracking is bare, and it connects to the GA4 gap</h2>
+  <p>Every single ad in the account has an empty tracking template, empty final URL suffix, and no custom parameters; display paths are unused. Attribution therefore rides entirely on auto-tagging, so any gclid loss (consent mode, redirects, iOS) lands in GA4 as direct or organic traffic. This is plausibly a measurable share of the GA4-versus-Ads reconciliation gap already on the roadmap. The "Platform Comparable" conversion columns exist in the export but are completely empty, meaning cross-platform comparison was never configured.</p>
+  <p>Related hygiene from the same pulls: the Display campaign is live at $10,811 with zero attributed conversions (awareness value unmeasured rather than disproven, but it deserves a deliberate review); Demand Gen's $8,837 is historical, its campaign is paused; and the search-term data shows ~300 impressions of <strong>sister-property queries</strong> ("nayara resort spa &amp; gardens" variants) hitting the Tented Camp account, plus a long tail of competitor-name matches (Tabacón, The Springs, Westin Conchal) at near-zero cost that should be either negatived out or turned into a deliberate conquesting test, not left as an accidental middle.</p>
+  <p><strong>Move:</strong> adopt an account-wide URL suffix standard (UTMs for source/medium/campaign/ad group), route Gardens-intent queries to the correct property, and make the competitor-term decision explicitly.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">Theme Economics</div>
+  <h2>Concrete hooks, thematic proof</h2>
+  <p>Aggregating every family-themed and wellness-themed asset in the account reveals one consistent law, the same one luxury copy obeys: <strong>themes convert as descriptions (reassurance) and fail as headlines (the hook).</strong> Family and wellness currently exist only as Performance Max asset flavoring plus spa sitelinks; neither has a Search lane.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Theme × Role</th><th class="num">Spend</th><th class="num">Conv.</th><th class="num">Cost / Conv.</th><th>Vs. $71.18 benchmark</th></tr></thead>
+    <tbody>
+      <tr><td>Family · descriptions</td><td class="num">$5,175</td><td class="num">116</td><td class="num good">$44.63</td><td>37% better</td></tr>
+      <tr><td>Family · headlines</td><td class="num">$1,730</td><td class="num">16</td><td class="num bad">$108.05</td><td>52% worse</td></tr>
+      <tr><td>Wellness · descriptions</td><td class="num">$12,583</td><td class="num">228</td><td class="num good">$55.09</td><td>23% better</td></tr>
+      <tr><td>Wellness · headlines</td><td class="num">$3,802</td><td class="num">33</td><td class="num bad">$115.50</td><td>62% worse</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tnote">Best single lines: "Venture beyond the ordinary and reconnect with the family" ($38.87) and "Reconnect with the family at Nayara's tented camp in Costa Rica" ($49.54). Worst: "Wellness Immersions" ($165.88) and "Reconnect with the family" as a bare headline ($197.56). The Spa And Massage sitelink carries $86,791 of spend with 1,217 attributed conversions at $71.31; whole-ad credit applies, but Google's systems persistently choose to serve spa content against brand queries.</p>
+  <p><strong>Writing rule for everything that follows:</strong> headlines name the concrete thing (brand, tents, rainforest, volcano, open-air spa, private hot springs); descriptions carry the theme (wellness, family, romance). Abstract aspiration as a hook has now failed three times in this account's own data.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">Market Validation</div>
+  <h2>Are these the right areas? The market says yes, loudly</h2>
+  <p>The Virtuoso 2026 Luxe Report ranks <strong>immediate-family travel as the single biggest luxury trend for 2026, multigenerational travel second, and active/adventure travel third</strong>, with wellness now the second-most requested experience for solo clients and treated as a core motivation rather than a niche. Industry research adds one execution warning that matches this account's data exactly: generic spa positioning no longer sells; travelers want specific, named outcomes. Lead with the open-air rainforest spa and the hot springs, not the word "wellness."</p>
+  <p>Verdicts by pillar: <strong>Brand</strong>, obviously yes. <strong>Luxury</strong>, right area, wrong version; the defensible territory is luxury glamping, the category Nayara functionally owns in Costa Rica ($50 to $66 across comparable assets). <strong>Wellness</strong>, yes, promoted from garnish to a small dedicated lane. <strong>Family</strong>, converts cheaply and tops the trend charts, but remains a positioning decision against the brand's adults-luxury line; it must be chosen deliberately, not run by default inside PMax. <strong>Romance/Honeymoon and Adventure/Wildlife</strong>, the two unbuilt pillars, have stronger evidence than half of what is currently funded: the sloth sanctuary is the most differentiating asset the property owns and is currently used as a callout rather than a campaign.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">Revealed Demand · Trailing 12 Months of Search Terms</div>
+  <h2>What people actually typed</h2>
+  <h3>Family demand attaches to the brand, and does not convert</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Search term</th><th class="num">Impr.</th><th class="num">Clicks</th><th class="num">Spend</th><th class="num">Conv.</th></tr></thead>
+    <tbody>
+      <tr><td>nayara tented camp family tent</td><td class="num">414</td><td class="num">75</td><td class="num">$147.55</td><td class="num bad">0</td></tr>
+      <tr><td>nayara tented camp with kids</td><td class="num">193</td><td class="num">18</td><td class="num">$60.14</td><td class="num">0.53</td></tr>
+      <tr><td>nayara family tent</td><td class="num">113</td><td class="num">37</td><td class="num">$52.66</td><td class="num bad">0</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Roughly 130 clicks and $260 on family-intent brand queries produced about half a booking. CTRs above 30% mean the interest is intense; zero conversions mean the landing experience does not answer the kids question. <strong>This empirically settles the positioning debate's first half: family demand chooses Tented Camp by name. The leak is the page, not the ad.</strong></p>
+  <h3>The category king is invisible on category queries</h3>
+  <p>Across every Costa Rica glamping query in twelve months ("glamping costa rica" 41 impressions, "costa rica glamping" 39, "luxury glamping costa rica" 10, "best glamping in costa rica" 6, "arenal glamping" 7, and the rest of the tail), the account captured roughly <strong>150 impressions total</strong>. These match by accident, not targeting. Meanwhile "nayara tented camp spa" drew 428 impressions at a 34% CTR, confirming spa intent on brand, while generic wellness queries ("costa rica wellness resorts," "best wellness hotels in costa rica") show one to two impressions each: untargeted, not unwanted.</p>
+  <h3>Romance is a ghost</h3>
+  <p>"Nayara tented camp honeymoon" appeared 11 times all year, plus single impressions for "costa rica resorts for couples" and similar. The honeymoon cluster is not underperforming; it does not exist in the account. Absence of impressions here measures absence of targeting, not absence of demand, which is why the cluster gets a sized test in the restructure.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">The Restructure</div>
+  <h2>Five pillars of Search</h2>
+  <p>Budget shares apply to the monthly Search budget. Pillars 4 and 5 together cost less than Luxury&#8209;Market was burning: this is reallocation, not new money.</p>
+
+  <div class="pillar">
+    <h3>1 · Brand Defense</h3>
+    <div class="meta">~35% of budget · CPA target $45 to $60</div>
+    <p>Exact-match Nayara terms only, permanently separated from non-brand. Sister-property ("Spa &amp; Gardens") queries routed to the correct property. One unpinned test variant; a family-tent sitelink added once the landing page exists. This is the engine; the job is to keep it uncontaminated.</p>
+  </div>
+
+  <div class="pillar">
+    <h3>2 · Luxury Glamping (category ownership)</h3>
+    <div class="meta">~20 to 25% · CPA target $60 to $75 · Goal: 80%+ impression share on ~15 core terms</div>
+    <p>The glamping-Costa Rica cluster the brand should own outright and currently sees ~150 impressions a year on. Funded by the old Luxury&#8209;Market budget: same money, queries Nayara can actually win. Copy already proven: "Luxury Glamping" converts at $50.51, "Costa Rica Luxury Glamping" at $65.83.</p>
+  </div>
+
+  <div class="pillar">
+    <h3>3 · Destination Intent</h3>
+    <div class="meta">~15 to 20% · CPA target $60 to $75</div>
+    <p>Scale what the BestResort ad group already proved at $60.23 and a 1.63% conversion rate: arenal volcano hotels, la fortuna luxury hotels, best resort costa rica. Absorbs the migrated Luxury&#8209;Market keywords under their own tROAS.</p>
+  </div>
+
+  <div class="pillar">
+    <h3>4 · Romance / Honeymoon (new build)</h3>
+    <div class="meta">~10% test budget · Test gate $90 · Scale gate $75</div>
+    <p>Costa Rica honeymoon and couples clusters, landing on the romance content already produced this quarter. Highest brand fit in the portfolio, zero current presence, so it gets a clean sized test instead of a guess.</p>
+  </div>
+
+  <div class="pillar">
+    <h3>5 · Wellness Retreat</h3>
+    <div class="meta">~10% · Test gate $90 · Scale gate $75</div>
+    <p>Retreat- and spa-resort-intent terms landing on /unwind/. Concrete hooks only (open-air rainforest spa, private hot springs, thermal water), theme in the descriptions, per the $55-versus-$115 split in the account's own data.</p>
+  </div>
+
+  <div class="callout">
+    <div class="co-label">Family: fix before funding</div>
+    <p>Family stays out of paid non-brand for now. Sequence: build or fix the family-tent landing path (the demand and the leak are both proven), add the family sitelink to brand, settle the adults-luxury positioning question deliberately, and only then promote family to a sixth pillar with the "luxury family resort costa rica" cluster. Adventure/wildlife (the sloth sanctuary) is the natural seventh candidate after that: "Adventure Awaits in Costa Rica" already converts at $44.73.</p>
+  </div>
+
+  <h3>Seed lists for the sizing pull (Keyword Planner or Semrush)</h3>
+  <p>The account's own data cannot size queries it never matched; one volume pull on these two seeds completes the picture.</p>
+  <p><strong>Romance / Honeymoon</strong></p>
+  <ul class="seed">
+    <li>costa rica honeymoon resorts</li>
+    <li>costa rica honeymoon packages</li>
+    <li>luxury honeymoon costa rica</li>
+    <li>honeymoon arenal volcano</li>
+    <li>romantic resorts costa rica</li>
+    <li>costa rica resorts for couples</li>
+    <li>adults only resort costa rica rainforest</li>
+    <li>costa rica anniversary trip</li>
+    <li>rainforest honeymoon</li>
+    <li>best honeymoon hotels costa rica</li>
+  </ul>
+  <p><strong>Wellness Retreat</strong></p>
+  <ul class="seed">
+    <li>costa rica wellness retreat</li>
+    <li>luxury wellness retreat costa rica</li>
+    <li>costa rica spa resort</li>
+    <li>hot springs resort costa rica</li>
+    <li>arenal hot springs hotel</li>
+    <li>rainforest spa costa rica</li>
+    <li>yoga retreat costa rica luxury</li>
+    <li>best spa hotels costa rica</li>
+    <li>thermal springs costa rica resort</li>
+    <li>wellness resort central america</li>
+  </ul>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">Action Plan</div>
+  <h2>Sequenced moves</h2>
+  <div class="phase">
+    <h3>This week</h3>
+    <ol>
+      <li>Fix "magnificiant" in all 6 live ads and "Family-firendly" in the PMax asset pool.</li>
+      <li>Decide the family-tent landing destination and brief the page (demand is live and currently bouncing).</li>
+      <li>Adopt the account-wide final URL suffix standard (UTM set) to support GA4 reconciliation.</li>
+    </ol>
+  </div>
+  <div class="phase">
+    <h3>Within 30 days</h3>
+    <ol>
+      <li>Migrate Luxury&#8209;Market keywords into the Destination campaign with a dedicated tROAS; rename structures so "Brand" contains only brand.</li>
+      <li>Stand up Pillar 2 (Luxury Glamping) with impression-share targets on the core 15 terms.</li>
+      <li>Route sister-property queries correctly; make the competitor-terms call (negatives or a small conquesting test).</li>
+      <li>Launch one genuinely new RSA per geo (end the three-recipe clone pattern); run one unpinned variant as a controlled test.</li>
+      <li>Run the Keyword Planner / Semrush sizing pull on the two seed lists above.</li>
+    </ol>
+  </div>
+  <div class="phase">
+    <h3>This quarter</h3>
+    <ol>
+      <li>Launch Pillars 4 and 5 (Romance, Wellness) against their test gates, funded from the Luxury&#8209;Market reallocation.</li>
+      <li>Re-pull all-time reporting with removed ads included; configure Platform Comparable conversions.</li>
+      <li>Review Display's $10.8k zero-attribution spend with a view-through measurement plan, or repurpose it.</li>
+      <li>Make the family positioning decision; if yes, brief Pillar 6 and the supporting page set.</li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <h2 style="font-family:var(--font-display);margin-bottom:18px;">Methodology, caveats &amp; sources</h2>
+    <p class="src">Internal data: Google Ads Asset Performance report (all time) and Ad report (all time), both exported June 2026; search-term data via Windsor.ai (google_ads connector, trailing 12 months). Conversions reflect Google data-driven attribution and include fractional credit. Asset-level conversion figures carry shared-credit entanglement and are used only for like-for-like comparisons; ad-level and ad-group-level figures are decision-grade. All-time exports exclude removed/paused ads ($116,239 spend, 1,640 conversions), so historical totals are conservative at the segment level. The waste estimate benchmarks Luxury&#8209;Market against the account's own non-brand comparator (BestResort, $60.23), not brand economics.</p>
+    <p class="src" style="margin-top:18px;">External sources:</p>
+    <p class="src">· Virtuoso, <a href="https://static.virtuoso.com/division-marketing/PR/2025%20Press%20Releases/2026%20Luxe%20Report_Global_FINAL.pdf">The 2026 Virtuoso Luxe Report</a> (family, multigenerational, and adventure travel as top 2026 motivations)</p>
+    <p class="src">· Luxury Travel Advisor, <a href="https://www.luxurytraveladvisor.com/data-trends/virtuosos-2026-luxe-report-maps-new-luxury-mindset">Virtuoso's 2026 Luxe Report Maps a New Luxury Mindset</a> (wellness as second-most requested experience for solo clients)</p>
+    <p class="src">· Lightfoot Travel, <a href="https://www.lightfoottravel.com/travelbylightfoot/2026-luxury-travel-trends">Luxury Travel Trends 2026</a> (outcome-specific wellness over generic spa positioning)</p>
+    <p class="src">· Offshore Travel Magazine, <a href="https://offshoretravelmagazine.com/10-trends-shaping-luxury-travel-in-2026-according-to-the-virtuoso-luxe-trend-report/">10 Trends Shaping Luxury Travel in 2026</a> (wellness as core motivation)</p>
+    <p class="src" style="margin-top:22px;color:rgba(247,245,240,.5);">Prepared June 12, 2026 · Nayara Tented Camp paid media · Internal working document</p>
+  </div>
+</footer>
+
+</body>
+</html>

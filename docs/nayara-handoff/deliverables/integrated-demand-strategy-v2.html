@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only light">
+<title>Nayara Resorts · Integrated Demand Strategy · June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: only light;
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-body:'DM Sans',-apple-system,Helvetica,Arial,sans-serif;
+    --paper:#F7F5F0;
+    --ink:#0D0704;
+    --bark:#3a2a1a;
+    --teal:#006D75;
+    --teal-light:#4DC9D1;
+    --mist:#E2F0F0;
+    --hairline:rgba(58,42,26,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;background:#F7F5F0;}
+  body{background:var(--paper) !important;color:var(--ink) !important;font-family:var(--font-body);font-size:16.5px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;}
+
+  .masthead{background:var(--ink);color:var(--paper);padding:72px 24px 64px;}
+  .masthead-inner{max-width:820px;margin:0 auto;}
+  .kicker{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--teal-light);font-weight:600;margin-bottom:26px;}
+  .masthead h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,5.4vw,54px);line-height:1.12;margin-bottom:22px;}
+  .masthead h1 em{font-style:italic;color:var(--teal-light);}
+  .standfirst{font-size:18px;line-height:1.6;color:rgba(247,245,240,.82);max-width:660px;font-weight:300;}
+  .masthead-meta{margin-top:34px;padding-top:22px;border-top:1px solid rgba(247,245,240,.18);font-size:13px;letter-spacing:.05em;color:rgba(247,245,240,.6);display:flex;flex-wrap:wrap;gap:8px 28px;}
+
+  .statstrip{background:var(--bark);color:var(--paper);padding:0 24px;}
+  .statstrip-inner{max-width:820px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{padding:30px 18px 28px;border-left:1px solid rgba(247,245,240,.14);}
+  .stat:first-child{border-left:none;padding-left:0;}
+  .stat .num{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);font-weight:600;color:#fff;font-variant-numeric:lining-nums;}
+  .stat .lbl{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,245,240,.62);margin-top:8px;line-height:1.5;}
+  @media(max-width:640px){.statstrip-inner{grid-template-columns:1fr 1fr;}.stat{padding-left:0;padding-right:14px;border-left:none;border-top:1px solid rgba(247,245,240,.14);}.stat:nth-child(-n+2){border-top:none;}}
+
+  main{max-width:820px;margin:0 auto;padding:64px 24px 90px;}
+  section{margin-bottom:74px;}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:14px;}
+  h2{font-family:var(--font-display);font-weight:600;font-size:clamp(25px,3.4vw,33px);line-height:1.2;margin-bottom:20px;color:var(--ink);}
+  h3{font-family:var(--font-body);font-weight:700;font-size:16px;letter-spacing:.01em;margin:30px 0 10px;color:var(--bark);}
+  p{margin-bottom:16px;max-width:72ch;}
+  p:last-child{margin-bottom:0;}
+  strong{font-weight:600;color:var(--ink);}
+  a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(0,109,117,.3);}
+  a:hover{border-bottom-color:var(--teal);}
+  .rule{border:none;border-top:1px solid var(--hairline);margin:0 0 64px;}
+  .def{border-bottom:2px dotted rgba(0,109,117,.45);}
+
+  .callout{background:var(--mist);border-left:3px solid var(--teal);padding:22px 26px;margin:26px 0;}
+  .callout p{margin-bottom:10px;}
+  .callout p:last-child{margin-bottom:0;}
+  .callout .co-label{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;}
+
+  /* bombshell list */
+  .bombs{counter-reset:bomb;margin:26px 0 6px;}
+  .bomb{display:flex;gap:20px;padding:18px 0;border-top:1px solid var(--hairline);}
+  .bomb:last-child{border-bottom:1px solid var(--hairline);}
+  .bomb::before{counter-increment:bomb;content:counter(bomb,decimal-leading-zero);font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--teal);line-height:1.1;min-width:44px;}
+  .bomb .b-num{font-family:var(--font-display);font-size:21px;font-weight:600;color:var(--ink);display:block;margin-bottom:4px;}
+  .bomb p{font-size:15.5px;margin:0;}
+
+  .ledger{background:#fff;border:1px solid var(--hairline);padding:34px 36px 30px;margin:30px 0;}
+  .ledger-title{font-family:var(--font-display);font-style:italic;font-size:19px;color:var(--bark);margin-bottom:20px;}
+  .ledger-row{display:flex;align-items:baseline;font-size:15.5px;padding:7px 0;}
+  .ledger-row .l{white-space:nowrap;color:var(--bark);}
+  .ledger-row .dots{flex:1;border-bottom:2px dotted rgba(0,109,117,.45);margin:0 12px;transform:translateY(-4px);}
+  .ledger-row .v{white-space:nowrap;font-weight:600;font-variant-numeric:tabular-nums;}
+  .ledger-row.total{border-top:1px solid var(--hairline);margin-top:12px;padding-top:14px;}
+  .ledger-row.total .l,.ledger-row.total .v{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--teal);}
+  .ledger-note{font-size:13px;color:rgba(13,7,4,.6);margin-top:14px;line-height:1.55;}
+  @media(max-width:560px){.ledger{padding:24px 18px 22px;}.ledger-row .l{white-space:normal;}}
+
+  .tablewrap{overflow-x:auto;margin:24px 0;}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid var(--hairline);}
+  thead th{background:var(--bark);color:var(--paper);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:12px 14px;white-space:nowrap;}
+  tbody td{padding:11px 14px;border-top:1px solid var(--hairline);vertical-align:top;}
+  tbody tr:nth-child(even){background:rgba(226,240,240,.35);}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  td.good{color:var(--teal);font-weight:600;}
+  td.bad{color:#8a3b2e;font-weight:600;}
+  .tnote{font-size:13px;color:rgba(13,7,4,.6);margin-top:10px;line-height:1.55;}
+
+  .f-eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px;}
+
+  .phase{margin:26px 0;}
+  .phase h3{font-family:var(--font-display);font-weight:600;font-size:19px;color:var(--teal);margin-bottom:12px;}
+  .phase ol{margin-left:20px;}
+  .phase li{margin-bottom:9px;max-width:70ch;}
+
+  footer{background:var(--bark);color:rgba(247,245,240,.75);padding:54px 24px 64px;font-size:14px;}
+  .footer-inner{max-width:820px;margin:0 auto;}
+  footer h2{color:var(--paper);font-size:22px;}
+  footer a{color:var(--teal-light);border-bottom-color:rgba(77,201,209,.4);}
+  footer p{max-width:none;}
+  .src{margin:8px 0;line-height:1.6;}
+
+  @media print{
+    body{background:#fff;font-size:12px;}
+    .masthead,.statstrip,footer{background:#fff;color:var(--ink);}
+    .masthead h1 em,.kicker{color:var(--teal);}
+    .standfirst,.masthead-meta,.stat .lbl{color:rgba(13,7,4,.7);}
+    .stat .num{color:var(--ink);}
+    section,.ledger,table,.bomb{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="kicker">Nayara Resorts · Prepared for Ownership · June 2026</div>
+    <h1>The Integrated <em>Demand</em> Strategy</h1>
+    <p class="standfirst">What the Windsor.ai data integration revealed about how guests find Nayara, where bookings leak to intermediaries, and the plan to recapture them. Written to be read without any advertising background.</p>
+    <div class="masthead-meta">
+      <span>Prepared June 12, 2026</span>
+      <span>Covers Tented Camp, Springs, and Gardens · Costa Rica</span>
+    </div>
+  </div>
+</header>
+
+<div class="statstrip">
+  <div class="statstrip-inner">
+    <div class="stat"><div class="num">63,000+</div><div class="lbl">Quarterly searches for our property names that never reach our site</div></div>
+    <div class="stat"><div class="num">$68 vs $872+</div><div class="lbl">Our cost per direct booking vs the OTA commission on the same booking</div></div>
+    <div class="stat"><div class="num">127x</div><div class="lbl">Return on the family campaign currently funded at $6 a day</div></div>
+    <div class="stat"><div class="num">0.13%</div><div class="lbl">Share of Gardens' own name searches that reach our website</div></div>
+  </div>
+</div>
+
+<main>
+
+<section>
+  <div class="eyebrow">What We Did</div>
+  <h2>One integration, every claim verified against real bookings</h2>
+  <p>Using the Windsor.ai integration, we connected Nayara's marketing data into a single analysis layer: the Google advertising account, the website analytics for all four properties, Google's report of every search where a Nayara page appeared, and the Google Maps business profiles for the resorts. We examined 90 days of performance in detail plus the advertising account's full history, and we verified every advertising claim against bookings actually recorded on the website rather than trusting the ad platform's self-reported numbers. Where the two disagree, the website's booking record governs throughout this report.</p>
+  <p><strong>One honest limit on scope:</strong> Google Ads access existed for Tented Camp only. Springs and Gardens run paid advertising in accounts we could not see. Their findings and recommendations in this report rest on the data the integration does cover for them, their website analytics, their search visibility, and their Maps profiles, and every paid recommendation for those two properties is explicitly gated on getting their ad accounts shared and audited first. Also outside this dataset: bookings made directly on Booking.com and Expedia, which never touch our analytics. Counting those requires the reservation system's source-of-business report.</p>
+  <p>Advertising terms are defined in plain language at first use, marked <span class="def">like this</span>.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">The Headlines</div>
+  <h2>Six findings worth the price of the whole exercise</h2>
+  <div class="bombs">
+    <div class="bomb"><div><span class="b-num">$574,800 of Gardens bookings are credited to a glitch.</span><p>The retired nayaragardens.com website is still live and silently hands visitors into the booking flow, where the analytics restarts the session and credits the booking to a "referral" from our own domain. Gardens is not 70% dependent on referrals; its measurement is broken. Its checkout tracking also undercounts (5 checkouts recorded against 28 bookings), so several numbers leadership has seen about Gardens are artifacts.</p></div></div>
+    <div class="bomb"><div><span class="b-num">63,000+ people per quarter search our property names. 154 reach our site.</span><p>Gardens: 29,158 searches, 39 clicks. Springs: 23,839 searches, 89 clicks. Tented: 10,145 searches, 26 clicks. The rest land on Booking.com, Expedia, and TripAdvisor, who then sell us back our own guests at 15 to 25% commission.</p></div></div>
+    <div class="bomb"><div><span class="b-num">The best campaign in the account runs on $6 a day.</span><p>The Family campaign returns $127 in website-verified bookings per dollar spent and is capped by its own tiny budget. The Wellness campaign returns 101x and attracts the biggest bookings in the account ($7,472 average). Meanwhile $11 a day runs on two campaigns that produced zero recorded bookings in 90 days, and a generic "luxury" theme burned $44,764 in excess spend over its lifetime.</p></div></div>
+    <div class="bomb"><div><span class="b-num">Winning back a guest costs $68 with our ads, $872 to $1,454 through an OTA.</span><p>Brand advertising delivered 163 direct bookings for $11,161 last quarter. The identical booking through an intermediary costs 13 to 21 times more in commission. Detail in the ledger below.</p></div></div>
+    <div class="bomb"><div><span class="b-num">A typo has been running with roughly $10,500 of media behind it.</span><p>"Nestled in a magnificiant ancient jungle" is live in six ads, including the two biggest spenders, and Google's own quality grader rates one of them "Excellent." A second typo, "Family-firendly," sits in the asset pool. Both are same-day fixes for a Leading Hotels of the World brand.</p></div></div>
+    <div class="bomb"><div><span class="b-num">Springs and Gardens advertise in accounts nobody on this side can see.</span><p>Their websites credit $408,000 and $87,000 of bookings to paid search run from unshared ad accounts, and Gardens' converts at a third of Tented's rate. The cheapest growth move in the portfolio may simply be auditing spend that already exists.</p></div></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="f-eyebrow">The Toll Economics</div>
+  <h2>Why we advertise on our own name, and why it's the cheap option</h2>
+  <p>When someone searches a Nayara property, the results page stacks paid OTA listings, Google's hotel rate module, and TripAdvisor above our own listing, which sits sixth to eighth. The usual objection to brand advertising, that it pays for clicks the free listing would catch anyway, assumes the free listing ranks first. Ours does not, so pausing brand ads would hand those clicks to Booking.com's ad, not to us.</p>
+  <div class="ledger">
+    <div class="ledger-title">Per booking, the two tolls</div>
+    <div class="ledger-row"><span class="l">A direct booking won via our own brand ads</span><span class="dots"></span><span class="v">$68</span></div>
+    <div class="ledger-row"><span class="l">OTA commission on the same booking (15 to 25% of $5,814 avg.)</span><span class="dots"></span><span class="v">$872 to $1,454</span></div>
+    <div class="ledger-row total"><span class="l">The OTA toll costs</span><span class="dots"></span><span class="v">13x to 21x more</span></div>
+    <div class="ledger-note">Basis: $11,161 in brand ad spend, 163 website-recorded bookings, $902,201 in revenue, last 90 days, Tented, US/Canada/Europe. Long term the goal is to need less of even the cheap toll: as the organic fixes in this report lift our own listings, paid brand spend should decline. Defend now, earn the right to spend less later.</div>
+  </div>
+  <p>One related correction for any "are we too dependent on Google" concern: 38% of Tented's website revenue is credited to Google ads, but 67% of that is <em>brand harvest</em>, demand created by press, awards, and word of mouth that Google routes at the final step and then invoices. Google is less our engine than our toll collector, and the escape route is the owned channels in the plan below.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="f-eyebrow">The Gardens Question</div>
+  <h2>Why does Gardens capture only 0.13% of its own name?</h2>
+  <p>Gardens has the largest brand-search demand of the three properties and the worst capture, and it is not one problem but four stacked on top of each other.</p>
+  <p><strong>1. The rebrand cut the name off from its history.</strong> Gardens was Arenal Nayara, the original property, with a 2015 Travel + Leisure No. 1 and a 2016 Condé Nast No. 2 to its name. Those wins, the press, and years of links still live under the old identity, disconnected from "Nayara Gardens" in both Google's index and the AI systems trained on it. The measurable result: Gardens' share of the portfolio's organic traffic fell from 24% to under 15% across 2025, and roughly 1,000 searches a quarter still use the legacy name, plus a steady stream of misspellings ("niara gardens" alone: 303 searches) that nothing currently catches.</p>
+  <p><strong>2. The brand is fighting itself for Google's trust.</strong> The legacy nayaragardens.com site is still live alongside the corporate site, so Google sees two Nayara domains competing for the same name and ranks neither decisively, while each OTA consolidates one strong page. That is how our average position lands at 6.9 for our own property, below the fold of attention.</p>
+  <p><strong>3. Everything above position 6 is a toll booth.</strong> Hotel rate ads, OTA text ads, and TripAdvisor occupy the entire first screen. At position 7, a 0.13% click rate is not an audience rejecting Gardens; it is an audience that never scrolls far enough to see it.</p>
+  <p><strong>4. Even the paid defense leaks.</strong> Gardens does run brand ads, from the account we cannot see, and they convert at 0.20% against Tented's 0.66%. Combined with the broken booking-flow tracking, even the clicks Gardens wins partially vanish from the record.</p>
+  <p>The encouraging part: every layer of this is fixable without buying new demand. A rebrand bridge page ("Nayara Gardens, formerly Arenal Nayara") with award markup, consolidating or redirecting the legacy domain, repairing the tracking, and auditing the existing ads attacks the cheapest traffic Gardens will ever win, sized directionally at <strong>~$155,000 a quarter</strong> in direct-booking recapture at Gardens' own average booking value.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="f-eyebrow">Budget Shape</div>
+  <h2>Where the Tented ad money goes versus where it works</h2>
+  <p><span class="def">ROAS</span> means return on ad spend: website-verified booking revenue per dollar. <span class="def">PMax</span> campaigns are Google's automated format that places ads across search, YouTube, and display from one budget.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Tented campaign (90 days)</th><th class="num">Daily budget</th><th class="num">Verified ROAS</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>Family PMax</td><td class="num">$6</td><td class="num good">127x</td><td>Best in account, capped by its own budget</td></tr>
+      <tr><td>Wellness PMax</td><td class="num">$15</td><td class="num good">101x</td><td>Biggest bookings in the account</td></tr>
+      <tr><td>Brand search (US/CA/EU)</td><td class="num">$125</td><td class="num good">48x to 89x</td><td>The defensive engine, per the ledger</td></tr>
+      <tr><td>Remarketing PMax</td><td class="num">$27</td><td class="num">47x</td><td>Healthy</td></tr>
+      <tr><td>Luxury PMax</td><td class="num">$15</td><td class="num bad">28x</td><td>"Luxury" is Nayara's baseline, not a segment</td></tr>
+      <tr><td>Brand display + Latam search</td><td class="num">$11</td><td class="num bad">0x</td><td>Zero recorded bookings between them</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tnote">The defensible non-brand territory is the category Nayara functionally owns, luxury glamping plus the Arenal hot springs cluster, where the account currently captures roughly 150 search impressions a year. Honeymoon intent barely registers at all, which measures absent targeting, not absent demand; that demand belongs to Springs once its account is shared.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">Action Items</div>
+  <h2>The list, not the novel</h2>
+  <div class="phase">
+    <h3>This week</h3>
+    <ol>
+      <li>Fix both live typos. Same-day.</li>
+      <li>Execute the five queued budget moves: pause brand display, pause Latam brand search, Wellness to $45/day, Family to $20/day, Luxury tapered to $5/day. Budget-neutral; campaign IDs on file; two minutes once Windsor write access is toggled, or done manually.</li>
+      <li>Request Springs and Gardens ad-account access for audit. The single gating item for half this report.</li>
+      <li>Brief the family-tent landing page (the demand is live and bouncing today) and the Gardens rebrand bridge.</li>
+      <li>Rotate the Windsor credentials shared in chat on June 12.</li>
+    </ol>
+  </div>
+  <div class="phase">
+    <h3>Days 8 to 45</h3>
+    <ol>
+      <li>Measurement repair: Gardens referral exclusions and checkout event, corporate key events, account-wide UTM tagging standard, redirect or bridge the legacy property domains.</li>
+      <li>Brand campaigns to exact match on true brand terms plus misspellings and "official website" searches; target 90%+ <span class="def">impression share</span> (the percentage of our own name searches where our ad actually appears); migrate the generic-luxury keywords out of Brand.</li>
+      <li>Launch the Glamping + Hot Springs campaign on the reallocated luxury budget.</li>
+      <li>Ship the comparison page (Springs vs Gardens vs Tented), the Gardens all-inclusive answer page, and the Gardens Maps profile fixes (dining funnel, reroute adults-only seekers to Springs).</li>
+      <li>Load real 15-second video cuts into the three PMax campaigns (today Google auto-generates slideshows for YouTube placements); refresh the Leading Hotels listing and ship the travel-advisor kit, the two highest-converting partner channels in the data.</li>
+    </ol>
+  </div>
+  <div class="phase">
+    <h3>Days 46 to 90</h3>
+    <ol>
+      <li>Audit the shared Springs and Gardens accounts; rebuild Gardens brand capture post-audit (~$155K/quarter directional); build the Romance/Honeymoon campaign at Springs.</li>
+      <li>Run the 90-day family-glamping test at Tented; broad family ownership moves to Gardens regardless of outcome.</li>
+      <li>First landing-page test reads (framework below); revive the paused Demand Gen campaign for YouTube; launch the first two lifecycle email flows (pre-opening waitlist, post-stay cross-property), against an email channel currently producing $7K at Tented and zero elsewhere.</li>
+      <li>Pull the PMS source-of-business report to size true OTA share, the one number this dataset cannot produce.</li>
+    </ol>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">Landing Pages</div>
+  <h2>Build themed pages, test them honestly</h2>
+  <p>The clearest proof that pages, not ads, are the constraint: searches like "nayara tented camp family tent" click through at over 30% and convert at almost zero, because the page they land on never answers the kids question. Every campaign theme deserves a page that keeps the ad's promise: a wellness ad should land on hot springs and the open-air spa, not the generic property page.</p>
+  <p><strong>Where they live:</strong> on the main domain (nayararesorts.com/tented-camp/wellness and similar), never on separate microsites. Same-domain pages keep the booking attribution intact, inherit the domain's trust with Google, and double as the organic and AI-answer page for their topic. One page, three jobs. Brand traffic is exempt: people searching "nayara official website" want the real site and get it.</p>
+  <p><strong>Page anatomy:</strong> a hero image or 15-second loop matching the ad, the ad's promise restated in the headline, a proof strip (Travel + Leisure No. 1, Leading Hotels of the World), three theme modules, one persistent book-direct button that carries tracking cleanly into the booking engine, an FAQ block answering the literal questions people search (all-inclusive, adults-only) marked up for AI citation, and a small "not sure which Nayara?" router so a mismatched guest moves to the right property instead of leaving.</p>
+  <h3>The testing math, stated plainly</h3>
+  <p>About 0.85% of themed-campaign visitors book and about 3% enter the booking engine. A test judged on completed bookings would need roughly 59,000 visitors to detect a 25% improvement, which is over a year of traffic: unusable. Judged on booking-engine entries, the same confidence needs about 16,000 visitors (or 8,300 for a 35% improvement), which the themed campaigns deliver in one to two quarters. So every test runs on <strong>booking-engine entry rate as the decision metric</strong>, with revenue tracked alongside as the sanity check.</p>
+  <p><strong>Mechanics:</strong> for search campaigns, Google's built-in experiment tool splits traffic 50/50 between the new page and the current one. PMax campaigns cannot split traffic, so there the new page is assigned directly and read before-versus-after in analytics. <strong>Test order:</strong> first the themed page against the current property page (the big swing), then hero video versus still image, then the booking button's wording. One variable at a time. <strong>One exception:</strong> no testing on Gardens until its checkout tracking is repaired, because its tests would be unreadable.</p>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="eyebrow">The Organic Companion</div>
+  <h2>Making Gardens the answer for "best family resort in Costa Rica," and making AI recommend all three</h2>
+  <h3>Gardens: the family flagship, built in five pieces</h3>
+  <p>Family demand is a web-search behavior (it is entirely absent from Maps discovery data), which means content and search are the battlefield, and Gardens has the raw material: family suites, the dining campus that already attracts 3,500+ Maps discoveries a quarter on "restaurants," a 4.9 rating across 1,065 reviews, and the original property's heritage. The build: <strong>(1)</strong> the rebrand bridge with award markup, reconnecting the buried Travel + Leisure and Condé Nast wins to the new name; <strong>(2)</strong> a family hub on the corporate domain answering what families actually ask, rooms that sleep four, kids' programming, the sloth trail, getting there with children; <strong>(3)</strong> the comparison page routing families explicitly to Gardens while sending couples to Springs and adventurers to Tented, which also answers the 400+ quarterly "which Nayara" searches and is the exact page every travel advisor and AI assistant needs; <strong>(4)</strong> the all-inclusive answer page, converting the ~780 quarterly "all inclusive la fortuna" searchers who find Gardens and currently get no answer; and <strong>(5)</strong> reviews surfaced as structured evidence in page markup and fact sheets, because "best family resort" claims need third-party proof, and Gardens has 1,065 pieces of it. The paid family campaign at Gardens then launches post-audit onto pages that already make the case, inheriting the copy and learnings from Tented's family-glamping test.</p>
+  <h3>AI visibility: the citation layer for Costa Rica</h3>
+  <p>AI assistants already send Nayara guests: ChatGPT and Gemini referrals converted $21.5K at Tented from a few hundred visits, Gardens leads the new AI traffic channel in our analytics, and Google's search report shows machine-generated evaluation queries testing Nayara against specific categories ("family-friendly luxury costa rica," "best glamping experiences costa rica," "romantic resorts costa rica with hot springs"). Those queries are the target list, and the clock is real: Nekajui, the new Ritz-Carlton Reserve, is filling the AI training corpora in the categories where Nayara is silent.</p>
+  <p>The program, for all three Costa Rica properties: a structured <strong>fact sheet per property</strong> that machines can quote cleanly (seasons, distances from SJO, room counts, child policies, awards with years); <strong>FAQ markup on every page</strong>, answering the literal questions in the search data ("is nayara springs all inclusive," "is nayara springs adults only"); <strong>direct-answer opening paragraphs</strong> on editorial pieces; <strong>comparison content</strong>, because assistants reach for "versus" framing when recommending; clean crawlability with an llms.txt on the corporate domain; and <strong>third-party corroboration</strong>, since AI answers weight reviews, the Leading Hotels listing, and press above a brand's own copy. Two guardrails from the entity work: each property owns its superlative lane so our content never competes with itself (Springs takes "best resort in Costa Rica" claims, Tented takes the Central America titles it holds, Gardens takes "best family resort in Costa Rica"), and Springs gets explicit disambiguation content against The Springs Resort &amp; Spa, which AI systems conflate today. AI referrals become a tracked KPI from day one, so the baseline exists before the curve.</p>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <h2 style="font-family:var(--font-display);margin-bottom:18px;">Methodology &amp; caveats</h2>
+    <p class="src">All findings derive from the Windsor.ai data integration spanning the Google Ads account (Tented Camp), GA4 website analytics for all four properties, Google Search Console for nayararesorts.com, and the connected Google Business Profiles, supplemented by all-time ad-account exports. Paid performance is validated against website-recorded bookings; where the ad platform and the website disagree, the website governs. Google Ads access covered Tented Camp only; Springs and Gardens paid recommendations are gated on account sharing and audit. Recapture sizings are directional, computed at each property's own average booking value. OTA-direct bookings are outside this dataset and require the PMS source-of-business report. Award and amenity claims referenced in copy should receive a verification pass before publication.</p>
+    <p class="src" style="margin-top:22px;color:rgba(247,245,240,.5);">Prepared June 12, 2026 · Internal working document · Companion files: search &amp; demand plan v2, paid search audit, organic strategy assessment</p>
+  </div>
+</footer>
+
+</body>
+</html>
