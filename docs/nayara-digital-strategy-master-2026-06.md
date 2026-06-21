@@ -274,11 +274,76 @@ awards, neutral attributed claims (some awards are conflated with Springs in the
 ---
 
 ## 10. Competitors
-_(Populated from the competitor-intelligence research agent — see Section 10b appended below.)_
 
-Known set (brief + Semrush): Tabacón, The Springs Resort & Spa, Four Seasons & Andaz Peninsula Papagayo,
-Nekajui (Ritz-Carlton Reserve, flooding AI corpora since Feb 2025), Tulemar, Arenas del Mar, Hacienda
-AltaGracia.
+Two distinct competitive sets, requiring opposite strategies.
+
+### 10a. Arenal / independent direct competitors (Semrush, US)
+
+| Domain | Authority Score | Organic keywords | Est. organic traffic/mo | Referring domains |
+|---|---|---|---|---|
+| **tabacon.com** (Arenal) | 45 | 3,006 | 74,071 | 2,693 |
+| **thespringscostarica.com** (Arenal) | 35 | 4,772 | 34,654 | 1,629 |
+| **nayaragardens.com** | 35 | 414 | 11,738 | 933 |
+| arenasdelmar.com (Manuel Antonio) | 36 | 1,534 | 10,778 | 745 |
+| **nayarasprings.com** | 34 | 760 | 8,616 | 991 |
+| tulemarresort.com (Manuel Antonio) | 32 | 1,079 | 6,994 | 643 |
+| **nayaratentedcamp.com** | 36 | 299 | 3,505 | 1,064 |
+| haciendaaltagracia.com | 2 | none indexed | none | 106 |
+
+**The two real Arenal rivals own the non-brand clusters Nayara is absent from:**
+- **Tabacón owns "hot springs / thermal"** (almost all position 1-3): costa rica hot springs (1,900), hot
+  springs in costa rica (880), arenal hot springs (1,600), la fortuna hot springs (1,600), costa rica hot
+  springs resort (480, pos 1), costa rica spa resort (320, pos 1), arenal volcano resort (480). Strongest
+  profile in the set (AS 45, 2,693 ref domains). ~8K combined hot-springs volume.
+- **The Springs owns the generic "Arenal resort/hotel" head terms** (mostly pos 1-2): arenal costa rica
+  resort (880, pos 1), hotels in arenal costa rica (880, pos 2), arenal resorts (590, pos 2), arenal
+  hotel costa rica (320, pos 1), costa rica volcano resort (260, pos 1), **arenal all inclusive (70, pos
+  1)**. Only AS 35 / 1,629 ref domains — beatable with better content + links.
+- **Hacienda AltaGracia is organically invisible** (AS 2, no indexed organic) — not a near-term threat
+  despite being a named tier-2 competitor.
+
+**Keyword gap (rival ranks top-10; Gardens absent):** the entire Arenal/hot-springs/resort cluster above,
+plus Gardens buried at pos 35 for "restaurants in arenal costa rica" (110, the dining-page opening) and
+pos 29 for "arenal observatory lodge spa" (720). Gardens' only non-brand footprint is the
+"rainforest/jungle" cluster (costa rica rainforest resort pos 5).
+
+**The white space:** neither Tabacón (adults-leaning thermal) nor The Springs owns a **family** cluster,
+and no incumbent owns Arenal **dining**. Family-Arenal and dining are open, highest-fit beachheads for
+Gardens — supporting the family-page-first + dining-section build order.
+
+### 10b. Peninsula Papagayo ultra-luxury chains (Pacific beach)
+
+Brand pull (US monthly search): four seasons costa rica **18,100**; andaz costa rica **12,100** (+ andaz
+papagayo 5,400); waldorf astoria costa rica **5,400**; ritz carlton costa rica 3,600 (Nekajui's halo);
+peninsula papagayo 2,900; nekajui **1,000** (new, still building name recognition but flooding YouTube/AI).
+For reference, Nayara's brands: nayara springs 8,100, nayara tented camp 8,100, nayara gardens 5,400 —
+**collectively larger than any single Papagayo brand.**
+
+- These chains each win their own brand SERP at #1 and own the **beach/Pacific/Guanacaste axis**: Four
+  Seasons vacuums "papagayo costa rica" (4,400), "papagayo" (6,600), "resort hotel costa rica" (6,600);
+  Andaz has a deep brand footprint; Nekajui already captures the Ritz halo months after opening.
+- On the generic luxury head terms ("best luxury resorts in costa rica," etc.) **no chain and no Nayara
+  property ranks its own page** — those SERPs are listicle/OTA/editorial-owned (Forbes, CNT, Tripadvisor,
+  Virtuoso, Vogue, Reddit, YouTube). It is a listicle + AI-citation battlefield, not a direct-page one.
+
+**The moat:** the Papagayo cluster cannot answer rainforest, volcano, hot springs, sloths, or family. The
+Arenal/rainforest/family cluster (arenal resorts, costa rica rainforest resort, costa rica family resort,
+costa rica with kids, hotel with sloths) totals ~2,700+ of uncontested, destination-locked, high-intent
+demand they physically cannot serve.
+
+### 10c. Five competitive takeaways
+1. **Don't fight the head terms head-on.** "costa rica resorts/luxury resorts" SERPs are listicle-owned;
+   win via inclusion + AI citation, not by out-ranking Four Seasons' or The Springs' own pages.
+2. **Attack The Springs' "Arenal resort/hotel" head terms** (AS 35, beatable) with the corporate Best
+   Luxury Resorts page + a Gardens Arenal page. This is the most winnable contested cluster.
+3. **Don't fight Tabacón on "hot springs"** (AS 45 moat). Differentiate Gardens on rainforest + sloths +
+   family near the volcano, which Tabacón does not contest.
+4. **Own family + dining in Arenal — open white space.** No rival holds these; Gardens already partly
+   ranks. Cheapest, highest-fit wins.
+5. **Vs Papagayo, lead with contrast, not parity.** Frame the Best Luxury Resorts and Which Nayara pages
+   as rainforest-and-volcano-and-family vs beach-and-Pacific, making Nayara the cited counter-example in
+   AI answers that otherwise default to Four Seasons/Nekajui. Match Nekajui's AI/video velocity on the
+   sloth/family differentiators rather than chasing its keywords.
 
 ---
 
