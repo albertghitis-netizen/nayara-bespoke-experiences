@@ -31,10 +31,18 @@ Nayara's digital problem is not demand. It is **measurement, positioning, and ch
 5. **Local/Maps is a fast, underused lever.** "Restaurants" is the #1 non-brand Maps search for Gardens
    and Springs, but no menus, no Maps bookings, are enabled.
 6. **The AI Assistant channel is real and converting** ($15,350 Gardens / 90d) and is the fastest-growing
-   referrer. GEO/AEO pays off here first.
+   referrer. But AI answers actively mis-narrate Gardens: it is **absent from "best family resort Costa
+   Rica" and "best hot springs Arenal"** answers entirely, and third-party pages (Oyster,
+   unforgettablehoneymoons) re-cast it as couples/honeymoon. GEO/AEO is where the positioning fix lands
+   first.
+7. **There is a real competitive moat to defend.** The Papagayo ultra-luxury chains (Four Seasons, Andaz,
+   Nekajui, Waldorf) own beach/Pacific and the new-opening hype; Tabacón owns "hot springs"; The Springs
+   owns generic "Arenal resort." But **none of them owns family-in-Arenal or on-property sloths** —
+   ~2,700+ of uncontested, destination-locked demand that is Nayara Gardens' to take.
 
 The throughline: fix measurement, reallocate paid from brand defense toward tracked non-brand, reposition
-Gardens as family across live assets, and harvest the local + AI channels that are already producing.
+Gardens as the family-rainforest-sloth flagship across live assets + schema + AI answers (white space no
+competitor can contest), and harvest the local + AI channels that are already producing.
 
 ---
 
@@ -261,15 +269,77 @@ nayaragardens.com until tags are fixed). Reconcile before shipping.
 
 ## 9. AEO / GEO / E-E-A-T
 
-_(Expanded with the AI-visibility research agent — see Section 9b appended below.)_
+**Why this matters here:** Gardens already leads the GA4 AI Assistant channel (chatgpt.com is the
+corporate site's 3rd-largest source, ~8%; Gardens AI revenue $15,350/90d), so AI answers convert. The
+foundation build is schema that is currently absent: Hotel/LodgingBusiness + FAQPage + aggregateRating
+(Gardens 4.9 / 1,070, verified live). Awards source of record (verified 2025): CNT Central America —
+Bocas #1, Springs #3, Gardens #8, Tented #15; T+L — Tented #2, Springs #10; MICHELIN Keys — Springs 3.
+Lead Gardens with its #8 family/resort placement; keep MICHELIN + romance to Springs.
 
-**Foundations (from data + brief):** Gardens leads the AI Assistant channel (chatgpt.com is the corporate
-site's 3rd-largest source, ~8%; Gardens AI revenue $15,350/90d). Schema (Hotel/LodgingBusiness +
-FAQPage + aggregateRating 4.9/1,070) is absent and is the first build. The awards source of record is the
-verified 2025 set: CNT Central America — Bocas #1, Springs #3, Gardens #8, Tented #15; T+L — Tented #2,
-Springs #10; MICHELIN Keys — Springs 3. Lead Gardens with its #8 family/resort placement; keep MICHELIN
-+ romance to Springs. E-E-A-T: real photography only, named author/expertise on the Journal, verifiable
-awards, neutral attributed claims (some awards are conflated with Springs in the wild — verify each).
+### 9a. GEO scorecard (25 buyer-intent queries; presence inferred from ranking pages, not full AI answers)
+
+| Query theme | Nayara present? | Property | Positioned right? | Dominant sources |
+|---|---|---|---|---|
+| Best luxury resort CR | Yes (strong) | Gardens, Tented | OK (not as "family") | listicles, Virtuoso, Tripadvisor |
+| Best hotels CR | Yes | Gardens/Tented/Springs | Mixed (Gardens "secluded pool" = couples lean) | SLH, Tripadvisor |
+| **Best family resort CR / for families** | **No** | none | absent | family listicles (twoweeksincostarica, theeverymom, oyster) |
+| Best adults-only CR | Yes | Springs | Correct | adults-only listicles, Mr & Mrs Smith |
+| Honeymoon / romantic CR | Yes (strong) | Springs | Correct | honeymoon listicles, Oyster |
+| Best resort Arenal | Yes | Springs + **old name "Nayara Resort Spa & Garden"** | **stale name; no family signal** | twoweeksincostarica, arenal.net, Oyster |
+| Best hotel La Fortuna | Yes | Tented lead; Gardens buried last | Gardens buried | mytanfeet, SLH |
+| **Best hot springs resort Arenal** | **No** | none | absent | The Springs, Tabacon, mytanfeet |
+| Best glamping / tented / safari CR | Yes (dominant) | Tented | Correct | own site, LHW, costaricaexperts |
+| **Hotel with sloths CR** | **Weak** | "Nayara Hotel" in passing | under-leveraged, not tied to Gardens | mytanfeet, slothsanctuary |
+| Nayara Gardens vs Springs / which Nayara | Yes (strong) | all three | **Correct: Gardens=family, Springs=adults** | luxerecess, Tripadvisor, Journal FAQ |
+| **Gardens: couples or family?** | Yes | Gardens | **MIS-POSITIONED: "target audience is couples/honeymooners"** | Oyster, Global Traveler |
+| Honeymoon Arenal plunge pool | Yes | **Gardens + Springs both as honeymoon** | Gardens sold as honeymoon | unforgettablehoneymoons |
+| MICHELIN Key hotels CR | Yes (strong) | Springs (only 3-Key in CR) | Correct | MICHELIN Guide, michelinkeyhotels |
+| Best all-inclusive CR | No | none | correct (not AI) | costaricaexperts, Marriott |
+| Best CR resort kids + sloths | **No** | none | absent | Tulemar, The Springs, costaricaexperts |
+
+### 9b. Gardens is the GEO problem child (the critical finding)
+
+Springs (adults/honeymoon/MICHELIN) and Tented (glamping/safari/jungle) are correctly positioned and
+visible. **Gardens is present on luxury and intra-brand comparison queries but invisible on family/kids/
+hot-springs, and is actively re-narrated as couples/honeymoon by third-party pages:**
+- **Direct mislabel:** the Oyster review states Gardens' "target audience is couples, especially
+  honeymooners" — exactly the page an AI quotes to answer "is Nayara Gardens good for families." Most
+  damaging single citation.
+- **Commercial re-narration:** unforgettablehoneymoons.com sells Gardens as honeymoon villas and ranks on
+  both all-inclusive and honeymoon-plunge-pool queries.
+- **Stale identity:** "best resort Arenal" still returns the old "Nayara Resort Spa & Garden" name,
+  described room-by-room with zero family signal — the rename hasn't propagated to the listicle layer.
+- **Bright spot to amplify:** the Gardens-vs-Springs comparison cluster gets it right (Gardens = family/
+  value). Push that framing outward into general queries.
+
+### 9c. Source pages Nayara is missing from (GEO outreach gaps, priority order)
+1. **Family resort listicles (highest):** twoweeksincostarica.com, theeverymom.com, oyster.com (family
+   roundup), adventuroustastes.com, vacationscostarica.com, scottdunn.com — Nayara in none.
+2. **Hot-springs roundups:** mytanfeet.com, costaricatravelblog.com, costaricavibes.com — The Springs/
+   Tabacón own these; Nayara absent despite all three CR properties having thermal pools.
+3. **Kids + sloths-on-property:** millenialmothers.com, costa-rica-guide.com, costaricaexperts sloth
+   packages — Tulemar/The Springs own this despite Nayara's 15+ sloth sanctuary.
+4. **Sloth-watching guides:** slothsanctuary.com, mytanfeet sloth guide — Nayara only "in passing."
+5. **General luxury authority:** Virtuoso, SLH, foratravel, capturetheatlas — present but shallow.
+
+### 9d. AEO/E-E-A-T recommendations by property
+- **Gardens (urgent):** Hotel/LodgingBusiness schema with `alternateName` (old names), `aggregateRating`
+  4.9/1,070, `award`, `sameAs` to unify the split identity; `FAQPage` answering the literal AI questions
+  ("Is Nayara Gardens good for families?", "rooms that sleep four?", "is it all-inclusive?", "can you see
+  sloths?") leading each with the family/sloth signal; build the family page so a Nayara page out-cites
+  the Oyster "couples" line; correct unforgettablehoneymoons + arenal.net; named naturalist/author
+  bylines. Pursue the family-listicle inclusions in 9c with verified proof points (suites sleeping four,
+  sloth trail, babysitting, on-call doctor, adjacent-room guarantee).
+- **Springs:** lock in the win — FAQPage + award schema featuring the 3 MICHELIN Keys (only one in CR).
+- **Tented:** maintain; add FAQPage + conservation/sloth-sanctuary schema to also capture "see sloths"
+  and family-glamping.
+- **Corporate:** build the two pages where Nayara is wholly absent and shouldn't be — Best Luxury Resorts
+  (positioning Gardens as the family pick) and an Arenal hot-springs angle — plus the sloth experience
+  page to claim the "hotel with sloths" answer currently lost to Tulemar/Chachagua. Use ItemList/FAQPage
+  schema so they become citable AI sources.
+
+**E-E-A-T standing rules:** real photography only, named author/expertise on the Journal, verifiable
+awards only, neutral attributed claims (awards are conflated with Springs in the wild — verify each).
 
 ---
 
