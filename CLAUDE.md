@@ -147,5 +147,6 @@ Awards to reconnect include a 2015 Travel + Leisure number-one in Central and So
 - `docs/nayara-handoff/reference/strategy-critique.md` — a critique of an earlier version of the strategy framework; several gaps it names are already closed.
 - `docs/nayara-handoff/reference/integrated-growth-strategy.md` — the ownership growth-strategy deck text.
 - `docs/seo-analysis-2026-06.md` — standalone SEO data pull (Semrush + Search Console, June 2026).
+- `docs/costa-rica-keyword-strategy.md` — master non-brand keyword universe (luxury/family/adults/geo/type/all-inclusive) mapped to property + page + ranking play (Semrush, June 2026).
 
 When building pages, follow the standing rules and design system above, verify any factual or amenity claim before it goes live, and keep Alex's provability standard in mind: lead with what the data supports, and be explicit about what is a test versus a proven move.
