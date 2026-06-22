@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nayara Gardens: The Complete Digital Game Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F7F5F0;--ink:#0D0704;--teal:#006D75;--teal-light:#4DC9D1;--bark:#3a2a1a;--mist:#E2F0F0;--line:#e4ded3;--muted:#5b5247;--warn:#8a5a2b;--gold:#9a7b3f;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Sans',-apple-system,sans-serif;line-height:1.62;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.16;color:var(--ink);}
+  .hero{padding:78px 0 44px;border-bottom:1px solid var(--line);}
+  .series{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:18px;}
+  .hero h1{font-size:46px;line-height:1.05;letter-spacing:-.01em;margin-bottom:18px;}
+  .hero p{font-size:20px;color:var(--muted);max-width:710px;}
+  .meta{margin-top:24px;font-size:13px;color:var(--muted);}
+  .toc{margin-top:28px;font-size:14px;columns:2;column-gap:34px;}
+  .toc a{color:var(--bark);text-decoration:none;display:block;padding:2px 0;}
+  section{padding:42px 0;border-bottom:1px solid var(--line);}
+  h2{font-size:27px;margin-bottom:8px;}
+  h2 .n{color:var(--teal-light);font-size:20px;margin-right:6px;}
+  .lede{color:var(--muted);font-size:17.5px;margin-bottom:20px;max-width:730px;}
+  h3{font-size:18px;margin:22px 0 6px;}
+  p{margin-bottom:13px;}ul{margin:0 0 13px 22px;}li{margin-bottom:6px;}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;}
+  th,td{text-align:left;padding:10px 11px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  td.n{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .gardens{background:#fbf3ec;}
+  .callout{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:10px;padding:18px 22px;margin:14px 0;}
+  .callout.warn{border-left-color:var(--warn);} .callout.q{border-left-color:var(--bark);background:#fbf8f3;}
+  .callout .qh{font-family:'Playfair Display',serif;font-size:17px;margin-bottom:5px;color:var(--bark);}
+  .verdict{font-weight:600;color:var(--teal);}
+  .pill{display:inline-block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;padding:2px 8px;border-radius:100px;margin-left:4px;}
+  .done{background:var(--mist);color:var(--teal);} .prog{background:#f3e2d4;color:var(--warn);} .next{background:#ece6db;color:var(--muted);}
+  .src{display:inline-block;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--mist);border-radius:100px;padding:1px 7px;margin-left:3px;}
+  ol.steps{counter-reset:s;list-style:none;margin:6px 0;}
+  ol.steps li{position:relative;padding:13px 0 13px 46px;border-bottom:1px solid var(--line);}
+  ol.steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:12px;width:30px;height:30px;background:var(--teal);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:15px;}
+  .owner{display:inline-block;font-size:11.5px;color:var(--muted);margin-top:2px;}
+  .chan{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:16px 0;}
+  .chan h3{margin-top:0;font-size:20px;color:var(--teal);}
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+  .who .col{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;}
+  .who .col h4{font-family:'Playfair Display',serif;font-size:17px;margin-bottom:6px;}
+  .big{font-family:'Playfair Display',serif;font-size:30px;color:var(--teal);font-weight:600;line-height:1;}
+  footer{padding:36px 0 80px;color:var(--muted);font-size:13px;}
+  @media(max-width:680px){.hero h1{font-size:32px;}.wrap{padding:0 20px;}.toc,.who{columns:1;grid-template-columns:1fr;}table{font-size:12.5px;}th,td{padding:8px 6px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="series">Nayara Gardens &middot; The Complete Digital Game Plan</div>
+    <h1>Nayara Gardens: turning the trust we have into the visibility we want</h1>
+    <p>The whole plan in one place. What the data says, what Gardens will own, and the specific steps we are taking across every channel, with the work already moving on the site and on the organic side.</p>
+    <div class="meta">Team game plan &middot; June 2026 &middot; Live sources: Google Analytics, Search Console, Semrush, Instagram, Google Business Profile, the SynXis booking workbook. Companion to the SEO/AEO/GEO/EEAT brief.</div>
+    <div class="toc">
+      <a href="#opp">1. The opportunity</a>
+      <a href="#why">2. Why we are here</a>
+      <a href="#layers">3. The four layers (SEO/AEO/GEO/EEAT)</a>
+      <a href="#own">4. What Gardens will own</a>
+      <a href="#ai">5. Capturing all-inclusive demand, honestly</a>
+      <a href="#chan">6. The channel game plans (specific steps)</a>
+      <a href="#who">7. Who is doing what</a>
+      <a href="#great">8. Why this is a strong strategy</a>
+      <a href="#status">9. Status, sequence, and measurement</a>
+    </div>
+  </header>
+
+  <section id="opp">
+    <h2><span class="n">1.</span>The opportunity</h2>
+    <p class="lede">Gardens is not a failing property. It is a strong property that the machines describe wrongly. The demand and the trust already exist; the job is exposure.</p>
+    <table>
+      <thead><tr><th>Organic, last 90 days</th><th>Tented</th><th>Springs</th><th>Gardens</th></tr></thead>
+      <tbody>
+        <tr><td>Organic revenue</td><td class="n">$867,140</td><td class="n">$342,576</td><td class="n gardens">$53,402</td></tr>
+        <tr><td>Organic visitors</td><td class="n">~21,750</td><td class="n">~19,390</td><td class="n gardens">~15,020</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><b>Gardens already has the audience:</b> 60.8% female, ages 25 to 44, US and UK driving ~95% of revenue. That is the family traveler. <span class="src">GA4</span></li>
+      <li><b>It already has world-class trust:</b> 4.9 stars on 1,070 reviews, the most-reviewed of the three properties, plus real rainforest experience. <span class="src">Business Profile</span></li>
+      <li><b>It already gets the AI traffic:</b> roughly 1,500 AI-assistant sessions in 90 days, the fastest-growing channel. <span class="src">GA4</span></li>
+      <li><b>The gap is exposure, not quality.</b> Search Console (now connected) shows Gardens ranks number one for "best family resorts in costa rica" but earned one impression in 90 days. It is eligible and almost never shown. <span class="src">Search Console</span></li>
+    </ul>
+    <div class="callout"><b>The opportunity in one line:</b> convert the trust Gardens already has into the visibility it does not. That is a far easier job than building demand from nothing, and it is the highest-leverage work in the portfolio.</div>
+  </section>
+
+  <section id="why">
+    <h2><span class="n">2.</span>Why we are here (briefly, and we all own it)</h2>
+    <p>Two honest reasons, neither a failure: the property was renamed, so its history, reviews, and awards are not yet fully connected to "Nayara Gardens," and the family story was never exposed in the page structure, the markup, or the content the engines read. The result is that Google and the AI assistants default to describing Gardens as romance. This is a shared responsibility across the team, and it is fixable. The rest of this document is the fix, and a good deal of it is already underway.</p>
+  </section>
+
+  <section id="layers">
+    <h2><span class="n">3.</span>The four layers: SEO, AEO, GEO, and EEAT</h2>
+    <p class="lede">Search is four jobs now, and Gardens has a different problem in each. The companion brief covers this in full; here is where Gardens sits.</p>
+    <table>
+      <thead><tr><th>Layer</th><th>The win</th><th>Gardens' situation</th><th>The fix</th></tr></thead>
+      <tbody>
+        <tr><td><b>SEO</b></td><td>Rank in the blue links</td><td>Strong on rainforest terms, near absent on family; few organic keywords</td><td>Family rainforest hub + content cluster</td></tr>
+        <tr><td><b>AEO</b></td><td>Be the answer box</td><td>No structured answers to "is it all inclusive / good for families"</td><td>FAQPage schema answering the real questions</td></tr>
+        <tr><td><b>GEO</b></td><td>Be named in the AI reply</td><td>AI narrates it as adults-only; omitted from family answers</td><td>Fix the entity across site, profile, Wikidata; get into the cited listicles</td></tr>
+        <tr><td><b>EEAT</b></td><td>Be believed</td><td>4.9 on 1,070 reviews and real experience, none exposed in markup</td><td>AggregateRating + award schema, named authors, real photos</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><b>The shared unlock:</b> exposing the awards and reviews in schema is one low-effort action that lifts all four layers at once. It is the foundation everything else sits on, so we do it first.</div>
+  </section>
+
+  <section id="own">
+    <h2><span class="n">4.</span>What Gardens will own</h2>
+    <p class="lede">Gardens should not sprawl. It should own the territory that reinforces family, and cede the rest cleanly to its siblings.</p>
+    <table>
+      <thead><tr><th>Territory</th><th>Why Gardens owns it</th><th>Signal</th></tr></thead>
+      <tbody>
+        <tr class="gardens"><td><b>Family (the spine)</b></td><td>The actual product and audience; white space no rival owns in Arenal</td><td class="n">~4,500/mo</td></tr>
+        <tr><td><b>Rainforest / jungle resort</b></td><td>Already its only non-brand foothold (page 1 today); literally true</td><td class="n">jungle resort 720 +</td></tr>
+        <tr><td><b>Arenal / La Fortuna dining</b></td><td>"Restaurants" is its #1 non-brand Maps search; no incumbent</td><td class="n">3,543 Maps</td></tr>
+        <tr><td><b>Wildlife and nature</b></td><td>Gardens teem with flora and fauna; the family nature hook</td><td class="n">experiential</td></tr>
+        <tr><td><b>The original, most-trusted Nayara</b></td><td>The first property, most-reviewed (4.9 / 1,070)</td><td class="n">entity / EEAT</td></tr>
+      </tbody>
+    </table>
+    <div class="callout q">
+      <div class="qh">Where the sloths fit</div>
+      <p>The sloth origin and brand story belong to <b>Nayara Tented Camp</b>, where it began, and the sloths are <b>wild, natural rainforest animals, not a captive sanctuary or petting zoo</b>. That is the stronger, more luxury, more sustainable story (we restored the rainforest and the wild sloths stayed). Because the sloths are wild and roam the shared Arenal forest, <b>Gardens uses them cleverly for the family angle</b>: "wild sloths your kids can spot from the trails," a nature hook, never a claim to the origin story. Tented leads the sloth content and AI answer; Gardens borrows the wild-sloth wonder for families.</p>
+    </div>
+    <p><b>What Gardens does not chase:</b> hot springs (that is Tabacon, and Gardens has no thermal springs), romance and honeymoon (that is Springs), and any value or entry-level framing. Ceding these cleanly is what keeps the family position sharp.</p>
+  </section>
+
+  <section id="ai">
+    <h2><span class="n">5.</span>Capturing all-inclusive demand, honestly</h2>
+    <p class="lede">"Costa rica all inclusive" is a 49,500-a-month search we cannot rank for as an all-inclusive resort, because we are not one. Here is how we win it anyway, without arguing with the searcher.</p>
+    <p>The word "all-inclusive" is shorthand for four needs: predictable cost, no nickel-and-diming, food sorted, and activities included. We meet the need without the label, and we have an honest "yes" to offer:</p>
+    <ul>
+      <li><b>The brand-level truth:</b> Costa Rica is breakfast plus experiences, but <b>Bocas del Toro, Alto Atacama, and Hangaroa are genuinely all-inclusive.</b> So "does Nayara have all-inclusive resorts?" is honestly yes, and we route the searcher accordingly.</li>
+      <li><b>The honest answer page (AEO):</b> lead with the plain answer ("Nayara Gardens is not all-inclusive; here is exactly what is included: daily breakfast, the rainforest and wildlife experiences, kids' programming"), then the value. FAQPage schema. Wins "is nayara gardens all inclusive," which already ranks, plus the La Fortuna all-inclusive searches already hitting us in Maps.</li>
+      <li><b>The honest guide (corporate):</b> a "Costa Rica all-inclusive resorts: an honest guide" page that fairly explains the landscape, positions Gardens as the family pick with transparent inclusions, and routes true all-inclusive seekers to Bocas and Atacama. This intercepts the big research volume without a false claim.</li>
+      <li><b>Never lecture.</b> Do not open with "unpackaged is better." Answer the question, meet the need, earn the upgrade.</li>
+    </ul>
+    <div class="callout">Why it works: it is honest (which AEO and GEO reward), it monetizes a category we cannot enter as a resort by being the trusted guide, and it uses our real all-inclusive properties as the genuine yes.</div>
+  </section>
+
+  <section id="chan">
+    <h2><span class="n">6.</span>The channel game plans, with the specific steps</h2>
+    <p class="lede">Every channel, the concrete steps, the owner, and the status. This is the working plan.</p>
+
+    <div class="chan">
+      <h3>6.1 The family rainforest landing page (the hub)</h3>
+      <ol class="steps">
+        <li><b>Reposition the page to family</b> in the title, H1, and meta ("Family Rainforest Resort near Arenal Volcano"), on a clean, migration-ready URL. <span class="pill prog">In progress</span> <span class="owner">Alex, web</span></li>
+        <li><b>Lead with the wild-sloth and wildlife hook for families,</b> then the family proof: suites that sleep four, guaranteed adjacent rooms, babysitting, on-call doctor, stroller-friendly paths, kids' programming. Verified claims only. <span class="pill next">Next</span> <span class="owner">content</span></li>
+        <li><b>Real family-stay photography only,</b> no stock. <span class="pill next">Next</span> <span class="owner">content</span></li>
+        <li><b>"Check availability" calls to action throughout,</b> and tighten the availability-to-confirmation step where the funnel currently leaks. <span class="pill next">Next</span> <span class="owner">web</span></li>
+      </ol>
+    </div>
+
+    <div class="chan">
+      <h3>6.2 Technical and EEAT exposure (the foundation that lifts all four layers)</h3>
+      <ol class="steps">
+        <li><b>Add Hotel / LodgingBusiness schema</b> with alternateName (the old names), sameAs (Wikidata, profile, social), and the award entities. <span class="pill prog">In progress</span> <span class="owner">Alex, web/SEO</span></li>
+        <li><b>Add AggregateRating schema</b> with the real numbers (4.9 / 1,070). <span class="pill prog">In progress</span> <span class="owner">Alex, web</span></li>
+        <li><b>Add FAQPage schema</b> answering the real Search Console questions (family, inclusion, sloths). <span class="pill prog">In progress</span> <span class="owner">Alex, web</span></li>
+        <li><b>Add named author bylines</b> with real expertise on Journal content. <span class="pill next">Next</span> <span class="owner">content</span></li>
+      </ol>
+    </div>
+
+    <div class="chan">
+      <h3>6.3 Organic SEO content cluster</h3>
+      <ol class="steps">
+        <li><b>The family hub page</b> targets the family cluster (costa rica family resorts 1,600, best family resorts 1,300, for families 720). <span class="pill next">Next</span> <span class="owner">content</span></li>
+        <li><b>Rainforest and dining support pages</b> capture the territory Gardens already half-owns (jungle resort 720, restaurants in arenal). <span class="pill next">Next</span> <span class="owner">content</span></li>
+        <li><b>Corporate Arenal / La Fortuna page</b> targets "hotels in la fortuna costa rica" (3,600, low competition) and funnels to Gardens. <span class="pill next">Next</span> <span class="owner">content / web</span></li>
+      </ol>
+    </div>
+
+    <div class="chan">
+      <h3>6.4 AEO (answer boxes and voice)</h3>
+      <ol class="steps">
+        <li><b>Answer the real questions verbatim</b> from Search Console ("is nayara gardens all inclusive," "is it good for families," "can you see sloths") in FAQ blocks with schema. <span class="pill prog">In progress</span> <span class="owner">Alex + content</span></li>
+        <li><b>Concise, directly-phrased answers</b> at the top of each, so engines can lift them. <span class="pill next">Next</span> <span class="owner">content</span></li>
+      </ol>
+    </div>
+
+    <div class="chan">
+      <h3>6.5 GEO (being named in AI answers)</h3>
+      <ol class="steps">
+        <li><b>Fix the entity:</b> make "family rainforest resort" the consistent description across the site, Google Business Profile, and Wikidata/Wikipedia, with the family fact explicit. <span class="pill prog">In progress</span> <span class="owner">Alex (site) + Albert (Wikidata/listings)</span></li>
+        <li><b>Get into the sources AI cites:</b> the family round-ups (see 6.10). <span class="pill prog">In progress</span> <span class="owner">Albert, PR</span></li>
+        <li><b>Run the AEO/GEO scoreboard</b> before and after (see section 9). <span class="pill next">Next</span> <span class="owner">Albert / analytics</span></li>
+      </ol>
+    </div>
+
+    <div class="chan">
+      <h3>6.6 Google Business Profile (the fastest wins)</h3>
+      <ol class="steps">
+        <li><b>Name corrected to Nayara Gardens.</b> <span class="pill done">Done</span> <span class="owner">Albert</span></li>
+        <li><b>Add the restaurant menus</b> to capture the number one non-brand search ("restaurants," 3,543 in 90 days). <span class="pill next">Next</span> <span class="owner">local / web</span></li>
+        <li><b>Enable the reservation link as "Check availability"</b> (Maps bookings are currently off). <span class="pill next">Next</span> <span class="owner">web</span></li>
+        <li><b>Optimize categories and family attributes, refresh real photos, post weekly, and answer the Q&A</b> with the family and inclusion questions; keep responding to reviews to hold 4.9 / 1,070. <span class="pill next">Next</span> <span class="owner">local</span></li>
+      </ol>
+    </div>
+
+    <div class="chan">
+      <h3>6.7 Instagram (the robust plan)</h3>
+      <p>Gardens is the weakest property account (17,282 followers, 90-day reach 35,947) but has the most bookable audience (75% female, 51% US). Tented proves the model: visual differentiator content drives three to four times the reach (143,773). We apply that playbook.</p>
+      <ol class="steps">
+        <li><b>Reframe the profile around family and rainforest,</b> not generic luxury: bio, pinned content, and a "Check availability" link with tracking. <span class="pill next">Next</span> <span class="owner">social</span></li>
+        <li><b>Five content pillars, Reels-first:</b> wild sloths and wildlife for families; family moments (suites sleep four, kids' programming, multi-generational); rainforest immersion; the restaurants; and guest stories. <span class="pill next">Next</span> <span class="owner">social / content</span></li>
+        <li><b>Lead with Reels</b> (the reach engine), carousels for rooms and family proof, daily Stories with booking nudges, and organized Highlights (Family, Wildlife, Rooms, Dining, Spa). <span class="pill next">Next</span> <span class="owner">social</span></li>
+        <li><b>Target US and UK bookers</b> in paid and organic, not broad reach; build lookalikes from actual bookers. <span class="pill next">Next</span> <span class="owner">social / paid</span></li>
+        <li><b>Recruit family-travel micro-influencers</b> for hosted stays, with tracked links. <span class="pill next">Next</span> <span class="owner">social / PR</span></li>
+        <li><b>Repurpose every Journal piece into Reels and carousels;</b> show wild sloths for families (origin credited to Tented). <span class="pill next">Next</span> <span class="owner">social / content</span></li>
+        <li><b>Measure reach, saves and shares (intent), profile-to-site taps, and assisted bookings,</b> against today's baseline, targeting Tented-level reach. <span class="pill next">Next</span> <span class="owner">social / analytics</span></li>
+      </ol>
+    </div>
+
+    <div class="chan">
+      <h3>6.8 The Journal (the robust plan)</h3>
+      <p>Editorial supports the family hub and feeds AI citations; it is not the lead. Quality over volume, each piece pointing at the page that converts.</p>
+      <ol class="steps">
+        <li><b>Connect the Journal subdomain to Search Console</b> so we can see what ranks. <span class="pill next">Next</span> <span class="owner">analytics / SEO</span></li>
+        <li><b>Publish a focused family and rainforest slate,</b> each linking into the family hub: Costa Rica with kids (the Arenal family guide); how to see wild sloths with kids in Arenal; getting to La Fortuna with children; multi-generational Costa Rica; a family food guide to Arenal dining; what staying in the rainforest is really like. <span class="pill next">Next</span> <span class="owner">content</span></li>
+        <li><b>Build for credibility and AI citation:</b> a named author with real expertise, real photography, clear sourcing, an FAQ block per piece, and date stamps for freshness. <span class="pill next">Next</span> <span class="owner">content</span></li>
+        <li><b>Cadence of two to three strong pieces a month,</b> not volume. <span class="pill next">Next</span> <span class="owner">content</span></li>
+        <li><b>Later, fold the Journal into the main site as a folder</b> with page-by-page redirects, so its authority strengthens the commercial pages. <span class="pill next">Next</span> <span class="owner">dev / SEO</span></li>
+      </ol>
+    </div>
+
+    <div class="chan">
+      <h3>6.9 Paid search (Gardens)</h3>
+      <ol class="steps">
+        <li><b>Fix the conversion-value tag</b> (it currently reports near zero, so bidding is blind). <span class="pill prog">In progress</span> <span class="owner">Alex / dev / Ads</span></li>
+        <li><b>Retire or repurpose the off-strategy "Romance" campaign;</b> fund tracked non-brand family and Arenal campaigns once the tag is fixed, pointing at the family hub. <span class="pill next">Next</span> <span class="owner">paid</span></li>
+      </ol>
+    </div>
+
+    <div class="chan">
+      <h3>6.10 Listicles, PR, and AI sources</h3>
+      <ol class="steps">
+        <li><b>Correct the old name across third-party sites</b> (arenal.net, visitcostarica.com, review pages calling Gardens a couples property). <span class="pill prog">In progress</span> <span class="owner">Albert, PR</span></li>
+        <li><b>Pitch Gardens into the family round-ups</b> that own and feed the AI answers (twoweeksincostarica, theeverymom, Oyster family, Scott Dunn, Costa Rica Experts, Black Tomato), plus the Mr & Mrs Smith gap. <span class="pill next">Next</span> <span class="owner">Albert, PR</span></li>
+        <li><b>Refresh the Conde Nast and Travel + Leisure inclusions</b> using the award relationships, with the family angle leading. <span class="pill next">Next</span> <span class="owner">Albert, PR</span></li>
+      </ol>
+    </div>
+
+    <div class="chan">
+      <h3>6.11 How the corporate site and Gardens work together</h3>
+      <p>nayaragardens.com owns the Gardens-brand and family content (the hub lives here). nayararesorts.com runs the non-brand feeder pages (Best Luxury Resorts, the Arenal page, the all-inclusive guide) that funnel the right guest to Gardens. They cross-link cleanly, Gardens-brand stays off the corporate domain for now so the two do not compete on the name, and fixing cross-domain tracking makes the corporate and social effort provable. Full consolidation is a later project, gated behind the tag fixes.</p>
+    </div>
+  </section>
+
+  <section id="who">
+    <h2><span class="n">7.</span>Who is doing what</h2>
+    <div class="who">
+      <div class="col"><h4>On the site (Alex)</h4>
+        <ul><li>Page FAQ, structure, and the family hub build</li><li>Hotel, FAQ, and AggregateRating schema with the awards and reviews</li><li>Family-led title, H1, and metadata</li><li>The conversion-tag and tracking fixes, with dev</li></ul>
+      </div>
+      <div class="col"><h4>Organic and off-site (Albert)</h4>
+        <ul><li>The positioning and the strategy</li><li>Old-name corrections across listings</li><li>The entity work (Wikidata, profile, consistency)</li><li>Listicle and family round-up outreach; awards refresh</li><li>Google Business Profile, Instagram, and Journal direction</li></ul>
+      </div>
+    </div>
+    <p style="margin-top:14px"><b>Shared:</b> the family content, and the AEO/GEO scoreboard that proves it worked.</p>
+  </section>
+
+  <section id="great">
+    <h2><span class="n">8.</span>Why this is a strong strategy</h2>
+    <ul>
+      <li><b>It converts strength we already have.</b> The trust, the reviews, the awards, and the AI traffic exist; we are exposing them, which is far cheaper and faster than building demand.</li>
+      <li><b>It targets winnable ground.</b> Family, rainforest, and dining in Arenal are white space no competitor owns, not the unwinnable head terms.</li>
+      <li><b>One foundation lifts everything.</b> The EEAT schema work pays into SEO, AEO, GEO, and trust at the same time.</li>
+      <li><b>It is coordinated and already moving,</b> with clear owners on the site and on the organic side, not a wish list.</li>
+      <li><b>It is honest and on-brand,</b> the wild-sloth and all-inclusive answers are true, which is exactly what the AI engines reward, and it fits the regenerative story.</li>
+      <li><b>It is measurable,</b> against a real baseline and an AI-answer scoreboard, to Alex's provability standard.</li>
+    </ul>
+  </section>
+
+  <section id="status">
+    <h2><span class="n">9.</span>Status, sequence, and how we measure</h2>
+    <div class="phase" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:600;margin:8px 0 2px;">Already done</div>
+    <ul><li>Google Business Profile and Maps name corrected to Nayara Gardens. <span class="pill done">Done</span></li>
+        <li>Gardens Search Console connected, so we have a real baseline. <span class="pill done">Done</span></li></ul>
+    <div class="phase" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);font-weight:600;margin:14px 0 2px;">In progress</div>
+    <ul><li>Page FAQ, structure, and schema (Alex). Family-led metadata. Old-name corrections (Albert). Conversion-tag fix.</li></ul>
+    <div class="phase" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:14px 0 2px;">Next</div>
+    <ul><li>Family hub page; GBP menus and booking link; the all-inclusive answer and guide; the Instagram family and wildlife series; the Journal slate; the family round-up outreach; tracked non-brand paid.</li></ul>
+
+    <h3>How we will know it worked</h3>
+    <ul>
+      <li><b>The AEO/GEO scoreboard:</b> log four prompts ("best family resort in Arenal," "is Nayara Gardens good for families," "Nayara Gardens vs Springs," "best hot springs resort" for Springs) across ChatGPT, Perplexity, Gemini, and Google AI Overviews, before and after, recording whether each engine recommends, mentions, or omits Gardens and how it frames the audience.</li>
+      <li><b>Search Console:</b> Gardens starts appearing for the family cluster (baseline today is effectively zero).</li>
+      <li><b>The result that matters:</b> Gardens organic revenue closes the gap toward its siblings, from roughly one sixth of Springs today toward parity for its share of visitors.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Nayara Gardens complete digital game plan, June 2026. Figures are from live Google Analytics, Search Console, Semrush, Instagram, and Google Business Profile for the stated period. Items marked in progress or next are steps to ship and measure, proven against the baseline, not completed work.
+  </footer>
+
+</div>
+</body>
+</html>
