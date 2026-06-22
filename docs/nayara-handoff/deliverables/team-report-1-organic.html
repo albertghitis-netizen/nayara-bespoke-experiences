@@ -33,6 +33,8 @@
   .gardens{background:#fbf3ec;}
   .pill{display:inline-block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; font-weight:600; padding:3px 9px; border-radius:100px;}
   .pill.bad{background:#f3e2d4; color:var(--warn);} .pill.good{background:var(--mist); color:var(--teal);}
+  .status{display:inline-block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; font-weight:600; padding:3px 9px; border-radius:100px; margin-left:6px; vertical-align:middle;}
+  .status.done{background:var(--mist); color:var(--teal);} .status.prog{background:#f3e2d4; color:var(--warn);} .status.next{background:#ece6db; color:var(--muted);}
   .callout{background:#fff; border:1px solid var(--line); border-left:3px solid var(--teal); border-radius:10px; padding:22px 26px; margin:18px 0; font-size:17px;}
   .callout.warn{border-left-color:var(--warn);}
   .big{font-family:'Playfair Display',serif; font-size:34px; color:var(--teal); font-weight:600; line-height:1;}
@@ -100,32 +102,35 @@
     <h2>The four root causes</h2>
     <div class="cause"><h3>1. Positioning</h3><p>Gardens is presented as generic luxury or romance instead of the family flagship. This is the core error; it shapes everything else.</p></div>
     <div class="cause"><h3>2. Missing pages and structure</h3><p>There is no dedicated family page, and no Hotel, FAQ, or rating structured data that search engines and AI assistants read to understand and quote the property.</p></div>
-    <div class="cause"><h3>3. Entity disconnection</h3><p>The old names, the 4.9 rating from 1,070 reviews, and the awards are not unified under "Nayara Gardens," so the brand's own reputation is not fully working for it.</p></div>
-    <div class="cause"><h3>4. Measurement</h3><p>Gardens' Search Console data does not yet flow into our reporting, so we cannot fully size family demand or prove progress until this is connected.</p></div>
+    <div class="cause"><h3>3. Entity disconnection</h3><p>The old names ("Arenal Nayara" and "Nayara Resort Spa & Gardens"), the 4.9 rating from 1,070 reviews, and the awards are not yet unified under "Nayara Gardens," so the brand's own reputation is not fully working for it. Two parts of this are already moving: the Google Maps and Business Profile name is now corrected to Nayara Gardens, and we are actively contacting the third-party sites that still show the old name to update them.</p></div>
+    <div class="cause"><h3>4. Measurement</h3><p>This is now resolved at the source: Gardens' Search Console is connected to our reporting, so for the first time we can size family demand and baseline progress. The remaining gap is on-page structure, which is being addressed (see below).</p></div>
   </section>
 
   <section>
     <h2>What we are going to do about it</h2>
     <p class="lede">A focused, sequenced plan for Gardens organic. We do not need more analysis; we need these shipped and measured. Springs and Tented stay on maintenance.</p>
 
+    <div class="callout"><b>Already in motion.</b> This is not a cold start. The Google Maps and Business Profile name change to Nayara Gardens is live. Gardens Search Console is now connected for measurement. The page FAQ, structure, and schema fixes are in progress this week. And we are actively reaching out to the third-party sites that still show the old name. The remaining items below build on that momentum.</p>
+
     <div class="phase">Foundation</div>
     <ol class="steps">
-      <li><b>Connect Gardens Search Console</b> to reporting so we can size family demand and prove progress. <span class="owner">Owner: analytics / dev</span></li>
-      <li><b>Rewrite the live Gardens page to lead with family</b> (title, H1, meta, intro). No new page needed; the cheapest high-leverage fix. <span class="owner">Owner: web / content</span></li>
-      <li><b>Add Hotel, FAQ, and rating structured data</b> with the old names, the 4.9 / 1,070 rating, and awards, so search and AI understand and quote Gardens correctly. <span class="owner">Owner: web / SEO</span></li>
+      <li><b>Connect Gardens Search Console</b> so we can size family demand and prove progress. <span class="status done">Done</span> <span class="owner">Owner: analytics / dev</span></li>
+      <li><b>Fix the Gardens page FAQ, structure, and schema</b> (Hotel, FAQ, and rating data with the old names, the 4.9 / 1,070 rating, and awards), so search and AI understand and quote Gardens correctly. <span class="status prog">In progress</span> <span class="owner">Owner: web / SEO</span></li>
+      <li><b>Rewrite the live Gardens page to lead with family</b> (title, H1, meta, intro). The cheapest high-leverage fix; fold into the structure work underway. <span class="status prog">In progress</span> <span class="owner">Owner: web / content</span></li>
     </ol>
 
     <div class="phase">Build the winnable pages</div>
     <ol class="steps">
-      <li><b>Build the Gardens family page</b> targeting the family searches (costa rica family resorts and similar), with verified proof points: suites sleep four, sloth trail, babysitting, on-call doctor, guaranteed adjacent rooms. <span class="owner">Owner: content / web</span></li>
-      <li><b>Build the Arenal / La Fortuna page</b> targeting "hotels in la fortuna costa rica" (the single most winnable mid-volume term), positioning all three properties. <span class="owner">Owner: content / web</span></li>
-      <li><b>Publish Gardens dining content and add menus to Google Business Profile.</b> "Restaurants" is the top non-brand Maps search for Gardens (3,543 in 90 days) and dining is open white space in Arenal. <span class="owner">Owner: content / local</span></li>
-      <li><b>Build the sloth experience page, credited to Gardens.</b> Reclaims the "hotel with sloths" answer we currently lose, and corrects the drift that credits the sloths to Springs. <span class="owner">Owner: content</span></li>
+      <li><b>Build the Gardens family page</b> targeting the family searches (costa rica family resorts and similar), with verified proof points: suites sleep four, sloth trail, babysitting, on-call doctor, guaranteed adjacent rooms. <span class="status next">Next</span> <span class="owner">Owner: content / web</span></li>
+      <li><b>Build the Arenal / La Fortuna page</b> targeting "hotels in la fortuna costa rica" (the single most winnable mid-volume term), positioning all three properties. <span class="status next">Next</span> <span class="owner">Owner: content / web</span></li>
+      <li><b>Publish Gardens dining content and add menus to Google Business Profile.</b> "Restaurants" is the top non-brand Maps search for Gardens (3,543 in 90 days) and dining is open white space in Arenal. <span class="status next">Next</span> <span class="owner">Owner: content / local</span></li>
+      <li><b>Build the sloth experience page, credited to Gardens.</b> Reclaims the "hotel with sloths" answer we currently lose, and corrects the drift that credits the sloths to Springs. <span class="status next">Next</span> <span class="owner">Owner: content</span></li>
     </ol>
 
     <div class="phase">Amplify off-page</div>
     <ol class="steps">
-      <li><b>Get Gardens into the family round-ups</b> that own those answers today, refresh our inclusion in the Condé Nast and Travel + Leisure lists using our award relationships, and correct the stale old-name and couples descriptions on third-party sites. <span class="owner">Owner: PR / partnerships</span></li>
+      <li><b>Correct the old name across third-party sites.</b> Actively contacting every site that still shows "Arenal Nayara" or the old name so the record matches today's brand. <span class="status prog">In progress</span> <span class="owner">Owner: PR / partnerships</span></li>
+      <li><b>Get Gardens into the family round-ups</b> that own those answers today, and refresh our inclusion in the Condé Nast and Travel + Leisure lists using our award relationships, with the family positioning leading. <span class="status next">Next</span> <span class="owner">Owner: PR / partnerships</span></li>
     </ol>
   </section>
 
@@ -133,11 +138,11 @@
     <h2>How we will know it worked</h2>
     <p class="lede">Every step above is measured against a clean baseline, not assumed. This keeps the work honest and defensible.</p>
     <ul>
-      <li><b>Baseline first:</b> once Search Console is connected (step 1), we capture Gardens' starting family-term rankings and organic revenue.</li>
-      <li><b>Leading signs (weeks):</b> Gardens starts appearing for family searches and in AI answers for "best family resort Costa Rica"; the live page reads as family.</li>
+      <li><b>Baseline now:</b> Search Console is connected, so we capture Gardens' starting family-term rankings and organic revenue as the line we measure against.</li>
+      <li><b>Leading signs (weeks):</b> Gardens starts appearing for family searches and in AI answers for "best family resort Costa Rica"; the live page reads as family; the old name fades from third-party listings.</li>
       <li><b>The result that matters (months):</b> Gardens organic revenue closes the gap toward its siblings, from roughly one sixth of Springs today toward parity for its share of visitors.</li>
     </ul>
-    <div class="callout">One honest note: family demand is hard to size today precisely because Gardens barely appears for it. We will confirm the volume with Keyword Planner once measurement is connected, and treat the new pages as tests we prove, not promises.</div>
+    <div class="callout">One honest note: family demand is hard to size precisely because Gardens has barely appeared for it until now. With Search Console connected we will confirm the volume with Keyword Planner, and treat the new pages as tests we prove, not promises.</div>
   </section>
 
   <footer>
