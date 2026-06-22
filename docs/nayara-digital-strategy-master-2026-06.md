@@ -205,27 +205,31 @@ Springs Resort" land on Nayara Gardens. Keep GBP categories/attributes optimized
 | Account | Followers | Posts | 90d reach | Audience |
 |---|---|---|---|---|
 | nayararesorts | 71,197 | 2,392 | 42,113 | 65% female; US 37% / Costa Rica 33% / LatAm heavy |
+| nayaratentedcamp | 64,706 | 1,350 | **143,773** | 67% female |
 | nayarasprings | 20,079 | 425 | 30,865 | 72% female; US 40% / Costa Rica 40% |
 | nayaragardens | 17,282 | 835 | 35,947 | 75% female; US 51% / Costa Rica 23% |
-| Nayara Tented Camp | not connected to Windsor | n/a | n/a | (gap, connect it) |
 
 **Reads:**
-- **The audience is heavily Costa Rica / Latin America**, especially corporate (33% CR) and Springs (40%
- CR). A large share of the following is not the US/European high-value booker. Follower counts are
- modest for luxury hospitality, and engagement is low (corporate ~42K reach on 71K followers; Springs
- interactions often 10-60/post).
-- **Female skew (65-75%)** aligns with family (Gardens) and romance (Springs) positioning.
-- **Gardens IG is the most US-weighted (51%)** and engages relatively well on a small base, the best
- property account to lean into for the US family audience.
+- **Tented is the standout property account by a wide margin:** near-corporate follower count (64,706)
+  and 90-day reach of 143,773, roughly 3 to 4x the other property handles (Gardens 35,947, Springs
+  30,865), with the strongest post engagement (frequent 150 to 600 interactions vs Springs' 10 to 60).
+  Glamping and volcano-view content travels on social. This is the proof case and the content model to
+  replicate for Gardens (sloths/family).
+- **The audience is heavily Costa Rica / Latin America** on the corporate (33% CR) and Springs (40% CR)
+  handles. A large share of that following is not the US/European high-value booker.
+- **Female skew (65 to 75%)** across all accounts aligns with family (Gardens) and romance (Springs).
+- **Gardens IG is the weakest and most US-weighted (51% US):** smallest following (17,282) and lowest
+  reach despite the most bookable US audience, the exact mismatch the family repositioning should fix.
 
 **Recommendations (social):**
-1. **Connect Nayara Tented Camp's Instagram to the measurement stack** (currently dark).
+1. **Apply the Tented playbook to Gardens.** Tented proves visual differentiator content (glamping, Arenal
+   views) drives 3 to 4x reach. Do the same for Gardens with sloths + family, the under-told story.
 2. **Skew paid/organic social targeting toward US + UK** high-value bookers rather than broad LatAm reach,
- given the booking audience is US/UK.
+   given the booking audience is US/UK.
 3. **Lean into the differentiators that travel on social:** sloths (Gardens, family), hot-springs villas
- (Springs, romance), glamping + Arenal views (Tented).
+   (Springs, romance), glamping + Arenal views (Tented, already working).
 4. **Tie social to bookings via the cross-domain fix**, corporate Paid Social alone is 40,290
- sessions/90d with $0 attributed; that spend is currently unprovable.
+   sessions/90d with $0 attributed; that spend is currently unprovable.
 
 ---
 
