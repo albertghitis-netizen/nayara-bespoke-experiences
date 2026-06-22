@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nayara Gardens: The Deep Game Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F7F5F0;--ink:#0D0704;--teal:#006D75;--teal-light:#4DC9D1;--bark:#3a2a1a;--mist:#E2F0F0;--line:#e4ded3;--muted:#5b5247;--warn:#8a5a2b;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Sans',-apple-system,sans-serif;line-height:1.7;font-size:16.5px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.18;color:var(--ink);}
+  .hero{padding:80px 0 48px;border-bottom:1px solid var(--line);}
+  .series{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:18px;}
+  .hero h1{font-size:46px;line-height:1.06;letter-spacing:-.01em;margin-bottom:18px;}
+  .hero p{font-size:20px;color:var(--muted);max-width:700px;}
+  .meta{margin-top:26px;font-size:13.5px;color:var(--muted);}
+  .toc{margin-top:30px;font-size:14.5px;color:var(--muted);columns:2;column-gap:36px;}
+  .toc a{color:var(--bark);text-decoration:none;display:block;padding:3px 0;}
+  section{padding:46px 0;border-bottom:1px solid var(--line);}
+  h2{font-size:28px;margin-bottom:10px;}
+  .num{color:var(--teal-light);}
+  .lede{color:var(--muted);font-size:18px;margin-bottom:24px;max-width:720px;}
+  h3{font-size:19px;margin:24px 0 8px;}
+  p{margin-bottom:14px;}ul{margin:0 0 14px 22px;}li{margin-bottom:7px;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px;}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  td.n{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .gardens{background:#fbf3ec;}
+  .callout{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;margin:16px 0;}
+  .callout.warn{border-left-color:var(--warn);}
+  .callout.q{border-left-color:var(--bark);background:#fbf8f3;}
+  .callout .qh{font-family:'Playfair Display',serif;font-size:18px;margin-bottom:6px;color:var(--bark);}
+  .verdict{font-weight:600;color:var(--teal);}
+  .pill{display:inline-block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;padding:3px 9px;border-radius:100px;}
+  .done{background:var(--mist);color:var(--teal);} .prog{background:#f3e2d4;color:var(--warn);} .next{background:#ece6db;color:var(--muted);}
+  ol.steps{counter-reset:s;list-style:none;margin:8px 0;}
+  ol.steps li{position:relative;padding:15px 0 15px 50px;border-bottom:1px solid var(--line);}
+  ol.steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:13px;width:34px;height:34px;background:var(--teal);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;}
+  .owner{display:inline-block;font-size:12px;color:var(--muted);margin-top:3px;}
+  .phase{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:600;margin:20px 0 2px;}
+  .big{font-family:'Playfair Display',serif;font-size:30px;color:var(--teal);font-weight:600;line-height:1;}
+  footer{padding:38px 0 80px;color:var(--muted);font-size:13.5px;}
+  @media(max-width:680px){.hero h1{font-size:32px;}.wrap{padding:0 20px;}.toc{columns:1;}table{font-size:13px;}th,td{padding:9px 7px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="series">Nayara Digital Strategy &middot; Nayara Gardens Game Plan &middot; Deep Dive</div>
+    <h1>Nayara Gardens: the deep game plan</h1>
+    <p>Everything we know and have analyzed about Gardens, in one place: where the numbers come from, what to target and why, how the family and sloth story becomes one page, and how the website, Google profile, Instagram, the Journal, and the press all pull in the same direction.</p>
+    <div class="meta">Team game plan &middot; June 2026 &middot; Sources: Google Analytics, Google Search Console (now connected), Semrush, Instagram, Google Business Profile, the SynXis booking workbook</div>
+    <div class="toc">
+      <a href="#m">1. Where the numbers come from</a>
+      <a href="#p">2. The Gardens problem, in data</a>
+      <a href="#t">3. What we target, and is family right?</a>
+      <a href="#fs">4. The combined Family + Sloth page</a>
+      <a href="#port">5. The portfolio, and is "luxury glamping" luxury enough?</a>
+      <a href="#dom">6. How the corporate site and Gardens interact</a>
+      <a href="#gbp">7. Google Business Profile</a>
+      <a href="#ig">8. Instagram</a>
+      <a href="#journal">9. The Journal</a>
+      <a href="#list">10. Listicles and AI answers</a>
+      <a href="#plan">11. The sequenced game plan</a>
+    </div>
+  </header>
+
+  <section id="m">
+    <h2><span class="num">1.</span> Where the numbers come from (so we can trust them)</h2>
+    <p class="lede">Before the plan, the receipts. Every figure in this document traces to a live source, and where sources disagree we say so.</p>
+    <ul>
+      <li><b>Organic revenue ($53,402 for Gardens, $342,576 Springs, $867,140 Tented, last 90 days).</b> These come from <b>Google Analytics 4</b>, pulled live, filtered to the Organic Search channel and the booking revenue each property records, over the trailing 90 days. They are not estimates. As a sanity check, Gardens' total GA4 revenue for May ($181,972) matches its own GA4 report exactly, and the booking workbook (validated against SynXis) confirms the same ranking of the three properties.</li>
+      <li><b>Search Console (now connected).</b> Gardens' Search Console is live in our reporting for the first time, so the rankings and impressions below are real, not inferred.</li>
+      <li><b>Keyword volumes and competition</b> come from <b>Semrush</b> (United States database, pulled live). These are monthly US search volumes; "competition" is a 0 to 1 difficulty proxy.</li>
+      <li><b>Audience, Instagram, and Google profile numbers</b> come from GA4, Instagram, and Google Business Profile directly.</li>
+    </ul>
+    <div class="callout warn">One honest caveat we carry throughout: about 61% of Gardens' GA4 revenue lands in a "Referral" bucket that is mostly the booking-engine handoff, not a true outside source. So channel-level revenue is directional. The property totals and the organic figure are solid; the exact split by channel will tighten once cross-domain tracking is clean.</div>
+  </section>
+
+  <section id="p">
+    <h2><span class="num">2.</span> The Gardens problem, in data</h2>
+    <p class="lede">Gardens is not short on visitors. It is short on the right visitors and the booking, and Search Console now proves exactly why.</p>
+    <table>
+      <thead><tr><th>Organic, last 90 days</th><th>Tented</th><th>Springs</th><th>Gardens</th></tr></thead>
+      <tbody>
+        <tr><td>Organic revenue</td><td class="n">$867,140</td><td class="n">$342,576</td><td class="n gardens">$53,402</td></tr>
+        <tr><td>Organic visitors</td><td class="n">~21,750</td><td class="n">~19,390</td><td class="n gardens">~15,020</td></tr>
+        <tr><td>Average booking value</td><td class="n">$5,978</td><td class="n">$4,129</td><td class="n gardens">$3,184</td></tr>
+      </tbody>
+    </table>
+    <p>Gardens gets organic visitors in the same range as its siblings but earns roughly <b>one sixth</b> of the organic revenue. Across the wider web it actually pulls more total organic traffic than Springs or Tented. The traffic exists; it does not convert, because it is the wrong fit and the family story is missing.</p>
+    <h3>Search Console confirms Gardens is invisible for family</h3>
+    <p>Now that Search Console is connected, the picture is stark. Gardens' organic clicks are almost entirely its own brand name and dining:</p>
+    <ul>
+      <li>"nayara gardens" (146 clicks), "nayara gardens costa rica" (40), plus restaurant and menu terms (Asia Luna, La Terraza, Nostalgia). That is essentially all of it.</li>
+      <li>For family searches, Gardens barely appears: "best family resorts in costa rica" shows it at <b>position 1 but with a single impression</b> in 90 days; "arenal family resort costa rica" the same. It is technically eligible and nearly never shown.</li>
+    </ul>
+    <div class="callout">This is the opportunity stated plainly: <b>Gardens' family search presence is near zero today, so the baseline is near zero and the upside is the entire category.</b> We are not defending family rankings; we are creating them.</div>
+    <h3>Who is actually visiting</h3>
+    <p>Gardens' audience is already the family traveler: <b>60.8% female</b>, ages 25 to 44, with the United States driving 71.6% of users and 88.4% of revenue and the UK punching above its size (6.6% of revenue). This is the multi-generational and family guest, not the honeymoon couple the page currently speaks to.</p>
+  </section>
+
+  <section id="t">
+    <h2><span class="num">3.</span> What we target, and is family the right call?</h2>
+    <p class="lede">You asked the sharp question: based on volume, should family be the target? Here is the honest answer with the Semrush numbers in front of us.</p>
+    <h3>The Semrush keyword research, by cluster (US monthly volume)</h3>
+    <table>
+      <thead><tr><th>Cluster</th><th>Top terms and volume</th><th>Can Gardens win it?</th></tr></thead>
+      <tbody>
+        <tr><td><b>Family</b></td><td>costa rica family resorts 1,600; best family resorts in costa rica 1,300; resorts for families 720; family vacation 590; smaller tail. Roughly 4,500 combined.</td><td><b>Yes.</b> No competitor owns family-in-Arenal. White space.</td></tr>
+        <tr><td><b>Arenal / La Fortuna geo</b></td><td>hotels in la fortuna costa rica 3,600 (low competition, 0.20); hotels in arenal 1,300; arenal resorts 1,000; la fortuna resorts 590.</td><td><b>Yes.</b> The biggest winnable volume; The Springs holds it today but is beatable.</td></tr>
+        <tr><td><b>Sloths</b></td><td>"hotel with sloths costa rica" near zero exact volume; "sloth sanctuary costa rica" ~2,400 (different, non-hotel intent).</td><td>Not a volume play. A differentiator and AI and social hook (see section 4).</td></tr>
+        <tr><td>Head terms</td><td>costa rica resorts 22,200; best resorts in costa rica 3,600.</td><td>No, on-page. Listicle and AI-citation play only (section 10).</td></tr>
+        <tr><td>All-inclusive</td><td>costa rica all inclusive 49,500.</td><td>No. Wrong intent; Nayara is breakfast-only. Answer honestly, do not chase.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout q">
+      <div class="qh">Is family the right target based on volume?</div>
+      <p class="verdict">Yes, but not because it is the biggest number. It is the right target because it is the rare cluster that is winnable, on-product, and the fix for everything else.</p>
+      <p>On raw volume, family (~4,500) is smaller than the head terms (22,200) or all-inclusive (49,500). But those bigger numbers are not catchable: the head terms are owned by listicles, and all-inclusive is the wrong intent. Family is winnable (no rival owns it in Arenal), it matches our actual product and our actual audience, and fixing the family positioning lifts conversion across <i>all</i> of Gardens' traffic, including the brand searches that already arrive. So we target <b>family as the positioning spine, paired with the larger Arenal and La Fortuna geo terms for volume,</b> with sloths as the hook. That combination is bigger and more winnable than chasing any single head term.</p>
+    </div>
+    <p>One measurement note: because Gardens barely appears for family today, Search Console cannot size the demand yet. The Semrush US volumes above are our best estimate, and we will confirm with Keyword Planner now that measurement is connected. We treat the family page as a test we prove, not a promise.</p>
+  </section>
+
+  <section id="fs">
+    <h2><span class="num">4.</span> The combined Family + Sloth page</h2>
+    <p class="lede">You combined the family page and the sloth page. That is exactly right, and here is why and how.</p>
+    <div class="callout q">
+      <div class="qh">Can we combine family and sloths into one page?</div>
+      <p class="verdict">Yes. They are stronger together than apart.</p>
+      <p>Family is the <b>search demand</b> (the keywords people type). Sloths are the <b>reason to believe</b> and the emotional hook (the thing kids beg for, the thing no competitor can copy, and already the answer AI assistants give for "hotel with sloths"). Sloths have almost no direct search volume, so a standalone sloth page would rank for nothing; folded into the family page, the sloth becomes the headline that makes the family page convert and earns the AI and social attention.</p>
+    </div>
+    <h3>How to structure the one page</h3>
+    <ul>
+      <li><b>Target family in the page mechanics:</b> title, H1, URL, and headings built around the family terms (family resort in Arenal, Costa Rica with kids). This is what Google reads.</li>
+      <li><b>Lead with the sloth as the hero:</b> the on-property sloth trail and sanctuary as the opening promise, packaged for families ("the easiest place in Costa Rica for your kids to see a sloth").</li>
+      <li><b>Prove the family product:</b> suites that sleep four, guaranteed adjacent rooms, babysitting, on-call doctor, stroller-friendly paths, kids' programming. Verified claims only.</li>
+      <li><b>Add FAQ structured data for both stories:</b> "Is Nayara Gardens good for families?", "Do rooms sleep four?", "Can my kids see sloths?", "Is it all-inclusive?" This is what wins the AI answers Gardens is absent from.</li>
+      <li><b>Credit the sloths to Gardens,</b> correcting the drift that currently attributes the sloth sanctuary to Springs.</li>
+      <li><b>"Check availability" as the call to action,</b> with a clean, migration-ready URL.</li>
+    </ul>
+  </section>
+
+  <section id="port">
+    <h2><span class="num">5.</span> The portfolio, and is "luxury glamping" luxury enough for Tented?</h2>
+    <p class="lede">Gardens does not stand alone; how the three properties are positioned protects each other. You asked specifically whether "luxury glamping" is a strong enough position for Tented.</p>
+    <table>
+      <thead><tr><th>Property</th><th>Position</th><th>Owns the searches for</th><th>Avg booking value</th></tr></thead>
+      <tbody>
+        <tr class="gardens"><td><b>Gardens</b></td><td>Family flagship</td><td>family, Arenal, sloths (to build)</td><td class="n">$3,184</td></tr>
+        <tr><td><b>Springs</b></td><td>Adults-only romance</td><td>honeymoon, adults-only, MICHELIN</td><td class="n">$4,129</td></tr>
+        <tr><td><b>Tented</b></td><td>Luxury glamping</td><td>glamping, tented camp, safari</td><td class="n">$5,978</td></tr>
+      </tbody>
+    </table>
+    <div class="callout q">
+      <div class="qh">Is "luxury glamping" luxury enough?</div>
+      <p class="verdict">Yes. Tented commands the highest booking value of all three properties ($5,978) and is the top revenue performer, so the market is already paying a premium for it.</p>
+      <p>"Glamping" as a word can sound down-market, but Tented's product is the opposite: 1,700 square foot tents with private plunge pools and volcano views, rated Travel + Leisure number two in the world. The data backs the position: Tented owns the glamping searches, gets discovered for "luxury resorts costa rica" on Maps, and is our strongest social account (90-day reach of 143,773). The right move is not to abandon "glamping," which is where the demand is and where Tented dominates, but to always pair it with the luxury proof points: "luxury tented camp," private plunge pools, the awards. Glamping is the category; luxury is the qualifier. Tented owns both.</p>
+    </div>
+    <p>Why this matters for Gardens: keeping Springs on romance and Tented on luxury glamping leaves <b>family wholly to Gardens</b>. That clean separation is what makes the family position defensible and stops the three properties from blurring into each other in search and AI answers.</p>
+  </section>
+
+  <section id="dom">
+    <h2><span class="num">6.</span> How the corporate site and Gardens interact</h2>
+    <p class="lede">We run two separate websites that need to cooperate, not compete: nayararesorts.com (corporate) and nayaragardens.com (the property).</p>
+    <h3>What each does</h3>
+    <ul>
+      <li><b>nayaragardens.com</b> is the property site where the booking happens. It should own the Gardens-brand and family content (the family and sloth page lives here).</li>
+      <li><b>nayararesorts.com</b> is the brand hub and the home for non-brand category pages (Best Luxury Resorts in Costa Rica, a "Which Nayara is right for you" comparison, an Arenal and La Fortuna page). These target general searches and funnel the right guest to Gardens.</li>
+    </ul>
+    <h3>How they pass guests between each other</h3>
+    <p>Analytics shows the corporate site already sends visitors and bookings to Gardens (a nayararesorts.com referral into Gardens), and Gardens hands completed bookings to the reservation engine. Two issues come with that:</p>
+    <ul>
+      <li><b>They can compete on the Gardens name.</b> The corporate site also ranks for "nayara gardens," so putting Gardens-brand pages on the corporate domain would split the name between two of our own sites. That is why Gardens-brand content stays on nayaragardens.com for now.</li>
+      <li><b>The handoff hides attribution.</b> The corporate site drew 153,839 visits in 90 days but records almost no bookings on itself, because the booking happens after the handoff. So the value of corporate and social effort is real but currently hard to prove. Fixing cross-domain tracking is what makes it visible.</li>
+    </ul>
+    <div class="callout">The plan: build the non-brand feeder pages on corporate (positioning Gardens as the family pick), keep the family and sloth page on nayaragardens.com, cross-link them cleanly, and fix cross-domain tracking. Full consolidation of the two sites is a later project, gated behind the conversion-tag fixes already underway.</div>
+  </section>
+
+  <section id="gbp">
+    <h2><span class="num">7.</span> Google Business Profile (Maps)</h2>
+    <p class="lede">This is the fastest set of wins, and the name fix is already done.</p>
+    <table>
+      <thead><tr><th>Gardens profile, last 90 days</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Impressions (Maps + Search)</td><td class="n">67,898</td></tr>
+        <tr><td>Website clicks</td><td class="n">5,129</td></tr>
+        <tr><td>Direction requests</td><td class="n">3,213</td></tr>
+        <tr><td>Reviews / rating</td><td class="n">1,070 / 4.9</td></tr>
+        <tr><td>Top non-brand search</td><td class="n">"restaurants" (3,543)</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><b>Done:</b> the profile name is corrected to Nayara Gardens. <span class="pill done">Done</span></li>
+      <li><b>"Restaurants" is the number one non-brand thing people search to find Gardens (3,543 in 90 days), yet no menus are attached.</b> Add the restaurant menus to the profile. <span class="pill next">Next</span></li>
+      <li><b>Maps bookings are turned off.</b> Enable the reservation link as "Check availability." <span class="pill next">Next</span></li>
+      <li>Keep categories, attributes (family-friendly), and real photography current; respond to reviews; post regularly. Gardens already captures people searching competitors (Tabacon, The Springs) on Maps, so hold that visibility. <span class="pill next">Next</span></li>
+    </ul>
+  </section>
+
+  <section id="ig">
+    <h2><span class="num">8.</span> Instagram</h2>
+    <p class="lede">Gardens has the weakest property account and the most bookable audience. Tented already proved the model.</p>
+    <table>
+      <thead><tr><th>Account</th><th>Followers</th><th>90-day reach</th><th>Audience</th></tr></thead>
+      <tbody>
+        <tr><td>nayararesorts</td><td class="n">71,197</td><td class="n">42,113</td><td>65% female; CR and LatAm heavy</td></tr>
+        <tr><td>nayaratentedcamp</td><td class="n">64,706</td><td class="n">143,773</td><td>67% female</td></tr>
+        <tr><td>nayarasprings</td><td class="n">20,079</td><td class="n">30,865</td><td>72% female; US 40%</td></tr>
+        <tr class="gardens"><td>nayaragardens</td><td class="n">17,282</td><td class="n">35,947</td><td>75% female; US 51%</td></tr>
+      </tbody>
+    </table>
+    <p>Tented reaches three to four times what the other property accounts do, on visual differentiator content (glamping, volcano views). Gardens has the same kind of asset and is not using it.</p>
+    <ul>
+      <li><b>Apply the Tented playbook to Gardens:</b> a steady stream of sloth and family content (Reels and short video), the most shareable assets we have.</li>
+      <li><b>Target the bookers:</b> Gardens' audience is the most US-weighted (51%); skew paid and organic social to US and UK rather than broad reach.</li>
+      <li><b>Reframe the Gardens handle around family and sloths,</b> not generic luxury, matching the website fix.</li>
+      <li><b>Tie social to bookings</b> through the cross-domain tracking fix, so this stops being a vanity number.</li>
+    </ul>
+  </section>
+
+  <section id="journal">
+    <h2><span class="num">9.</span> The Journal</h2>
+    <p class="lede">Editorial supports the family page; it does not replace it. A few sharp pieces, aimed at the family story, feeding the page that converts.</p>
+    <ul>
+      <li><b>Connect the editorial subdomain to Search Console</b> so we can see what ranks. <span class="pill next">Next</span></li>
+      <li><b>Write a small set of family-and-sloth pieces</b> that each link into the family page: seeing sloths with kids at Arenal, getting to La Fortuna with children, a multi-generational Costa Rica itinerary. Quality over volume.</li>
+      <li><b>Build for credibility and AI citation:</b> a named author with real expertise, real photography only, clear sourcing, and a structure assistants can quote.</li>
+      <li><b>Later, fold the Journal into the main site</b> as a folder (not a separate subdomain) with page-by-page redirects, so its authority strengthens the commercial pages. This sits behind the family page, not ahead of it.</li>
+    </ul>
+  </section>
+
+  <section id="list">
+    <h2><span class="num">10.</span> Listicles and AI answers (the off-page lever)</h2>
+    <p class="lede">The biggest family and head-term searches are won on other people's pages, the same pages AI assistants quote. This is how we reach demand we cannot rank for ourselves, and it is where the old-name cleanup already in progress pays off.</p>
+    <h3>Where Gardens is missing and should be</h3>
+    <table>
+      <thead><tr><th>Target</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Family round-ups (twoweeksincostarica, theeverymom, Oyster family, Scott Dunn, Costa Rica Experts "Best Family Resorts", Black Tomato family)</td><td><span class="pill next">Gap</span></td><td>Pitch Gardens for inclusion with the verified family proof points. Highest priority; this is the AI family answer.</td></tr>
+        <tr><td>Mr & Mrs Smith (ranks for the luxury head term, omits Nayara Costa Rica)</td><td><span class="pill next">Gap</span></td><td>Pitch all three properties.</td></tr>
+        <tr><td>Condé Nast Traveler and Travel + Leisure best-hotels lists</td><td><span class="pill prog">Verify</span></td><td>Use our award relationships to confirm and refresh inclusion, with the family angle leading for Gardens.</td></tr>
+        <tr><td>Old-name listings (arenal.net, visitcostarica.com, review sites calling Gardens a couples property)</td><td><span class="pill prog">In progress</span></td><td>Correct to the current name and family positioning. Already underway.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">Why this matters for AI: assistants quote these third-party pages. Today they leave Gardens out of "best family resort Costa Rica" and re-cast it as couples. Getting into the family round-ups, plus the FAQ structured data on our own family page, is how Gardens becomes the answer instead of the omission. Gardens already leads our AI Assistant channel ($15,350 in 90 days and growing), so this compounds.</div>
+  </section>
+
+  <section id="plan">
+    <h2><span class="num">11.</span> The sequenced game plan</h2>
+    <p class="lede">What is done, what is moving, and what is next. Springs and Tented stay on maintenance; the effort concentrates on Gardens.</p>
+
+    <div class="phase">Already done</div>
+    <ol class="steps">
+      <li><b>Google Business Profile and Maps name corrected to Nayara Gardens.</b> <span class="pill done">Done</span></li>
+      <li><b>Gardens Search Console connected</b> to reporting, so we now have a real baseline. <span class="pill done">Done</span></li>
+    </ol>
+
+    <div class="phase">In progress</div>
+    <ol class="steps">
+      <li><b>Gardens page FAQ, structure, and schema</b> (Hotel, FAQ, and rating data with the old names, 4.9 / 1,070 rating, awards). <span class="pill prog">In progress</span> <span class="owner">Owner: web / SEO</span></li>
+      <li><b>Reposition the live page to lead with family and sloths</b> (title, H1, meta, intro), folded into the structure work. <span class="pill prog">In progress</span> <span class="owner">Owner: web / content</span></li>
+      <li><b>Correct the old name across third-party sites.</b> <span class="pill prog">In progress</span> <span class="owner">Owner: PR / partnerships</span></li>
+    </ol>
+
+    <div class="phase">Next</div>
+    <ol class="steps">
+      <li><b>Publish the combined Family + Sloth page</b> on nayaragardens.com, family for search, sloth for the hook, full FAQ schema, "Check availability" call to action. <span class="owner">Owner: content / web</span></li>
+      <li><b>Add restaurant menus and enable the booking link on the Google profile.</b> Fastest win. <span class="owner">Owner: local / web</span></li>
+      <li><b>Build the corporate Arenal and La Fortuna page</b> (and Best Luxury Resorts) that funnel to Gardens. <span class="owner">Owner: content / web</span></li>
+      <li><b>Launch the family sloth content series on Instagram</b>, US and UK focused. <span class="owner">Owner: social</span></li>
+      <li><b>Pitch Gardens into the family round-ups</b> and refresh the CNT and T+L inclusions. <span class="owner">Owner: PR / partnerships</span></li>
+      <li><b>Connect the Journal subdomain to Search Console</b> and start the family and sloth pieces. <span class="owner">Owner: content / SEO</span></li>
+    </ol>
+
+    <h3>How we will know it worked</h3>
+    <ul>
+      <li><b>Baseline now:</b> Search Console is connected; Gardens' family-term presence today is effectively zero, which is our starting line.</li>
+      <li><b>Leading signs (weeks):</b> Gardens starts appearing for family searches and in AI answers for "best family resort Costa Rica"; the old name fades from third-party sites; the family page reads as family with sloths front and center.</li>
+      <li><b>The result that matters (months):</b> Gardens organic revenue closes the gap toward its siblings, from roughly one sixth of Springs today toward parity for its share of visitors.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Nayara Gardens deep game plan, June 2026. Figures are from live Google Analytics, Search Console, Semrush, Instagram, and Google Business Profile for the stated period. Items marked in progress or next are steps to ship and measure, proven against the baseline, not completed work.
+  </footer>
+
+</div>
+</body>
+</html>
