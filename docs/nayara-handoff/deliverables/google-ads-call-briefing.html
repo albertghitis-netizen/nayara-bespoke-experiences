@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads Specialist Call: Briefing and Agenda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F7F5F0;--ink:#0D0704;--teal:#006D75;--teal-light:#4DC9D1;--bark:#3a2a1a;--mist:#E2F0F0;--line:#e4ded3;--muted:#5b5247;--warn:#8a5a2b;--red:#9b3a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Sans',-apple-system,sans-serif;line-height:1.62;font-size:16px;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.16;color:var(--ink);}
+  .hero{padding:70px 0 38px;border-bottom:1px solid var(--line);}
+  .series{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:16px;}
+  .hero h1{font-size:40px;line-height:1.07;margin-bottom:16px;}
+  .hero p{font-size:19px;color:var(--muted);max-width:700px;}
+  .meta{margin-top:20px;font-size:13px;color:var(--muted);}
+  section{padding:40px 0;border-bottom:1px solid var(--line);}
+  h2{font-size:26px;margin-bottom:8px;}
+  h2 .n{color:var(--teal-light);font-size:19px;margin-right:6px;}
+  .lede{color:var(--muted);font-size:17px;margin-bottom:18px;max-width:720px;}
+  h3{font-size:17px;margin:18px 0 6px;}
+  p{margin-bottom:12px;}ul{margin:0 0 12px 22px;}li{margin-bottom:6px;}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;}
+  th,td{text-align:left;padding:10px 11px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  td.n{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .bad{color:var(--red);font-weight:600;} .ok{color:var(--teal);font-weight:600;}
+  .ask{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:10px;padding:16px 20px;margin:12px 0;}
+  .ask h4{font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+  .ask .q{margin:6px 0 6px 0;padding-left:18px;position:relative;}
+  .ask .q:before{content:"?";position:absolute;left:0;color:var(--teal);font-weight:700;}
+  .flag{background:#fbf1ee;border:1px solid #e8d2cc;border-radius:10px;padding:14px 18px;margin:10px 0;font-size:15px;}
+  .data{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:12px 0;font-size:15px;}
+  .callout{background:var(--mist);border-radius:10px;padding:16px 20px;margin:12px 0;}
+  footer{padding:34px 0 80px;color:var(--muted);font-size:12.5px;}
+  @media(max-width:680px){.hero h1{font-size:30px;}.wrap{padding:0 20px;}table{font-size:12.5px;}th,td{padding:8px 6px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="series">Internal &middot; Call Briefing</div>
+    <h1>Google Ads specialist call: what to ask, and the numbers to bring</h1>
+    <p>A focused agenda for the call. The headline: our conversion measurement is broken in a specific, provable way, and almost nothing else (bidding, ROAS, budget decisions) can be trusted until it is fixed. Lead with that.</p>
+    <div class="meta">June 2026 &middot; Live data from the three Google Ads accounts and GA4, last 90 days. Figures are GA4-verified where noted.</div>
+  </header>
+
+  <section>
+    <h2>The one thing to anchor the call</h2>
+    <p class="lede">Two of our three accounts fire booking conversions but pass almost no revenue value, while the third passes it correctly. That single fault makes our ROAS and Smart Bidding meaningless for those two properties.</p>
+    <div class="data">
+      <b>The proof, brand search campaigns, last 90 days:</b>
+      <table>
+        <thead><tr><th>Account (brand campaign)</th><th>Spend</th><th>Conversions</th><th>Conversion value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Tented</td><td class="n">$6,496</td><td class="n">184</td><td class="n ok">$910,471</td><td class="ok">Value passes</td></tr>
+          <tr><td>Gardens</td><td class="n">$11,035</td><td class="n">104</td><td class="n bad">$51</td><td class="bad">Value missing</td></tr>
+          <tr><td>Springs</td><td class="n">$10,788</td><td class="n">57</td><td class="n bad">$0</td><td class="bad">Value missing</td></tr>
+        </tbody>
+      </table>
+      The conversion <b>counts</b> come through for all three. Only the <b>value</b> is missing for Gardens and Springs (and "all conversions value" is also zero, so it is not hidden in a secondary action). The booking event fires; the revenue is not attached.
+    </div>
+    <div class="callout"><b>Cross-check with GA4 (this is the killer slide):</b> over the same 90 days, GA4 shows paid search drove about <b>$379,000 of bookings for Springs</b> and <b>$134,000 for Gardens</b>. Google Ads reports $0 and $51. The money is real; Google Ads just cannot see it.</div>
+  </section>
+
+  <section>
+    <h2><span class="n">1.</span> Broken conversion-value measurement</h2>
+    <p class="lede">This is the priority. Get him to diagnose why Tented works and the other two do not, then fix the two to match.</p>
+    <div class="ask">
+      <h4>Ask him</h4>
+      <div class="q">What exact conversion action(s) are set up in each account, and which ones are configured to pass a transaction value? Why does Tented pass value and Gardens and Springs do not?</div>
+      <div class="q">How are bookings tracked: the Google Ads tag, a GA4 import, or an import from the booking engine? Is the method identical across the three accounts, or did Tented get set up differently?</div>
+      <div class="q">Are enhanced conversions on, and is the value parameter actually populated on the booking event for Springs and Gardens?</div>
+      <div class="q">GA4 already records the booking revenue correctly. Can we import the GA4 purchase conversion (with value) into Google Ads as the primary conversion for all three?</div>
+    </div>
+    <p><b>What good looks like:</b> he can name the conversion action per account, explains the value gap, and commits to making Springs and Gardens pass revenue value the way Tented does.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">2.</span> Attribution in general</h2>
+    <p class="lede">Bookings finish on the booking engine, on a different domain than the ads point to. That handoff is where attribution breaks.</p>
+    <div class="ask">
+      <h4>Ask him</h4>
+      <div class="q">Our booking completes on the reservation engine (a different domain). How is that conversion attributed back to the click and the campaign? Is cross-domain tracking configured?</div>
+      <div class="q">What attribution model is each account using, last click or data-driven? Are they consistent?</div>
+      <div class="q">Our corporate site (nayararesorts.com) drove about 153,000 sessions in 90 days but takes no bookings on itself; it hands off to the property sites. Is there a fourth, corporate or brand, Ads account we should be looking at, and how is its value tracked?</div>
+      <div class="q">Are we double-counting or under-counting when GA4 and Google Ads both claim a booking?</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">3.</span> Health of the accounts</h2>
+    <p class="lede">Bring this table. It shows what is working (Tented), what is broken (Springs and Gardens value), and where we lose our own brand.</p>
+    <table>
+      <thead><tr><th>Account (90 days)</th><th>Spend</th><th>Ads value</th><th>GA4 paid bookings</th><th>Brand impression share</th><th>Lost to budget</th><th>Lost to rank</th></tr></thead>
+      <tbody>
+        <tr><td>Tented</td><td class="n">$18,903</td><td class="n ok">$1,793,195</td><td class="n">$970,250</td><td class="n">83%</td><td class="n">~0%</td><td class="n">17%</td></tr>
+        <tr><td>Springs</td><td class="n">$19,947</td><td class="n bad">$0</td><td class="n">$379,279</td><td class="n">61%</td><td class="n">15%</td><td class="n">24%</td></tr>
+        <tr><td>Gardens</td><td class="n">$21,158</td><td class="n bad">$130</td><td class="n">$133,720</td><td class="n">76%</td><td class="n">12%</td><td class="n">13%</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><b>Tented is the healthy benchmark:</b> value tracked, brand impression share 83%, almost nothing lost to budget. Copy its setup.</li>
+      <li><b>Springs is the weakest:</b> $0 value tracked, and only 61% brand impression share, losing 15% to budget and 24% to rank. We are under-showing on our own name and cannot see the return.</li>
+      <li><b>Gardens spends the most ($21K) for the least visible value.</b></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">4.</span> Multiple Nayaras competing with each other</h2>
+    <p class="lede">We run three separate accounts, each bidding on the Nayara name. Make sure we are not paying to outbid ourselves.</p>
+    <div class="ask">
+      <h4>Ask him</h4>
+      <div class="q">Are the three accounts under one manager (MCC) account? Do they share conversion tracking and negative keyword lists?</div>
+      <div class="q">When someone searches a generic brand term like "nayara costa rica," do multiple property campaigns enter the same auction and bid against each other, raising our own cost per click?</div>
+      <div class="q">Should generic brand terms be consolidated into one campaign, with the property campaigns cross-negated, so we stop competing with ourselves?</div>
+      <div class="q">How should a generic "Nayara" searcher be routed, to the corporate site or a specific property?</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">5.</span> The over-focus on branded keywords</h2>
+    <p class="lede">Roughly 85% of spend defends our own name. That is not automatically wrong, but we are buying back demand we may already own, while the non-brand that works is starved.</p>
+    <div class="data">
+      <ul>
+        <li><b>Brand is about 85% of spend</b> (the three brand campaigns are roughly $28K of about $32K visible spend).</li>
+        <li><b>The one non-brand campaign that passes value (Tented Destination) returns about 45x</b> on just $370, and is starved.</li>
+        <li><b>The Gardens non-brand campaign aligned with our strategy (Family, Wellness, Arenal) lost 60% of its impression share to budget</b> at $109 spend. The right campaign is choked.</li>
+        <li><b>A Gardens "Romance" campaign is running,</b> which is off-strategy now that Gardens is the family flagship.</li>
+      </ul>
+    </div>
+    <div class="ask">
+      <h4>Ask him</h4>
+      <div class="q">What brand versus non-brand split do you recommend for a hotel of our type, and how do we phase toward it?</div>
+      <div class="q">How much of our brand spend is incremental? Can we run a geo holdout, pausing brand in one region for a set period, to measure how many of those bookings we would win organically anyway?</div>
+      <div class="q">Once value tracking is fixed, can we fund the non-brand campaigns that work (Tented Destination, the Gardens family and Arenal terms) and pause the off-strategy Romance campaign?</div>
+      <div class="q">Springs loses 15% of brand impression share to budget. Is its brand under-funded, and is that worth fixing once we can see the return?</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">6.</span> Other vital points</h2>
+    <ul>
+      <li><b>Smart Bidding is broken for Springs and Gardens.</b> Any value-based strategy (target ROAS, maximize conversion value) needs values; with $0 value it cannot work. Ask what bidding each account is on today and what breaks without value.</li>
+      <li><b>Performance Max and brand.</b> Is PMax cannibalizing brand search, and are brand terms excluded from PMax so we can read true non-brand performance?</li>
+      <li><b>Conversion lag.</b> Hotel booking windows are long; make sure the conversion window matches how far ahead people book, or we undercount.</li>
+      <li><b>One source of truth.</b> Agree that GA4-verified booking revenue, reconciled to the booking engine, is the number we optimize to, not the inflated in-platform number.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Red-flag answers to watch for</h2>
+    <div class="flag">He treats the value gap as minor because "conversions are still tracked." Counts without value cannot drive ROAS or value-based bidding. Push back.</div>
+    <div class="flag">He cannot tell you which conversion action passes value, or why Tented differs from the other two.</div>
+    <div class="flag">He proposes scaling spend or budgets before the measurement is fixed.</div>
+    <div class="flag">He has no plan for the booking-engine, cross-domain handoff.</div>
+  </section>
+
+  <section>
+    <h2>What to get him to commit to</h2>
+    <ul>
+      <li>A conversion-tracking audit of all three accounts, with a written diagnosis of the value gap, within a set number of days.</li>
+      <li>Fixing Springs and Gardens to pass booking revenue value the way Tented does.</li>
+      <li>A plan for the booking-engine and cross-domain attribution.</li>
+      <li>A review of account structure and brand self-competition.</li>
+      <li>A recommended brand versus non-brand split, and a design for the brand incrementality (geo holdout) test, both to action once measurement is trustworthy.</li>
+    </ul>
+    <div class="callout"><b>Your one-sentence frame for the call:</b> "Before we talk budgets or scaling, I need to understand why two of our three accounts report almost no booking value when GA4 shows hundreds of thousands in bookings, because until that is fixed we are flying blind."</div>
+  </section>
+
+  <footer>
+    Google Ads specialist call briefing, June 2026. All figures from the live Google Ads accounts and GA4, last 90 days. Booking values are GA4-verified; in-platform Google Ads values overstate where tracking is intact and understate where it is broken.
+  </footer>
+
+</div>
+</body>
+</html>
