@@ -72,7 +72,9 @@ All files live at repo root. "BODY file" = the paste-into-body HTML. "HEAD" = JS
 | **Pura Vida** (World Health Day, Albert Ghitis, 2026-03-15) | `pura-vida-reformatted.html` (also split `pura-vida-BODY.html`) | `pura-vida-HEAD.html` (also embedded) | 3 real | Done, pasted |
 | **Stargazing in the Atacama** | `stargazing-atacama-reformatted.html` | embedded in file | 2 real (incl. a .gif) | Done, pasted |
 | **Understanding the Atacama Desert** (2026-01-28) | `understanding-atacama-reformatted.html` | pasted in chat, NOT saved as file | 7 real | Done, pasted. HEAD not committed as file. |
-| **Top 10 Luxury Travel Trends 2026** (2026-01-05) | `travel-trends-2026-reformatted.html` | pasted in chat, NOT saved as file | 4 real | Done, pasted. HEAD not committed as file. |
+| **2026 Travel Trends (Whycations edition)** (2026-01-05) | `travel-trends-2026-whycation-reformatted.html` | `travel-trends-2026-whycation-HEAD.html` | 4 real | Done, pasted. REPLACES the old `travel-trends-2026-reformatted.html` (now deleted). Part 1 of a 2-part pairing with the Experiential Travel piece. Confirm live slug. |
+| **The Oasis Advantage** (Atacama series, 2026-01-28) | `oasis-advantage-reformatted.html` | `oasis-advantage-HEAD.html` | 3 real | Done, pasted |
+| **Experiential Travel** (part 2, pairs with Travel Trends) | _pending_ | _pending_ | TBD | Source to be pasted; reformat to template next |
 | **Hot Springs & Plunge Pools** (2025-12-07) | `hot-springs-plunge-pools-reformatted.html` | pasted in chat, NOT saved as file | 3 real | Done, pasted. HEAD not committed as file. |
 | **A Collapse That Wasn't** (Ken Seligson, 2026-01-31) | `collapse-that-wasnt-reformatted.html` | `collapse-that-wasnt-HEAD.html` | 3 real | Done, pasted |
 | **Women's Empowerment Through Housing** (La Fortuna, 2026-03-01) | `womens-empowerment-housing-reformatted.html` | `womens-empowerment-housing-HEAD.html` | 1 real (View from Afar, links to podcast) | Done, pasted |
@@ -81,7 +83,7 @@ All files live at repo root. "BODY file" = the paste-into-body HTML. "HEAD" = JS
 | **Three Hotels + "Which Nayara" comparison** (NEW "best of both worlds" hub) | `three-hotels-plus-comparison-hubspot.html` | `three-hotels-plus-comparison-HEAD.html` | 2 real (Springs hero, bird) | **Built. Leads with the comparison, then the shared reserve. Not yet pasted to Albert in chat.** |
 
 ### Open flags (carried forward, not yet actioned)
-- **Missing HEAD files:** Understanding the Atacama, Travel Trends 2026, Hot Springs each have schema that was pasted in chat but never saved as a `-HEAD.html` file in the repo. If we want the repo to be the source of truth, recreate those three HEAD files.
+- **Missing HEAD files:** Understanding the Atacama and Hot Springs each have schema that was pasted in chat but never saved as a `-HEAD.html` file in the repo. If we want the repo to be the source of truth, recreate those two HEAD files. (Travel Trends now has its HEAD file via the Whycations edition.)
 - **Verbatim source typos left untouched** (kept on purpose; offered to fix, awaiting go):
   - Collapse: duplicate "genre is not evidence" lines; orphaned "emic institutions,..." sentence opener in the author bio.
   - Women's Empowerment: heading "Here it from our Founder" (likely "Hear it"); "is not stabilize" (truncated sentence).
