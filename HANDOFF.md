@@ -78,7 +78,7 @@ All files live at repo root. "BODY file" = the paste-into-body HTML. "HEAD" = JS
 | **Women's Empowerment Through Housing** (La Fortuna, 2026-03-01) | `womens-empowerment-housing-reformatted.html` | `womens-empowerment-housing-HEAD.html` | 1 real (View from Afar, links to podcast) | Done, pasted |
 | **Atacama and Mars** (2025-09-26) | `atacama-mars-reformatted.html` | `atacama-mars-HEAD.html` | 2 (one is an .svg illustration — see flags) | Done, pasted |
 | **Awards / World Recognition** (NEW, 2026-06-27) | `awards-world-recognition-blog.html` | `awards-world-recognition-HEAD.html` | image placeholders | Done, pasted |
-| **Three Hotels + "Which Nayara" comparison** (NEW hub) | `three-hotels-plus-comparison-hubspot.html` | `three-hotels-plus-comparison-HEAD.html` | 2 real (Springs hero, bird) | **In flight — see section 8** |
+| **Three Hotels + "Which Nayara" comparison** (NEW "best of both worlds" hub) | `three-hotels-plus-comparison-hubspot.html` | `three-hotels-plus-comparison-HEAD.html` | 2 real (Springs hero, bird) | **Built. Leads with the comparison, then the shared reserve. Not yet pasted to Albert in chat.** |
 
 ### Open flags (carried forward, not yet actioned)
 - **Missing HEAD files:** Understanding the Atacama, Travel Trends 2026, Hot Springs each have schema that was pasted in chat but never saved as a `-HEAD.html` file in the repo. If we want the repo to be the source of truth, recreate those three HEAD files.
@@ -125,15 +125,13 @@ This repo IS the source of the Manus staging SPA (React 19 + Vite). For the blog
 
 ---
 
-## 8. In-flight task: the Costa Rica comparison + shared hub
+## 8. The Costa Rica comparison + shared hub (BUILT)
 
-`three-hotels-plus-comparison-hubspot.html` is being rebuilt around a **"best of both worlds"** concept the user defined:
+`three-hotels-plus-comparison-hubspot.html` is built around the **"best of both worlds"** concept Albert defined:
 
-> Each resort is a private boutique with its own identity, but they share one rainforest estate, so you get the best of everything. **Lead with the "Which Nayara Is Right For You" comparison** (Gardens = family adventure, Tented = luxury glamping, Springs = adults-only romance), hinge on "Choose one. Inherit all three.", **then flow into the existing "three resorts, one rainforest" shared content** (yoga, nature, Las Thermas, a day that flows).
+> Each resort is a private boutique with its own identity, but they share one rainforest estate, so you get the best of everything. It **leads with the "Which Nayara Is Right For You" comparison** (Gardens = family adventure, Tented = luxury glamping, Springs = adults-only romance), hinges on the statement band "Choose one. Inherit all three.", **then flows into the "three resorts, one rainforest" shared content** (The Shared Reserve, yoga, nature, Las Thermas, a day that flows).
 
-The full plain-text copy for this was drafted and is awaiting the user's sign-off before being poured into the template. Once approved: build with the real Springs hero image (`...Nayara Springs - R5_27066 - by Brice Ferre Studio.jpg`) and the bird image (`...B1101429-...-768x949.jpeg`, cleaned of its overlay caption), add the matching HEAD schema (FAQPage; consider also a Hotel/LodgingBusiness graph), commit, and paste BODY + HEAD.
-
-Key Findings for this hub: `3 in 1` / `0 transfers` / `5 restaurants`. Corrected award claims already locked in: Tented = Central America (5 of 6 years), Springs = only Three-Key Michelin hotel (not dining), no Gardens awards inserted.
+Status: file built and committed, HEAD schema (`three-hotels-plus-comparison-HEAD.html`, FAQPage) in sync. Real Springs hero + bird images, overlay caption cleaned. Key Findings: `3 in 1` / `0 transfers` / `5 restaurants`. Award claims locked: Tented = Central America (5 of 6 years), Springs = only Three-Key Michelin hotel (not dining), no Gardens awards inserted. **Remaining: paste BODY + HEAD to Albert in chat for HubSpot** (he had to switch chats before the paste). Optionally add a Hotel/LodgingBusiness graph to the schema later.
 
 There is also a separate **Nayara Gardens Family** landing page draft the user pasted (family flagship, corrects the couples mis-positioning, has its own "which Nayara for your family" mini-comparison, FAQs incl. all-inclusive, image placeholders to be filled with real family photos). Not yet committed as a file. It includes a "VERIFY-AND-ADD before publishing" note for family de-risking amenities (guaranteed adjacent rooms, babysitting, on-call doctor, stroller paths) — confirm with the resort before publishing those.
 
