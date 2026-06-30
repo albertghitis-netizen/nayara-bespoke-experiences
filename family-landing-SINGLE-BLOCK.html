@@ -1,7 +1,4 @@
-<!-- Nayara Gardens family landing :: paste this ONE block as-is.
-     WordPress: add a "Custom HTML" block on a full-width Page, paste, publish (logged in as an Administrator).
-     HubSpot:   add one Custom HTML / Rich-text (</> source view) module and paste.
-     Self-contained: Typekit fonts (@import), all CSS scoped under #ngl, markup + reveal script bundled. -->
+<!-- Nayara Gardens family landing :: paste this ONE block as-is (WordPress Custom HTML block / one HubSpot HTML module). -->
 <style>
 @import url("https://use.typekit.net/zft1qmm.css");
 :root{
@@ -101,6 +98,15 @@ html{scroll-behavior:smooth}
 #ngl summary .plus{font-family:var(--display);color:var(--gold);font-size:1.7rem;line-height:1;transition:transform .25s ease}
 #ngl details[open] summary .plus{transform:rotate(45deg)}
 #ngl details .ans{padding:0 0 22px;font-size:.98rem;line-height:1.7;color:var(--ink-soft);max-width:70ch}
+#ngl .btn-lg{padding:21px 56px;font-size:.86rem;letter-spacing:.2em}
+#ngl .series{list-style:none;margin:0;padding:0}
+#ngl .series li{border-top:1px solid var(--line)}
+#ngl .series li:last-child{border-bottom:1px solid var(--line)}
+#ngl .series a{display:flex;gap:18px;align-items:baseline;text-decoration:none;color:var(--ink);padding:19px 0;transition:color .2s ease,padding-left .2s ease}
+#ngl .series a:hover{color:var(--olive);padding-left:7px}
+#ngl .series .sn{font-family:var(--display);color:var(--gold);font-size:1rem;min-width:28px;font-weight:600}
+#ngl .series .st{font-family:var(--display);font-size:clamp(1.1rem,1.7vw,1.32rem)}
+#ngl .series .sd{display:block;font-family:var(--body);font-size:.86rem;color:var(--ink-faint);margin-top:3px;letter-spacing:0}
 /* closer */
 #ngl .closer{position:relative;min-height:74vh;display:flex;align-items:center;overflow:hidden}
 #ngl .closer .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -125,7 +131,7 @@ html{scroll-behavior:smooth}
       <h1>The Rainforest Is Their Classroom</h1>
       <p class="sub">Sloths overhead, frogs after dark, and a whole jungle to explore together.</p>
       <div class="cta-row">
-        <a class="btn btn-solid" href="https://nayaragardens.com" target="_blank" rel="noopener">Check Availability</a>
+        <a class="btn btn-solid btn-lg" href="https://nayaragardens.com/#/booking/step-1?data=('h7hd!'nayara-gardens'~a6dt*fs.~r7at!2~cn!0~cg.~al4po*co*gp*rn5ry*rk*re.~rr*ss5ax!0~cy*ds!('p6ls*as*st*h6ee1)~my4s6c6ne1)*1~.3%5D1!null3!%5B4!false~5.)%5D~6e*7s3('%01765431.*_" target="_blank" rel="noopener">Check Availability</a>
         <a class="btn btn-ghost" href="#wildlife">See What Awaits</a>
       </div>
       <div class="stats">
@@ -264,7 +270,7 @@ html{scroll-behavior:smooth}
     <div class="eyebrow">Ready When You Are</div>
     <h2 style="margin-bottom:16px">Family Villas, Daily Wildlife Walks, and the Volcano Out Your Window</h2>
     <p style="margin-bottom:30px;max-width:48ch">Reserve whenever the moment feels right.</p>
-    <a class="btn btn-solid" href="https://nayaragardens.com" target="_blank" rel="noopener">Check Availability</a>
+    <a class="btn btn-solid btn-lg" href="https://nayaragardens.com/#/booking/step-1?data=('h7hd!'nayara-gardens'~a6dt*fs.~r7at!2~cn!0~cg.~al4po*co*gp*rn5ry*rk*re.~rr*ss5ax!0~cy*ds!('p6ls*as*st*h6ee1)~my4s6c6ne1)*1~.3%5D1!null3!%5B4!false~5.)%5D~6e*7s3('%01765431.*_" target="_blank" rel="noopener">Check Availability</a>
   </div>
 </section>
 
@@ -293,6 +299,23 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
+<!-- SERIES -->
+<section class="mist">
+  <div class="wrap narrow reveal">
+    <div class="rule"></div>
+    <div class="eyebrow">The Nayara Gardens Family Series</div>
+    <h2 style="margin-bottom:12px">Explore the Whole Series</h2>
+    <p style="margin-bottom:34px;max-width:62ch">Five connected guides to a family trip in the Arenal rainforest: where to begin, the wildlife and sloths, the adventure, the all-inclusive question, and how Nayara Gardens compares to every other luxury family hotel in the country.</p>
+    <ul class="series">
+      <li><a href="https://blog.nayararesorts.com/costa-rica-with-kids-arenal-rainforest" target="_blank" rel="noopener"><span class="sn">01</span><span class="st">Costa Rica With Kids: A Family Guide to the Arenal Rainforest<span class="sd">Where to begin, room by room and day by day</span></span></a></li>
+      <li><a href="https://blog.nayararesorts.com/sloths-and-wildlife-in-the-arenal-rainforest" target="_blank" rel="noopener"><span class="sn">02</span><span class="st">Sloths and Wildlife in the Arenal Rainforest<span class="sd">The residents, and how to give children the best chance of finding them</span></span></a></li>
+      <li><a href="https://blog.nayararesorts.com/family-adventures-around-the-arenal-volcano" target="_blank" rel="noopener"><span class="sn">03</span><span class="st">Family Adventures Around the Arenal Volcano<span class="sd">Gentle walks to ziplines, matched to every age</span></span></a></li>
+      <li><a href="https://blog.nayararesorts.com/all-inclusive-resorts-in-costa-rica" target="_blank" rel="noopener"><span class="sn">04</span><span class="st">All-Inclusive in Costa Rica: What's Included, and Why to Go Beyond<span class="sd">The honest answer for families</span></span></a></li>
+      <li><a href="https://blog.nayararesorts.com/which-family-hotel-in-costa-rica-is-right-for-you" target="_blank" rel="noopener"><span class="sn">05</span><span class="st">Which Family Hotel in Costa Rica Is Right for You<span class="sd">Nayara Gardens compared to every other luxury family hotel</span></span></a></li>
+    </ul>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="closer" style="padding:0">
   <img class="bg" src="https://raw.githubusercontent.com/albertghitis-netizen/nayara-bespoke-experiences/refs/heads/claude/blogs-finalizing-ttrcnz/landing-images/landing-img-08.jpg" alt="Children by the pool at golden dusk at Nayara Gardens">
@@ -304,7 +327,7 @@ html{scroll-behavior:smooth}
       <h2>Let the Rainforest Teach Them</h2>
       <p style="margin:0 auto 30px;max-width:54ch">Give your family a vacation they will still be talking about years from now: the day they met a sloth, found a frog in the dark, and learned the jungle by heart.</p>
       <div class="cta-row" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
-        <a class="btn btn-solid" href="https://nayaragardens.com" target="_blank" rel="noopener">Check Availability</a>
+        <a class="btn btn-solid btn-lg" href="https://nayaragardens.com/#/booking/step-1?data=('h7hd!'nayara-gardens'~a6dt*fs.~r7at!2~cn!0~cg.~al4po*co*gp*rn5ry*rk*re.~rr*ss5ax!0~cy*ds!('p6ls*as*st*h6ee1)~my4s6c6ne1)*1~.3%5D1!null3!%5B4!false~5.)%5D~6e*7s3('%01765431.*_" target="_blank" rel="noopener">Check Availability</a>
         <a class="btn btn-ghost" href="https://nayaragardens.com" target="_blank" rel="noopener">Explore Nayara Gardens</a>
       </div>
     </div>
