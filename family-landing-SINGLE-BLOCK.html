@@ -36,16 +36,16 @@ html{scroll-behavior:smooth}
 #ngl .hero{position:relative;min-height:96vh;display:flex;align-items:flex-end;overflow:hidden}
 #ngl .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:nglZoom 16s ease-out forwards}
 @keyframes nglZoom{to{transform:scale(1)}}
-#ngl .hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,10,.34) 0%,rgba(20,18,10,.04) 36%,rgba(20,18,10,.40) 72%,rgba(20,18,10,.74) 100%)}
-#ngl .hero .inner{position:relative;width:100%;padding-top:130px;padding-bottom:clamp(50px,7vw,98px)}
+#ngl .hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,10,.18) 0%,rgba(20,18,10,0) 30%,rgba(20,18,10,0) 52%,rgba(20,18,10,.66) 88%,rgba(20,18,10,.78) 100%)}
+#ngl .hero .inner{position:relative;width:100%;padding-top:130px;padding-bottom:clamp(38px,5vw,64px)}
 #ngl .hero .copy{color:#fff;max-width:50rem}
 #ngl .hero .eyebrow{color:#fff;opacity:.92}
-#ngl .hero h1{color:#fff;font-size:clamp(2.7rem,6.7vw,5.3rem);text-transform:uppercase;letter-spacing:.045em;line-height:1.0;max-width:16ch;text-shadow:0 2px 40px rgba(0,0,0,.35)}
-#ngl .hero .sub{font-family:var(--display);font-style:italic;font-size:clamp(1.35rem,2.5vw,2rem);color:rgba(255,255,255,.95);margin:22px 0 32px;max-width:34ch}
+#ngl .hero h1{color:#fff;font-size:clamp(2.1rem,4.6vw,3.6rem);text-transform:uppercase;letter-spacing:.045em;line-height:1.02;max-width:20ch;text-shadow:0 2px 40px rgba(0,0,0,.35)}
+#ngl .hero .sub{font-family:var(--display);font-style:italic;font-size:clamp(1.05rem,1.7vw,1.35rem);color:rgba(255,255,255,.95);margin:14px 0 24px;max-width:52ch}
 #ngl .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-#ngl .hero .stats{display:flex;gap:clamp(22px,3vw,40px);flex-wrap:wrap;align-items:flex-start;margin-top:38px;padding-top:26px;border-top:1px solid rgba(255,255,255,.24)}
-#ngl .hero .stat b{font-family:var(--display);font-size:1.2rem;color:#fff;font-weight:500;letter-spacing:.02em}
-#ngl .hero .stat span{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;display:block;color:rgba(255,255,255,.72);margin-top:4px}
+#ngl .hero .stats{display:flex;gap:clamp(20px,3vw,38px);flex-wrap:wrap;align-items:flex-start;margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.24)}
+#ngl .hero .stat b{font-family:var(--display);font-size:1.05rem;color:#fff;font-weight:500;letter-spacing:.02em}
+#ngl .hero .stat span{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;display:block;color:rgba(255,255,255,.72);margin-top:3px}
 /* sections */
 #ngl .split{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(34px,5vw,80px);align-items:center}
 @media(max-width:840px){#ngl .split{grid-template-columns:1fr}}
@@ -99,8 +99,8 @@ html{scroll-behavior:smooth}
 #ngl details[open] summary .plus{transform:rotate(45deg)}
 #ngl details .ans{padding:0 0 22px;font-size:.98rem;line-height:1.7;color:var(--ink-soft);max-width:70ch}
 #ngl .btn-lg{padding:21px 56px;font-size:.86rem;letter-spacing:.2em}
-#ngl .hero .btn-solid{padding:23px 66px;font-size:.95rem;box-shadow:0 18px 46px -14px rgba(0,0,0,.6)}
-#ngl .hero .btn-ghost{padding:14px 24px;font-size:.68rem;border-color:rgba(255,255,255,.55);opacity:.9}
+#ngl .hero .btn{padding:18px 46px;font-size:.78rem;letter-spacing:.2em}
+#ngl .hero .btn-ghost{border-color:rgba(255,255,255,.8)}
 #ngl .series{list-style:none;margin:0;padding:0}
 #ngl .series li{border-top:1px solid var(--line)}
 #ngl .series li:last-child{border-bottom:1px solid var(--line)}
@@ -133,7 +133,7 @@ html{scroll-behavior:smooth}
       <h1>The Best Family Resort in Costa Rica</h1>
       <p class="sub">The rainforest is their classroom: sloths overhead, frogs after dark, and a whole jungle to explore together at Nayara Gardens.</p>
       <div class="cta-row">
-        <a class="btn btn-solid btn-lg" href="https://nayaragardens.com/#/booking/step-1?data=('h7hd!'nayara-gardens'~a6dt*fs.~r7at!2~cn!0~cg.~al4po*co*gp*rn5ry*rk*re.~rr*ss5ax!0~cy*ds!('p6ls*as*st*h6ee1)~my4s6c6ne1)*1~.3%5D1!null3!%5B4!false~5.)%5D~6e*7s3('%01765431.*_" target="_blank" rel="noopener">Check Availability</a>
+        <a class="btn btn-solid" href="https://nayaragardens.com/#/booking/step-1?data=('h7hd!'nayara-gardens'~a6dt*fs.~r7at!2~cn!0~cg.~al4po*co*gp*rn5ry*rk*re.~rr*ss5ax!0~cy*ds!('p6ls*as*st*h6ee1)~my4s6c6ne1)*1~.3%5D1!null3!%5B4!false~5.)%5D~6e*7s3('%01765431.*_" target="_blank" rel="noopener">Check Availability</a>
         <a class="btn btn-ghost" href="#wildlife">See What Awaits</a>
       </div>
       <div class="stats">
@@ -145,14 +145,20 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
-<!-- INTRO -->
+<!-- EXPLORE TOGETHER -->
 <section>
-  <div class="wrap narrow reveal">
-    <div class="rule"></div>
-    <div class="eyebrow">Rooted in Nature</div>
-    <h2>A Jungle That Teaches</h2>
-    <p class="lede" style="margin-bottom:22px">Where a family vacation becomes the kind of education no textbook can give.</p>
-    <p>Nayara Gardens sits inside Arenal Volcano National Park, woven into living Costa Rican rainforest. For children, that means every path is a lesson and every day holds a discovery: a sloth mapped by name, a poison frog glimpsed by flashlight, a howler monkey calling from the canopy. Wonder does the teaching here, and the whole family gets to learn. Nayara Gardens is the original Nayara, and it welcomes families and couples alike.</p>
+  <div class="wrap split">
+    <div class="text reveal">
+      <div class="rule"></div>
+      <div class="eyebrow">Explore Together</div>
+      <h2>The Rainforest at Your Feet</h2>
+      <p style="margin-bottom:14px">The grounds themselves are living rainforest. Garden paths wind beneath the canopy, and wildlife is simply part of daily life here: sloths in the trees overhead, hummingbirds in the heliconia, the jungle waking the family each morning. No excursion required.</p>
+      <p>Guides point out what most eyes would miss: a camouflaged bird, a sleeping sloth, a column of leaf-cutter ants carrying the forest piece by piece. It is exploration with a teacher built in.</p>
+    </div>
+    <figure class="media reveal">
+      <img src="https://raw.githubusercontent.com/albertghitis-netizen/nayara-bespoke-experiences/refs/heads/claude/blogs-finalizing-ttrcnz/landing-images/landing-img-06.jpg" alt="A family walking a garden boardwalk through the rainforest at Nayara Gardens">
+      <figcaption>Garden paths wind through living rainforest, a small expedition between breakfast and the pool.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -210,23 +216,6 @@ html{scroll-behavior:smooth}
   <div class="wrap reveal">
     <span class="mark">&ldquo;</span>
     <p>The animals are home. Here, your family is the guest.</p>
-  </div>
-</section>
-
-<!-- EXPLORE TOGETHER -->
-<section>
-  <div class="wrap split">
-    <div class="text reveal">
-      <div class="rule"></div>
-      <div class="eyebrow">Explore Together</div>
-      <h2>The Rainforest at Your Feet</h2>
-      <p style="margin-bottom:14px">The grounds themselves are living rainforest. Garden paths wind beneath the canopy, and wildlife is simply part of daily life here: sloths in the trees overhead, hummingbirds in the heliconia, the jungle waking the family each morning. No excursion required.</p>
-      <p>Guides point out what most eyes would miss: a camouflaged bird, a sleeping sloth, a column of leaf-cutter ants carrying the forest piece by piece. It is exploration with a teacher built in.</p>
-    </div>
-    <figure class="media reveal">
-      <img src="https://raw.githubusercontent.com/albertghitis-netizen/nayara-bespoke-experiences/refs/heads/claude/blogs-finalizing-ttrcnz/landing-images/landing-img-06.jpg" alt="A family walking a garden boardwalk through the rainforest at Nayara Gardens">
-      <figcaption>Garden paths wind through living rainforest, a small expedition between breakfast and the pool.</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -318,7 +307,7 @@ html{scroll-behavior:smooth}
       <h2>Let the Rainforest Teach Them</h2>
       <p style="margin:0 auto 30px;max-width:54ch">Give your family a vacation they will still be talking about years from now: the day they met a sloth, found a frog in the dark, and learned the jungle by heart.</p>
       <div class="cta-row" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
-        <a class="btn btn-solid btn-lg" href="https://nayaragardens.com/#/booking/step-1?data=('h7hd!'nayara-gardens'~a6dt*fs.~r7at!2~cn!0~cg.~al4po*co*gp*rn5ry*rk*re.~rr*ss5ax!0~cy*ds!('p6ls*as*st*h6ee1)~my4s6c6ne1)*1~.3%5D1!null3!%5B4!false~5.)%5D~6e*7s3('%01765431.*_" target="_blank" rel="noopener">Check Availability</a>
+        <a class="btn btn-solid" href="https://nayaragardens.com/#/booking/step-1?data=('h7hd!'nayara-gardens'~a6dt*fs.~r7at!2~cn!0~cg.~al4po*co*gp*rn5ry*rk*re.~rr*ss5ax!0~cy*ds!('p6ls*as*st*h6ee1)~my4s6c6ne1)*1~.3%5D1!null3!%5B4!false~5.)%5D~6e*7s3('%01765431.*_" target="_blank" rel="noopener">Check Availability</a>
         <a class="btn btn-ghost" href="https://nayaragardens.com" target="_blank" rel="noopener">Explore Nayara Gardens</a>
       </div>
     </div>
