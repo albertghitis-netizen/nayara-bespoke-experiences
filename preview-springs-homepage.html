@@ -25,10 +25,11 @@ img{display:block;max-width:100%}
 .hero .vidwrap{position:absolute;inset:0}
 .hero iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:max(100vw,178vh);height:max(100vh,56.25vw);border:0}
 .hero .copy{position:absolute;left:0;right:0;top:34%;z-index:4;text-align:center;color:#edf2f2;pointer-events:none}
-.hero .awards{display:flex;justify-content:center;gap:clamp(40px,6vw,90px);margin-top:clamp(26px,4vw,48px)}
-.hero .awards .aw{max-width:16rem}
-.hero .awards .k{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:8px;text-shadow:0 2px 4px rgba(12,38,35,.34)}
-.hero .awards .v{font-size:.86rem;letter-spacing:.16em;text-transform:uppercase;line-height:1.7;text-shadow:0 2px 4px rgba(12,38,35,.34)}
+.awardsband{background:#edf2f2;text-align:center;padding:clamp(48px,7vw,90px) 20px}
+.awardsband .row{display:flex;justify-content:center;gap:clamp(40px,7vw,110px);flex-wrap:wrap}
+.awardsband .aw{max-width:17rem}
+.awardsband .k{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#00869a;margin-bottom:10px}
+.awardsband .v{font-size:.92rem;letter-spacing:.16em;text-transform:uppercase;line-height:1.8;color:#0C2623}
 .hero .arrowline .ar{display:block;font-size:1.6rem;margin-top:12px;font-weight:400;animation:updown 2s ease-in-out infinite}
 @keyframes updown{0%,100%{transform:translateY(5px)}50%{transform:translateY(0)}}
 .hero .copy h1{font-family:"futura-pt",sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(1.4rem,2.6vw,2.1rem);letter-spacing:.22em;line-height:1.45;text-shadow:0 2px 4px rgba(12,38,35,.34)}
@@ -83,17 +84,13 @@ img{display:block;max-width:100%}
   <div class="copy">
     <h1>A Secluded Place of<br>Understated Luxury</h1>
     <h2>Arenal Volcano National Park, Costa Rica</h2>
-    <div class="awards">
-      <div class="aw"><div class="k">Cond&eacute; Nast<br>Traveller</div><div class="v">Best Hotel Spa<br>in the World</div></div>
-      <div class="aw"><div class="k">TripAdvisor</div><div class="v">N&ordm;1 Luxury Hotel<br>in the World</div></div>
-    </div>
   </div>
   <div class="arrowline">start your nayara journey<span class="ar">&darr;</span></div>
 </section>
 
 <!-- STRAIGHT INTO: STEP INTO YOUR VILLA, same layout as live, new photo -->
 <section class="villa">
-  <img class="bg" src="https://drive.google.com/thumbnail?id=1Vd3O0Jue5qiNWabkln8vGVtRzD-h_OZn&sz=w2400" alt="Villa with private plunge pool framed by palms at Nayara Springs">
+  <img class="bg" src="https://drive.google.com/thumbnail?id=1ej7P3RqHmH1iXmfJdvaf8W-XZdiUYs6e&sz=w2400" alt="Villa with private plunge pool framed by palms at Nayara Springs">
   <div class="tint"></div>
   <div class="inner">
     <div class="copy">
@@ -111,6 +108,13 @@ img{display:block;max-width:100%}
 </section>
 
 <div class="continues">The page continues as today: Be One With Nature &middot; Sustainability &middot; Try Local &middot; As Seen In &middot; Footer</div>
+
+<section class="awardsband">
+  <div class="row">
+    <div class="aw"><div class="k">Cond&eacute; Nast Traveller</div><div class="v">Best Hotel Spa<br>in the World</div></div>
+    <div class="aw"><div class="k">TripAdvisor</div><div class="v">N&ordm;1 Luxury Hotel<br>in the World</div></div>
+  </div>
+</section>
 
 <footer class="ft">
   <p class="locline">Nayara Springs is located in Arenal Volcano National Park, Costa Rica</p>
