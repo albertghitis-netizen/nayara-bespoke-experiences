@@ -26,7 +26,16 @@ img{display:block;max-width:100%}
 .hero::before{content:"";position:absolute;left:0;top:0;width:100%;height:16rem;background:linear-gradient(180deg,rgba(11,51,57,.8) 0,transparent 100%);z-index:3;pointer-events:none}
 .hero .vidwrap{position:absolute;inset:0}
 .hero iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:max(100vw,178vh);height:max(100vh,56.25vw);border:0}
-.hero .copy{position:absolute;left:0;right:0;top:36%;z-index:4;text-align:center;color:#edf2f2;pointer-events:none}
+.hero .copy{position:absolute;left:0;right:0;top:26%;z-index:4;text-align:center;color:#edf2f2;pointer-events:none}
+/* Travel + Leisure World's Best Awards 2026 badge, rebuilt in CSS from the artwork.
+   Swap for the real PNG once it is uploaded to the media library. */
+.tlbadge{width:var(--sz,170px);aspect-ratio:1;border:calc(var(--sz,170px)*.02) solid currentColor;border-radius:50%;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;font-family:"futura-pt",sans-serif;text-transform:uppercase;line-height:1;text-shadow:none}
+.tlbadge .tl{font-weight:700;font-size:calc(var(--sz,170px)*.082);letter-spacing:.06em;line-height:1.15;margin-bottom:calc(var(--sz,170px)*.05)}
+.tlbadge .big{font-weight:800;font-size:calc(var(--sz,170px)*.135);letter-spacing:.02em;line-height:1.12}
+.tlbadge .best{display:flex;align-items:center;gap:calc(var(--sz,170px)*.04)}
+.tlbadge .best::before,.tlbadge .best::after{content:"";width:calc(var(--sz,170px)*.11);height:calc(var(--sz,170px)*.014);background:currentColor}
+.tlbadge .yr{font-weight:700;font-size:calc(var(--sz,170px)*.105);border-bottom:calc(var(--sz,170px)*.016) solid currentColor;padding-bottom:calc(var(--sz,170px)*.035);margin-top:calc(var(--sz,170px)*.06)}
+.hero .copy .tlbadge{--sz:clamp(120px,13vw,170px);color:#edf2f2;margin-bottom:22px;filter:drop-shadow(0 2px 4px rgba(11,51,57,.4))}
 .hero .copy h1{font-family:"futura-pt",sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(1.4rem,2.6vw,2.1rem);letter-spacing:.22em;line-height:1.45;text-shadow:0 2px 4px rgba(11,51,57,.4)}
 .hero .copy h2{font-family:"minion-pro",Georgia,serif;font-weight:400;font-size:clamp(1.05rem,1.6vw,1.35rem);margin-top:14px;text-shadow:0 2px 4px rgba(11,51,57,.4)}
 .hero .arrowline{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:4;color:#edf2f2;font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 2px 4px rgba(11,51,57,.4);pointer-events:none;text-align:center}
@@ -82,6 +91,7 @@ img{display:block;max-width:100%}
     <iframe src="https://drive.google.com/file/d/1B4sIDHSuRNGmu7-XBKqHtorU8ngDE59L/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
   </div>
   <div class="copy">
+    <div class="tlbadge"><span class="tl">Travel+<br>Leisure.</span><span class="big">World's</span><span class="big best">Best</span><span class="big">Awards</span><span class="yr">2026</span></div>
     <h1>N&ordm;1 Resort in Central America</h1>
     <h2>Arenal Volcano National Park, Costa Rica</h2>
   </div>
@@ -111,8 +121,9 @@ img{display:block;max-width:100%}
 <div class="continues">The page continues as today &middot; Footer</div>
 
 <section class="awardsband">
-  <div class="row">
-    <div class="aw"><div class="k">Travel + Leisure World's Best Awards</div><div class="v">N&ordm;1 Resort in Central America<br>Five Times in Six Years</div></div>
+  <div class="row" style="align-items:center">
+    <div class="tlbadge" style="--sz:150px;color:#0b3339"><span class="tl">Travel+<br>Leisure.</span><span class="big">World's</span><span class="big best">Best</span><span class="big">Awards</span><span class="yr">2026</span></div>
+    <div class="aw"><div class="k">Travel + Leisure World's Best Awards 2026</div><div class="v">N&ordm;1 Resort in Central America<br>N&ordm;28 in the World</div></div>
     <div class="aw"><div class="k">Cond&eacute; Nast Traveler</div><div class="v">Triple Crown</div></div>
   </div>
 </section>

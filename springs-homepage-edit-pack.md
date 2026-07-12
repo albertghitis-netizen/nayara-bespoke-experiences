@@ -129,5 +129,5 @@ Matching previews are in this repo (`preview-gardens-homepage.html`, `preview-te
 - Caution: nayaragardens.com runs end-of-life PHP 7.4 and its Duplicator backups are failing. Fix backups before a developer edits this theme.
 
 **Tented only**
-- The hero claim "No. 1 Resort in Central America Four Consecutive Years" with the 2024 badge is out of date. Travel + Leisure named Tented Camp #1 Resort in Central America again in 2026, its fifth win in six years. Update the line and badge year.
+- The hero claim "No. 1 Resort in Central America Four Consecutive Years" with the 2024 badge is out of date. For 2026, Travel + Leisure named Tented Camp #1 Resort in Central America (its fifth win in six years) and #28 in the world. Update the line, and replace the badge with the World's Best Awards 2026 artwork (white version in the hero, black version on light backgrounds).
 - Separate bug while a developer is in there: nayaratentedcamp.com's robots.txt points its sitemap directive at the Springs domain.
