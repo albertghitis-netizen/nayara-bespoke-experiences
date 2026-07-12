@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PREVIEW: Nayara Springs homepage, video hero</title>
+<link rel="stylesheet" href="https://use.typekit.net/ubs7zsq.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"futura-pt","Futura PT","Century Gothic",system-ui,sans-serif;background:#0C2623;color:#343434;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+.previewtag{position:fixed;bottom:14px;left:14px;z-index:99;background:rgba(12,38,35,.85);color:#edf2f2;font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:8px 14px;border:1px solid rgba(237,242,242,.4);border-radius:2px}
+/* header */
+.hd{position:fixed;top:0;left:0;width:100%;z-index:10;padding:20px 0}
+.hd .wrap{max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,52px);display:flex;justify-content:space-between;align-items:flex-end}
+.hd .logo img{width:clamp(150px,16vw,211px)}
+.hd .right{display:flex;align-items:center;gap:28px}
+.hd .booknow{border:2px solid #fff;color:#fff;text-transform:uppercase;font-weight:700;font-size:.72rem;letter-spacing:.14em;text-decoration:none;padding:14px 38px;text-shadow:0 2px 4px rgba(12,38,35,.34)}
+.hd .booknow:hover{background:#fff;color:#0C2623}
+.burger{width:26px}
+.burger span{display:block;height:2px;background:#fff;border-radius:10px;margin:7px 0}
+/* hero video */
+.hero{position:relative;height:100vh;min-height:600px;overflow:hidden;background:#0C2623}
+.hero::before{content:"";position:absolute;left:0;top:0;width:100%;height:16rem;background:linear-gradient(180deg,rgba(12,38,35,.8) 0,transparent 100%);z-index:3;pointer-events:none}
+.hero .vidwrap{position:absolute;inset:0}
+.hero iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:max(100vw,178vh);height:max(100vh,56.25vw);border:0}
+.hero .copy{position:absolute;left:0;right:0;top:26%;z-index:4;text-align:center;color:#edf2f2;pointer-events:none}
+.hero .copy h1{font-family:"futura-pt",sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(1.4rem,2.6vw,2.1rem);letter-spacing:.22em;line-height:1.45;text-shadow:0 2px 4px rgba(12,38,35,.34)}
+.hero .copy h2{font-family:"minion-pro",Georgia,serif;font-weight:400;font-size:clamp(1.1rem,1.7vw,1.4rem);margin-top:10px;text-shadow:0 2px 4px rgba(12,38,35,.34)}
+.hero .arrowline{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:4;color:#edf2f2;font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 2px 4px rgba(12,38,35,.34);pointer-events:none}
+/* step into your villa */
+.villa{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;background:#0C2623}
+@media(max-width:900px){.villa{grid-template-columns:1fr}}
+.villa .imgside{position:relative;overflow:hidden;min-height:60vh}
+.villa .imgside img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.villa .imgside .overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,38,35,.72) 0,transparent 55%);z-index:2}
+.villa .imgside .copy{position:absolute;left:clamp(24px,5vw,64px);bottom:clamp(26px,5vw,58px);z-index:3;color:#edf2f2;max-width:44ch}
+.villa .imgside h3{font-family:"minion-pro",Georgia,serif;font-weight:400;font-size:clamp(2rem,3.6vw,3.1rem);line-height:1.1;margin-bottom:16px}
+.villa .imgside q{font-family:"minion-pro",Georgia,serif;font-style:italic;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.55;display:block;quotes:"\201C" "\201D"}
+.villa .imgside .who{display:block;margin-top:8px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,242,242,.75)}
+.villa .imgside .adline{margin-top:16px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.villa .imgside .adline a{color:#edf2f2;text-decoration:underline;text-underline-offset:3px}
+.villa .btnside{display:flex;align-items:center;justify-content:center;background:#0C2623;padding:60px 20px}
+.villa .btnside a{text-align:center;text-decoration:none;color:#edf2f2;display:block}
+.villa .btnside .t{font-family:"minion-pro",Georgia,serif;font-size:clamp(3rem,5vw,4.4rem);display:block;text-transform:lowercase}
+.villa .btnside .d{display:block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;margin-top:10px;color:rgba(237,242,242,.75);line-height:1.8}
+.villa .btnside .arrow{font-family:"minion-pro",Georgia,serif;font-size:2rem;display:block;margin-top:18px;color:#edf2f2;transition:transform .3s ease}
+.villa .btnside a:hover .arrow{transform:translateX(10px)}
+/* continues note + footer */
+.continues{background:#edf2f2;color:#0C2623;text-align:center;padding:34px 20px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(12,38,35,.6)}
+.ft{background:#0C2623;color:#edf2f2;text-align:center;padding:56px 20px 44px}
+.ft .locline{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,242,242,.8);margin-bottom:30px}
+.ft .reserv{display:flex;justify-content:center;gap:clamp(26px,6vw,90px);flex-wrap:wrap;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.ft .reserv p{color:rgba(237,242,242,.6);font-size:.68rem;letter-spacing:.18em;margin-bottom:4px}
+.ft .reserv a{color:#edf2f2;text-decoration:none;display:block}
+</style>
+</head>
+<body>
+<div class="previewtag">Preview: proposed Springs homepage</div>
+
+<header class="hd">
+  <div class="wrap">
+    <a class="logo" href="#"><img src="https://nayarasprings.com/wp-content/themes/nayara/img/header/logo2.svg" alt="Nayara Springs"></a>
+    <div class="right">
+      <a href="#" class="booknow">Book Now</a>
+      <div class="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO: the Drive video. Click once to play; on the real site this will be a
+     self-hosted mp4 that autoplays muted with the volcano photo as poster. -->
+<section class="hero">
+  <div class="vidwrap">
+    <iframe src="https://drive.google.com/file/d/1B4sIDHSuRNGmu7-XBKqHtorU8ngDE59L/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+  <div class="copy">
+    <h1>A Secluded Place of<br>Understated Luxury</h1>
+    <h2>Arenal Volcano National Park, Costa Rica</h2>
+  </div>
+  <div class="arrowline">start your nayara journey</div>
+</section>
+
+<!-- STRAIGHT INTO: STEP INTO YOUR VILLA, with the new photo -->
+<section class="villa">
+  <div class="imgside">
+    <img src="https://drive.google.com/thumbnail?id=1Vd3O0Jue5qiNWabkln8vGVtRzD-h_OZn&sz=w2400" alt="Villa with private plunge pool framed by palms at Nayara Springs">
+    <div class="overlay"></div>
+    <div class="copy">
+      <h3>Step into<br>your villa</h3>
+      <q>I never wanted to leave my hot springs pool&hellip; I loved being surrounded by nothing but rainforest and tropical flora</q>
+      <span class="who">Amy, OH.</span>
+      <p class="adline">Nayara Springs is an adults-only hotel. <a href="#">Book your journey</a></p>
+    </div>
+  </div>
+  <div class="btnside">
+    <a href="#">
+      <span class="t">stay</span>
+      <span class="d">enter a world of<br>timeless luxury</span>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<div class="continues">The page continues as today: Be One With Nature &middot; Sustainability &middot; Try Local &middot; As Seen In &middot; Footer</div>
+
+<footer class="ft">
+  <p class="locline">Nayara Springs is located in Arenal Volcano National Park, Costa Rica</p>
+  <div class="reserv">
+    <div><p>Reservations</p><a href="tel:+50624791600">+506 2479 1600</a></div>
+    <div><p>US Toll Free</p><a href="tel:+18883322961">+1 888 332 2961</a></div>
+    <div><p>UK Local Call</p><a href="tel:+441617918120">+44 161 791 8120</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
