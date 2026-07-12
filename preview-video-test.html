@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drive video URL test</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#111;color:#eee;margin:0;padding:24px}
+h1{font-size:18px;margin:0 0 6px}
+p{color:#aaa;font-size:13px;margin:0 0 20px}
+#summary{font-size:16px;font-weight:700;margin-bottom:20px;padding:12px;background:#222;border-radius:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+.tile{background:#1c1c1c;border-radius:8px;padding:12px}
+.tile h2{font-size:14px;margin:0 0 8px}
+.tile video{width:100%;aspect-ratio:16/9;background:#000;border-radius:4px}
+.status{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;background:#444}
+.ok{background:#1b5e20}.bad{background:#7f1d1d}
+.url{font-size:10px;color:#777;word-break:break-all;margin-top:6px}
+</style>
+</head>
+<body>
+<h1>Which tiles play? (Gardens 1 video)</h1>
+<p>Wait about 10 seconds. Each tile marks itself PLAYING or FAILED automatically. Tell Claude the letters that say PLAYING, or screenshot this page.</p>
+<div id="summary">Testing&hellip;</div>
+<div class="grid" id="grid"></div>
+<script>
+var ID='1uxMz-rC-efyh6fsegJtgZZ9yciZe-_WS';
+var candidates=[
+ ['A','lh3 stream 720p','https://lh3.googleusercontent.com/d/'+ID+'=m22'],
+ ['B','lh3 stream 360p','https://lh3.googleusercontent.com/d/'+ID+'=m18'],
+ ['C','usercontent download','https://drive.usercontent.google.com/download?id='+ID+'&export=download&confirm=t'],
+ ['D','uc export download','https://drive.google.com/uc?export=download&id='+ID+'&confirm=t'],
+ ['E','usercontent + authuser','https://drive.usercontent.google.com/download?id='+ID+'&export=download&authuser=0&confirm=t']
+];
+var results={};
+function report(){
+  var ok=Object.keys(results).filter(function(k){return results[k]==='ok';}).sort();
+  var done=Object.keys(results).length;
+  document.getElementById('summary').textContent = done<candidates.length
+    ? 'Testing... ('+done+'/'+candidates.length+' done)'
+    : (ok.length ? 'PLAYING: '+ok.join(', ')+'  — tell Claude these letters' : 'None played. Screenshot this page for Claude.');
+}
+candidates.forEach(function(c){
+  var key=c[0], name=c[1], url=c[2];
+  var tile=document.createElement('div'); tile.className='tile';
+  tile.innerHTML='<h2>'+key+'. '+name+'</h2>';
+  var v=document.createElement('video'); v.muted=true; v.autoplay=true; v.loop=true; v.playsInline=true; v.controls=true;
+  var s=document.createElement('span'); s.className='status'; s.textContent='loading...';
+  var u=document.createElement('div'); u.className='url'; u.textContent=url;
+  v.src=url;
+  var settled=false;
+  v.addEventListener('canplay',function(){ if(settled)return; settled=true; results[key]='ok'; s.textContent='PLAYING'; s.className='status ok'; report(); v.play().catch(function(){}); });
+  v.addEventListener('error',function(){ if(settled)return; settled=true; results[key]='fail'; s.textContent='FAILED'; s.className='status bad'; report(); });
+  setTimeout(function(){ if(settled)return; settled=true; results[key]= v.readyState>=3 ? 'ok':'fail'; s.textContent= results[key]==='ok'?'PLAYING':'FAILED (timeout)'; s.className='status '+(results[key]==='ok'?'ok':'bad'); report(); }, 20000);
+  tile.appendChild(v); tile.appendChild(s); tile.appendChild(u);
+  document.getElementById('grid').appendChild(tile);
+});
+</script>
+</body>
+</html>
