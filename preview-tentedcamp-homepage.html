@@ -3791,49 +3791,43 @@ Ocultar enlace a los menús*/
                 </section>
                 <!-- End Hero -->
                 <!-- Step Into Your Villa -->
-                <section id="calltoaction1" class="calltoaction split animateActive">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12-6 no-padding">
-                                <div class="calltoaction__splitimage">
-                                    <figure class="calltoaction__splitimage__image">
-                                        <img src="https://drive.google.com/thumbnail?id=1uPkYbKDH80pMelXzO_5Uzc8ZSxhWe1Ab&sz=w2400" alt="Luxury tent suite at Nayara Tented Camp">
-                                    </figure>
-                                    <div class="calltoaction__splitimage__image__copy">
-                                        <h3>
-                                            luxury<br>tents
-                                        </h3>
-                                        <div class="calltoaction__splitimage__image__copy__award"></div>
-                                        <div class="calltoaction__splitimage__image__copy__description">
-                                            <q>“The rooms are exquisite, every detail has been 
-carefully thought of. Daily laundry is complimentary 
-and smells amazing. 
-We enjoyed a delectable complimentary breakfast 
-served on our patio on our last morning and lamented 
-not having done it every day.“</q>
-                                            <span>Shayjr, NY</span>
-                                            <p>
-                                                <b>NAYARA TENTED CAMP IS PERFECT FOR COUPLES AND FAMILIES</b>
-                                                . <a href="#/booking/step-1" rel="noopener">BOOK YOUR JOURNEY</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12-6 calltoaction__button__wrapper">
-                                <div class="calltoaction__button">
-                                    <a href="https://nayaratentedcamp.com/stay">
-                                        <span class="calltoaction__button__title">stay</span>
-                                        <span class="calltoaction__button__description">LUXURY TENTS</span>
-                                        <figure class="calltoaction__button__arrow">
-                                            <img src="https://nayaratentedcamp.com/wp-content/themes/nayara/img/calltoaction/calltoarrow.svg" alt="">
-                                        </figure>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <section id="calltoaction1" class="villa-preview">
+<img class="vp-bg" src="https://drive.google.com/thumbnail?id=1uPkYbKDH80pMelXzO_5Uzc8ZSxhWe1Ab&sz=w2400" alt="Luxury tent suite at Nayara Tented Camp">
+<div class="vp-tint"></div>
+<div class="vp-inner">
+  <div class="vp-copy">
+    <h3>Luxury<br>Tents</h3>
+    <q>“The rooms are exquisite, every detail has been carefully thought of. Daily laundry is complimentary and smells amazing. We enjoyed a delectable complimentary breakfast served on our patio on our last morning and lamented not having done it every day.”</q>
+    <span class="vp-who">Shayjr, NY</span>
+    <p class="vp-adline">Nayara Tented Camp is perfect for couples and families. <a href="#/booking/step-1" rel="noopener">Book your journey</a></p>
+  </div>
+</div>
+<a class="vp-staycircle" href="https://nayaratentedcamp.com/stay">
+  <span class="vp-t">Stay</span>
+  <span class="vp-d">Luxury Tents</span>
+  <span class="vp-arrow">&rarr;</span>
+</a>
+</section>
+<style>
+/* rooms section: self-contained Springs-style block, immune to theme JS/CSS */
+.villa-preview{position:relative;min-height:100vh;overflow:hidden;background:#0C2623}
+.vp-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vp-tint{position:absolute;inset:0;background:linear-gradient(100deg,rgba(46,127,131,.85) 0,rgba(46,127,131,.5) 45%,rgba(46,127,131,.08) 100%)}
+.vp-inner{position:relative;z-index:3;min-height:100vh;max-width:1500px;margin:0 auto;padding:0 clamp(24px,6vw,90px);display:flex;align-items:center}
+.vp-copy{color:#edf2f2;max-width:640px;padding:110px 0 40px}
+.vp-copy h3{font-family:futura-pt,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(38px,4.6vw,64px);letter-spacing:.18em;line-height:1.3;margin-bottom:clamp(28px,4vw,52px);color:#edf2f2;text-shadow:0 2px 6px rgba(12,38,35,.4)}
+.vp-copy q{font-family:minion-pro,serif;font-style:italic;font-size:clamp(16px,1.3vw,19px);line-height:2.1;display:block;max-width:34ch;color:#edf2f2;text-shadow:0 2px 4px rgba(12,38,35,.4)}
+.vp-who{display:block;margin-top:10px;font-family:minion-pro,serif;font-size:17px;color:rgba(237,242,242,.9)}
+.vp-adline{margin-top:clamp(30px,4vw,50px);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-family:futura-pt,sans-serif;color:#edf2f2}
+.vp-adline a{color:#edf2f2;text-decoration:underline;text-underline-offset:3px}
+.vp-staycircle{position:absolute;right:clamp(20px,7vw,110px);top:50%;transform:translateY(-50%);z-index:4;width:clamp(220px,22vw,300px);aspect-ratio:1;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);color:#edf2f2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-decoration:none;gap:8px;transition:background .3s ease}
+.vp-staycircle:hover{background:rgba(255,255,255,.12)}
+.vp-t{font-family:minion-pro,serif;font-size:clamp(30px,2.6vw,42px);text-transform:capitalize}
+.vp-d{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;line-height:1.9;font-family:futura-pt,sans-serif}
+.vp-arrow{font-size:24px;margin-top:6px}
+@media(max-width:700px){.vp-staycircle{position:relative;right:auto;top:auto;transform:none;margin:0 auto 50px}.vp-inner{flex-direction:column;justify-content:flex-end;align-items:flex-start;padding-top:120px}}
+</style>
+
                 <section id="calltoaction2" class="calltoaction secondhome beone animateActive">
                     <figure class="secondhome__back second__home__absolute">
                         <img src="https://nayaratentedcamp.com/wp-content/themes/nayara/img/calltoaction/home/aniwind/home1.png" alt="" loading="lazy">
@@ -4615,16 +4609,6 @@ form#sib_signup_form_1 p.sib-alert-message-warning {
 #hero .hero__copy h2,#hero .hero__arrow__wrapper,#hero .hero__copy .hero__award__row{opacity:1!important;visibility:visible!important}
 #wrapper .calltoaction,#wrapper .calltoaction *,#wrapper #awards,#wrapper #awards *,#wrapper #footer,#wrapper #footer *{opacity:1!important;visibility:visible!important}
 #calltoaction1 .calltoaction__splitimage__image__copy *{transform:none!important}
-/* rooms section: enforce the live overlay layout (copy left over the image, circle right) */
-@media only screen and (min-width:769px){
-#calltoaction1.split{position:relative;min-height:100vh;overflow:hidden;display:block}
-#calltoaction1 .container,#calltoaction1 .row,#calltoaction1 .col-12-6.no-padding,#calltoaction1 .calltoaction__splitimage{position:static!important;max-width:none!important;width:100%!important;height:auto!important;padding:0!important;margin:0!important}
-#calltoaction1 .calltoaction__splitimage__image{position:absolute!important;inset:0!important;margin:0!important;width:100%!important;height:100%!important}
-#calltoaction1 .calltoaction__splitimage__image img{width:100%!important;height:100%!important;object-fit:cover!important}
-#calltoaction1 .calltoaction__splitimage__image:after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(12,38,35,.6) 0,rgba(12,38,35,.32) 45%,rgba(12,38,35,.05) 100%)}
-#calltoaction1 .calltoaction__splitimage__image__copy{position:absolute!important;z-index:3!important;left:clamp(24px,7vw,110px)!important;right:auto!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;max-width:52rem;color:#edf2f2;text-align:left}
-#calltoaction1 .calltoaction__button__wrapper{position:absolute!important;right:clamp(20px,7vw,110px)!important;left:auto!important;top:50%!important;transform:translateY(-50%)!important;z-index:4!important;width:auto!important;max-width:none!important;flex:none!important;padding:0!important;display:block!important}
-}
 
 .hero__home .hero__award__row figure{margin-top:5rem!important}
 .hero__home .hero__award__row figure img{object-fit:contain!important;height:150px!important;width:auto!important}
