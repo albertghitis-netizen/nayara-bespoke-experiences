@@ -3844,7 +3844,7 @@
             <!-- Start Hero -->
             <section id="hero" class="hero__home animateActive">
                 <figure class="parallax__move">
-                    <video autoplay muted loop playsinline poster="https://nayaragardens.com/wp-content/uploads/2020/08/NayaraGardens-Hero-home-3-opt.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><source src="https://drive.google.com/uc?export=download&id=1uxMz-rC-efyh6fsegJtgZZ9yciZe-_WS" type="video/mp4"></video>
+                    <video autoplay muted loop playsinline poster="https://nayaragardens.com/wp-content/uploads/2020/08/NayaraGardens-Hero-home-3-opt.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><source src="https://lh3.googleusercontent.com/d/1uxMz-rC-efyh6fsegJtgZZ9yciZe-_WS=m37" type="video/mp4"><source src="https://lh3.googleusercontent.com/d/1uxMz-rC-efyh6fsegJtgZZ9yciZe-_WS=m22" type="video/mp4"><source src="https://lh3.googleusercontent.com/d/1uxMz-rC-efyh6fsegJtgZZ9yciZe-_WS=m18" type="video/mp4"></video>
                 </figure>
                 <div class="hero__wrapper">
                     <div class="hero__copy">
@@ -3862,7 +3862,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero__arrow__wrapper">
+                <button class="vidmute" aria-label="Unmute video" onclick="var v=this.closest('section').querySelector('video');v.muted=!v.muted;this.classList.toggle('vidunmuted',!v.muted);"><svg class="ic-muted" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="#fff" stroke="none"/><line x1="16" y1="9" x2="22" y2="15"/><line x1="22" y1="9" x2="16" y2="15"/></svg><svg class="ic-on" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="#fff" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9.5 9.5 0 0 1 0 13"/></svg></button><div class="hero__arrow__wrapper">
                     <p>start your nayara journey</p>
                     <a href="#" class="hero__arrow">
                         <img src="https://nayaragardens.com/wp-content/themes/nayara/img/hero/arrow.svg" alt="">
@@ -4838,5 +4838,7 @@ form#sib_signup_form_1 p.sib-alert-message-warning {
 
 @media only screen and (min-width:769px){#hero.hero__home .hero__wrapper{top:50%!important}}
 </style>
+
+<style>.vidmute{position:absolute;left:50%;transform:translateX(-50%);bottom:110px;z-index:6;background:none;border:0;cursor:pointer;opacity:.85;padding:8px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}.vidmute:hover{opacity:1}.vidmute .ic-on{display:none}.vidmute.vidunmuted .ic-on{display:inline}.vidmute.vidunmuted .ic-muted{display:none}</style>
 </body>
 </html>
