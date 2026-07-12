@@ -84,7 +84,7 @@ Note the alt text; the theme currently ships empty alts throughout.
     <div style="display:flex;justify-content:center;gap:80px;flex-wrap:wrap;">
         <div style="max-width:17rem;">
             <p style="font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#00869a;margin-bottom:10px;">MICHELIN Guide</p>
-            <p style="font-size:.92rem;letter-spacing:.16em;text-transform:uppercase;line-height:1.8;color:#0C2623;">Three MICHELIN Keys</p>
+            <p style="font-size:.92rem;letter-spacing:.16em;text-transform:uppercase;line-height:1.8;color:#0C2623;">The Only Resort in Central America<br>with Three MICHELIN Keys</p>
         </div>
         <div style="max-width:17rem;">
             <p style="font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:#00869a;margin-bottom:10px;">Cond&eacute; Nast Traveller</p>
