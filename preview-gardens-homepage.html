@@ -26,7 +26,7 @@ img{display:block;max-width:100%}
 .hero::before{content:"";position:absolute;left:0;top:0;width:100%;height:16rem;background:linear-gradient(180deg,rgba(30,35,20,.8) 0,transparent 100%);z-index:3;pointer-events:none}
 .hero .vidwrap{position:absolute;inset:0}
 .hero iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:max(100vw,178vh);height:max(100vh,56.25vw);border:0}
-.hero .copy{position:absolute;left:0;right:0;top:50%;z-index:4;text-align:center;color:#edf2f2;pointer-events:none}
+.hero .copy{position:absolute;left:0;right:0;top:58%;z-index:4;text-align:center;color:#edf2f2;pointer-events:none}
 .hero .copy h1{font-family:"futura-pt",sans-serif;font-weight:500;text-transform:uppercase;font-size:clamp(1.4rem,2.6vw,2.1rem);letter-spacing:.22em;line-height:1.45;text-shadow:0 2px 4px rgba(20,24,10,.4)}
 .hero .copy h2{font-family:"minion-pro",Georgia,serif;font-weight:400;font-size:clamp(1.05rem,1.6vw,1.35rem);margin-top:14px;text-shadow:0 2px 4px rgba(20,24,10,.4)}
 .hero .copy h2 .proof{display:block;margin-top:16px;font-family:"futura-pt",sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(237,242,242,.92)}
@@ -36,20 +36,20 @@ img{display:block;max-width:100%}
 /* surround yourself with nature: full-bleed image, copy left, outlined Stay circle right */
 .villa{position:relative;min-height:100vh;overflow:hidden;background:#1e2314}
 .villa .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.villa .tint{position:absolute;inset:0;background:linear-gradient(120deg,rgba(85,84,46,.72) 0,rgba(60,62,32,.42) 45%,rgba(40,44,22,.3) 100%)}
-.villa .inner{position:relative;z-index:3;min-height:100vh;max-width:1500px;margin:0 auto;padding:0 clamp(24px,6vw,90px);display:flex;align-items:flex-end}
-.villa .copy{color:#edf2f2;padding-bottom:clamp(40px,7vw,80px);max-width:40rem}
-.villa h3{font-family:"futura-pt",sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(2.2rem,4.8vw,4.2rem);letter-spacing:.16em;line-height:1.25;margin-bottom:clamp(20px,3vw,40px);text-shadow:0 2px 6px rgba(20,24,10,.4)}
-.villa q{font-family:"minion-pro",Georgia,serif;font-style:italic;font-size:clamp(1.05rem,1.6vw,1.35rem);line-height:1.9;display:block;quotes:"\201C" "\201D";max-width:38ch;text-shadow:0 2px 4px rgba(20,24,10,.4)}
+.villa .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(88,86,46,.78) 0,rgba(75,74,40,.45) 35%,rgba(62,64,34,.45) 70%,rgba(50,52,28,.68) 100%)}
+.villa .inner{position:relative;z-index:3;min-height:100vh;max-width:1500px;margin:0 auto;padding:0 clamp(24px,6vw,90px);display:flex;align-items:center}
+.villa .copy{color:#edf2f2;max-width:44rem;padding:110px 0 40px}
+.villa h3{font-family:"futura-pt",sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(2.4rem,4.6vw,4rem);letter-spacing:.18em;line-height:1.3;margin-bottom:clamp(28px,4vw,52px);text-shadow:0 2px 6px rgba(20,24,10,.4)}
+.villa q{font-family:"minion-pro",Georgia,serif;font-style:italic;font-size:clamp(1rem,1.3vw,1.2rem);line-height:2.1;display:block;quotes:"\201C" "\201D";max-width:36ch;text-shadow:0 2px 4px rgba(20,24,10,.4)}
 .villa .who{display:block;margin-top:10px;font-family:"minion-pro",Georgia,serif;font-size:1.05rem;color:rgba(237,242,242,.9)}
-.villa .adline{margin-top:clamp(20px,3vw,36px);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.villa .adline{margin-top:clamp(30px,4vw,50px);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
 .villa .adline a{color:#edf2f2;text-decoration:underline;text-underline-offset:3px}
-.villa .staycircle{position:absolute;right:clamp(20px,7vw,110px);bottom:clamp(60px,12vh,140px);z-index:4;width:clamp(220px,22vw,300px);aspect-ratio:1;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);color:#edf2f2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-decoration:none;gap:8px;transition:background .3s ease,transform .3s ease}
-.villa .staycircle:hover{background:rgba(255,255,255,.12);transform:scale(1.04)}
+.villa .staycircle{position:absolute;right:clamp(20px,7vw,110px);top:50%;transform:translateY(-50%);z-index:4;width:clamp(220px,22vw,300px);aspect-ratio:1;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);color:#edf2f2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-decoration:none;gap:8px;transition:background .3s ease,transform .3s ease}
+.villa .staycircle:hover{background:rgba(255,255,255,.12);transform:translateY(-50%) scale(1.04)}
 .villa .staycircle .t{font-family:"minion-pro",Georgia,serif;font-size:clamp(1.9rem,2.6vw,2.6rem);text-transform:capitalize}
 .villa .staycircle .d{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;line-height:1.9}
 .villa .staycircle .arrow{font-size:1.5rem;margin-top:6px}
-@media(max-width:700px){.villa .staycircle{position:relative;right:auto;bottom:auto;margin:0 auto 50px}.villa .inner{flex-direction:column;justify-content:flex-end;align-items:flex-start;padding-top:120px}}
+@media(max-width:700px){.villa .staycircle{position:relative;right:auto;top:auto;transform:none;margin:0 auto 50px}.villa .inner{flex-direction:column;justify-content:flex-end;align-items:flex-start;padding-top:120px}}
 /* continues note, awards band, footer */
 .continues{background:#edf2f2;text-align:center;padding:34px 20px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(30,35,20,.6)}
 .awardsband{background:#edf2f2;text-align:center;padding:clamp(48px,7vw,90px) 20px;border-top:1px solid rgba(30,35,20,.08)}
@@ -82,7 +82,7 @@ img{display:block;max-width:100%}
   </div>
   <div class="copy">
     <h1>Family Friendly<br>Rainforest Adventure</h1>
-    <h2>The original Nayara &middot; Arenal Volcano National Park, Costa Rica<span class="proof">Travel + Leisure World's Best Awards Hall of Fame</span></h2>
+    <h2>Arenal Volcano National Park, Costa Rica<span class="proof">Travel + Leisure World's Best Awards Hall of Fame</span></h2>
   </div>
   <div class="arrowline">start your nayara journey<span class="ar">&darr;</span></div>
 </section>
