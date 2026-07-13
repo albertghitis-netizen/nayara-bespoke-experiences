@@ -4650,8 +4650,12 @@ form#sib_signup_form_1 p.sib-alert-message-warning {
  .vp-copy{padding:0 0 30px!important}
  .vp-staycircle{margin:26px auto 50px!important}
  .vp-adline{position:absolute!important;left:18px;right:18px;bottom:26px;margin:0!important}
- #header .booknow{position:fixed!important;bottom:0!important;left:0!important;width:100%!important;transform:translateY(0)!important;z-index:120!important;display:flex!important;align-items:center!important;justify-content:center!important;height:58px!important;padding:0 0 env(safe-area-inset-bottom)!important;text-align:center!important;background:linear-gradient(90deg,#2e7f83,#3a969b)!important;color:#fff!important;font-size:14px!important;font-weight:700!important;letter-spacing:2.6px!important;border:0!important;overflow:hidden!important;animation:ctaGlow 3.2s ease-in-out infinite}
- #header .booknow::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);animation:ctaSheen 3.6s ease-in-out infinite}
+ #header .booknow{display:none!important}
+}
+#mobilecta{display:none}
+@media only screen and (max-width:768px){
+#mobilecta{position:fixed;bottom:0;left:0;width:100%;z-index:2147483000;display:flex;align-items:center;justify-content:center;height:58px;padding-bottom:env(safe-area-inset-bottom);background:linear-gradient(90deg,#2e7f83,#3a969b);color:#fff;font-family:futura-pt,sans-serif;font-size:14px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;text-decoration:none;overflow:hidden;animation:ctaGlow 3.2s ease-in-out infinite}
+#mobilecta::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);animation:ctaSheen 3.6s ease-in-out infinite}
 }
 @keyframes ctaSheen{0%{left:-60%}55%{left:110%}100%{left:110%}}
 @keyframes ctaGlow{0%,100%{box-shadow:0 -6px 22px rgba(46,127,131,.35)}50%{box-shadow:0 -8px 32px rgba(46,127,131,.7)}}
@@ -4665,5 +4669,6 @@ form#sib_signup_form_1 p.sib-alert-message-warning {
   if (window.matchMedia('(max-width:768px)').matches) { src.src = mobile; v.load(); v.play().catch(function(){}); }
 })();
 </script>
+<a id="mobilecta" href="#/booking/step-1">Check Availability</a>
 </body>
     </html>
