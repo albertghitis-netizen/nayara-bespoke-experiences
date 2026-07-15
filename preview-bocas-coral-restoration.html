@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nayara Bocas del Toro Coral Habitat Restoration Program — Rebuilding living reefs in Panama with science-backed restoration and a vision for net-positive floating villas.">
+    <title>Rebuilding a Living Reef | Nayara Bocas del Toro</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@300;400;500;600&amp;display=swap');
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .heading-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.05;
+        }
+
+        .section {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .phase-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .nav-scrolled {
+            background-color: rgba(255,255,255,0.95);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(10, 37, 64, 0.65), rgba(19, 78, 74, 0.7)),
+                              url('https://i.postimg.cc/26S6Cb37/Villas-and-Reef.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .luxury-shadow {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+
+        /* Premium visual enhancements */
+        .glass-nav {
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 0.98rem;
+            letter-spacing: 0.01em;
+            font-weight: 700 !important;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: #0D9488;
+            transition: width 0.25s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .image-tile {
+            min-height: 360px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-tile::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,37,64,0.65), rgba(10,37,64,0.05));
+        }
+
+        .image-caption {
+            position: absolute;
+            left: 2rem;
+            right: 2rem;
+            bottom: 2rem;
+            color: white;
+            z-index: 1;
+        }
+
+        .reveal-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .reveal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 45px -20px rgba(10, 37, 64, 0.35);
+        }
+
+        .timeline-dot {
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            background: #0D9488;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 0 0 8px rgba(13,148,136,0.12);
+        }
+
+        .full-bleed-photo {
+            background-image: linear-gradient(90deg, rgba(10,37,64,0.82), rgba(10,37,64,0.22)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2200&q=85');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .partner-photo {
+            background-image: linear-gradient(rgba(10,37,64,0.08), rgba(10,37,64,0.28)), url('https://i.postimg.cc/fbYFwqYN/Fib-Uy.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .approach-photo {
+            background-image: linear-gradient(rgba(10,37,64,0.05), rgba(10,37,64,0.25)), url('https://i.postimg.cc/YCfRV9VQ/Screenshot-2026-06-22-at-3-11-51-PM.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .photo-credit {
+            position:absolute;
+            right:1rem;
+            bottom:1rem;
+            color:white;
+            font-size:0.72rem;
+            font-weight:600;
+            letter-spacing:0.03em;
+            z-index:2;
+            text-shadow:0 1px 3px rgba(0,0,0,0.6);
+        }
+
+
+        @media (max-width: 768px) {
+            .nav-link {
+                font-size: 1rem;
+            }
+        }
+
+
+        /* Force light text on dark sections so the host (HubSpot) theme can't render headings dark */
+        .full-bleed-photo h1, .full-bleed-photo h2, .full-bleed-photo h3, .full-bleed-photo p,
+        #video h1, #video h2, #video h3, #video p,
+        #impact h1, #impact h2, #impact h3, #impact p { color: #ffffff !important; }
+
+        /* Force the Adopt-a-Coral button text to center regardless of host button styling */
+        .adopt-coral-btn { display:flex !important; align-items:center !important; justify-content:center !important; text-align:center !important; }
+
+        /* Inline expanding sign-up forms (Adopt-a-Coral and Restorative Experience) */
+        .expandable-form {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.45s ease, opacity 0.4s ease, margin-top 0.4s ease;
+        }
+        .expandable-form.open {
+            max-height: 520px;
+            opacity: 1;
+        }
+
+        /* Sign-up form fields and buttons — forced so the HubSpot host theme cannot override box, color, size, or radius */
+        .signup-input {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            border-radius: 1rem !important;
+            padding: 0.85rem 1.25rem !important;
+            font-size: 1rem !important;
+            line-height: 1.4 !important;
+            background-color: #ffffff !important;
+            color: #0A2540 !important;
+            border: 1px solid #D1C9B8 !important;
+            margin: 0 !important;
+        }
+        .signup-input::placeholder { color: #8A8472 !important; opacity: 1 !important; }
+        .signup-input:focus { outline: none !important; border-color: #0D9488 !important; box-shadow: none !important; }
+
+        .signup-btn {
+            display: block !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            border-radius: 1rem !important;
+            padding: 0.95rem 1.25rem !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            background-color: #0D9488 !important;
+            color: #ffffff !important;
+            border: none !important;
+            cursor: pointer !important;
+            transition: background-color 0.2s ease !important;
+        }
+        .signup-btn:hover { background-color: #0F766E !important; }
+
+        /* Uniform small gap between form fields (flex gap is immune to the inputs' forced margin reset) */
+        .signup-form { display: flex !important; flex-direction: column !important; gap: 0.85rem !important; }
+
+        /* Force the white Adopt trigger button's colors so the host theme can't dim its text */
+        .adopt-coral-btn { background-color: #ffffff !important; color: #0A2540 !important; }
+    </style>
+    <style>
+      /* Nav visibility: fully self-contained, no Tailwind responsive classes, no id dependency */
+      .nav-desktop-links, .nav-desktop-btns { display: none !important; }
+      .nav-mobile-toggle { display: inline-flex !important; }
+      @media (min-width: 1024px) {
+        .nav-desktop-links { display: flex !important; }
+        .nav-desktop-btns { display: flex !important; }
+        .nav-mobile-toggle { display: none !important; }
+      }
+      /* Mobile dropdown: pure-CSS :target toggle (no checkbox/JS) */
+      #mobile-menu { display: none; }
+      #mobile-menu:target { display: block; }
+      @media (min-width: 1024px) {
+        #mobile-menu, #mobile-menu:target { display: none !important; }
+      }
+    </style>
+    <style>
+      /* ===== Mobile phone optimizations (Android & iOS) ===== */
+      html, body { overflow-x: hidden; }
+
+      @media (max-width: 767px) {
+        /* Scale oversized headings so they read well and never overflow narrow screens */
+        .hero-bg h1 { font-size: 2.25rem !important; line-height: 1.12 !important; letter-spacing: -0.5px !important; }
+        .hero-bg p  { font-size: 1.05rem !important; }
+        .heading-serif { font-size: 2rem !important; line-height: 1.15 !important; letter-spacing: -0.4px !important; }
+
+        /* Reclaim horizontal width on the section wrappers */
+        .max-w-screen-2xl { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+
+        /* Slightly tighter card padding for a more readable text column */
+        .p-9 { padding: 1.5rem !important; }
+        .p-8 { padding: 1.5rem !important; }
+
+        /* Full-width, easy-to-tap hero buttons */
+        .hero-bg .flex.flex-wrap > a { flex: 1 1 100% !important; justify-content: center !important; }
+
+        /* Keep tall background-image bands from dominating the screen */
+        .full-bleed-photo { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+      }
+    </style>
+    <style>
+      /* ===== Nayara brand header + accordion menu, grafted from nayarabocasdeltoro.com =====
+         Scoped under .nyh / .nyh-menu so the theme's 10px reset never touches the Tailwind page. */
+      .nyh{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:background-color .3s ease,box-shadow .3s ease}
+      .nyh__inner{max-width:1600px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:22px 32px}
+      .nyh__logo{display:block;line-height:0}
+      .nyh__logo img{width:190px;height:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
+      .nyh__right{display:flex;align-items:center;gap:26px}
+      .nyh__book{border:2px solid #fff;color:#fff;text-transform:uppercase;font-family:'Inter',system-ui,sans-serif;font-weight:600;letter-spacing:2px;font-size:13px;padding:0 26px;height:50px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;transition:background-color .3s ease,color .3s ease;text-shadow:0 1px 3px rgba(0,0,0,.3);white-space:nowrap}
+      .nyh__book:hover{background:#fff;color:#0A2540;text-shadow:none}
+      .nyh__toggle{width:30px;height:22px;cursor:pointer;background:none;border:0;padding:0;display:inline-flex;flex-direction:column;justify-content:space-between}
+      .nyh__toggle span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+      /* scrolled state: solid navy so the white logo stays legible over the light sections below the hero */
+      .nyh--solid{background:#0A2540;box-shadow:0 4px 18px rgba(10,37,64,.25)}
+      .nyh--solid .nyh__inner{padding:14px 32px}
+      .nyh--solid .nyh__logo img{width:150px}
+
+      /* Fullscreen accordion menu */
+      .nyh-menu{position:fixed;inset:0;z-index:1100;background:#0A2540;color:#fff;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .4s ease,transform .4s ease,visibility .4s ease;overflow-y:auto;padding:120px 24px 70px;-webkit-overflow-scrolling:touch}
+      .nyh-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+      .nyh-menu__close{position:absolute;top:24px;right:34px;background:none;border:0;color:#fff;font-size:38px;line-height:1;cursor:pointer;font-family:'Inter',system-ui,sans-serif}
+      .nyh-menu__props{max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:34px}
+      .nyh-prop{width:152px;text-align:center;text-decoration:none;color:#fff;transition:transform .25s ease}
+      .nyh-prop:hover{transform:translateY(-6px)}
+      .nyh-prop img{width:120px;height:120px;object-fit:contain;margin:0 auto 12px;display:block}
+      .nyh-prop .t{font-family:'Playfair Display',Georgia,serif;font-size:26px;display:block;line-height:1.05}
+      .nyh-prop .d{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9fc7cb;display:block;margin-top:6px}
+      .nyh-menu__links{max-width:920px;margin:50px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:16px 36px;border-top:1px solid rgba(255,255,255,.18);padding-top:36px}
+      .nyh-menu__links a{color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:600}
+      .nyh-menu__links a:hover{color:#4DC9D1}
+      .nyh-menu__social{display:flex;justify-content:center;gap:28px;margin-top:36px}
+      .nyh-menu__social a{color:#fff;font-size:20px}
+      .nyh-menu__social a:hover{color:#4DC9D1}
+
+      /* Mobile: the book button becomes a fixed bottom bar, exactly like the live site */
+      .nyh-mobilecta{display:none}
+      @media (max-width:767px){
+        .nyh__inner{padding:16px 20px}
+        .nyh__logo img{width:150px}
+        .nyh--solid .nyh__logo img{width:130px}
+        .nyh__book{display:none}
+        .nyh-mobilecta{position:fixed;bottom:0;left:0;width:100%;z-index:1090;height:56px;display:flex;align-items:center;justify-content:center;background:#0A2540;color:#fff;text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:700;text-decoration:none;border-top:2px solid #fff}
+        .nyh-prop{width:120px}
+        .nyh-prop img{width:88px;height:88px}
+        .nyh-prop .t{font-size:22px}
+      }
+    </style>
+</head>
+<body class="bg-[#F8F5F0] text-[#0A2540] scroll-smooth">
+
+    <!-- Brand header (grafted from nayarabocasdeltoro.com nav bar) -->
+    <header class="nyh" id="nyh">
+        <div class="nyh__inner">
+            <a href="https://nayarabocasdeltoro.com" class="nyh__logo" aria-label="Nayara Bocas del Toro">
+                <img src="https://nayarabocasdeltoro.com/wp-content/themes/nayara/img/header/logo2.svg" alt="Nayara Bocas del Toro">
+            </a>
+            <div class="nyh__right">
+                <a href="#/booking/step-1" class="nyh__book">Book Now</a>
+                <button class="nyh__toggle" id="nyhToggle" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Fullscreen accordion menu (hamburger) -->
+    <nav class="nyh-menu" id="nyhMenu" aria-hidden="true">
+        <button class="nyh-menu__close" id="nyhClose" aria-label="Close menu">&times;</button>
+        <div class="nyh-menu__props">
+            <a class="nyh-prop" href="https://nayarabocasdeltoro.com/stay/"><img src="https://nayarabocasdeltoro.com/wp-content/themes/nayara/img/menu/stay/img1.png" alt=""><span class="t">Stay</span><span class="d">Overwater Villas</span></a>
+            <a class="nyh-prop" href="https://nayarabocasdeltoro.com/discover/"><img src="https://nayarabocasdeltoro.com/wp-content/themes/nayara/img/menu/discover/img1.png" alt=""><span class="t">Discover</span><span class="d">the experience</span></a>
+            <a class="nyh-prop" href="https://nayarabocasdeltoro.com/eat/"><img src="https://nayarabocasdeltoro.com/wp-content/themes/nayara/img/menu/eat/img1.png" alt=""><span class="t">Eat</span><span class="d">gastronomy</span></a>
+            <a class="nyh-prop" href="https://nayarabocasdeltoro.com/explore/"><img src="https://nayarabocasdeltoro.com/wp-content/themes/nayara/img/menu/explore/img1.png" alt=""><span class="t">Explore</span><span class="d">activities</span></a>
+            <a class="nyh-prop" href="https://nayarabocasdeltoro.com/unwind/"><img src="https://nayarabocasdeltoro.com/wp-content/themes/nayara/img/menu/unwind/img1.png" alt=""><span class="t">Unwind</span><span class="d">Spa</span></a>
+        </div>
+        <div class="nyh-menu__links">
+            <a href="https://nayarabocasdeltoro.com/about/">About</a>
+            <a href="https://nayarabocasdeltoro.com/contact/">Contact</a>
+            <a href="https://nayarabocasdeltoro.com/gallery/">Gallery</a>
+            <a href="https://www.lhw.com/leaders-club-hub?hotel=38262" target="_blank" rel="noopener">Leaders Club</a>
+            <a href="#/booking/step-1">Book Now</a>
+        </div>
+        <div class="nyh-menu__social">
+            <a href="https://www.instagram.com/nayarabocasdeltoro/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@nayararesorts1" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/nayarabocasdeltoro" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+    </nav>
+
+    <!-- Mobile fixed booking bar (matches live site behavior) -->
+    <a href="#/booking/step-1" class="nyh-mobilecta">Book Now</a>
+
+    <!-- HERO -->
+    <header class="hero-bg h-[100dvh] min-h-[720px] flex items-center pt-24 relative">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-12">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white/90 text-xs font-semibold tracking-[1.5px] mb-6">
+                    <i class="fa-solid fa-water"></i>
+                    <span>BOCAS DEL TORO, PANAMA</span>
+                </div>
+
+                <h1 class="heading-serif text-white text-6xl md:text-7xl lg:text-[5rem] leading-none tracking-[-1.5px] mb-6">
+                    Nayara Bocas del Toro Coral Reef Habitat Restoration Project
+                </h1>
+
+                <p class="max-w-lg text-xl text-white/90 mb-10">
+                    A science-backed partnership restoring biodiversity across the Bocas del Toro archipelago —
+                    with measurable results and a vision for the world’s first net-positive floating villas.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#video" class="inline-flex items-center px-8 py-4 rounded-2xl bg-white text-[#0A2540] font-semibold shadow-xl hover:shadow-2xl transition">
+                        Explore Our Progress <i class="fa-solid fa-arrow-right ml-3"></i>
+                    </a>
+                    <a href="#participate" onclick="openAdopt()" class="inline-flex items-center px-8 py-4 rounded-2xl border border-white/70 text-white font-semibold hover:bg-white/10 transition">
+                        Join the Restoration</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute right-4 bottom-4 md:right-8 md:bottom-6 text-[11px] md:text-sm font-semibold text-white" style="text-shadow:0 1px 3px rgba(0,0,0,.6);">Actual Photo of Nayara Bocas del Toro</div>
+    </header>
+
+    <!-- THE STORY -->
+    <section id="the-story" class="max-w-screen-2xl mx-auto px-8 md:px-12 pt-20 pb-16">
+        <div class="grid md:grid-cols-12 gap-x-12 items-center">
+            <div class="md:col-span-7">
+                <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#0D9488] mb-3">THE STORY</div>
+                <h2 class="heading-serif text-5xl tracking-[-1.25px] leading-none">Building a city beneath the sea</h2>
+
+                <div class="mt-8 text-[15.5px] leading-relaxed max-w-prose text-[#3D3528]">
+                    <p>At a time when coral reefs are disappearing faster than almost any other ecosystem on Earth, Nayara Bocas del Toro is partnering with the Caribbean Coral Restoration Center (CCRC) to rebuild living reef systems throughout the Bocas del Toro archipelago.</p>
+                    <p class="mt-5">Bocas del Toro is home to roughly <strong>87% of every reef-building coral species</strong> documented in Panama. The health of these reefs is also the foundation of the local economy.</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-5 mt-10 md:mt-0">
+                <div class="bg-white rounded-3xl p-9 border border-[#EDE6D9] luxury-shadow">
+                    <div class="text-[4.25rem] leading-none font-bold tracking-tighter text-[#0D9488]">87%</div>
+                    <p class="mt-1 text-xl font-medium">of Panama’s reef-building coral species are found here.</p>
+                    <div class="mt-8 pt-8 border-t text-sm text-[#5C5240]">
+                        Reefs here face bleaching events every three to four years. Our work focuses on resilience-based restoration to build ecosystems that can withstand warmer, more acidic conditions.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMMERSIVE RESTORATION PHOTO -->
+    <section class="full-bleed-photo py-24 text-white">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-12">
+            <div class="max-w-2xl">
+                <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#14B8A6]">RESTORATION IN CONTEXT</div>
+                <h2 class="heading-serif text-5xl tracking-[-1.25px] mt-3" style="color:#ffffff !important;">A living reef experience guests can see, support, and return to.</h2>
+                <p class="mt-6 text-lg text-white/85 leading-relaxed">From overwater villas to future floating residences, each structure becomes part of a broader marine habitat strategy designed to restore life beneath the surface.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARIBBEAN CORAL RESTORATION CENTER -->
+    <section id="partners" class="max-w-screen-2xl mx-auto px-8 md:px-12 py-20">
+        <div class="grid lg:grid-cols-2 gap-x-16 gap-y-10 items-center">
+            <div>
+                <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#0D9488]">OUR IMPLEMENTATION PARTNER</div>
+                <h2 class="heading-serif text-5xl tracking-[-1.2px] mt-3">Caribbean Coral Restoration Center</h2>
+                <div class="mt-6 text-[16px] text-[#3D3528] leading-relaxed max-w-prose">
+                    <p>The Caribbean Coral Restoration Center (CCRC) is the expert technical partner responsible for the hands-on delivery of the coral restoration program. They lead habitat installation, coral breeding and nursery operations, and strategic outplanting across all sites in Bocas del Toro.</p>
+                </div>
+                <a href="https://loveforthesea.com" target="_blank" class="inline-flex items-center gap-x-2 mt-7 font-semibold text-[#0D9488] hover:underline text-base">
+                    Learn more about CCRC <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+
+                <div class="grid sm:grid-cols-3 gap-4 mt-9">
+                    <div class="bg-white rounded-2xl p-5 border border-[#EDE6D9] reveal-card">
+                        <div class="text-3xl font-bold text-[#0D9488]">01</div>
+                        <div class="font-semibold mt-2">Build</div>
+                        <p class="text-xs text-[#5C5240] mt-1">Deploy engineered reef habitat.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-5 border border-[#EDE6D9] reveal-card">
+                        <div class="text-3xl font-bold text-[#0D9488]">02</div>
+                        <div class="font-semibold mt-2">Grow</div>
+                        <p class="text-xs text-[#5C5240] mt-1">Propagate resilient coral strains.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-5 border border-[#EDE6D9] reveal-card">
+                        <div class="text-3xl font-bold text-[#0D9488]">03</div>
+                        <div class="font-semibold mt-2">Monitor</div>
+                        <p class="text-xs text-[#5C5240] mt-1">Measure biodiversity and biomass.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rounded-[2rem] overflow-hidden luxury-shadow border border-[#EDE6D9]">
+                <div class="partner-photo h-[520px] relative"><div class="photo-credit">Actual CCRC Photo</div>
+                    <div class="absolute left-8 right-8 bottom-8 bg-[#0A2540]/80 rounded-3xl p-7">
+                        <div class="uppercase tracking-[2px] text-xs font-bold text-[#14B8A6]">Field-led restoration</div>
+                        <p class="mt-2 font-semibold text-xl" style="color:#ffffff !important;">A hands-on marine team turning resort infrastructure into living habitat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERSHIP & APPROACH -->
+    <section id="approach" class="bg-white py-20 border-y border-[#EDE6D9]">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-12">
+            <div class="grid lg:grid-cols-12 gap-x-14 gap-y-10 items-center">
+                <div class="lg:col-span-5">
+                    <div class="rounded-[2rem] overflow-hidden luxury-shadow border border-[#EDE6D9]">
+                        <div class="approach-photo h-[500px] relative"><div class="photo-credit">Actual CCRC Facilities</div></div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#0D9488]">THE APPROACH</div>
+                    <h3 class="heading-serif text-5xl tracking-[-1.25px] mt-3">Science that builds complete ecosystems</h3>
+                    <p class="mt-6 text-[16px] leading-relaxed text-[#3D3528] max-w-2xl">Nayara’s partnership with CCRC applies resilience-based science. We select coral strains proven to withstand warmer, more acidic conditions and track measurable outcomes in <strong>biodiversity and biomass</strong>.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-9">
+                        <div class="bg-[#F8F5F0] rounded-3xl p-7 reveal-card">
+                            <i class="fa-solid fa-dna text-[#0D9488] text-3xl mb-5"></i>
+                            <div class="font-semibold text-lg">Resilience Selection</div>
+                            <div class="text-sm mt-2 text-[#5C5240]">Prioritizing heat- and acid-resistant coral strains.</div>
+                        </div>
+                        <div class="bg-[#F8F5F0] rounded-3xl p-7 reveal-card">
+                            <i class="fa-solid fa-chart-line text-[#0D9488] text-3xl mb-5"></i>
+                            <div class="font-semibold text-lg">Biomass Monitoring</div>
+                            <div class="text-sm mt-2 text-[#5C5240]">Measuring ecosystem health through diversity and density.</div>
+                        </div>
+                        <div class="bg-[#F8F5F0] rounded-3xl p-7 reveal-card">
+                            <i class="fa-solid fa-water text-[#0D9488] text-3xl mb-5"></i>
+                            <div class="font-semibold text-lg">Habitat Structures</div>
+                            <div class="text-sm mt-2 text-[#5C5240]">Engineered reefs that accelerate natural recovery.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHASES -->
+    <section id="phases" class="max-w-screen-2xl mx-auto px-8 md:px-12 pt-20 pb-16">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
+            <div>
+                <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#0D9488]">THREE PHASES OF RESTORATION</div>
+                <h2 class="heading-serif text-5xl tracking-[-1.25px] mt-2">Real progress.<br>Measurable impact.</h2>
+            </div>
+            <a href="#participate" class="mt-4 md:mt-0 text-sm font-semibold text-[#0D9488] hover:text-[#0F766E]">See how you can contribute →</a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Phase 1 -->
+            <div class="phase-card bg-white border border-[#EDE6D9] rounded-3xl overflow-hidden">
+                <div class="h-56 bg-cover bg-center relative" style="background-image: url('https://23160175.fs1.hubspotusercontent-na1.net/hubfs/23160175/Copy%20of%20P3170012.jpg')">
+                    <div class="absolute top-5 left-5 px-4 py-1 bg-white/95 text-xs font-bold tracking-wider rounded-full">PHASE 1 — COMPLETED</div><div class="photo-credit">Actual Photo of Nayara Bocas Del Toro</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-semibold text-xl">Growing Initial Reef Habitat</h3>
+                    <p class="text-sm text-[#0D9488] mt-1">Completed • Now a thriving ecosystem</p>
+                    <p class="mt-4 text-sm">Custom habitat structures were installed beneath Nayara’s overwater villas. These sites have rapidly evolved into healthy, biodiverse reefs with returning apex species.</p>
+                    <div class="mt-5 flex flex-wrap gap-2 text-xs">
+                        <span class="px-3 py-1 bg-[#F0EBE0] rounded-full">Yellowtail Snapper</span>
+                        <span class="px-3 py-1 bg-[#F0EBE0] rounded-full">Great Barracuda</span>
+                        <span class="px-3 py-1 bg-[#F0EBE0] rounded-full">Nurse Sharks</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="phase-card bg-white border border-[#EDE6D9] rounded-3xl overflow-hidden">
+                <div class="h-56 bg-cover bg-center relative" style="background-image: url('https://i.postimg.cc/SK5x65HK/T6a-Qg.jpg')">
+                    <div class="absolute top-5 left-5 px-4 py-1 bg-[#0D9488] text-white text-xs font-bold tracking-wider rounded-full">PHASE 2 — IN PROGRESS</div><div class="photo-credit">Actual Photo of Nayara Bocas Del Toro</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-semibold text-xl">Full Reef Outside Property Boundary</h3>
+                    <p class="text-sm text-[#0D9488] mt-1">In Progress • Completion: August 2026</p>
+                    <p class="mt-4 text-sm">Building a full-scale reef just outside the resort as part of CCRC’s expanding 16-zone network across the archipelago.</p>
+                    <div class="mt-4">
+                        <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full">STRONG EARLY RESULTS</span>
+                        <p class="text-xs mt-2">Significant increases in breeding-size angelfish and spiny lobster populations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="phase-card bg-white border border-[#EDE6D9] rounded-3xl overflow-hidden ring-1 ring-[#0D9488]">
+                <div class="h-56 bg-cover bg-center relative" style="background-image: url('https://23160175.fs1.hubspotusercontent-na1.net/hubfs/23160175/floating%20villa.jpeg')">
+                    <div class="absolute top-5 left-5 px-4 py-1 bg-gradient-to-r from-[#0D9488] to-teal-700 text-white text-xs font-bold tracking-wider rounded-full">PHASE 3 — VISION 2027</div><div class="photo-credit">Rendering of Floating Villas at Nayara Bocas Del Toro</div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-semibold text-xl">Back Bay Floating Villas Corridor</h3>
+                    <p class="text-sm text-[#0D9488] mt-1">Construction Underway • Target 2027</p>
+                    <p class="mt-4 text-sm">Habitat structures are being installed around six new planned floating villas. The goal is for coral growth to fully offset their carbon footprint — creating the world’s first net-zero, net-positive floating villas.</p>
+                    <div class="mt-4 inline-flex items-center gap-x-2 text-xs font-semibold text-[#0D9488]">
+                        <i class="fa-solid fa-leaf"></i>
+                        <span>NET-POSITIVE MARINE IMPACT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center text-xs text-[#6B6254]">
+            The project spans <span class="font-semibold">16 active habitat zones</span> influencing more than <span class="font-semibold">80,000 m²</span> of ocean floor.
+        </div>
+
+        <!-- Visual Timeline -->
+        <div class="mt-14 bg-white rounded-[2rem] border border-[#EDE6D9] p-8 md:p-10 luxury-shadow">
+            <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#0D9488] text-center">RESTORATION TIMELINE</div>
+            <div class="grid md:grid-cols-3 gap-8 mt-8">
+                <div class="text-center">
+                    <div class="timeline-dot mx-auto">1</div>
+                    <h4 class="font-semibold text-lg mt-5">Completed Habitat</h4>
+                    <p class="text-sm text-[#5C5240] mt-2">Under-villa habitat structures matured into biodiverse reef communities.</p>
+                </div>
+                <div class="text-center">
+                    <div class="timeline-dot mx-auto">2</div>
+                    <h4 class="font-semibold text-lg mt-5">Expanded Reef Zone</h4>
+                    <p class="text-sm text-[#5C5240] mt-2">Full reef installation outside the property boundary advances through 2026.</p>
+                </div>
+                <div class="text-center">
+                    <div class="timeline-dot mx-auto">3</div>
+                    <h4 class="font-semibold text-lg mt-5">Floating Villa Corridor</h4>
+                    <p class="text-sm text-[#5C5240] mt-2">Future villas are designed around restorative marine infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- VIDEO SECTION  —  ADD YOUR VIDEO WHERE MARKED BELOW           -->
+    <!-- ============================================================= -->
+    <section id="video" class="bg-[#0A2540] py-20 text-white">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-12">
+            <div class="max-w-2xl mb-10">
+                <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#14B8A6]">SEE IT IN MOTION</div>
+                <h2 class="heading-serif text-5xl tracking-[-1.25px] mt-2" style="color:#ffffff !important;">The reef, alive.</h2>
+                <p class="mt-5 text-lg text-white/80 leading-relaxed">Go beneath the surface and watch the restoration take shape across the Bocas del Toro archipelago.</p>
+            </div>
+
+                        <!-- Autoplay video, hosted on HubSpot. To change it, replace the src URL below. -->
+            <div class="max-w-5xl mx-auto">
+            <video class="w-full rounded-[2rem] luxury-shadow border border-white/10"
+                   autoplay muted loop playsinline
+                   poster="data:image/jpeg;base64,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"
+                   >
+              <source src="https://23160175.fs1.hubspotusercontent-na1.net/hubfs/23160175/coral-reef-restoration.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p class="mt-5 text-sm italic tracking-[0.5px]" style="color:#ffffff !important;">Reef habitat at Nayara Bocas del Toro</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MASTERPLAN MAP -->
+    <section class="bg-white py-16 border-y border-[#EDE6D9]">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-12">
+            <div class="text-center mb-8">
+                <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#0D9488]">THE LONG-TERM VISION</div>
+                <h2 class="heading-serif text-4xl tracking-tight mt-2">Ocean Habitat Restoration Masterplan</h2>
+            </div>
+
+            <div class="max-w-5xl mx-auto rounded-3xl overflow-hidden border border-[#EDE6D9] shadow-2xl">
+                <img src="https://i.postimg.cc/bv0mkcZk/Final-Reef-Habitat-Map.png"
+                     alt="Nayara Bocas del Toro Ocean Habitat Restoration Masterplan" class="w-full">
+            </div>
+
+
+</div>
+    </section>
+
+
+    <!-- IMPACT -->
+    <section id="impact" class="bg-[#0A2540] py-20 text-white">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-12">
+            <div class="max-w-2xl mb-12">
+                <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#14B8A6]">MEASURABLE RESULTS</div>
+                <h2 class="heading-serif text-5xl tracking-[-1.5px] mt-2" style="color:#ffffff !important;">From recovering reef to apex-rich ecosystem.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <div class="text-6xl font-bold text-[#14B8A6]">5</div>
+                    <p class="mt-2">Surveyed zones now classified as pristine ecosystems</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <div class="text-6xl font-bold text-[#14B8A6]">16</div>
+                    <p class="mt-2">Active habitat restoration zones across the archipelago</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <div class="text-6xl font-bold text-[#14B8A6]">80k+</div>
+                    <p class="mt-2">Square meters of ocean floor positively influenced</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <div class="text-6xl font-bold text-[#14B8A6]">Apex</div>
+                    <p class="mt-2">Predators returning — including nurse sharks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTICIPATE -->
+    <section id="participate" class="max-w-screen-2xl mx-auto px-8 md:px-12 py-20">
+        <div class="max-w-3xl">
+            <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#0D9488]">BE PART OF THE STORY</div>
+            <h2 class="heading-serif text-[3.1rem] tracking-[-1.2px] mt-2">Turn your visit into lasting impact.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-6 mt-12 items-start">
+            <!-- Guided -->
+            <div class="md:col-span-3 bg-white border border-[#EDE6D9] rounded-3xl p-9">
+                <div class="flex items-start gap-x-4">
+                    <i class="fa-solid fa-water text-3xl text-[#0D9488]"></i>
+                    <div>
+                        <h3 class="font-semibold text-xl">Guided Reef Restoration Experiences</h3>
+                        <p class="text-[#5C5240] mt-1">Join our marine biologists and actively participate in restoration work.</p>
+                    </div>
+                </div>
+                <ul class="mt-6 space-y-3 text-sm">
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#0D9488]"></i> Help deploy new habitat structures</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#0D9488]"></i> Seed resilient coral fragments</li>
+                    <li class="flex gap-x-3"><i class="fa-solid fa-check text-[#0D9488]"></i> Learn the science of resilience-based restoration</li>
+                </ul>
+                <div class="mt-8 max-w-md mx-auto">
+                    <button type="button" onclick="toggleRestorativeForm()" class="signup-btn">Book a Restorative Experience</button>
+                    <div id="restorative-form-wrap" class="expandable-form">
+                        <form class="mt-4 signup-form" onsubmit="joinList(event)">
+                            <input type="text" placeholder="Your Name" class="signup-input" required>
+                            <input type="email" placeholder="Email Address" class="signup-input" required>
+                            <button type="submit" class="signup-btn">Join the Experience List</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adopt -->
+            <div class="md:col-span-2 bg-[#0A2540] text-white rounded-3xl p-9 flex flex-col">
+                <div>
+                    <h3 class="font-semibold text-2xl !text-white" style="color:#ffffff !important;">Adopt-a-Coral Program</h3>
+                    <p class="mt-3 text-white/80">Follow the specific reef structures you helped create. Receive personalized updates with photos and data at 6 months, 1 year, and 3 years.</p>
+                </div>
+                <div class="mt-auto pt-8">
+                    <button type="button" onclick="toggleAdoptForm()" class="w-full py-4 rounded-2xl bg-white text-[#0A2540] font-semibold hover:bg-[#F5F0E6] transition adopt-coral-btn" style="display:flex !important; align-items:center !important; justify-content:center !important; text-align:center !important;">
+                        Adopt Your Coral — $250
+                    </button>
+                    <div id="adopt-form-wrap" class="expandable-form">
+                        <form class="mt-5 signup-form" onsubmit="joinList(event)">
+                            <input type="text" placeholder="Your Name" class="signup-input" required>
+                            <input type="email" placeholder="Email Address" class="signup-input" required>
+                            <button type="submit" class="signup-btn">Join the Adoption List</button>
+                        </form>
+                    </div>
+                    <p class="text-center text-xs text-white/60 mt-3">100% of proceeds support ongoing monitoring</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section class="py-20 bg-[#F8F5F0] border-t border-[#EDE6D9]">
+        <div class="max-w-screen-2xl mx-auto px-8 md:px-12">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+                <div>
+                    <div class="uppercase tracking-[2.5px] text-xs font-semibold text-[#0D9488]">IMAGE GALLERY</div>
+                    <h2 class="heading-serif text-5xl tracking-[-1.25px] mt-2">A visual story of reef renewal.</h2>
+                </div>
+
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="image-tile rounded-[2rem] luxury-shadow" style="background-image:url('https://i.postimg.cc/N0jGTYMz/Screenshot-2026-06-22-at-12-22-52-PM.png')">
+                    <div class="photo-credit">Actual CCRC Photo</div><div class="image-caption">
+                        <div class="text-xs uppercase tracking-[2px] font-bold text-[#14B8A6]">Underwater Habitat</div>
+                        <h3 class="text-2xl font-semibold mt-1" style="color:#ffffff !important;">Coral structures attracting marine life</h3>
+                    </div>
+                </div>
+                <div class="image-tile rounded-[2rem] luxury-shadow" style="background-image:url('https://i.postimg.cc/dtDMcB1j/Screenshot-2026-06-22-at-12-42-33-PM.png')">
+                    <div class="photo-credit">Actual CCRC Photo</div><div class="image-caption">
+                        <div class="text-xs uppercase tracking-[2px] font-bold text-[#14B8A6]">Marine Field Work</div>
+                        <h3 class="text-2xl font-semibold mt-1" style="color:#ffffff !important;">Hands-on restoration led by experts</h3>
+                    </div>
+                </div>
+                <div class="image-tile rounded-[2rem] luxury-shadow" style="background-image:url('https://i.postimg.cc/k5mX5K39/Screenshot-2026-06-22-at-12-23-40-PM.png')">
+                    <div class="photo-credit">Actual CCRC Photo</div><div class="image-caption">
+                        <div class="text-xs uppercase tracking-[2px] font-bold text-[#14B8A6]">Guest Experience</div>
+                        <h3 class="text-2xl font-semibold mt-1" style="color:#ffffff !important;">Luxury travel with measurable impact</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="border-t border-[#EDE6D9] bg-white py-16">
+        <div class="max-w-2xl mx-auto px-8 text-center">
+
+
+<img src="https://i.postimg.cc/h40br1PS/Nayara-Logo.png" alt="Nayara Logo" class="h-28 w-auto mx-auto mb-8 object-contain">
+<h3 class="heading-serif text-4xl tracking-tight">Luxury that restores the ocean.</h3>
+
+            <p class="mt-5 text-lg text-[#3D3528]">Nayara Bocas del Toro is proving that world-class hospitality and meaningful environmental regeneration can go hand in hand.</p>
+
+            <div class="mt-8 flex justify-center gap-x-4">
+                <a href="https://www.nayararesorts.com/bocas-del-toro" target="_blank" class="px-8 py-3 rounded-2xl border text-sm font-medium">Explore Nayara Bocas del Toro</a>
+                <button onclick="showContactModal()" class="px-8 py-3 rounded-2xl bg-[#0D9488] text-white text-sm font-semibold">Speak with our team</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0A2540] text-white/70 text-xs py-8">
+        <div class="max-w-screen-2xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-y-2">
+
+<div class="flex items-center gap-4">
+    <img src="https://i.postimg.cc/h40br1PS/Nayara-Logo.png" alt="Nayara Logo" class="h-12 w-auto object-contain">
+    <div>©️ 2026 Nayara Resorts. A proud partner of the Caribbean Coral Restoration Center &amp; Mission Blue.</div>
+</div>
+
+            <div class="flex gap-x-5">
+                <a href="#" class="hover:text-white">Press</a>
+                <a href="#" class="hover:text-white">Sustainability</a>
+                <a href="#" class="hover:text-white">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="contact-modal" onclick="if (event.target.id === 'contact-modal') hideContactModal()" class="hidden fixed inset-0 bg-black/60 z-[200] items-center justify-center p-6">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-md w-full p-9">
+            <div class="flex justify-between mb-4">
+                <div class="font-semibold text-2xl">Contact the Team</div>
+                <button onclick="hideContactModal()" class="text-3xl leading-none">×</button>
+            </div>
+            <p class="text-[#3D3528] mb-6">Reach our reservations team directly by email or phone.</p>
+            <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                <a href="mailto:reservations@nayararesorts.com" class="signup-btn" style="display:flex !important; align-items:center; justify-content:center; gap:0.6rem; text-decoration:none;">
+                    <i class="fa-solid fa-envelope"></i> reservations@nayararesorts.com
+                </a>
+                <a href="tel:+18448652002" style="display:flex !important; align-items:center; justify-content:center; gap:0.6rem; width:100% !important; box-sizing:border-box; border-radius:1rem !important; padding:0.95rem 1.25rem !important; font-weight:600 !important; background:#ffffff !important; color:#0A2540 !important; border:1px solid #D1C9B8 !important; text-decoration:none;">
+                    <i class="fa-solid fa-phone"></i> 1-844-865-2002
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Brand header: solid navy after scrolling + hamburger accordion menu
+        (function () {
+            var hdr = document.getElementById('nyh');
+            var tgl = document.getElementById('nyhToggle');
+            var menu = document.getElementById('nyhMenu');
+            var cls = document.getElementById('nyhClose');
+            function openMenu() {
+                menu.classList.add('open');
+                menu.setAttribute('aria-hidden', 'false');
+                tgl.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                menu.classList.remove('open');
+                menu.setAttribute('aria-hidden', 'true');
+                tgl.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+            tgl.addEventListener('click', openMenu);
+            cls.addEventListener('click', closeMenu);
+            menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+            window.addEventListener('scroll', function () {
+                hdr.classList.toggle('nyh--solid', window.scrollY > 60);
+            });
+        })();
+
+        // Inline expanding sign-up forms
+        function toggleAdoptForm() {
+            document.getElementById('adopt-form-wrap').classList.toggle('open');
+        }
+        function toggleRestorativeForm() {
+            document.getElementById('restorative-form-wrap').classList.toggle('open');
+        }
+        function openAdopt() {
+            var wrap = document.getElementById('adopt-form-wrap');
+            if (wrap) wrap.classList.add('open');
+        }
+        function joinList(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.textContent = 'Thank you, you are on the list.';
+            btn.disabled = true;
+            btn.classList.add('opacity-90', 'cursor-default');
+        }
+
+        // Contact modal
+        function showContactModal() {
+            document.getElementById('contact-modal').classList.remove('hidden');
+            document.getElementById('contact-modal').classList.add('flex');
+        }
+        function hideContactModal() {
+            document.getElementById('contact-modal').classList.remove('flex');
+            document.getElementById('contact-modal').classList.add('hidden');
+        }
+
+        // Keyboard escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                document.getElementById('contact-modal').classList.remove('flex');
+                document.getElementById('contact-modal').classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

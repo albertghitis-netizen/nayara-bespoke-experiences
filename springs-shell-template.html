@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ================================================================
+     NAYARA SPRINGS PAGE SHELL
+     Standalone template that matches nayarasprings.com: same Typekit
+     kit (ubs7zsq: futura-pt + minion-pro), same palette (deep green
+     #0C2623, cream #edf2f2, teal #00869a, olive #757342), same header
+     and footer anatomy, and the same AZDS booking engine so the
+     BOOK NOW button opens the real booking flow when this file is
+     hosted on nayarasprings.com.
+     REPLACE the [BRACKETED] copy and the images marked IMAGE 1/2/3.
+================================================================ -->
+<title>[PAGE TITLE] | Nayara Springs | Costa Rica</title>
+<meta name="description" content="[META DESCRIPTION: 150-160 characters]">
+<link rel="stylesheet" href="https://use.typekit.net/ubs7zsq.css">
+<style>
+:root{
+  --deep:#0C2623; --cream:#edf2f2; --teal:#00869a; --olive:#757342;
+  --ink:#343434; --ink-soft:rgba(52,52,52,.75);
+  --serif:"minion-pro","Minion Pro",Georgia,serif;
+  --sans:"futura-pt","Futura PT","Century Gothic",system-ui,sans-serif;
+}
+#nsp *{margin:0;padding:0;box-sizing:border-box}
+#nsp{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#nsp img{display:block;max-width:100%;height:auto}
+#nsp a{color:inherit}
+#nsp .wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(1.25rem,5vw,3.25rem)}
+#nsp section{padding:clamp(56px,8vw,110px) 0}
+#nsp h1,#nsp h2,#nsp h3{line-height:1.15}
+#nsp h2{font-family:var(--sans);font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--deep);margin:0 0 18px}
+#nsp h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2.2vw,1.7rem);color:var(--deep);margin:0 0 10px}
+#nsp p{font-size:1.02rem;color:var(--ink-soft)}
+#nsp .serif-lede{font-family:var(--serif);font-size:clamp(1.35rem,2.4vw,1.85rem);line-height:1.45;color:var(--deep);font-weight:400}
+#nsp .eyebrow{font-weight:600;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);margin:0 0 14px}
+#nsp .btn{display:inline-flex;justify-content:center;align-items:center;padding:15px 40px;border:2px solid var(--deep);font-family:var(--sans);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--deep);transition:background .25s ease,color .25s ease}
+#nsp .btn:hover{background:var(--deep);color:#fff}
+#nsp .btn-light{border-color:#fff;color:#fff}
+#nsp .btn-light:hover{background:#fff;color:var(--deep)}
+/* header, replicated from the live site */
+#nsp .hd{position:fixed;top:0;left:0;width:100%;z-index:10;padding:18px 0}
+#nsp .hd .wrap{display:flex;justify-content:space-between;align-items:flex-end}
+#nsp .hd .logo img{width:clamp(150px,16vw,211px);height:auto}
+#nsp .hd .right{display:flex;align-items:center;gap:26px}
+#nsp .hd .booknow{border:2px solid #fff;color:#fff;text-transform:uppercase;font-weight:700;font-size:.72rem;letter-spacing:.14em;text-decoration:none;padding:14px 36px;text-shadow:0 2px 4px rgba(12,38,35,.34);transition:background .25s,color .25s}
+#nsp .hd .booknow:hover{background:#fff;color:var(--deep)}
+#nsp .burger{width:26px;cursor:pointer}
+#nsp .burger span{display:block;height:2px;background:#fff;border-radius:10px;margin:7px 0}
+/* hero */
+#nsp .hero{position:relative;height:100vh;min-height:620px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+#nsp .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#nsp .hero::before{content:"";position:absolute;left:0;top:0;width:100%;height:16rem;background:linear-gradient(180deg,rgba(12,38,35,.8) 0,transparent 100%);z-index:2}
+#nsp .hero::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:12rem;background:linear-gradient(0deg,rgba(12,38,35,.55) 0,transparent 100%);z-index:2}
+#nsp .hero .copy{position:relative;z-index:3;color:var(--cream);padding:0 20px;max-width:60rem}
+#nsp .hero h1{font-family:var(--sans);font-weight:500;text-transform:uppercase;font-size:clamp(1.5rem,3.2vw,2.4rem);letter-spacing:.16em;line-height:1.4;text-shadow:0 2px 4px rgba(12,38,35,.34);margin:0 0 14px}
+#nsp .hero .sub{font-family:var(--serif);font-size:clamp(1.15rem,2vw,1.5rem);text-shadow:0 2px 4px rgba(12,38,35,.34);margin:0 0 26px}
+#nsp .hero .arrowline{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:3;color:var(--cream);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 2px 4px rgba(12,38,35,.34)}
+/* bands */
+#nsp .band-dark{background:var(--deep);color:var(--cream)}
+#nsp .band-dark h2,#nsp .band-dark h3,#nsp .band-dark .serif-lede{color:var(--cream)}
+#nsp .band-dark p{color:rgba(237,242,242,.82)}
+#nsp .center{text-align:center}
+#nsp .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+@media(max-width:840px){#nsp .split{grid-template-columns:1fr}}
+#nsp .quote q{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.5;color:var(--deep);display:block;max-width:30ch;margin:0 auto}
+#nsp .quote span{display:block;margin-top:16px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+/* footer, replicated from the live site */
+#nsp .ft{background:var(--deep);color:var(--cream);padding:clamp(48px,7vw,90px) 0 40px;text-align:center}
+#nsp .ft .locline{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,242,242,.8);margin-bottom:38px}
+#nsp .ft .locline a{color:var(--cream);text-decoration:underline}
+#nsp .ft .reserv{display:flex;justify-content:center;gap:clamp(26px,6vw,90px);flex-wrap:wrap;margin-bottom:40px}
+#nsp .ft .reserv div{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+#nsp .ft .reserv p{color:rgba(237,242,242,.65);font-size:.72rem;letter-spacing:.18em;margin-bottom:4px}
+#nsp .ft .reserv a{color:var(--cream);text-decoration:none;display:block}
+#nsp .ft .links{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin-bottom:30px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
+#nsp .ft .links a{color:var(--cream);text-decoration:none}
+#nsp .ft .links a:hover{text-decoration:underline}
+#nsp .ft .fam{border-top:1px solid rgba(237,242,242,.2);padding-top:30px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(237,242,242,.6)}
+#nsp .ft .fam a{color:rgba(237,242,242,.85);text-decoration:none;margin:0 10px;display:inline-block;padding:4px 0}
+#nsp .ft .fam a:hover{color:#fff}
+</style>
+</head>
+<body style="margin:0;background:#0C2623;">
+<div id="nsp">
+
+<!-- HEADER (matches live site: white logo, BOOK NOW, hamburger) -->
+<header class="hd">
+  <div class="wrap">
+    <a class="logo" href="https://nayarasprings.com"><img src="https://nayarasprings.com/wp-content/themes/nayara/img/header/logo2.svg" alt="Nayara Springs"></a>
+    <div class="right">
+      <a href="#/booking/step-1" class="booknow check-availability-btn">Book Now</a>
+      <a class="burger" href="https://nayarasprings.com" aria-label="Menu"><span></span><span></span><span></span></a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO :: IMAGE 1, replace src -->
+<section class="hero" style="padding:0;">
+  <img class="bg" src="https://nayarasprings.com/wp-content/uploads/2021/07/nayara-volcano.jpg" alt="[HERO IMAGE ALT]">
+  <div class="copy">
+    <h1>[Page headline in the Springs voice,<br>uppercase, two lines]</h1>
+    <p class="sub">[Serif subheadline: the quiet, romantic promise of the page]</p>
+    <a href="#/booking/step-1" class="btn btn-light">Book Your Journey</a>
+  </div>
+  <div class="arrowline">start your nayara journey</div>
+</section>
+
+<!-- INTRO -->
+<section>
+  <div class="wrap center" style="max-width:820px;">
+    <div class="eyebrow">[Eyebrow label]</div>
+    <h2>[Section heading]</h2>
+    <p class="serif-lede" style="margin-bottom:20px;">[One graceful serif sentence that frames the page.]</p>
+    <p>[Supporting paragraph. Verified claims only. Remember Springs is the adults-only romance property: three MICHELIN Keys, Relais &amp; Ch&acirc;teaux, villas with private hot-spring plunge pools.]</p>
+  </div>
+</section>
+
+<!-- SPLIT :: IMAGE 2, replace src -->
+<section class="band-dark" >
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow" style="color:#4DC9D1;">[Eyebrow]</div>
+      <h2 style="color:#edf2f2;">[Split section heading]</h2>
+      <p style="margin-bottom:14px;">[Paragraph one.]</p>
+      <p>[Paragraph two.]</p>
+    </div>
+    <figure><img src="https://nayarasprings.com/wp-content/uploads/2020/06/StaySprings_Hanging-Bridges.jpg" alt="[IMAGE 2 ALT]" style="box-shadow:0 40px 90px -46px rgba(0,0,0,.6);"></figure>
+  </div>
+</section>
+
+<!-- GUEST QUOTE (the shell the live homepage uses for reviews) -->
+<section class="quote center">
+  <div class="wrap">
+    <q>&ldquo;[A short guest quote in italic minion-pro, the way the homepage runs its reviews.]&rdquo;</q>
+    <span>[Guest name, state]</span>
+  </div>
+</section>
+
+<!-- SPLIT REVERSED :: IMAGE 3, replace src -->
+<section style="background:#e3eaea;">
+  <div class="wrap split">
+    <figure><img src="https://nayarasprings.com/wp-content/uploads/2020/08/Follow-me-to-the-garden.jpg" alt="[IMAGE 3 ALT]" style="box-shadow:0 40px 90px -46px rgba(43,44,29,.5);"></figure>
+    <div>
+      <div class="eyebrow">[Eyebrow]</div>
+      <h2>[Second split heading]</h2>
+      <p style="margin-bottom:14px;">[Paragraph.]</p>
+      <a href="#/booking/step-1" class="btn">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="band-dark center">
+  <div class="wrap" style="max-width:760px;">
+    <div class="eyebrow" style="color:#4DC9D1;">Plan Your Stay</div>
+    <h2 style="color:#edf2f2;">[Closing invitation]</h2>
+    <p style="margin:0 auto 26px;max-width:52ch;">[One closing sentence.]</p>
+    <a href="#/booking/step-1" class="btn btn-light">Book Your Journey</a>
+  </div>
+</section>
+
+<!-- FOOTER (matches live site: location line, reservations, links, family strip) -->
+<footer class="ft">
+  <div class="wrap">
+    <p class="locline">Nayara Springs is located in Arenal Volcano National Park, Costa Rica. <a href="https://www.waze.com/ul?place=ChIJhz017uELoI8ReBhBgO1bJek&ll=10.50300020%2C-84.68892760&navigate=yes" target="_blank" rel="noopener">Map and directions</a></p>
+    <div class="reserv">
+      <div><p>Reservations</p><a href="tel:+50624791600">+506 2479 1600</a></div>
+      <div><p>US Toll Free</p><a href="tel:+18883322961">+1 888 332 2961</a></div>
+      <div><p>UK Local Call</p><a href="tel:+441617918120">+44 161 791 8120</a></div>
+    </div>
+    <div class="links">
+      <a href="https://nayarasprings.com/about/">About</a>
+      <a href="https://nayarasprings.com/contact/">Contact</a>
+      <a href="https://nayarasprings.com/gallery/">Gallery</a>
+    </div>
+    <div class="fam">
+      Nayara Springs is part of Nayara Resorts
+      <div style="margin-top:12px;">
+        <a href="https://nayaragardens.com/" target="_blank" rel="noopener">Nayara Gardens</a>
+        <a href="https://www.nayaratentedcamp.com/" target="_blank" rel="noopener">Nayara Tented Camp</a>
+        <a href="https://nayaraaltoatacama.com/" target="_blank" rel="noopener">Nayara Alto Atacama</a>
+        <a href="https://nayarahangaroa.com/" target="_blank" rel="noopener">Nayara Hangaroa</a>
+        <a href="https://bocasbali.com/" target="_blank" rel="noopener">Nayara Bocas del Toro</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- AZDS booking engine, same integration as the live site: makes every
+     #/booking/step-1 link open the real Springs booking flow when this
+     page is hosted on nayarasprings.com -->
+<script type="text/javascript">
+var BOOKING_SETTINGS = {"hotel":"nayara-springs","theme":"boutique-gallery","lang":"en","emergency":{"email":"reservations@nayararesorts.com","phone":"(+1) 844 865 2002"}};
+</script>
+<booking-layout></booking-layout>
+<script type="text/javascript" src="//newbooking.azds.com/preloader.bundle.js"></script>
+<script type="text/javascript" src="//newbooking.azds.com/inline.bundle.js"></script>
+</body>
+</html>

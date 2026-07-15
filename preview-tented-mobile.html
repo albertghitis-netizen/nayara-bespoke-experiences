@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tented Camp, mobile layout</title>
+<style>
+body{margin:0;min-height:100vh;background:#15201f;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:system-ui,sans-serif;padding:30px 0}
+h1{color:#cfd9d8;font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px}
+.phone{width:390px;height:844px;background:#000;border-radius:54px;padding:14px;box-shadow:0 40px 90px -30px rgba(0,0,0,.8);position:relative}
+.phone .notch{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:120px;height:28px;background:#000;border-radius:0 0 18px 18px;z-index:2}
+.phone iframe{width:100%;height:100%;border:0;border-radius:40px;background:#0b3339}
+p.note{color:#7d8c8a;font-size:12px;margin-top:16px;max-width:420px;text-align:center;line-height:1.6}
+</style>
+<script>if(window.matchMedia("(max-width:500px)").matches){location.replace("preview-tentedcamp-homepage.html");}</script>
+</head>
+<body>
+<h1>Nayara Tented Camp, iPhone 14 size</h1>
+<div class="phone"><div class="notch"></div><iframe src="preview-tentedcamp-homepage.html"></iframe></div>
+<p class="note">Live render of the actual preview page at 390x844. Scroll inside the phone. The video is the desktop file for now; the mobile video slots in when you send it.</p>
+</body>
+</html>
