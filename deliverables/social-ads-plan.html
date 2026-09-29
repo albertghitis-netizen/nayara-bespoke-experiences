@@ -106,6 +106,17 @@ tr.sum td { font-weight: 600; border-bottom: none; }
 .later li { padding-left: 18px; position: relative; }
 .later li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 8px; height: 1px; background: var(--ink-soft); }
 
+/* Google search terms */
+.kw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.kw { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.kw h3 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 1.2rem; }
+.kw .theme { font-size: 0.85rem; color: var(--ink-soft); margin-top: -8px; }
+.kw-group { display: grid; gap: 6px; }
+.kw-group b { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.chips li { background: var(--mist); border-radius: 6px; padding: 3px 9px; font-size: 0.88rem; }
+.kw .owns { font-size: 0.85rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 10px; }
+
 @media (max-width: 560px) {
   .row, .axis { grid-template-columns: 1fr; gap: 4px; }
   .axis > span:first-child { display: none; }
@@ -231,6 +242,70 @@ tr.sum td { font-weight: 600; border-bottom: none; }
       </div>
     </div>
     <p class="soft">Guests who stayed with us in the past year are left out, so we do not pay to reach people who already know us.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Google search, in more detail</div>
+    <h2>The searches each campaign will answer</h2>
+    <p class="soft">Each Google campaign is built around a few groups of related searches. When someone types one of these, our ad for that property can appear, and a tap takes them to its landing page. These are our starting list. Before launch we check each one in Google's keyword tool to confirm people actually search it, and drop or add terms based on what we find.</p>
+    <div class="kw-grid">
+      <div class="kw">
+        <h3>Nayara Gardens</h3>
+        <p class="theme">Family, sloths and wildlife</p>
+        <div class="kw-group"><b>Sloths</b><ul class="chips"><li>hotel with sloths costa rica</li><li>where to see sloths costa rica</li><li>sloth hotel arenal</li></ul></div>
+        <div class="kw-group"><b>Family resorts</b><ul class="chips"><li>family resort costa rica</li><li>costa rica family vacation</li><li>best costa rica resort for kids</li><li>family hotel la fortuna</li></ul></div>
+        <div class="kw-group"><b>Rainforest and wildlife</b><ul class="chips"><li>rainforest resort costa rica</li><li>wildlife hotel costa rica</li><li>costa rica eco resort for families</li></ul></div>
+        <p class="owns">Owns: family, kids, sloths, wildlife. Stays out of: luxury family, Arenal Volcano, glamping.</p>
+      </div>
+      <div class="kw">
+        <h3>Nayara Tented Camp</h3>
+        <p class="theme">Luxury family, Arenal Volcano</p>
+        <div class="kw-group"><b>Luxury family</b><ul class="chips"><li>luxury family resort costa rica</li><li>luxury family vacation costa rica</li><li>multigenerational trip costa rica</li></ul></div>
+        <div class="kw-group"><b>Arenal Volcano</b><ul class="chips"><li>arenal volcano hotel</li><li>hotel near arenal volcano</li><li>arenal volcano view hotel</li></ul></div>
+        <div class="kw-group"><b>Glamping</b><ul class="chips"><li>luxury glamping costa rica</li><li>glamping costa rica</li><li>glamping arenal</li></ul></div>
+        <p class="owns">Owns: luxury family, Arenal Volcano, glamping. Stays out of: kids, sloths, wildlife.</p>
+      </div>
+      <div class="kw">
+        <h3>Nayara Springs</h3>
+        <p class="theme">Romance</p>
+        <div class="kw-group"><b>Honeymoon</b><ul class="chips"><li>costa rica honeymoon resort</li><li>honeymoon hotel arenal</li><li>anniversary trip costa rica</li></ul></div>
+        <div class="kw-group"><b>Romantic and adults only</b><ul class="chips"><li>romantic hotel costa rica</li><li>adults only resort costa rica</li><li>couples resort costa rica</li></ul></div>
+        <div class="kw-group"><b>Private pools</b><ul class="chips"><li>private plunge pool villa costa rica</li><li>hotel with private pool costa rica</li></ul></div>
+      </div>
+      <div class="kw">
+        <h3>Nayara Bocas del Toro</h3>
+        <p class="theme">Overwater villas</p>
+        <div class="kw-group"><b>Overwater</b><ul class="chips"><li>overwater bungalows panama</li><li>overwater villas caribbean</li><li>overwater bungalows close to the us</li></ul></div>
+        <div class="kw-group"><b>Bocas del Toro</b><ul class="chips"><li>bocas del toro luxury resort</li><li>where to stay bocas del toro</li></ul></div>
+        <div class="kw-group"><b>Private island</b><ul class="chips"><li>private island resort panama</li><li>caribbean private island hotel</li></ul></div>
+      </div>
+      <div class="kw">
+        <h3>Nayara Hangaroa</h3>
+        <p class="theme">The Moai of Easter Island</p>
+        <div class="kw-group"><b>Where to stay</b><ul class="chips"><li>easter island hotel</li><li>where to stay easter island</li><li>hotels in hanga roa</li><li>rapa nui luxury hotel</li></ul></div>
+        <div class="kw-group"><b>The Moai</b><ul class="chips"><li>see the moai easter island</li><li>easter island trip</li><li>easter island vacation</li></ul></div>
+      </div>
+      <div class="kw">
+        <h3>Nayara Alto Atacama</h3>
+        <p class="theme">Stargazing in the desert</p>
+        <div class="kw-group"><b>Stargazing</b><ul class="chips"><li>stargazing atacama</li><li>best place for stargazing in the world</li><li>atacama astronomy tour</li></ul></div>
+        <div class="kw-group"><b>Desert stays</b><ul class="chips"><li>atacama desert luxury hotel</li><li>san pedro de atacama hotel</li><li>where to stay atacama desert</li></ul></div>
+      </div>
+    </div>
+    <div class="trio">
+      <div>
+        <h3>We never pay for our own name</h3>
+        <p>Every campaign blocks searches that include Nayara, our property names and our former names. Those people already know us, and our existing brand campaigns look after them.</p>
+      </div>
+      <div>
+        <h3>Our two family campaigns stay apart</h3>
+        <p>Gardens and Tented each block the other's words. Without that, the two would bid against each other for the same family searches and push up our own costs.</p>
+      </div>
+      <div>
+        <h3>The list keeps getting sharper</h3>
+        <p>Every week we look at the exact searches people typed before tapping our ads, block the ones that are not a fit, and add the good ones we missed.</p>
+      </div>
+    </div>
   </section>
 
   <section>
