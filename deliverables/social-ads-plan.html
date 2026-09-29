@@ -131,6 +131,12 @@ tr.sum td { font-weight: 600; border-bottom: none; }
 .asks p { font-size: 0.95rem; color: var(--ink-soft); }
 .asks .for { display: inline-block; margin-top: 6px; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
 
+.owners { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.owner { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.owner h3 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 1.25rem; }
+.owner ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 0.95rem; }
+.owner .sub { font-size: 0.85rem; color: var(--ink-soft); margin-top: -6px; }
+
 @media (max-width: 560px) {
   .row, .axis { grid-template-columns: 1fr; gap: 4px; }
   .axis > span:first-child { display: none; }
@@ -357,17 +363,44 @@ tr.sum td { font-weight: 600; border-bottom: none; }
 
   <section>
     <div class="eyebrow">Before we launch</div>
-    <h2>What we need from Alex</h2>
-    <p class="soft">These are the tracking and access pieces that let us count bookings from each ad. Without them, the ads can still run, but we would not know which ones worked, and the platforms could not learn who to show them to.</p>
+    <h2>Who builds what</h2>
+    <div class="owners">
+      <div class="owner">
+        <h3>Albert</h3>
+        <p class="sub">Instagram and TikTok</p>
+        <ul>
+          <li>All Instagram and TikTok campaigns, audiences and budgets</li>
+          <li>Meta and TikTok pixels on the six landing pages</li>
+          <li>Website verification with Meta and TikTok</li>
+          <li>Message inbox access and the welcome message</li>
+        </ul>
+      </div>
+      <div class="owner">
+        <h3>Alex</h3>
+        <p class="sub">Google search and YouTube</p>
+        <ul>
+          <li>The six Google search campaigns and the YouTube campaign</li>
+          <li>Google booking tracking on every account</li>
+        </ul>
+      </div>
+      <div class="owner">
+        <h3>Together</h3>
+        <p class="sub">Shared pieces</p>
+        <ul>
+          <li>A past guest list, handled in line with our privacy policy</li>
+          <li>Bookings credited back to the ad when a visitor moves from a landing page into the booking engine</li>
+        </ul>
+      </div>
+    </div>
+    <h2 style="margin-top:12px">What we need from Alex</h2>
+    <p class="soft">The Google campaigns built to this structure, so they line up with everything else on this page.</p>
     <ol class="asks">
-      <li><div><h3>Meta pixel and Conversions API on all six landing pages</h3><p>The Meta pixel, plus its server connection (Conversions API), on each property page and on the booking confirmation page. It should record two things: a tap on "Check availability" and a completed booking with its value.</p><span class="for">Needed for: Instagram</span></div></li>
-      <li><div><h3>TikTok pixel on all six landing pages</h3><p>The TikTok pixel on each property page, recording the same "Check availability" tap, and a completed booking if the booking engine allows it.</p><span class="for">Needed for: TikTok</span></div></li>
-      <li><div><h3>Google Analytics events that count bookings</h3><p>Confirm Google Analytics is on all six pages and records the "Check availability" tap and each booking with its value. These become the numbers we judge every channel on.</p><span class="for">Needed for: Google search and YouTube</span></div></li>
-      <li><div><h3>Google Ads counting bookings correctly</h3><p>Link Google Analytics to each Google Ads account and bring the booking event in as the main conversion. Today, Google Ads does not record booking value correctly for Gardens and Springs, so this step matters most for those two.</p><span class="for">Needed for: Google search and YouTube</span></div></li>
-      <li><div><h3>Bookings credited back to the ad</h3><p>Make sure a visitor who goes from a landing page into the booking engine is still recognized there, the way the fix earlier this year did for our main sites. Without it, a booking looks like it came from nowhere.</p><span class="for">Needed for: All channels</span></div></li>
-      <li><div><h3>Access to every account</h3><p>Admin access to the Meta business account with all six Instagram accounts connected, message inbox access for the person answering DMs, the TikTok business account, and each Google Ads account. We also need to know which Google Ads account will run Bocas, Hangaroa and Atacama.</p><span class="for">Needed for: All channels</span></div></li>
-      <li><div><h3>Our website domains verified</h3><p>Verify each property's website with Meta and TikTok. It is a one-time step that lets both platforms trust and count activity from our pages.</p><span class="for">Needed for: Instagram and TikTok</span></div></li>
-      <li><div><h3>A past guest list</h3><p>An export of past guests' emails from the booking system, handled in line with our privacy policy. We use it to find new travelers who resemble our guests, and to avoid paying to reach people who stayed in the past year.</p><span class="for">Needed for: Instagram and YouTube</span></div></li>
+      <li><div><h3>Build the six Google search campaigns</h3><p>One campaign per property, in that property's Google Ads account, using the ad groups and searches in the Google section above. Search network only, US and Canada, $1,000 a month each (about $33 a day). Start with Maximize Clicks and a cap of about $4 to $5 per click, then switch to Maximize Conversions once a campaign has around 15 tracked bookings or "Check availability" taps.</p></div></li>
+      <li><div><h3>Block our own names in every search campaign</h3><p>One shared list of negative keywords, attached to all six campaigns: Nayara, each property name, our former names and common misspellings. Gardens and Tented also block each other's words so they do not bid against each other. After launch, a weekly look at the searches people typed, blocking any that are not a fit.</p></div></li>
+      <li><div><h3>Write the search ads in our own language</h3><p>One ad per group of searches, with "Check availability" as the call to action. We bid on "glamping" and "overwater bungalows," but the ads say "luxury tented camp" and "overwater villas." Real photos only for image extras, and only verified facts in the ad text.</p></div></li>
+      <li><div><h3>Build the YouTube campaign</h3><p>One Demand Gen campaign on the Nayara Resorts Google Ads account, YouTube only, $1,000 a month. One ad group per property, each using both the vertical and horizontal video and linking to its own landing page. Audiences built from each property's search list, plus people similar to our past guests.</p></div></li>
+      <li><div><h3>Make Google count bookings correctly</h3><p>Link Google Analytics to each Google Ads account and bring in the booking event, with its value, as the main conversion. Google Ads does not record booking value correctly for Gardens and Springs today, so those two come first.</p></div></li>
+      <li><div><h3>Confirm where Bocas, Hangaroa and Atacama run</h3><p>Choose the Google Ads account for the three international properties, and set up the same booking tracking there before launch.</p></div></li>
     </ol>
   </section>
 
