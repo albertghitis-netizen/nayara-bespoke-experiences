@@ -122,10 +122,10 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     <h1>Our best videos, shown to the right travelers, leading to a conversation or a booking page.</h1>
     <p class="soft">We already have the videos and the landing pages. This plan puts money behind them on Instagram and TikTok, with families as the lead story: Nayara Gardens for younger children, Nayara Tented Camp for older kids and multi-family trips.</p>
     <div class="facts">
-      <div class="fact"><b>$10,000</b><span>per month to start</span></div>
-      <div class="fact"><b>7 + 1</b><span>Instagram accounts, plus TikTok</span></div>
+      <div class="fact"><b>$7,000</b><span>to start, $1,000 per account</span></div>
+      <div class="fact"><b>6 + 1</b><span>Instagram accounts, plus TikTok</span></div>
       <div class="fact"><b>Families</b><span>the lead story, at two properties</span></div>
-      <div class="fact"><b>4 weeks</b><span>until the first honest read</span></div>
+      <div class="fact"><b>About 30 days</b><span>for each $1,000 to run</span></div>
     </div>
   </header>
 
@@ -170,7 +170,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
           <tr><td>Nayara Bocas del Toro</td><td>Overwater villas</td><td>Travelers looking for a private island escape</td></tr>
           <tr><td>Nayara Hangaroa</td><td>The Moai of Easter Island</td><td>Culture and once-in-a-lifetime travelers</td></tr>
           <tr><td>Nayara Alto Atacama</td><td>Stargazing in the desert</td><td>Adventure and nature travelers</td></tr>
-          <tr><td>Nayara Resorts</td><td>Which Nayara is right for you</td><td>People still choosing where to go</td></tr>
+          <tr><td>TikTok (Nayara Resorts)</td><td>The best video from each property</td><td>Broad audience of travelers, each video linking to its own property page</td></tr>
         </tbody>
       </table>
     </div>
@@ -179,14 +179,13 @@ tr.sum td { font-weight: 600; border-bottom: none; }
 
   <section>
     <div class="eyebrow">Where the money goes</div>
-    <h2>Monthly budget by property</h2>
+    <h2>$1,000 per account, split by route</h2>
     <div class="chart" id="chart">
       <div class="legend" aria-hidden="true">
         <span><span class="dot" style="background:var(--s-dm)"></span>Instagram, message us</span>
         <span><span class="dot" style="background:var(--s-page)"></span>Instagram, landing page</span>
         <span><span class="dot" style="background:var(--s-tiktok)"></span>TikTok, landing page</span>
-        <span><span class="dot reserve-fill"></span>Held back</span>
-      </div>
+              </div>
       <div class="rows" id="rows" role="img" aria-label="Stacked bar chart of the monthly budget by property. Full figures are in the table below."></div>
       <div class="axis"><span></span><div class="ticks" id="ticks"></div></div>
       <div class="tip" id="tip" hidden></div>
@@ -200,7 +199,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
         <tbody id="tbody"></tbody>
       </table>
     </div>
-    <p class="soft">The two family properties get the biggest shares because families are the lead story. The held-back $500 goes to whatever is working best after three weeks.</p>
+    <p class="soft">Every account starts with the same $1,000, spent at about $33 a day, so each has roughly a month to show results. Gardens, Tented and Springs split their $1,000 between messages and the landing page. The three international properties put it all into messages, since travelers usually have questions about places this far away. Any account that does well keeps going.</p>
   </section>
 
   <section>
@@ -243,14 +242,14 @@ tr.sum td { font-weight: 600; border-bottom: none; }
   </section>
 
   <section>
-    <div class="eyebrow">The first two months</div>
+    <div class="eyebrow">The first round</div>
     <h2>Launch, learn, then move money to what works</h2>
     <ol class="timeline">
       <li><b>Before launch</b><span>Connect the accounts, check that every landing page records visits, and set up the welcome message our team uses.</span></li>
       <li><b>Weeks 1 and 2</b><span>Let the ads run untouched. Instagram and TikTok need this time to learn who responds.</span></li>
-      <li><b>Week 3</b><span>Pause the videos that are not pulling their weight and put the held-back $500 behind the best one.</span></li>
-      <li><b>Week 4</b><span>First read: which route brings more real inquiries and bookings, messages or the landing page.</span></li>
-      <li><b>Month 2</b><span>Shift money toward the winners, refresh tired videos, and keep counting bookings as they come in. Trips are often booked weeks ahead, so the full picture takes a couple of months.</span></li>
+      <li><b>Week 3</b><span>Pause the videos that are not pulling their weight so the rest of the $1,000 goes behind the best ones.</span></li>
+      <li><b>End of the first $1,000</b><span>First read for each account: how many real inquiries and bookings it brought, and on Gardens, Tented and Springs, whether messages or the landing page did better.</span></li>
+      <li><b>After that</b><span>Accounts that did well keep going, with more money behind the winning videos. Trips are often booked weeks ahead, so we keep counting bookings for a couple of months after the ads run.</span></li>
     </ol>
   </section>
 
@@ -259,6 +258,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     <h2>What we are saving for later</h2>
     <ul class="later">
             <li>YouTube and wide-format video, which we can add once we know which messages work.</li>
+      <li>A separate Nayara Resorts Instagram campaign. The resorts account runs TikTok only in this round.</li>
       <li>More than one person answering messages. If replies start to slow down, we lower the message budgets before quality slips.</li>
     </ul>
   </section>
@@ -268,16 +268,15 @@ tr.sum td { font-weight: 600; border-bottom: none; }
 <script>
 (function () {
   var data = [
-    { name: "Gardens", note: "Families, younger kids", dm: 1000, page: 800, tiktok: 800 },
-    { name: "Tented Camp", note: "Families, older kids", dm: 1000, page: 900, tiktok: 800 },
-    { name: "Springs", note: "Romance", dm: 600, page: 600, tiktok: 600 },
-    { name: "Bocas del Toro", note: "Overwater villas", dm: 650, page: 0, tiktok: 0 },
-    { name: "Hangaroa", note: "The Moai", dm: 650, page: 0, tiktok: 0 },
-    { name: "Alto Atacama", note: "Stargazing", dm: 650, page: 0, tiktok: 0 },
-    { name: "Resorts account", note: "Helps people choose", dm: 450, page: 0, tiktok: 0 },
-    { name: "Held back", note: "Moves to the winner", reserve: 500 }
+    { name: "Gardens", note: "Families, younger kids", dm: 500, page: 500, tiktok: 0 },
+    { name: "Tented Camp", note: "Families, older kids", dm: 500, page: 500, tiktok: 0 },
+    { name: "Springs", note: "Romance", dm: 500, page: 500, tiktok: 0 },
+    { name: "Bocas del Toro", note: "Overwater villas", dm: 1000, page: 0, tiktok: 0 },
+    { name: "Hangaroa", note: "The Moai", dm: 1000, page: 0, tiktok: 0 },
+    { name: "Alto Atacama", note: "Stargazing", dm: 1000, page: 0, tiktok: 0 },
+    { name: "TikTok", note: "Nayara Resorts account", dm: 0, page: 0, tiktok: 1000 }
   ];
-  var max = 3000;
+  var max = 1000;
   var fmt = function (n) { return "$" + n.toLocaleString("en-US"); };
   var parts = [
     { key: "dm", label: "Instagram, message us", color: "var(--s-dm)" },
@@ -348,10 +347,10 @@ tr.sum td { font-weight: 600; border-bottom: none; }
   tbody.appendChild(sum);
 
   var ticks = document.getElementById("ticks");
-  [0, 1000, 2000, 3000].forEach(function (v) {
+  [0, 250, 500, 750, 1000].forEach(function (v) {
     var s = document.createElement("span");
     s.style.left = (v / max * 100) + "%";
-    s.textContent = v === 0 ? "$0" : "$" + (v / 1000) + "K";
+    s.textContent = fmt(v);
     ticks.appendChild(s);
   });
 })();
