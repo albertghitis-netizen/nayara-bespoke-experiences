@@ -1,0 +1,339 @@
+<title>Nayara Social Ads Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
+<style>
+/* Layout: one calm column that reads top to bottom like a spoken pitch, one chart at the centre. */
+:root {
+  --paper: #F7F5F0;
+  --card: #FFFFFF;
+  --ink: #0D0704;
+  --ink-soft: #4A4038;
+  --line: #E2DDD3;
+  --mist: #E2F0F0;
+  --teal: #006D75;
+  --s-dm: #008A9C;
+  --s-page: #C08A2E;
+  --s-tiktok: #7560BE;
+  --display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #15110D; --card: #1E1914; --ink: #F3EEE6; --ink-soft: #B9AE9F;
+    --line: #342C24; --mist: #13292A; --teal: #4DC9D1;
+    --s-dm: #139CAB; --s-page: #B8862F; --s-tiktok: #8E7BD0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #15110D; --card: #1E1914; --ink: #F3EEE6; --ink-soft: #B9AE9F;
+  --line: #342C24; --mist: #13292A; --teal: #4DC9D1;
+  --s-dm: #139CAB; --s-page: #B8862F; --s-tiktok: #8E7BD0;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 880px; margin: 0 auto; padding-inline: 20px; padding-block: 56px 72px; display: grid; gap: 64px; }
+h1, h2 { font-family: var(--display); font-weight: 500; text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); }
+h2 { font-size: clamp(1.5rem, 3.4vw, 1.9rem); }
+p { margin: 0; max-width: 65ch; }
+.eyebrow { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
+.soft { color: var(--ink-soft); }
+section { display: grid; gap: 20px; min-width: 0; }
+
+/* Hero */
+.hero { display: grid; gap: 20px; }
+.facts { display: flex; flex-wrap: wrap; gap: 12px 40px; padding-top: 12px; border-top: 1px solid var(--line); }
+.fact { display: grid; gap: 2px; }
+.fact b { font-family: var(--display); font-size: 1.7rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 0.9rem; color: var(--ink-soft); }
+
+/* Journey */
+.paths { display: grid; gap: 14px; }
+.path { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 12px; }
+.path-name { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.dot { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.steps { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.steps li { background: var(--mist); border-radius: 999px; padding: 6px 14px; font-size: 0.95rem; }
+.steps li.arrow { background: none; padding: 0 2px; color: var(--ink-soft); }
+.steps li.end { background: var(--teal); color: var(--paper); font-weight: 600; }
+
+/* Chart */
+.chart { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 22px 20px 18px; display: grid; gap: 16px; position: relative; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.9rem; }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.rows { display: grid; gap: 10px; }
+.row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; }
+.row-label { font-size: 0.95rem; line-height: 1.25; }
+.row-label small { display: block; color: var(--ink-soft); font-size: 0.78rem; }
+.track { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.bar { display: flex; gap: 2px; height: 26px; }
+.seg { height: 100%; cursor: default; }
+.seg:first-child { border-radius: 4px 0 0 4px; }
+.seg:last-child { border-radius: 0 4px 4px 0; }
+.seg:only-child { border-radius: 4px; }
+.seg:hover, .seg:focus-visible { filter: brightness(1.12); outline: 2px solid var(--ink); outline-offset: 1px; }
+.total { font-size: 0.9rem; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.axis { display: grid; grid-template-columns: 150px 1fr; gap: 12px; font-size: 0.75rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.ticks { position: relative; height: 16px; border-top: 1px solid var(--line); margin-right: 64px; }
+.ticks span { position: absolute; top: 3px; transform: translateX(-50%); }
+.ticks span:first-child { transform: none; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--paper); font-size: 0.85rem; padding: 6px 10px; border-radius: 6px; white-space: nowrap; z-index: 2; }
+.reserve-fill { background: repeating-linear-gradient(45deg, var(--line) 0 4px, transparent 4px 8px); border: 1px solid var(--line); }
+
+/* Table */
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+tr.sum td { font-weight: 600; border-bottom: none; }
+
+/* Audience + measurement */
+.trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.trio > div { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.trio h3 { margin: 0; font-size: 1rem; font-weight: 600; }
+.trio p { font-size: 0.95rem; color: var(--ink-soft); }
+
+.timeline { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.timeline li { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.timeline li:last-child { border-bottom: none; }
+.timeline b { font-weight: 600; color: var(--teal); }
+
+.later { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.later li { padding-left: 18px; position: relative; }
+.later li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 8px; height: 1px; background: var(--ink-soft); }
+
+@media (max-width: 560px) {
+  .row, .axis { grid-template-columns: 1fr; gap: 4px; }
+  .axis > span:first-child { display: none; }
+  .timeline li { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .seg { transition: filter 0.15s; }
+}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Nayara Resorts · Paid social plan</div>
+    <h1>Our best videos, shown to the right travelers, leading to a conversation or a booking page.</h1>
+    <p class="soft">We already have the videos and the landing pages. This plan puts money behind them on Instagram and TikTok, with Nayara Tented Camp for families as the lead story.</p>
+    <div class="facts">
+      <div class="fact"><b>$10,000</b><span>per month to start</span></div>
+      <div class="fact"><b>6 + 1</b><span>Instagram accounts, plus TikTok</span></div>
+      <div class="fact"><b>Tented</b><span>the focus, for families</span></div>
+      <div class="fact"><b>4 weeks</b><span>until the first honest read</span></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="eyebrow">How it works</div>
+    <h2>Every ad leads to one of two places</h2>
+    <p class="soft">Someone scrolling sees a short vertical video. What happens when they tap depends on the ad.</p>
+    <div class="paths">
+      <div class="path">
+        <div class="path-name"><span class="dot" style="background:var(--s-dm)"></span>Instagram, "Send a message"</div>
+        <ul class="steps">
+          <li>Sees our video</li><li class="arrow">→</li>
+          <li>Sends us a message</li><li class="arrow">→</li>
+          <li>Our team replies within minutes</li><li class="arrow">→</li>
+          <li>Gets a personal booking link</li><li class="arrow">→</li>
+          <li class="end">Books</li>
+        </ul>
+      </div>
+      <div class="path">
+        <div class="path-name"><span class="dot" style="background:var(--s-page)"></span>Instagram and <span class="dot" style="background:var(--s-tiktok)"></span>TikTok, "Check availability"</div>
+        <ul class="steps">
+          <li>Sees our video</li><li class="arrow">→</li>
+          <li>Opens the property page</li><li class="arrow">→</li>
+          <li>Taps "Check availability"</li><li class="arrow">→</li>
+          <li class="end">Books</li>
+        </ul>
+      </div>
+    </div>
+    <p class="soft">On Springs and Tented we run both routes side by side with the same videos, so after a month we can see which one brings more bookings for the money.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Where the money goes</div>
+    <h2>Monthly budget by property</h2>
+    <div class="chart" id="chart">
+      <div class="legend" aria-hidden="true">
+        <span><span class="dot" style="background:var(--s-dm)"></span>Instagram, message us</span>
+        <span><span class="dot" style="background:var(--s-page)"></span>Instagram, landing page</span>
+        <span><span class="dot" style="background:var(--s-tiktok)"></span>TikTok, landing page</span>
+        <span><span class="dot reserve-fill"></span>Held back</span>
+      </div>
+      <div class="rows" id="rows" role="img" aria-label="Stacked bar chart of the monthly budget by property. Full figures are in the table below."></div>
+      <div class="axis"><span></span><div class="ticks" id="ticks"></div></div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Property</th><th class="num">Instagram, message</th><th class="num">Instagram, page</th><th class="num">TikTok</th><th class="num">Total</th></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <p class="soft">Tented gets the biggest share because it is the focus. The held-back $500 goes to whatever is working best after three weeks. Nayara Gardens is not part of this round.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Who sees the ads</div>
+    <h2>Three kinds of people</h2>
+    <div class="trio">
+      <div>
+        <h3>New travelers like our past guests</h3>
+        <p>Instagram finds people who look like the guests we already have, using our guest list as the starting point.</p>
+      </div>
+      <div>
+        <h3>New travelers who fit the trip</h3>
+        <p>Adults in the US and Canada interested in luxury travel. For Tented, the ads lean toward parents planning family trips.</p>
+      </div>
+      <div>
+        <h3>People who already showed interest</h3>
+        <p>Anyone who watched most of a video, followed along on Instagram, or visited our site in the last month sees a reminder.</p>
+      </div>
+    </div>
+    <p class="soft">Guests who stayed with us in the past year are left out, so we do not pay to reach people who already know us.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">How we will know it works</div>
+    <h2>We count bookings, not likes</h2>
+    <div class="trio">
+      <div>
+        <h3>Every link is labeled</h3>
+        <p>Each ad and each link our team sends carries a label, so a booking can be traced back to the video that started it.</p>
+      </div>
+      <div>
+        <h3>Every conversation is logged</h3>
+        <p>Our team keeps a simple record of each message: which property, whether it was a real inquiry, and whether it became a booking.</p>
+      </div>
+      <div>
+        <h3>We judge on real results</h3>
+        <p>The main question is simple: for every dollar spent, how much did guests book? Views and likes are only early signals.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">The first two months</div>
+    <h2>Launch, learn, then move money to what works</h2>
+    <ol class="timeline">
+      <li><b>Before launch</b><span>Connect the accounts, check that every landing page records visits, and set up the welcome message our team uses.</span></li>
+      <li><b>Weeks 1 and 2</b><span>Let the ads run untouched. Instagram and TikTok need this time to learn who responds.</span></li>
+      <li><b>Week 3</b><span>Pause the videos that are not pulling their weight and put the held-back $500 behind the best one.</span></li>
+      <li><b>Week 4</b><span>First read: which route brings more real inquiries and bookings, messages or the landing page.</span></li>
+      <li><b>Month 2</b><span>Shift money toward the winners, refresh tired videos, and keep counting bookings as they come in. Trips are often booked weeks ahead, so the full picture takes a couple of months.</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="eyebrow">Not in this round</div>
+    <h2>What we are saving for later</h2>
+    <ul class="later">
+      <li>Nayara Gardens, which stays out of this campaign.</li>
+      <li>YouTube and wide-format video, which we can add once we know which messages work.</li>
+      <li>More than one person answering messages. If replies start to slow down, we lower the message budgets before quality slips.</li>
+    </ul>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var data = [
+    { name: "Tented Camp", note: "The focus, families", dm: 1500, page: 1300, tiktok: 1200 },
+    { name: "Springs", dm: 700, page: 700, tiktok: 600 },
+    { name: "Alto Atacama", dm: 750, page: 0, tiktok: 0 },
+    { name: "Bocas del Toro", dm: 750, page: 0, tiktok: 0 },
+    { name: "Hangaroa", dm: 750, page: 0, tiktok: 0 },
+    { name: "Resorts account", note: "Helps people choose", dm: 600, page: 0, tiktok: 0 },
+    { name: "TikTok, international", note: "Property to confirm", dm: 0, page: 0, tiktok: 650 },
+    { name: "Held back", note: "Moves to the winner", reserve: 500 }
+  ];
+  var max = 4000;
+  var fmt = function (n) { return "$" + n.toLocaleString("en-US"); };
+  var parts = [
+    { key: "dm", label: "Instagram, message us", color: "var(--s-dm)" },
+    { key: "page", label: "Instagram, landing page", color: "var(--s-page)" },
+    { key: "tiktok", label: "TikTok, landing page", color: "var(--s-tiktok)" }
+  ];
+  var rows = document.getElementById("rows");
+  var tbody = document.getElementById("tbody");
+  var tip = document.getElementById("tip");
+  var chart = document.getElementById("chart");
+  var sums = { dm: 0, page: 0, tiktok: 0, total: 0 };
+
+  data.forEach(function (d) {
+    var total = d.reserve || (d.dm + d.page + d.tiktok);
+    var row = document.createElement("div");
+    row.className = "row";
+    row.innerHTML = '<div class="row-label">' + d.name + (d.note ? "<small>" + d.note + "</small>" : "") + "</div>";
+    var track = document.createElement("div");
+    track.className = "track";
+    var bar = document.createElement("div");
+    bar.className = "bar";
+    bar.style.width = "calc((100% - 64px) * " + (total / max) + ")";
+    var segs = d.reserve
+      ? [{ v: d.reserve, label: "Held back", cls: "reserve-fill" }]
+      : parts.filter(function (p) { return d[p.key] > 0; }).map(function (p) { return { v: d[p.key], label: p.label, color: p.color }; });
+    segs.forEach(function (s) {
+      var el = document.createElement("div");
+      el.className = "seg" + (s.cls ? " " + s.cls : "");
+      el.style.flex = s.v + " 1 0";
+      if (s.color) el.style.background = s.color;
+      el.tabIndex = 0;
+      el.setAttribute("aria-label", d.name + ", " + s.label + ": " + fmt(s.v));
+      var show = function () {
+        tip.textContent = d.name + " · " + s.label + ": " + fmt(s.v);
+        tip.hidden = false;
+        var r = el.getBoundingClientRect(), c = chart.getBoundingClientRect();
+        var left = Math.min(r.left - c.left, c.width - tip.offsetWidth - 8);
+        tip.style.left = Math.max(8, left) + "px";
+        tip.style.top = (r.top - c.top - tip.offsetHeight - 6) + "px";
+      };
+      el.addEventListener("mouseenter", show);
+      el.addEventListener("focus", show);
+      el.addEventListener("mouseleave", function () { tip.hidden = true; });
+      el.addEventListener("blur", function () { tip.hidden = true; });
+      bar.appendChild(el);
+    });
+    track.appendChild(bar);
+    var t = document.createElement("span");
+    t.className = "total";
+    t.textContent = fmt(total);
+    track.appendChild(t);
+    row.appendChild(track);
+    rows.appendChild(row);
+
+    var tr = document.createElement("tr");
+    var cell = function (v) { return '<td class="num">' + (v ? fmt(v) : "") + "</td>"; };
+    tr.innerHTML = "<td>" + d.name + "</td>" +
+      (d.reserve ? '<td class="num"></td><td class="num"></td><td class="num"></td>' : cell(d.dm) + cell(d.page) + cell(d.tiktok)) +
+      '<td class="num">' + fmt(total) + "</td>";
+    tbody.appendChild(tr);
+    if (!d.reserve) { sums.dm += d.dm; sums.page += d.page; sums.tiktok += d.tiktok; }
+    sums.total += total;
+  });
+
+  var sum = document.createElement("tr");
+  sum.className = "sum";
+  sum.innerHTML = "<td>Total</td><td class=\"num\">" + fmt(sums.dm) + "</td><td class=\"num\">" + fmt(sums.page) + "</td><td class=\"num\">" + fmt(sums.tiktok) + "</td><td class=\"num\">" + fmt(sums.total) + "</td>";
+  tbody.appendChild(sum);
+
+  var ticks = document.getElementById("ticks");
+  [0, 1000, 2000, 3000, 4000].forEach(function (v) {
+    var s = document.createElement("span");
+    s.style.left = (v / max * 100) + "%";
+    s.textContent = v === 0 ? "$0" : "$" + (v / 1000) + "K";
+    ticks.appendChild(s);
+  });
+})();
+</script>
