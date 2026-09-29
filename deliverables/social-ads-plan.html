@@ -119,6 +119,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
 .wording { background: var(--mist); border-radius: 10px; padding: 18px 20px; display: grid; gap: 8px; }
 .wording h3 { margin: 0; font-size: 1rem; font-weight: 600; }
 .wording p { font-size: 0.95rem; }
+.wording ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 0.95rem; max-width: 70ch; }
 .wording table { font-size: 0.92rem; }
 .wording th, .wording td { border-bottom-color: var(--line); padding: 8px 10px; }
 
@@ -144,6 +145,16 @@ tr.sum td { font-weight: 600; border-bottom: none; }
 .tiers td:first-child { font-weight: 600; white-space: nowrap; }
 .tier-mark { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
 
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.toc a { display: inline-block; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); text-decoration: none; font-size: 0.88rem; background: var(--card); }
+.toc a:hover, .toc a:focus-visible { border-color: var(--teal); color: var(--teal); }
+section[id] { scroll-margin-top: 16px; }
+.rr { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.rr > div { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.rr h3 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 1.2rem; }
+.rr ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: 0.95rem; }
+.rr li b { font-weight: 600; }
+
 @media (max-width: 560px) {
   .row, .axis { grid-template-columns: 1fr; gap: 4px; }
   .axis > span:first-child { display: none; }
@@ -166,9 +177,10 @@ tr.sum td { font-weight: 600; border-bottom: none; }
       <div class="fact"><b>November 2</b><span>launch date</span></div>
       <div class="fact"><b>December 2</b><span>Judgment Day for month two</span></div>
           </div>
+    <nav aria-label="Contents"><ul class="toc"><li><a href="#summary">Summary</a></li><li><a href="#how">How it works</a></li><li><a href="#stories">Stories</a></li><li><a href="#budget">Budget</a></li><li><a href="#audiences">Audiences</a></li><li><a href="#organic">Organic</a></li><li><a href="#google">Google search</a></li><li><a href="#measure">Measurement</a></li><li><a href="#roles">Who does what</a></li><li><a href="#success">Success</a></li><li><a href="#timeline">Timeline</a></li><li><a href="#pages">Where the pages live</a></li><li><a href="#collection">Nayara Collection</a></li></ul></nav>
   </header>
 
-  <section>
+  <section id="summary">
     <div class="eyebrow">Executive summary</div>
     <div class="summary">
       <h2>Why I am proposing this</h2>
@@ -183,7 +195,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
   </section>
 
 
-  <section>
+  <section id="how">
     <div class="eyebrow">How it works</div>
     <h2>Every ad leads to a conversation or a booking page</h2>
     <p class="soft">Instagram, TikTok and YouTube reach people who are not looking for a trip yet. Google search reaches people who are already searching for one.</p>
@@ -221,7 +233,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     <p class="soft">On every Instagram account we run both routes side by side with the same reel, so after a month we can see which one brings more bookings for the money.</p>
   </section>
 
-  <section>
+  <section id="stories">
     <div class="eyebrow">One story per property</div>
     <h2>Each account tells the story only it can tell</h2>
     <div class="table-scroll">
@@ -241,7 +253,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     <p class="soft">Both family properties offer the sloths and Arenal Volcano, so we separate them by who they suit: Gardens for families with younger kids at a lower price point, Tented for families with older kids who want their own room and more luxury. Each family landing page also points to the other, so a family on the wrong page is one tap from the right one. On Google, we only pay to appear for searches like these. Every Google campaign blocks searches for Nayara by name, including our former names, so this money only reaches people who do not know us yet. Searches for our names stay with our existing brand campaigns.</p>
   </section>
 
-  <section>
+  <section id="budget">
     <div class="eyebrow">Where the money goes</div>
     <h2>Month one: $14,000, split by property and channel</h2>
     <div class="chart" id="chart">
@@ -267,7 +279,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     <p class="soft">Every Instagram account, TikTok, YouTube and every Google search campaign gets the same $1,000 for the month, about $33 a day. Each Instagram account splits its $1,000 evenly between messages and its landing page. If month one reaches the success bar, month two repeats the same $14,000, with more of it behind whatever did best.</p>
   </section>
 
-  <section>
+  <section id="audiences">
     <div class="eyebrow">Who sees the ads</div>
     <h2>Three kinds of people</h2>
     <div class="trio">
@@ -287,7 +299,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     <p class="soft">Guests who stayed with us in the past year are left out, so we do not pay to reach people who already know us.</p>
   </section>
 
-  <section>
+  <section id="organic">
     <div class="eyebrow">How organic helps</div>
     <h2>Proven videos, working twice</h2>
     <p class="soft">We are not making new content for this. Each account runs one reel: the one that has already performed best on our own Instagram and TikTok, so we start with what we know people like. Keeping it to one reel per account also keeps the plan simple to run and easy to read. Our own posts, email and Google listings then support the ads for free.</p>
@@ -319,7 +331,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     </div>
   </section>
 
-  <section>
+  <section id="google">
     <div class="eyebrow">Google search, in more detail</div>
     <h2>The searches each campaign will answer</h2>
     <p class="soft">Each Google campaign is built around a few groups of related searches. When someone types one of these, our ad for that property can appear, and a tap takes them to its landing page. These are our starting list. Before launch we check each one in Google's keyword tool to confirm people actually search it, and drop or add terms based on what we find.</p>
@@ -403,7 +415,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     </div>
   </section>
 
-  <section>
+  <section id="measure">
     <div class="eyebrow">How we will know it works</div>
     <h2>We count bookings, not likes</h2>
     <div class="trio">
@@ -422,7 +434,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     </div>
   </section>
 
-  <section>
+  <section id="roles">
     <div class="eyebrow">Before we launch</div>
     <h2>Albert builds and runs social. Alex handles tracking and Google. David answers.</h2>
     <div class="owners">
@@ -471,7 +483,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     </ol>
   </section>
 
-  <section>
+  <section id="success">
     <div class="eyebrow">What success looks like</div>
     <h2>Breaking even is a win. Doubling it is success.</h2>
     <p class="soft">On Judgment Day we look at how much guests booked through these ads, compared with the $14,000 we spent. Even if we only break even, the month has paid for itself and taught us a lot about what works. This is our proposal, and the team can adjust it before launch.</p>
@@ -514,7 +526,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
     <p class="soft">Trips are often booked weeks after someone first sees an ad. On Judgment Day we count confirmed bookings plus inquiries that are clearly on their way to a booking, and we do a final count on January 2.</p>
   </section>
 
-  <section>
+  <section id="timeline">
     <div class="eyebrow">Two months, one decision point</div>
     <h2>Month one proves it, month two builds on it</h2>
     <ol class="timeline">
@@ -524,6 +536,69 @@ tr.sum td { font-weight: 600; border-bottom: none; }
       <li><b>December 2: Judgment Day</b><span>The decision point. We compare what guests booked through these ads with what we spent, using the success levels above, and see which accounts did best and whether messages or landing pages worked better.</span></li>
       <li><b>December</b><span>If month one reaches the success bar, another $14,000 goes in, shifted toward the strongest accounts and routes, with fresh reels where people have seen the first one too often. If it pays for itself but falls short of the bar, only the strongest accounts and routes keep going. Below that, we pause, work out what to fix, and try again.</span></li>
     </ol>
+  </section>
+
+  <section id="pages">
+    <div class="eyebrow">Where the landing pages live</div>
+    <h2>On nayararesorts.com, not the property sites or HubSpot</h2>
+    <p class="soft">Each landing page gets a clean address on nayararesorts.com, such as nayararesorts.com/experiences/tented-family. The pages use a simple layout with no website menu, so they still work as focused landing pages: the story, real photos, answers to common questions and "Check availability," which goes straight into our booking engine.</p>
+    <div class="rr">
+      <div>
+        <h3>Why not HubSpot</h3>
+        <ul>
+          <li><b>Tracking already works on our own sites.</b> On HubSpot, every tracking tag and the handoff into the booking engine would have to be set up from scratch, which is the riskiest thing to finish before November 2.</li>
+          <li><b>The pages keep their value.</b> A page on our own address can later show up in Google and be quoted by AI assistants. A HubSpot page builds nothing that lasts.</li>
+          <li><b>Travelers trust a familiar address.</b> An ad that shows nayararesorts.com and opens nayararesorts.com looks more trustworthy, and Google rewards ads whose page matches the ad.</li>
+          <li><b>One less place to look after.</b> Our Journal already lives on HubSpot, separate from our main site. Adding more pages there would widen that split.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Why not each property's own website</h3>
+        <ul>
+          <li><b>It is the easiest site to build on.</b> nayararesorts.com uses a page builder, so a simple landing page layout is quick to make. Some property sites are harder to change safely, and Gardens' site needs its backups fixed before anyone edits it.</li>
+          <li><b>One home for all six.</b> One layout, one set of tracking, one place to update, instead of six different websites.</li>
+          <li><b>No competition with the property sites.</b> For now these pages are kept out of Google's regular results, so they never compete with the property websites for our own names. We can open them up later, page by page.</li>
+          <li><b>Easy to move later.</b> Because the pages are built for ads, moving them to a new address later only means updating a handful of ad links. There are no search rankings to lose.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="soft">One detail for Alex: pages on nayararesorts.com report into the Nayara Resorts analytics account, while each property's Google Ads account is linked to that property's own analytics. The booking events from these pages need to reach each property's Google Ads account.</p>
+  </section>
+
+  <section id="collection">
+    <div class="eyebrow">Looking ahead</div>
+    <h2>From Nayara Resorts to Nayara Collection</h2>
+    <p class="soft">The longer-term plan is to bring nayararesorts.com, the property websites and the Journal together under one new name: Nayara Collection. This is a separate project from the ad campaign, and it should come after it. Here is how we see the rewards and the risks, for discussion as we plan the new website.</p>
+    <div class="rr">
+      <div>
+        <h3>The rewards</h3>
+        <ul>
+          <li><b>A more honest name.</b> Most of our properties are not resorts in the usual sense: a tented camp, a desert lodge, overwater villas, a hotel on Easter Island. "Collection" describes what we actually are.</li>
+          <li><b>Room to grow.</b> With Panama and Chile joining Costa Rica, a collection frames Nayara as a curated set of places, the way many luxury brands present themselves.</li>
+          <li><b>Everything in one place.</b> One website, with the Journal moving in too, builds all our search strength under one name instead of splitting it across many sites.</li>
+          <li><b>Only one move.</b> Going straight to the final name means a single migration, instead of moving into Nayara Resorts first and then moving again.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The risks</h3>
+        <ul>
+          <li><b>A new address starts with no history.</b> Our current sites have years of links and search history. Redirects carry most of it across, but not all, and a dip in search traffic for a few weeks to a few months is normal.</li>
+          <li><b>Renaming is what hurt Gardens.</b> Gardens is still partly cut off from the reviews and awards it earned under its old name. A new name for every property repeats that risk unless we reconnect the record from day one.</li>
+          <li><b>Booking sites get an opening.</b> While Google learns which site is now the official one, booking sites can rank above us for our own names. Our brand defense on Google has to stay strong through the move.</li>
+          <li><b>Moving everything at once multiplies the risk.</b> One problem during a single big move could affect every property at the same time.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wording">
+      <h3>How we keep the risk reasonable</h3>
+      <ul>
+        <li>Make the move after this campaign and after our tracking is fixed, so we can clearly see its effect.</li>
+        <li>Move one property at a time, starting with the one that has the least to lose, and learn before moving the next.</li>
+        <li>Keep every old address forever, with each page pointing to its new home, and move pages and their redirects together, never one ahead of the other.</li>
+        <li>Reconnect the record as part of the move: Google Business Profiles, Wikidata, booking sites and partner listings, all updated to the new name.</li>
+        <li>First, make sure we own nayaracollection.com and its obvious variations, and check the name is clear to use.</li>
+      </ul>
+    </div>
   </section>
 
 </div>
