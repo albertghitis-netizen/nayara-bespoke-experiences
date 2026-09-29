@@ -26,6 +26,8 @@ This file briefs you on an ongoing project. Read it fully before acting. It capt
 - Booking CTA is "Check availability," never "Book now."
 - Use GA4-verified figures over Google Ads blended conversion numbers, which overstate.
 - Build every new page with a clean, migration-ready URL so it can 301 cleanly later.
+- Never call any property "international" or split the portfolio into Costa Rica versus "international." Every property is international; Costa Rica is simply where Nayara started. Name properties individually or group them by place (for example "the Costa Rica properties," or Bocas del Toro, Hangaroa and Alto Atacama by name).
+- The brand is always spelled "Nayara." Voice transcription often garbles it (Niagara, Nayada, Nyota, Mayato, Nayarta and similar). Read any such variant as Nayara, and always write Nayara.
 
 ## Design system (for reports and pages)
 
