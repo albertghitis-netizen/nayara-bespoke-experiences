@@ -98,7 +98,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
 .trio p { font-size: 0.95rem; color: var(--ink-soft); }
 
 .timeline { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
-.timeline li { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.timeline li { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .timeline li:last-child { border-bottom: none; }
 .timeline b { font-weight: 600; color: var(--teal); }
 
@@ -141,6 +141,9 @@ tr.sum td { font-weight: 600; border-bottom: none; }
 .summary p { font-size: 1.05rem; }
 .summary ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 65ch; }
 
+.tiers td:first-child { font-weight: 600; white-space: nowrap; }
+.tier-mark { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+
 @media (max-width: 560px) {
   .row, .axis { grid-template-columns: 1fr; gap: 4px; }
   .axis > span:first-child { display: none; }
@@ -161,7 +164,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
       <div class="fact"><b>$12,000</b><span>per month: $6,000 social, $6,000 Google</span></div>
       <div class="fact"><b>12</b><span>campaigns: 5 Instagram, 1 TikTok, 5 Google search, 1 YouTube</span></div>
       <div class="fact"><b>November 2</b><span>launch date</span></div>
-      <div class="fact"><b>2 months</b><span>month two only if month one works</span></div>
+      <div class="fact"><b>December 2</b><span>Judgment Day for month two</span></div>
           </div>
   </header>
 
@@ -260,7 +263,7 @@ tr.sum td { font-weight: 600; border-bottom: none; }
         <tbody id="tbody"></tbody>
       </table>
     </div>
-    <p class="soft">Every Instagram account, TikTok, YouTube and every Google search campaign gets the same $1,000 for the month, about $33 a day. Each Instagram account splits its $1,000 evenly between messages and its landing page. If month one works, month two repeats the same $12,000, with more of it behind whatever did best.</p>
+    <p class="soft">Every Instagram account, TikTok, YouTube and every Google search campaign gets the same $1,000 for the month, about $33 a day. Each Instagram account splits its $1,000 evenly between messages and its landing page. If month one reaches the success bar, month two repeats the same $12,000, with more of it behind whatever did best.</p>
   </section>
 
   <section>
@@ -460,14 +463,46 @@ tr.sum td { font-weight: 600; border-bottom: none; }
   </section>
 
   <section>
+    <div class="eyebrow">What success looks like</div>
+    <h2>Paying for itself is the floor, not the goal</h2>
+    <p class="soft">Breaking even would not be worth the effort. So on Judgment Day we look at how much guests booked through these ads, compared with the $12,000 we spent. This is our proposal, and the team can adjust it before launch.</p>
+    <div class="table-scroll">
+      <table class="tiers">
+        <thead><tr><th>Bookings from these ads</th><th>What it means</th><th>What we do</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tier-mark" style="background:var(--line)"></span>Under $12,000</td><td>Did not pay for itself</td><td>Stop, and keep what we learned</td></tr>
+          <tr><td><span class="tier-mark" style="background:var(--s-page)"></span>$12,000 to $36,000</td><td>Pays for itself, up to 3 times what we spent</td><td>Keep going only with the accounts and routes that did best</td></tr>
+          <tr><td><span class="tier-mark" style="background:var(--s-dm)"></span>$36,000 or more</td><td>Success: at least 3 times what we spent</td><td>Run month two in full</td></tr>
+          <tr><td><span class="tier-mark" style="background:var(--teal)"></span>$60,000 or more</td><td>Strong success: at least 5 times what we spent</td><td>Talk about putting more behind the winners</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="trio">
+      <div>
+        <h3>Why 3 times is the bar</h3>
+        <p>It covers the ad money and the team's time, with real money left over. Anything above it is gravy.</p>
+      </div>
+      <div>
+        <h3>Only new travelers count</h3>
+        <p>We count bookings traced to these ads through our labeled links, David's message log and Google Analytics. Searches for our own name are already blocked.</p>
+      </div>
+      <div>
+        <h3>Each account is judged too</h3>
+        <p>The same bar applies to each property, so one slow account does not sink the others, and a strong one can keep going on its own.</p>
+      </div>
+    </div>
+    <p class="soft">Trips are often booked weeks after someone first sees an ad. On Judgment Day we count confirmed bookings plus inquiries that are clearly on their way to a booking, and we do a final count on January 2.</p>
+  </section>
+
+  <section>
     <div class="eyebrow">Two months, one decision point</div>
     <h2>Month one proves it, month two builds on it</h2>
     <ol class="timeline">
       <li><b>By November 2</b><span>Everything in place before a single ad runs: accounts, tracking, landing pages and our messaging team ready. If any piece is not ready, we move the date rather than run ads we cannot measure.</span></li>
       <li><b>Nov 2 to 15</b><span>Let the ads run untouched. Instagram, TikTok and Google need this time to learn who responds.</span></li>
       <li><b>Nov 16 to 22</b><span>Check each account, route and search group. Pause the searches that are not pulling their weight, and swap in a backup reel on any account where the first one has clearly stalled.</span></li>
-      <li><b>Early December</b><span>The decision point. Month one counts as a success if the bookings it brought in are worth more than the $12,000 spent, or if enough real inquiries are in progress to clearly get there. We also see which accounts did best, and whether messages or landing pages worked better.</span></li>
-      <li><b>December</b><span>If month one works, another $12,000 goes in, shifted toward the strongest accounts and routes, with fresh reels where people have seen the first one too often. If it does not, we stop and keep what we learned. Trips are often booked weeks ahead, so bookings keep being counted after the ads stop.</span></li>
+      <li><b>December 2: Judgment Day</b><span>The decision point. We compare what guests booked through these ads with what we spent, using the success levels above, and see which accounts did best and whether messages or landing pages worked better.</span></li>
+      <li><b>December</b><span>If month one reaches the success bar, another $12,000 goes in, shifted toward the strongest accounts and routes, with fresh reels where people have seen the first one too often. If it pays for itself but falls short of the bar, only the strongest accounts and routes keep going. Below that, we stop and keep what we learned.</span></li>
     </ol>
   </section>
 
