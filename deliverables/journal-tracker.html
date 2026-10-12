@@ -1,0 +1,229 @@
+<title>Nayara Journal Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
+<style>
+/* Layout: a working ledger. Summary strip, filter row, then one wide table that scrolls sideways on phones. */
+:root {
+  --paper: #F7F5F0;
+  --card: #FDFCF9;
+  --ink: #0D0704;
+  --soft: #4A4038;
+  --muted: #7A6F66;
+  --line: #E2DDD3;
+  --mist: #E2F0F0;
+  --teal: #006D75;
+  --flag: #8A5A12;
+  --flag-bg: #F6ECD8;
+  --gone: #7A2E22;
+  --gone-bg: #F5E1DC;
+  --display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #15110D; --card: #1E1914; --ink: #F3EEE6; --soft: #C9BFB2; --muted: #9A8F82;
+    --line: #342C24; --mist: #13292A; --teal: #4DC9D1;
+    --flag: #E8C27A; --flag-bg: #3A2C14; --gone: #F0A898; --gone-bg: #3A1D17;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #15110D; --card: #1E1914; --ink: #F3EEE6; --soft: #C9BFB2; --muted: #9A8F82;
+  --line: #342C24; --mist: #13292A; --teal: #4DC9D1;
+  --flag: #E8C27A; --flag-bg: #3A2C14; --gone: #F0A898; --gone-bg: #3A1D17;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1280px; margin: 0 auto; padding-inline: 20px; padding-block: 44px 64px; display: grid; gap: 28px; }
+h1 { font-family: var(--display); font-weight: 500; font-size: clamp(1.9rem, 4vw, 2.6rem); margin: 0; line-height: 1.15; text-wrap: balance; }
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
+.lede { color: var(--soft); max-width: 70ch; margin: 0; }
+header { display: grid; gap: 10px; }
+
+.stats { display: flex; flex-wrap: wrap; gap: 10px 36px; border-top: 1px solid var(--line); padding-top: 14px; }
+.stat { display: grid; }
+.stat b { font-family: var(--display); font-weight: 500; font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 0.85rem; color: var(--muted); }
+
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.controls input { font: inherit; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); min-width: 0; flex: 1 1 220px; max-width: 320px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: inherit; font-size: 0.85rem; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: var(--paper); }
+.chip:focus-visible, .controls input:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; min-width: 1100px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; position: sticky; top: 0; background: var(--card); }
+th.metric, td.metric { text-align: right; white-space: nowrap; }
+th.metrics-start, td.metrics-start { border-left: 1px solid var(--line); }
+tbody tr:last-child td { border-bottom: none; }
+td.num { color: var(--muted); width: 36px; }
+td.title { font-weight: 500; min-width: 260px; }
+td.title a { color: inherit; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.note { display: block; font-weight: 400; font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+.pill { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; margin-top: 4px; margin-right: 4px; }
+.pill.pillar { background: var(--mist); color: var(--teal); }
+.pill.check { background: var(--flag-bg); color: var(--flag); }
+.pill.merge { background: var(--flag-bg); color: var(--flag); }
+.pill.remove { background: var(--gone-bg); color: var(--gone); }
+.empty-cell { color: var(--line); }
+.state { padding: 28px 16px; text-align: center; color: var(--muted); }
+.foot { font-size: 0.85rem; color: var(--muted); max-width: 80ch; margin: 0; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Nayara Journal</div>
+    <h1>Journal article tracker</h1>
+    <p class="lede">Every Journal article in one place, grouped by pillar, with columns ready for each article's analytics. Titles marked "Check title" came from a voice note and need a quick confirmation.</p>
+    <div class="stats" id="stats" aria-live="polite"></div>
+  </header>
+
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search titles" aria-label="Search titles">
+    <div class="chips" id="chips" role="group" aria-label="Filter by pillar"></div>
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Article</th>
+          <th>Pillar</th>
+          <th>Property</th>
+          <th class="metric metrics-start">Views</th>
+          <th class="metric">Avg time</th>
+          <th class="metric">CTA clicks</th>
+          <th class="metric">AI visits</th>
+          <th>Top search</th>
+          <th>Data as of</th>
+        </tr>
+      </thead>
+      <tbody id="rows">
+        <tr><td colspan="10" class="state">Loading the article list…</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="foot">Analytics columns fill in as data comes in. Views and average time per article, clicks on "Check availability" and other calls to action, visits referred by AI assistants such as ChatGPT and Perplexity, and the search that brings the most visitors.</p>
+</div>
+
+<script>
+(function () {
+  var rowsEl = document.getElementById("rows");
+  var statsEl = document.getElementById("stats");
+  var chipsEl = document.getElementById("chips");
+  var qEl = document.getElementById("q");
+  var articles = [];
+  var activePillar = "All";
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function fmtNum(v) {
+    if (v === undefined || v === null || v === "") return null;
+    if (typeof v === "number") return v.toLocaleString("en-US");
+    return String(v);
+  }
+  function metricCell(v, extra) {
+    var td = el("td", "metric" + (extra ? " " + extra : ""));
+    var s = fmtNum(v);
+    if (s === null) { td.appendChild(el("span", "empty-cell", "·")); } else { td.textContent = s; }
+    return td;
+  }
+  function textCell(v) {
+    var td = el("td");
+    if (v === undefined || v === null || v === "") { td.appendChild(el("span", "empty-cell", "·")); } else { td.textContent = String(v); }
+    return td;
+  }
+
+  function renderStats() {
+    statsEl.textContent = "";
+    var total = articles.length;
+    var pillars = articles.filter(function (a) { return a.isPillar; }).length;
+    var checks = articles.filter(function (a) { return a.checkTitle; }).length;
+    var leaving = articles.filter(function (a) { return a.status === "Being removed" || a.status === "Being merged"; }).length;
+    var withData = articles.filter(function (a) { return a.views !== undefined && a.views !== null && a.views !== ""; }).length;
+    [[total, "articles"], [pillars, "pillar pages"], [withData, "with analytics"], [checks, "titles to confirm"], [leaving, "being removed or merged"]].forEach(function (s) {
+      var d = el("div", "stat");
+      d.appendChild(el("b", null, String(s[0])));
+      d.appendChild(el("span", null, s[1]));
+      statsEl.appendChild(d);
+    });
+  }
+
+  function renderChips() {
+    var seen = {};
+    var order = ["All"];
+    articles.forEach(function (a) { if (a.pillar && !seen[a.pillar]) { seen[a.pillar] = true; order.push(a.pillar); } });
+    chipsEl.textContent = "";
+    order.forEach(function (p) {
+      var b = el("button", "chip", p);
+      b.type = "button";
+      b.setAttribute("aria-pressed", p === activePillar ? "true" : "false");
+      b.addEventListener("click", function () { activePillar = p; renderChips(); renderRows(); });
+      chipsEl.appendChild(b);
+    });
+  }
+
+  function renderRows() {
+    var q = qEl.value.trim().toLowerCase();
+    var list = articles.filter(function (a) {
+      if (activePillar !== "All" && a.pillar !== activePillar) return false;
+      if (q && String(a.title || "").toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    });
+    rowsEl.textContent = "";
+    if (!list.length) {
+      var tr = el("tr"); var td = el("td", "state", articles.length ? "No articles match." : "No articles yet.");
+      td.colSpan = 10; tr.appendChild(td); rowsEl.appendChild(tr); return;
+    }
+    list.forEach(function (a) {
+      var tr = el("tr");
+      tr.appendChild(el("td", "num", String(a.n || "")));
+      var t = el("td", "title");
+      if (a.url) { var link = el("a", null, a.title); link.href = a.url; link.target = "_blank"; link.rel = "noopener"; t.appendChild(link); }
+      else { t.appendChild(document.createTextNode(a.title || "")); }
+      var pills = el("div");
+      if (a.isPillar) pills.appendChild(el("span", "pill pillar", "Pillar page"));
+      if (a.checkTitle) pills.appendChild(el("span", "pill check", "Check title"));
+      if (a.status === "Being merged") pills.appendChild(el("span", "pill merge", "Being merged"));
+      if (a.status === "Being removed") pills.appendChild(el("span", "pill remove", "Being removed"));
+      if (pills.childNodes.length) t.appendChild(pills);
+      if (a.note) t.appendChild(el("span", "note", a.note));
+      tr.appendChild(t);
+      tr.appendChild(textCell(a.pillar));
+      tr.appendChild(textCell(a.property));
+      tr.appendChild(metricCell(a.views, "metrics-start"));
+      tr.appendChild(metricCell(a.avgTime));
+      tr.appendChild(metricCell(a.ctaClicks));
+      tr.appendChild(metricCell(a.aiVisits));
+      tr.appendChild(textCell(a.topSearch));
+      tr.appendChild(textCell(a.dataAsOf));
+      rowsEl.appendChild(tr);
+    });
+  }
+
+  function renderAll() { renderStats(); renderChips(); renderRows(); }
+  qEl.addEventListener("input", renderRows);
+
+  function showState(msg) {
+    rowsEl.textContent = "";
+    var tr = el("tr"); var td = el("td", "state", msg); td.colSpan = 10; tr.appendChild(td); rowsEl.appendChild(tr);
+  }
+
+  (window.claude && window.claude.use ? window.claude.use("db") : Promise.resolve(null)).then(function (db) {
+    if (!db) { showState("The article list can only be shown inside Claude."); return; }
+    db.collection("articles").orderBy("n").onSnapshot(function (snap) {
+      articles = snap.docs.map(function (d) { var o = Object.assign({}, d.data()); o.id = d.id; return o; });
+      renderAll();
+    }, function () { showState("The article list could not be loaded. Reload the page to try again."); });
+  }).catch(function () { showState("The article list could not be loaded. Reload the page to try again."); });
+})();
+</script>

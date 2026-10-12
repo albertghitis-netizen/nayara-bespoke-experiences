@@ -1,0 +1,702 @@
+<title>Nayara Social Ads Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
+<style>
+/* Layout: one calm column that reads top to bottom like a spoken pitch, one chart at the centre. */
+:root {
+  --paper: #F7F5F0;
+  --card: #FFFFFF;
+  --ink: #0D0704;
+  --ink-soft: #4A4038;
+  --line: #E2DDD3;
+  --mist: #E2F0F0;
+  --teal: #006D75;
+  --s-dm: #008A9C;
+  --s-page: #C08A2E;
+  --s-tiktok: #7560BE;
+  --s-google: #C0506B;
+  --display: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #15110D; --card: #1E1914; --ink: #F3EEE6; --ink-soft: #B9AE9F;
+    --line: #342C24; --mist: #13292A; --teal: #4DC9D1;
+    --s-dm: #139CAB; --s-page: #B8862F; --s-tiktok: #8E7BD0; --s-google: #C95A75;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #15110D; --card: #1E1914; --ink: #F3EEE6; --ink-soft: #B9AE9F;
+  --line: #342C24; --mist: #13292A; --teal: #4DC9D1;
+  --s-dm: #139CAB; --s-page: #B8862F; --s-tiktok: #8E7BD0; --s-google: #C95A75;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 880px; margin: 0 auto; padding-inline: 20px; padding-block: 56px 72px; display: grid; gap: 64px; }
+h1, h2 { font-family: var(--display); font-weight: 500; text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); }
+h2 { font-size: clamp(1.5rem, 3.4vw, 1.9rem); }
+p { margin: 0; max-width: 65ch; }
+.eyebrow { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
+.soft { color: var(--ink-soft); }
+section { display: grid; gap: 20px; min-width: 0; }
+
+/* Hero */
+.hero { display: grid; gap: 20px; }
+.facts { display: flex; flex-wrap: wrap; gap: 12px 40px; padding-top: 12px; border-top: 1px solid var(--line); }
+.fact { display: grid; gap: 2px; }
+.fact b { font-family: var(--display); font-size: 1.7rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 0.9rem; color: var(--ink-soft); }
+
+/* Journey */
+.paths { display: grid; gap: 14px; }
+.path { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 12px; }
+.path-name { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.dot { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.steps { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.steps li { background: var(--mist); border-radius: 999px; padding: 6px 14px; font-size: 0.95rem; }
+.steps li.arrow { background: none; padding: 0 2px; color: var(--ink-soft); }
+.steps li.end { background: var(--teal); color: var(--paper); font-weight: 600; }
+
+/* Chart */
+.chart { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 22px 20px 18px; display: grid; gap: 16px; position: relative; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.9rem; }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.rows { display: grid; gap: 10px; }
+.row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; }
+.row-label { font-size: 0.95rem; line-height: 1.25; }
+.row-label small { display: block; color: var(--ink-soft); font-size: 0.78rem; }
+.track { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.bar { display: flex; gap: 2px; height: 26px; }
+.seg { height: 100%; cursor: default; }
+.seg:first-child { border-radius: 4px 0 0 4px; }
+.seg:last-child { border-radius: 0 4px 4px 0; }
+.seg:only-child { border-radius: 4px; }
+.seg:hover, .seg:focus-visible { filter: brightness(1.12); outline: 2px solid var(--ink); outline-offset: 1px; }
+.total { font-size: 0.9rem; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.axis { display: grid; grid-template-columns: 150px 1fr; gap: 12px; font-size: 0.75rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.ticks { position: relative; height: 16px; border-top: 1px solid var(--line); margin-right: 64px; }
+.ticks span { position: absolute; top: 3px; transform: translateX(-50%); }
+.ticks span:first-child { transform: none; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--paper); font-size: 0.85rem; padding: 6px 10px; border-radius: 6px; white-space: nowrap; z-index: 2; }
+.reserve-fill { background: repeating-linear-gradient(45deg, var(--line) 0 4px, transparent 4px 8px); border: 1px solid var(--line); }
+
+/* Table */
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+tr.sum td { font-weight: 600; border-bottom: none; }
+
+/* Audience + measurement */
+.trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.trio > div { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.trio h3 { margin: 0; font-size: 1rem; font-weight: 600; }
+.trio p { font-size: 0.95rem; color: var(--ink-soft); }
+
+.timeline { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.timeline li { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.timeline li:last-child { border-bottom: none; }
+.timeline b { font-weight: 600; color: var(--teal); }
+
+.later { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.later li { padding-left: 18px; position: relative; }
+.later li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 8px; height: 1px; background: var(--ink-soft); }
+
+/* Google search terms */
+.kw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.kw { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.kw h3 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 1.2rem; }
+.kw .theme { font-size: 0.85rem; color: var(--ink-soft); margin-top: -8px; }
+.kw-group { display: grid; gap: 6px; }
+.kw-group b { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.chips li { background: var(--mist); border-radius: 6px; padding: 3px 9px; font-size: 0.88rem; }
+.kw .owns { font-size: 0.85rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 10px; }
+.wording { background: var(--mist); border-radius: 10px; padding: 18px 20px; display: grid; gap: 8px; }
+.wording h3 { margin: 0; font-size: 1rem; font-weight: 600; }
+.wording p { font-size: 0.95rem; }
+.wording ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 0.95rem; max-width: 70ch; }
+.wording table { font-size: 0.92rem; }
+.wording th, .wording td { border-bottom-color: var(--line); padding: 8px 10px; }
+
+/* Asks */
+.asks { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; counter-reset: ask; }
+.asks li { display: grid; grid-template-columns: 36px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); counter-increment: ask; }
+.asks li:last-child { border-bottom: none; }
+.asks li::before { content: counter(ask); width: 28px; height: 28px; border-radius: 50%; background: var(--mist); color: var(--teal); font-weight: 600; font-size: 0.9rem; display: grid; place-items: center; font-variant-numeric: tabular-nums; }
+.asks h3 { margin: 0 0 4px; font-size: 1rem; font-weight: 600; }
+.asks p { font-size: 0.95rem; color: var(--ink-soft); }
+.asks .for { display: inline-block; margin-top: 6px; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
+
+.owners { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.owner { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.owner h3 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 1.25rem; }
+.owner ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 0.95rem; }
+.owner .sub { font-size: 0.85rem; color: var(--ink-soft); margin-top: -6px; }
+
+.summary { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 26px 24px; display: grid; gap: 16px; }
+.summary p { font-size: 1.05rem; }
+.summary ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 65ch; }
+
+.tiers td:first-child { font-weight: 600; white-space: nowrap; }
+.tier-mark { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.toc a { display: inline-block; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); text-decoration: none; font-size: 0.88rem; background: var(--card); }
+.toc a:hover, .toc a:focus-visible { border-color: var(--teal); color: var(--teal); }
+section[id] { scroll-margin-top: 16px; }
+.rr { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.rr > div { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.rr h3 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 1.2rem; }
+.rr ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: 0.95rem; }
+.rr li b { font-weight: 600; }
+
+@media (max-width: 560px) {
+  .row, .axis { grid-template-columns: 1fr; gap: 4px; }
+  .axis > span:first-child { display: none; }
+  .timeline li { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .seg { transition: filter 0.15s; }
+}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Nayara Resorts · Paid social and search plan</div>
+    <h1>Our best videos, shown to the right travelers, leading to a conversation or a booking page.</h1>
+    <p class="soft">Albert has built a landing page for each property, and the videos are the ones that have already performed best on our own accounts. This plan puts money behind them on Instagram, TikTok, YouTube and Google search, with one clear story for each property.</p>
+    <div class="facts">
+      <div class="fact"><b>$14,000</b><span>per month: $7,000 social, $7,000 Google</span></div>
+      <div class="fact"><b>14</b><span>campaigns: 6 Instagram, 1 TikTok, 6 Google search, 1 YouTube</span></div>
+      <div class="fact"><b>November 2</b><span>launch date</span></div>
+      <div class="fact"><b>December 2</b><span>Judgment Day for month two</span></div>
+          </div>
+    <nav aria-label="Contents"><ul class="toc"><li><a href="#summary">Summary</a></li><li><a href="#how">How it works</a></li><li><a href="#stories">Stories</a></li><li><a href="#budget">Budget</a></li><li><a href="#audiences">Audiences</a></li><li><a href="#organic">Organic</a></li><li><a href="#google">Google search</a></li><li><a href="#measure">Measurement</a></li><li><a href="#roles">Who does what</a></li><li><a href="#success">Success</a></li><li><a href="#timeline">Timeline</a></li><li><a href="#pages">Where the pages live</a></li><li><a href="#collection">Nayara Collection</a></li></ul></nav>
+  </header>
+
+  <section id="summary">
+    <div class="eyebrow">Executive summary</div>
+    <div class="summary">
+      <h2>Why I am proposing this</h2>
+      <p>I do not believe our websites, as they are built today, are designed to turn a visitor into a booking. They show the properties well, but someone who searches for a family trip with sloths, or for overwater villas, lands on a general homepage and has to find their own way. Many never do.</p>
+      <p>This plan works around that. Nobody who taps one of these ads is sent to our main websites. Every ad leads to one of two places built for that person:</p>
+      <ul>
+        <li><b>A landing page</b> about exactly what they were looking for, with a direct link into our booking engine.</li>
+        <li><b>A conversation</b> with a real person on our team, who can answer questions and send a booking link.</li>
+      </ul>
+      <p>We start on November 2 with $14,000 a month across six properties, using the videos that have already performed best on our own accounts. On Google, searches for our own name are blocked, so we only pay to reach new travelers. It is also our first paid plan aimed entirely at new travelers: today our Google ads mostly defend our name from booking sites, and our Facebook and Instagram ads only reach people who have already visited our websites. The ad money is the only cost: the team runs this within their regular hours. After one month we decide, based on bookings, whether to run a second month.</p>
+    </div>
+  </section>
+
+
+  <section id="how">
+    <div class="eyebrow">How it works</div>
+    <h2>Every ad leads to a conversation or a booking page</h2>
+    <p class="soft">Instagram, TikTok and YouTube reach people who are not looking for a trip yet. Google search reaches people who are already searching for one.</p>
+    <div class="paths">
+      <div class="path">
+        <div class="path-name"><span class="dot" style="background:var(--s-dm)"></span>Instagram, "Send a message"</div>
+        <ul class="steps">
+          <li>Sees our video</li><li class="arrow">→</li>
+          <li>Sends us a message</li><li class="arrow">→</li>
+          <li>Our team replies within minutes</li><li class="arrow">→</li>
+          <li>Gets a personal booking link</li><li class="arrow">→</li>
+          <li class="end">Books</li>
+        </ul>
+      </div>
+      <div class="path">
+        <div class="path-name"><span class="dot" style="background:var(--s-page)"></span>Instagram, <span class="dot" style="background:var(--s-tiktok)"></span>TikTok and <span class="dot" style="background:var(--s-google)"></span>YouTube, "Check availability"</div>
+        <ul class="steps">
+          <li>Sees our video</li><li class="arrow">→</li>
+          <li>Opens the property page</li><li class="arrow">→</li>
+          <li>Taps "Check availability"</li><li class="arrow">→</li>
+          <li class="end">Books</li>
+        </ul>
+      </div>
+      <div class="path">
+        <div class="path-name"><span class="dot" style="background:var(--s-google)"></span>Google search, "Check availability"</div>
+        <ul class="steps">
+          <li>Searches for a trip like ours</li><li class="arrow">→</li>
+          <li>Sees our ad</li><li class="arrow">→</li>
+          <li>Opens the property page</li><li class="arrow">→</li>
+          <li>Taps "Check availability"</li><li class="arrow">→</li>
+          <li class="end">Books</li>
+        </ul>
+      </div>
+    </div>
+    <p class="soft">On every Instagram account we run both routes side by side with the same reel, so after a month we can see which one brings more bookings for the money.</p>
+  </section>
+
+  <section id="stories">
+    <div class="eyebrow">One story per property</div>
+    <h2>Each account tells the story only it can tell</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Property</th><th>The story</th><th>Who it speaks to</th><th>A Google search it answers</th></tr></thead>
+        <tbody>
+          <tr><td>Nayara Gardens</td><td>Family, with younger kids</td><td>Families with younger kids who share a room with their parents, at a lower price point</td><td>"family resort costa rica"</td></tr>
+          <tr><td>Nayara Tented Camp</td><td>Luxury family, with older kids</td><td>Families with older kids who sleep in their own attached room, at a higher price point</td><td>"luxury family resort costa rica"</td></tr>
+          <tr><td>Nayara Springs</td><td>Romance</td><td>Couples, honeymoons, anniversaries</td><td>"costa rica honeymoon resort"</td></tr>
+          <tr><td>Nayara Bocas del Toro</td><td>Overwater villas</td><td>Travelers looking for a private island escape</td><td>"overwater bungalows panama"</td></tr>
+          <tr><td>Nayara Hangaroa</td><td>The Moai of Easter Island</td><td>Culture and once-in-a-lifetime travelers</td><td>"where to stay easter island"</td></tr>
+          <tr><td>Nayara Alto Atacama</td><td>Stargazing in the desert</td><td>Adventure and nature travelers</td><td>"stargazing atacama"</td></tr>
+          <tr><td>TikTok and YouTube (Nayara Resorts)</td><td>One proven reel from each property</td><td>Broad audience of travelers, each video linking to its own property page</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="soft">Both family properties offer the sloths and Arenal Volcano, so we separate them by who they suit: Gardens for families with younger kids at a lower price point, Tented for families with older kids who want their own room and more luxury. Each family landing page also points to the other, so a family on the wrong page is one tap from the right one. On Google, we only pay to appear for searches like these. Every Google campaign blocks searches for Nayara by name, including our former names, so this money only reaches people who do not know us yet. Searches for our names stay with our existing brand campaigns.</p>
+  </section>
+
+  <section id="budget">
+    <div class="eyebrow">Where the money goes</div>
+    <h2>Month one: $14,000, split by property and channel</h2>
+    <div class="chart" id="chart">
+      <div class="legend" aria-hidden="true">
+        <span><span class="dot" style="background:var(--s-dm)"></span>Instagram, message us</span>
+        <span><span class="dot" style="background:var(--s-page)"></span>Instagram, landing page</span>
+        <span><span class="dot" style="background:var(--s-tiktok)"></span>TikTok, landing page</span>
+        <span><span class="dot" style="background:var(--s-google)"></span>Google search and YouTube, landing page</span>
+              </div>
+      <div class="rows" id="rows" role="img" aria-label="Stacked bar chart of the monthly budget by property. Full figures are in the table below."></div>
+      <div class="axis"><span></span><div class="ticks" id="ticks"></div></div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Property</th><th class="num">Instagram, message</th><th class="num">Instagram, page</th><th class="num">TikTok</th><th class="num">Google</th><th class="num">Total</th></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <p class="soft">Every Instagram account, TikTok, YouTube and every Google search campaign gets the same $1,000 for the month, about $33 a day. Each Instagram account splits its $1,000 evenly between messages and its landing page. If month one reaches the success bar, month two repeats the same $14,000, with more of it behind whatever did best.</p>
+  </section>
+
+  <section id="audiences">
+    <div class="eyebrow">Who sees the ads</div>
+    <h2>Three kinds of people</h2>
+    <div class="trio">
+      <div>
+        <h3>New travelers like our past guests</h3>
+        <p>Instagram finds people who look like the guests we already have, using our guest list as the starting point.</p>
+      </div>
+      <div>
+        <h3>New travelers who fit the trip</h3>
+        <p>Adults in the US and Canada interested in luxury travel, steered by story: parents of younger kids for Gardens, parents of older kids for Tented, couples for Springs, and travelers drawn to islands, culture or the night sky for Bocas, Hangaroa and Atacama.</p>
+      </div>
+      <div>
+        <h3>People who already showed interest</h3>
+        <p>Anyone who watched most of a video, followed along on Instagram, or visited our site in the last month sees a reminder.</p>
+      </div>
+    </div>
+    <p class="soft">Guests who stayed with us in the past year are left out, so we do not pay to reach people who already know us.</p>
+  </section>
+
+  <section id="organic">
+    <div class="eyebrow">How organic helps</div>
+    <h2>Proven videos, working twice</h2>
+    <p class="soft">We are not making new content for this. Each account runs one reel: the one that has already performed best on our own Instagram and TikTok, so we start with what we know people like. Keeping it to one reel per account also keeps the plan simple to run and easy to read. Our own posts and Google listings then support the ads for free.</p>
+    <div class="trio">
+      <div>
+        <h3>Ads run from the original posts</h3>
+        <p>Each ad is built from the original post, so it keeps the views, likes and comments it has already earned. Travelers trust a video that others have clearly enjoyed.</p>
+      </div>
+      <div>
+        <h3>Reshared with an invitation to talk</h3>
+        <p>We reshare the same reels in Stories and as fresh posts with a new caption and a simple prompt, like "Reply SLOTH for details." Every reply becomes a conversation with our team.</p>
+      </div>
+      <div>
+        <h3>The best video pinned to each profile</h3>
+        <p>When someone taps through from an ad to our profile, the first thing they see is the video that matches what caught their eye, with the landing page linked in the bio.</p>
+      </div>
+      <div>
+        <h3>Google listings that point to the pages</h3>
+        <p>Each property posts its story on its Google Business Profile, linking to its landing page, so travelers planning on Google Maps find it too.</p>
+      </div>
+      <div>
+        <h3>Kept separate in the results</h3>
+        <p>Organic posts get their own link labels, so bookings from them are counted apart from the ads and the month-two decision stays clear.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="google">
+    <div class="eyebrow">Google search, in more detail</div>
+    <h2>The searches each campaign will answer</h2>
+    <p class="soft">Each Google campaign is built around a few groups of related searches. When someone types one of these, our ad for that property can appear, and a tap takes them to its landing page. These are our starting list. Before launch we check each one in Google's keyword tool to confirm people actually search it, and drop or add terms based on what we find.</p>
+    <div class="wording">
+      <h3>The most important rule: searches for our name never reach these pages</h3>
+      <p>Our current Tented, Springs and Gardens campaigns are meant to reach new travelers, but 90% or more of the people who arrive through them actually searched for Nayara by name. Those people already knew us. That makes the campaigns look like they find new guests when they mostly do not.</p>
+      <p>So every new Google campaign blocks searches for our names. If someone searches "Nayara," they will not see these ads or land on these pages. Only people searching for a kind of trip, like sloths, honeymoons or overwater villas, get here. That is the only way to see what reaching new travelers is really worth.</p>
+    </div>
+    <div class="kw-grid">
+      <div class="kw">
+        <h3>Nayara Gardens</h3>
+        <p class="theme">Family, with younger kids</p>
+        <div class="kw-group"><b>Families</b><ul class="chips"><li>family resort costa rica</li><li>costa rica family vacation</li><li>best costa rica resort for kids</li><li>family friendly hotel arenal</li><li>family hotel la fortuna</li></ul></div>
+        <div class="kw-group"><b>Sloths and wildlife</b><ul class="chips"><li>hotel with sloths costa rica</li><li>where to see sloths costa rica</li><li>wildlife hotel costa rica</li></ul></div>
+        <div class="kw-group"><b>Arenal Volcano</b><ul class="chips"><li>arenal volcano hotel</li><li>hotel near arenal volcano</li><li>arenal volcano view hotel</li></ul></div>
+        <p class="owns">Owns: family, kids, sloths, Arenal Volcano. Stays out of: luxury family, teens, glamping, tents.</p>
+      </div>
+      <div class="kw">
+        <h3>Nayara Tented Camp</h3>
+        <p class="theme">Luxury family, with older kids</p>
+        <div class="kw-group"><b>Luxury family</b><ul class="chips"><li>luxury family resort costa rica</li><li>luxury family vacation costa rica</li><li>luxury family suite costa rica</li><li>multigenerational trip costa rica</li></ul></div>
+        <div class="kw-group"><b>Families with teens</b><ul class="chips"><li>costa rica trip with teens</li><li>family vacation with teenagers costa rica</li></ul></div>
+        <div class="kw-group"><b>Glamping</b><ul class="chips"><li>luxury glamping costa rica</li><li>glamping costa rica</li><li>family glamping costa rica</li><li>glamping arenal</li></ul></div>
+        <p class="owns">Owns: luxury family, teens, multigenerational, glamping. Stays out of: sloths, Arenal Volcano, and general family and kids searches. We bid on "glamping" because that is what people search, but our ads and page say "luxury tented camp."</p>
+      </div>
+      <div class="kw">
+        <h3>Nayara Springs</h3>
+        <p class="theme">Romance</p>
+        <div class="kw-group"><b>Honeymoon</b><ul class="chips"><li>costa rica honeymoon resort</li><li>honeymoon hotel arenal</li><li>anniversary trip costa rica</li></ul></div>
+        <div class="kw-group"><b>Romantic and adults only</b><ul class="chips"><li>romantic hotel costa rica</li><li>adults only resort costa rica</li><li>couples resort costa rica</li></ul></div>
+        <div class="kw-group"><b>Hot springs and private pools</b><ul class="chips"><li>hot springs resort costa rica</li><li>resort with hot springs costa rica</li><li>arenal hot springs hotel</li><li>hotel with private hot springs pool</li><li>private plunge pool villa costa rica</li><li>hotel with private pool costa rica</li></ul></div>
+      </div>
+      <div class="kw">
+        <h3>Nayara Bocas del Toro</h3>
+        <p class="theme">Overwater villas</p>
+        <div class="kw-group"><b>Overwater</b><ul class="chips"><li>overwater bungalows panama</li><li>overwater villas caribbean</li><li>overwater bungalows close to the us</li></ul></div>
+        <div class="kw-group"><b>Bocas del Toro</b><ul class="chips"><li>bocas del toro luxury resort</li><li>where to stay bocas del toro</li></ul></div>
+        <div class="kw-group"><b>Private island</b><ul class="chips"><li>private island resort panama</li><li>caribbean private island hotel</li></ul></div>
+        <p class="owns">We bid on "bungalows" because that is what people search, but our ads and page say "overwater villas."</p>
+      </div>
+      <div class="kw">
+        <h3>Nayara Hangaroa</h3>
+        <p class="theme">The Moai of Easter Island</p>
+        <div class="kw-group"><b>Where to stay</b><ul class="chips"><li>easter island hotel</li><li>where to stay easter island</li><li>hotels in hanga roa</li><li>rapa nui luxury hotel</li></ul></div>
+        <div class="kw-group"><b>The Moai</b><ul class="chips"><li>see the moai easter island</li><li>easter island trip</li><li>easter island vacation</li></ul></div>
+        <div class="kw-group"><b>Rapa Nui culture</b><ul class="chips"><li>rapa nui culture</li><li>easter island culture</li><li>easter island history tour</li></ul></div>
+      </div>
+      <div class="kw">
+        <h3>Nayara Alto Atacama</h3>
+        <p class="theme">Stargazing in the desert</p>
+        <div class="kw-group"><b>Stargazing</b><ul class="chips"><li>stargazing atacama</li><li>best place for stargazing in the world</li><li>atacama astronomy tour</li></ul></div>
+        <div class="kw-group"><b>Desert stays</b><ul class="chips"><li>luxury desert lodge</li><li>atacama desert lodge</li><li>atacama desert luxury hotel</li><li>san pedro de atacama hotel</li><li>where to stay atacama desert</li></ul></div>
+      </div>
+    </div>
+    <div class="wording">
+      <h3>Search the words people use, speak in our own</h3>
+      <p>"Glamping" and "overwater bungalows" sound less luxurious than what we offer, but they are the words most travelers type, and far more people search them. So we bid on the popular words to be found, and the ads and landing pages use our own language.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Property</th><th>What we bid on</th><th>What our ads and pages say</th></tr></thead>
+          <tbody>
+            <tr><td>Nayara Tented Camp</td><td>glamping, luxury glamping</td><td>luxury tented camp</td></tr>
+            <tr><td>Nayara Bocas del Toro</td><td>overwater bungalows</td><td>overwater villas</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="trio">
+      <div>
+        <h3>We never pay for our own name</h3>
+        <p>Every campaign blocks searches that include Nayara, our property names and our former names. Those people already know us, and our existing brand campaigns look after them. Without this block, most of the budget would go to people who were already looking for us.</p>
+      </div>
+      <div>
+        <h3>Our two family campaigns stay apart</h3>
+        <p>Gardens and Tented each block the other's words. Without that, the two would bid against each other for the same family searches and push up our own costs.</p>
+      </div>
+      <div>
+        <h3>The list keeps getting sharper</h3>
+        <p>Every week we look at the exact searches people typed before tapping our ads, block the ones that are not a fit, and add the good ones we missed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="measure">
+    <div class="eyebrow">How we will know it works</div>
+    <h2>We count bookings, not likes</h2>
+    <div class="trio">
+      <div>
+        <h3>Every link is labeled</h3>
+        <p>Each ad and each link our team sends carries a label, so a booking can be traced back to the video that started it.</p>
+      </div>
+      <div>
+        <h3>Every conversation is logged</h3>
+        <p>Our team keeps a simple record of each message: which property, whether it was a real inquiry, and whether it became a booking.</p>
+      </div>
+      <div>
+        <h3>We judge on real results</h3>
+        <p>The main question is simple: for every dollar spent, how much did guests book? We judge the channels together, property by property, because a guest often sees a video first and searches on Google later.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="roles">
+    <div class="eyebrow">Before we launch</div>
+    <h2>Albert builds and runs social. Alex handles tracking and Google. David answers.</h2>
+    <div class="owners">
+      <div class="owner">
+        <h3>Albert</h3>
+        <p class="sub">Content, Instagram and TikTok</p>
+        <ul>
+          <li>The videos: one proven reel per account</li>
+          <li>Built the six landing pages, and writes all the ad copy</li>
+          <li>Sets up and structures every Instagram, Facebook and TikTok campaign</li>
+          <li>The message inbox and welcome message, ready for David</li>
+          <li>Runs the campaigns week to week</li>
+          <li>Backs David up on messages if they come in faster than one person can answer well</li>
+        </ul>
+      </div>
+      <div class="owner">
+        <h3>Alex</h3>
+        <p class="sub">Tracking and Google</p>
+        <ul>
+          <li>All the tracking and tagging: Meta and TikTok pixels, Google booking tracking, and bookings credited back to the ad</li>
+          <li>Website verification with Meta and TikTok</li>
+          <li>Sets up and runs the six Google search campaigns and the YouTube campaign</li>
+        </ul>
+      </div>
+      <div class="owner">
+        <h3>David</h3>
+        <p class="sub">Answers</p>
+        <ul>
+          <li>Answers every message from the six Instagram accounts</li>
+          <li>Replies within minutes during set hours</li>
+          <li>Nurtures each conversation from first question to booking, sending a tracked booking link</li>
+          <li>Logs each conversation: property, real inquiry or not, booked or not, and value</li>
+          <li>Calls in Albert as backup if messages come in faster than he can answer well</li>
+        </ul>
+      </div>
+    </div>
+    <h2 style="margin-top:12px">How Alex sets up Google</h2>
+    <p class="soft">Google needs a little more detail than the social campaigns, so here it is step by step.</p>
+    <ol class="asks">
+      <li><div><h3>Build new campaigns, and keep the existing ones out of the way</h3><p>Tented already has a family campaign, Springs a romance campaign, and Gardens a family, luxury and wellness campaign. Today, 90% or more of the people arriving through those campaigns searched for Nayara by name. We recommend new campaigns rather than reworking those, with every search for our names blocked, so the results show only new travelers and every click goes to a landing page. While the test runs, the matching family and romance searches in those three campaigns are paused so our own campaigns do not bid against each other. Gardens' current campaign keeps its luxury and wellness searches. Brand campaigns stay exactly as they are.</p></div></li>
+      <li><div><h3>Build the six Google search campaigns</h3><p>One campaign per property, in that property's Google Ads account, using the ad groups and searches in the Google section above, with every ad sending people to that property's landing page. Search network only, US and Canada, $1,000 a month each (about $33 a day). Start with Maximize Clicks and a cap of about $4 to $5 per click, then switch to Maximize Conversions once a campaign has around 15 tracked bookings or "Check availability" taps.</p></div></li>
+      <li><div><h3>Block our own names in every search campaign</h3><p>This is the most important step. One shared list of negative keywords, attached to all six campaigns: Nayara, each property name, our former names and common misspellings. Gardens and Tented also block each other's words so they do not bid against each other. After launch, a weekly look at the searches people typed, blocking any that are not a fit.</p></div></li>
+      <li><div><h3>Write the search ads in our own language</h3><p>One ad per group of searches, with "Check availability" as the call to action. We bid on "glamping" and "overwater bungalows," but the ads say "luxury tented camp" and "overwater villas." Real photos only for image extras, and only verified facts in the ad text. Every link, including the extra links under the ad, goes to the landing page, never to our main websites.</p></div></li>
+      <li><div><h3>Build the YouTube campaign</h3><p>One Demand Gen campaign on the Nayara Resorts Google Ads account, YouTube only, $1,000 a month. One ad group per property, each using both the vertical and horizontal video and linking to its own landing page. Audiences built from each property's search list, plus people similar to our past guests.</p></div></li>
+      <li><div><h3>Make Google count bookings correctly</h3><p>Link Google Analytics to each Google Ads account and bring in the booking event, with its value, as the main conversion. Google Ads does not record booking value correctly for Gardens and Springs today, so those two come first.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="success">
+    <div class="eyebrow">What success looks like</div>
+    <h2>Breaking even is a win. Doubling it is success.</h2>
+    <p class="soft">On Judgment Day we look at how much guests booked through these ads, compared with the $14,000 we spent. Even if we only break even, the month has paid for itself and taught us a lot about what works. This is our proposal, and the team can adjust it before launch.</p>
+    <div class="wording">
+      <h3>Why even breaking even teaches us a lot: this is our first plan for fresh eyes</h3>
+      <p>Today, almost all of our paid advertising talks to people who already know us. On Google, about 95% of the work is brand defense: making sure that when someone searches for Nayara, they find us and not a booking site. On Facebook and Instagram, our ads only reach people who have already visited our websites.</p>
+      <p>This plan is different. Every dollar goes to travelers who have never heard of us. So whatever happens, for the first time we will know what it costs to win a brand-new guest, on each platform and at each property.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="tiers">
+        <thead><tr><th>Bookings from these ads</th><th>What it means</th><th>What we do</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tier-mark" style="background:var(--line)"></span>Under $14,000</td><td>Did not pay for itself yet</td><td>Pause, work out what to fix, and try again</td></tr>
+          <tr><td><span class="tier-mark" style="background:var(--s-page)"></span>$14,000 to $28,000</td><td>Pays for itself, and everything we learned comes free</td><td>Keep going only with the accounts and routes that did best</td></tr>
+          <tr><td><span class="tier-mark" style="background:var(--s-dm)"></span>$28,000 or more</td><td>Success: at least 2 times what we spent</td><td>Run month two, with more money behind the winners</td></tr>
+          <tr><td><span class="tier-mark" style="background:var(--teal)"></span>$42,000 or more</td><td>Strong success: at least 3 times what we spent</td><td>Raise the budget</td></tr>
+          <tr><td><span class="tier-mark" style="background:var(--ink)"></span>$56,000 or more</td><td>Extremely strong success: 4 times what we spent or more</td><td>Raise the budget significantly, and add new videos if needed</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wording">
+      <h3>There is no failed outcome here</h3>
+      <p>This is a completely new way for us to advertise, so every result teaches us something we cannot learn any other way. Even if we do not make the $14,000 back, we will have found out, for the first time, whether we can reach new travelers and what it takes.</p>
+      <p>And if we fall short, the likely lesson is not that new travelers are out of reach. It is that something in how we ran it needs fixing: how the campaigns were set up, who saw them, or the videos we used. That tells us exactly what to change for the next round.</p>
+    </div>
+    <div class="trio">
+      <div>
+        <h3>Why 2 times is the bar</h3>
+        <p>The ad money is the only cost. Albert, Alex and David run this as part of their regular hours, with no extra pay, no agency and no new hires. So doubling the ad money is a clear win, and anything above that is gravy.</p>
+      </div>
+      <div>
+        <h3>Only new travelers count</h3>
+        <p>We count bookings traced to these ads through our labeled links, David's message log and Google Analytics. Searches for our own name are already blocked.</p>
+      </div>
+      <div>
+        <h3>Each account is judged too</h3>
+        <p>The same bar applies to each property, so one slow account does not sink the others, and a strong one can keep going on its own.</p>
+      </div>
+    </div>
+    <p class="soft">Trips are often booked weeks after someone first sees an ad. On Judgment Day we count confirmed bookings plus inquiries that are clearly on their way to a booking, and we do a final count on January 2.</p>
+  </section>
+
+  <section id="timeline">
+    <div class="eyebrow">Two months, one decision point</div>
+    <h2>Month one proves it, month two builds on it</h2>
+    <ol class="timeline">
+      <li><b>By November 2</b><span>Everything in place before a single ad runs: accounts, tracking, landing pages and our messaging team ready. If any piece is not ready, we move the date rather than run ads we cannot measure.</span></li>
+      <li><b>Nov 2 to 15</b><span>Let the ads run untouched. Instagram, TikTok and Google need this time to learn who responds.</span></li>
+      <li><b>Nov 16 to 22</b><span>Check each account, route and search group. Pause the searches that are not pulling their weight, and swap in a backup reel on any account where the first one has clearly stalled.</span></li>
+      <li><b>December 2: Judgment Day</b><span>The decision point. We compare what guests booked through these ads with what we spent, using the success levels above, and see which accounts did best and whether messages or landing pages worked better.</span></li>
+      <li><b>December</b><span>If month one reaches the success bar, another $14,000 goes in, shifted toward the strongest accounts and routes, with fresh reels where people have seen the first one too often. If it pays for itself but falls short of the bar, only the strongest accounts and routes keep going. Below that, we pause, work out what to fix, and try again.</span></li>
+    </ol>
+  </section>
+
+  <section id="pages">
+    <div class="eyebrow">Where the landing pages live</div>
+    <h2>On nayararesorts.com, not the property sites or HubSpot</h2>
+    <p class="soft">Each landing page gets a clean address on nayararesorts.com, such as nayararesorts.com/experiences/tented-family. The pages use a simple layout with no website menu, so they still work as focused landing pages: the story, real photos, answers to common questions and "Check availability," which goes straight into our booking engine.</p>
+    <div class="rr">
+      <div>
+        <h3>Why not HubSpot</h3>
+        <ul>
+          <li><b>Tracking already works on our own sites.</b> On HubSpot, every tracking tag and the handoff into the booking engine would have to be set up from scratch, which is the riskiest thing to finish before November 2.</li>
+          <li><b>The pages keep their value.</b> A page on our own address can later show up in Google and be quoted by AI assistants. A HubSpot page builds nothing that lasts.</li>
+          <li><b>Travelers trust a familiar address.</b> An ad that shows nayararesorts.com and opens nayararesorts.com looks more trustworthy, and Google rewards ads whose page matches the ad.</li>
+          <li><b>One less place to look after.</b> Our Journal already lives on HubSpot, separate from our main site. Adding more pages there would widen that split. The Journal stays on HubSpot for now so that it only has to move once, straight to Nayara Collection.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Why not each property's own website</h3>
+        <ul>
+          <li><b>It is the easiest site to build on.</b> nayararesorts.com uses a page builder, so a simple landing page layout is quick to make. Some property sites are harder to change safely.</li>
+          <li><b>One home for all six.</b> One layout, one set of tracking, one place to update, instead of six different websites.</li>
+          <li><b>No competition with the property sites.</b> For now these pages are kept out of Google's regular results, so they never compete with the property websites for our own names. We can open them up later, page by page.</li>
+          <li><b>Easy to move later.</b> Because the pages are built for ads, moving them to a new address later only means updating a handful of ad links. There are no search rankings to lose.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wording">
+      <h3>On our website, but separate from it</h3>
+      <ul>
+        <li><b>No way in from our website.</b> The landing pages are not in any menu, and no page on nayararesorts.com links to them. People only reach them from our ads, David's messages and our own posts.</li>
+        <li><b>No way out to our website.</b> The pages have no menu and no links to the rest of the site. The only way forward is "Check availability," which goes straight into our booking engine.</li>
+        <li><b>One exception.</b> The Gardens and Tented family pages link to each other, so a family on the wrong page is one tap from the right one.</li>
+        <li><b>Plus a privacy link.</b> Each page has a small link to our privacy policy, which Meta and Google expect on pages that use tracking.</li>
+      </ul>
+    </div>
+    <p class="soft">One detail for Alex: pages on nayararesorts.com report into the Nayara Resorts analytics account, while each property's Google Ads account is linked to that property's own analytics. The booking events from these pages need to reach each property's Google Ads account.</p>
+  </section>
+
+  <section id="collection">
+    <div class="eyebrow">Looking ahead</div>
+    <h2>From Nayara Resorts to Nayara Collection</h2>
+    <p class="soft">We already have Nayara Collection. The longer-term plan is to bring nayararesorts.com, the property websites and the Journal together under that name. This is a separate project from the ad campaign, and it should come after it. Here is how we see the rewards and the risks, for discussion as we plan the new website.</p>
+    <div class="rr">
+      <div>
+        <h3>The rewards</h3>
+        <ul>
+          <li><b>A more honest name.</b> Most of our properties are not resorts in the usual sense: a tented camp, a desert lodge, overwater villas, a hotel on Easter Island. "Collection" describes what we actually are.</li>
+          <li><b>Room to grow.</b> With Panama and Chile joining Costa Rica, a collection frames Nayara as a curated set of places, the way many luxury brands present themselves.</li>
+          <li><b>Everything in one place.</b> One website, with the Journal moving in too, builds all our search strength under one name instead of splitting it across many sites.</li>
+          <li><b>The Journal moves only once.</b> We are not moving the Journal from HubSpot to nayararesorts.com now, because it would then have to move a second time. It waits and moves once, straight to Nayara Collection.</li>
+          <li><b>Only one move.</b> Going straight to the final name means a single migration, instead of moving into Nayara Resorts first and then moving again.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The risks</h3>
+        <ul>
+          <li><b>A new address starts with no history.</b> Our current sites have years of links and search history. Redirects carry most of it across, but not all, and a dip in search traffic for a few weeks to a few months is normal.</li>
+          <li><b>Our history has to follow the new name.</b> Reviews, awards and listings earned under our current names need to be connected to Nayara Collection from day one, or search engines and AI assistants may treat us as a brand-new business.</li>
+          <li><b>Booking sites get an opening.</b> While Google learns which site is now the official one, booking sites can rank above us for our own names. Our brand defense on Google has to stay strong through the move.</li>
+          <li><b>Moving everything at once multiplies the risk.</b> One problem during a single big move could affect every property at the same time.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wording">
+      <h3>How we keep the risk reasonable</h3>
+      <ul>
+        <li>Make the move after this campaign and after our tracking is fixed, so we can clearly see its effect.</li>
+        <li>Move one property at a time, and learn before moving the next.</li>
+        <li>Keep every old address forever, with each page pointing to its new home, and move pages and their redirects together, never one ahead of the other.</li>
+        <li>Reconnect the record as part of the move: Google Business Profiles, Wikidata, booking sites and partner listings, all updated to the new name.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var data = [
+    { name: "Gardens", note: "Families, younger kids", dm: 500, page: 500, tiktok: 0, google: 1000 },
+    { name: "Tented Camp", note: "Luxury family, older kids", dm: 500, page: 500, tiktok: 0, google: 1000 },
+    { name: "Springs", note: "Romance", dm: 500, page: 500, tiktok: 0, google: 1000 },
+    { name: "Bocas del Toro", note: "Overwater villas", dm: 500, page: 500, tiktok: 0, google: 1000 },
+    { name: "Hangaroa", note: "The Moai", dm: 500, page: 500, tiktok: 0, google: 1000 },
+    { name: "Alto Atacama", note: "Stargazing", dm: 500, page: 500, tiktok: 0, google: 1000 },
+    { name: "TikTok", note: "Nayara Resorts account", dm: 0, page: 0, tiktok: 1000, google: 0 },
+    { name: "YouTube", note: "Nayara Resorts account, Google Ads", dm: 0, page: 0, tiktok: 0, google: 1000, glabel: "YouTube, landing page" }
+  ];
+  var max = 2000;
+  var fmt = function (n) { return "$" + n.toLocaleString("en-US"); };
+  var parts = [
+    { key: "dm", label: "Instagram, message us", color: "var(--s-dm)" },
+    { key: "page", label: "Instagram, landing page", color: "var(--s-page)" },
+    { key: "tiktok", label: "TikTok, landing page", color: "var(--s-tiktok)" },
+    { key: "google", label: "Google search, landing page", color: "var(--s-google)" }
+  ];
+  var rows = document.getElementById("rows");
+  var tbody = document.getElementById("tbody");
+  var tip = document.getElementById("tip");
+  var chart = document.getElementById("chart");
+  var sums = { dm: 0, page: 0, tiktok: 0, google: 0, total: 0 };
+
+  data.forEach(function (d) {
+    var total = d.reserve || (d.dm + d.page + d.tiktok + d.google);
+    var row = document.createElement("div");
+    row.className = "row";
+    row.innerHTML = '<div class="row-label">' + d.name + (d.note ? "<small>" + d.note + "</small>" : "") + "</div>";
+    var track = document.createElement("div");
+    track.className = "track";
+    var bar = document.createElement("div");
+    bar.className = "bar";
+    bar.style.width = "calc((100% - 64px) * " + (total / max) + ")";
+    var segs = d.reserve
+      ? [{ v: d.reserve, label: "Held back", cls: "reserve-fill" }]
+      : parts.filter(function (p) { return d[p.key] > 0; }).map(function (p) { return { v: d[p.key], label: (p.key === "google" && d.glabel) ? d.glabel : p.label, color: p.color }; });
+    segs.forEach(function (s) {
+      var el = document.createElement("div");
+      el.className = "seg" + (s.cls ? " " + s.cls : "");
+      el.style.flex = s.v + " 1 0";
+      if (s.color) el.style.background = s.color;
+      el.tabIndex = 0;
+      el.setAttribute("aria-label", d.name + ", " + s.label + ": " + fmt(s.v));
+      var show = function () {
+        tip.textContent = d.name + " · " + s.label + ": " + fmt(s.v);
+        tip.hidden = false;
+        var r = el.getBoundingClientRect(), c = chart.getBoundingClientRect();
+        var left = Math.min(r.left - c.left, c.width - tip.offsetWidth - 8);
+        tip.style.left = Math.max(8, left) + "px";
+        tip.style.top = (r.top - c.top - tip.offsetHeight - 6) + "px";
+      };
+      el.addEventListener("mouseenter", show);
+      el.addEventListener("focus", show);
+      el.addEventListener("mouseleave", function () { tip.hidden = true; });
+      el.addEventListener("blur", function () { tip.hidden = true; });
+      bar.appendChild(el);
+    });
+    track.appendChild(bar);
+    var t = document.createElement("span");
+    t.className = "total";
+    t.textContent = fmt(total);
+    track.appendChild(t);
+    row.appendChild(track);
+    rows.appendChild(row);
+
+    var tr = document.createElement("tr");
+    var cell = function (v) { return '<td class="num">' + (v ? fmt(v) : "") + "</td>"; };
+    tr.innerHTML = "<td>" + d.name + "</td>" +
+      (d.reserve ? '<td class="num"></td><td class="num"></td><td class="num"></td>' + cell(d.reserve) : cell(d.dm) + cell(d.page) + cell(d.tiktok) + cell(d.google)) +
+      '<td class="num">' + fmt(total) + "</td>";
+    tbody.appendChild(tr);
+    if (d.reserve) { sums.google += d.reserve; } else { sums.dm += d.dm; sums.page += d.page; sums.tiktok += d.tiktok; sums.google += d.google; }
+    sums.total += total;
+  });
+
+  var sum = document.createElement("tr");
+  sum.className = "sum";
+  sum.innerHTML = "<td>Total</td><td class=\"num\">" + fmt(sums.dm) + "</td><td class=\"num\">" + fmt(sums.page) + "</td><td class=\"num\">" + fmt(sums.tiktok) + "</td><td class=\"num\">" + fmt(sums.google) + "</td><td class=\"num\">" + fmt(sums.total) + "</td>";
+  tbody.appendChild(sum);
+
+  var ticks = document.getElementById("ticks");
+  [0, 500, 1000, 1500, 2000].forEach(function (v) {
+    var s = document.createElement("span");
+    s.style.left = (v / max * 100) + "%";
+    s.textContent = fmt(v);
+    ticks.appendChild(s);
+  });
+})();
+</script>
